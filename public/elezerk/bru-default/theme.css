@@ -1,0 +1,35 @@
+:root {
+  --primary: #380544;
+  --primary-dark: #16042C;
+  --primary-70: #8E06A7;
+  --primary-50: #880CD5;
+  --primary-30: #0A42E3;
+  --primary-10: #ddd;
+  --logo: #16042C;
+  --sidebar-icon: #fff;
+}
+
+.bg-grad-sidebar {
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    from(#0B1D67),
+    to(#380544)
+  );
+
+  background-image: linear-gradient(
+    0deg,
+    #0B1D67,
+    #380544,
+  );
+}
+
+input, .card, .btn, select, textarea, .form-input, .rounded-lg {
+    border-radius: 0px !important;
+}
+
+
+.dark-mode-toggle {
+    background: #16042C !important;
+}

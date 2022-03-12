@@ -1,0 +1,30 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "prod": "npm run production",
+        "production": "mix --production",
+        "build-large-file": "cd nova-components/LargeFile && npm run dev",
+        "build-large-file-prod": "cd nova-components/LargeFile && npm run prod",
+        "build-bru-profile": "cd nova-components/BruProfile && npm run dev",
+        "build-bru-profile-prod": "cd nova-components/BruProfile && npm run prod"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.4.2",
+        "axios": "^0.21",
+        "laravel-mix": "^6.0.6",
+        "lodash": "^4.17.19",
+        "postcss": "^8.4.5",
+        "tailwindcss": "^3.0.17",
+        "vue-loader": "^15.9.7",
+        "vue-template-compiler": "^2.6.14"
+    },
+    "dependencies": {
+        "moment": "^2.29.1",
+        "vue": "^2.6.14"
+    }
+}
