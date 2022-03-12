@@ -42750,7 +42750,7 @@ var staticRenderFns = [
         attrs: { for: "" },
       },
       [
-        _vm._v("\r\n            College\r\n            "),
+        _vm._v("\n            College\n            "),
         _c("span", { staticClass: "text-red-600" }, [_vm._v("*")]),
       ]
     )
@@ -42767,7 +42767,7 @@ var staticRenderFns = [
         attrs: { for: "" },
       },
       [
-        _vm._v("\r\n            Course\r\n            "),
+        _vm._v("\n            Course\n            "),
         _c("span", { staticClass: "text-red-600" }, [_vm._v("*")]),
       ]
     )
@@ -42784,7 +42784,7 @@ var staticRenderFns = [
         attrs: { for: "" },
       },
       [
-        _vm._v("\r\n            Club\r\n            "),
+        _vm._v("\n            Club\n            "),
         _c("span", { staticClass: "text-red-600" }, [_vm._v("*")]),
       ]
     )
@@ -42899,9 +42899,7 @@ var render = function () {
                 { attrs: { date: _vm.moment(message.created_at) } },
                 [
                   _vm._v(
-                    "\r\n            " +
-                      _vm._s(message.message) +
-                      "\r\n        "
+                    "\n            " + _vm._s(message.message) + "\n        "
                   ),
                 ]
               )
@@ -42913,9 +42911,7 @@ var render = function () {
                 { attrs: { date: _vm.moment(message.created_at) } },
                 [
                   _vm._v(
-                    "\r\n            " +
-                      _vm._s(message.message) +
-                      "\r\n        "
+                    "\n            " + _vm._s(message.message) + "\n        "
                   ),
                 ]
               )

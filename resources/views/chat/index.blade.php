@@ -1,12 +1,7 @@
 <x-layout>
     <div class="w-screen h-screen overflow-hidden">
-        <x-chat.navbar/>
-    <x-chat.breadcrumbs
-    :links="[
-        ['label' => 'Dashboard', 'href' => Nova::path()],
-        ['label' => 'Conversation', 'href' => auth()->user()->chat_url],
-    ]"/>
-    <div class="flex w-screen h-screen">
+    <x-chat.navbar/>
+    <div class="flex w-screen h-screen -mt-4">
         <div class="w-3/12 h-full border-r-2 border-t-2 overflow-y-auto">
             {{-- search user --}}
                 {{-- <x-chat.search-user/> --}}

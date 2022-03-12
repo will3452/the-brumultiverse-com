@@ -39,13 +39,11 @@ Route::view(Nova::path() . '/login', 'vendor.nova.auth.login')->name('login');
 Route::get(Nova::path() . '/login?ref=nova', [LoginController::class, 'showLoginForm'])->name('nova.login');
 Route::post(Nova::path() . '/login', [LoginController::class, 'login']);
 
-
 //registration
 Route::get('/register-scholar', [RegisterController::class, 'registerScholar'])->name('register.scholar');
 Route::get('/register', [RegisterController::class, 'registerStudent'])->name('register');
 Route::post('/register-scholar', [RegisterController::class, 'registerScholarPost']);
 Route::post('/register', [RegisterController::class, 'registerStudentPost']);
-
 
 //artisan helper -- turn the website down or up
 Route::get('/artisan', function () {
@@ -95,6 +93,7 @@ Route::prefix('scholar')->name('scholar.')->group(function () {
     //books
     Route::prefix('books')->name('book.')->group(function () {
         Route::get('/', [BookController::class, 'index'])->name('index');
+        Route::get('/create', [BookController::class, 'create'])->name('create');
     });
 });
 
