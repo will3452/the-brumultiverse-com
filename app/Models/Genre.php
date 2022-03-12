@@ -38,4 +38,9 @@ class Genre extends Model
     {
         return $this->hasMany(Level::class);
     }
+
+    public static function forBook()
+    {
+        return self::whereType(self::TYPE_TEXT)->get()->pluck('name', 'id');
+    }
 }

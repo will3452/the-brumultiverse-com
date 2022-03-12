@@ -2,18 +2,99 @@
 
 namespace App\Http\Controllers\Scholar;
 
-use App\Http\Controllers\Controller;
+use App\Helpers\FileHelper;
+use App\Models\Book;
+use App\Models\Genre;
+use App\Models\Account;
+use App\Models\College;
+use App\Models\Category;
+use App\Models\Language;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class BookController extends Controller
 {
+    public function customValidate(Request $request)
+    {
+        $request->validate([
+            'type' => 'required',
+            'title' => 'required',
+            'category' => 'required',
+            'account' => 'required',
+            'genre' => 'required',
+            'has_warning_message' => 'boolean',
+            'tags' => 'required',
+            'language' => 'required',
+            'lead_character' => 'required',
+            'lead_college' => 'required',
+            'blurb' => 'required',
+            'cost' => ['numeric', 'gte:0'],
+            'credit' => 'required',
+            'cover' => ['image','max:2000'],
+        ]);
+    }
+
+
+    public function getData()
+    {
+        return [
+            Category::forBook(),
+            Account::getApprovedAccountsFor(auth()->id()),
+            Genre::forBook(),
+            Language::get()->pluck('name', 'id'),
+            College::get()->pluck('name', 'name'),
+        ];
+    }
+
     public function index()
     {
-        return view('scholar.book.index');
+        $books = auth()->user()->books;
+        return view('scholar.book.index', compact('books'));
     }
 
     public function create()
     {
-        return view('scholar.book.create');
+        [$categories, $accounts, $genres, $languages, $colleges] = $this->getData();
+        return view('scholar.book.create', compact('categories', 'accounts', 'genres', 'languages', 'colleges'));
+    }
+
+    public function store(Request $request)
+    {
+        $this->customValidate($request);
+        $book = Book::processToCreate($request);
+        return redirect(route('scholar.book.show', ['book' => $book->id]))->withSuccess('Success');
+    }
+
+    public function show(Request $request, Book $book)
+    {
+        [$categories, $accounts, $genres, $languages, $colleges] = $this->getData();
+        return view('scholar.book.show', compact('book', 'categories', 'accounts', 'genres', 'languages', 'colleges'));
+    }
+
+    public function update(Request $request, Book $book)
+    {
+        Book::processToUpdate($request, $book);
+
+        return back()->withSuccess('success!');
+    }
+
+    public function pdfUploadForm(Request $request, Book $book)
+    {
+        return view('scholar.book.pdf', compact('book'));
+    }
+
+    public function pdfUploadFormStore(Request $request, Book $book)
+    {
+        $data = $request->validate([
+            'pdf' => ['max:2000', 'required'],
+        ]);
+
+        $pdf = FileHelper::save($data['pdf']);
+
+        $book->update([
+            'front_matter' => $pdf,
+        ]);
+
+        return redirect(route('scholar.book.show', ['book' => $book->id]))->withSuccess('Success');
     }
 }

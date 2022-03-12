@@ -43,4 +43,9 @@ class Account extends Model
         $this->approved_at = now();
         return $this->save();
     }
+
+    public static function getApprovedAccountsFor($id)
+    {
+        return self::whereUserId($id)->whereNotNull('approved_at')->get()->pluck('penname', 'id');
+    }
 }

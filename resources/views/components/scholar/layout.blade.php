@@ -7,6 +7,8 @@
     <title>{{config('app.name')}}</title>
     <link rel="stylesheet" href="/css/app.css"/>
     <script src="/js/app.js"></script>
+    @stack('head-style')
+    @stack('head-script')
 </head>
 <body>
     <x-scholar.navbar></x-scholar.navbar>
@@ -15,5 +17,6 @@
             {{$slot}}
         </x-scholar.container>
     </div>
+    @stack('body-script')
 </body>
 </html>

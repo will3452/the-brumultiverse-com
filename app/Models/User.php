@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Traits\HasChat;
+use App\Models\Traits\ScholarTrait;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -16,6 +17,7 @@ class User extends Authenticatable implements MustVerifyEmail
         HasFactory,
         Notifiable,
         HasChat,
+        ScholarTrait,
         HasRoles;
     protected $with = [
         'accounts',

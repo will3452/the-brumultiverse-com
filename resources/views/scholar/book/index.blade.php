@@ -37,11 +37,11 @@
     </div>
 
     <div class="mt-4 flex flex-wrap justify-start">
-        <x-scholar.work-card/>
-        <x-scholar.work-card/>
-        <x-scholar.work-card/>
-        <x-scholar.work-card/>
-        <x-scholar.work-card/>
+        @foreach ($books as $b)
+            <x-scholar.work-card href="{{route('scholar.book.show', ['book' => $b->id])}}" cover="/storage/{{$b->cover->path}}">
+                {{$b->title}}
+            </x-scholar.work-card>
+        @endforeach
     </div>
     <div class="fixed bottom-2 right-2 md:hidden">
         <a href="{{route('scholar.book.create')}}" class="btn btn-primary btn-sm">create new</a>

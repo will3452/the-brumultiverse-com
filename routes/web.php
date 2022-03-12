@@ -84,16 +84,19 @@ Route::get('/chats/create', [ChatController::class, 'create']);
 Route::get('/chats/{chat}', [ChatController::class, 'index']);
 Route::post('/messages/create/{chat}', [ChatController::class, 'createMessage']);
 
-
 //scholars
 
-Route::prefix('scholar')->name('scholar.')->group(function () {
+Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-
     //books
     Route::prefix('books')->name('book.')->group(function () {
         Route::get('/', [BookController::class, 'index'])->name('index');
         Route::get('/create', [BookController::class, 'create'])->name('create');
+        Route::post('/', [BookController::class, 'store'])->name('store');
+        Route::get('/book/pdf/{book}', [BookController::class, 'pdfUploadForm'])->name('pdf');
+        Route::put('/book/pdf/{book}', [BookController::class, 'pdfUploadFormStore']);
+        Route::get('/{book}', [BookController::class, 'show'])->name('show');
+        Route::put('/{book}', [BookController::class, 'update'])->name('update');
     });
 });
 

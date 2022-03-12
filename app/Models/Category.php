@@ -27,4 +27,12 @@ class Category extends Model
     const WORK_TYPE_ART_SCENE = 'Art Scene';
 
     const FILE_TYPES = ['Pdf', 'Text', ''];
+
+
+    public static function forBook()
+    {
+        return self::whereWorkType(
+            self::WORK_TYPE_BOOK
+        )->get()->pluck('name', 'id');
+    }
 }
