@@ -30,4 +30,14 @@ class FileUploaderController extends Controller
             'file' => $file,
         ]);
     }
+
+    public function filePond()
+    {
+        return "tmp/" . uniqid();
+    }
+
+    public function filePondUpdate(Request $request)
+    {
+        $chunk = $
+    }
 }

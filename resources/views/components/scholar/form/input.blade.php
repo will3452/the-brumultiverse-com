@@ -1,4 +1,4 @@
-@props(['label' => '', 'value'=> null, 'readonly' => false, 'name' => '', 'help' => '', 'placeholder' => '', 'required' => true, 'type' => 'text'])
+@props(['model' => '', 'label' => '', 'value'=> null, 'readonly' => false, 'name' => '', 'help' => '', 'placeholder' => '', 'required' => true, 'type' => 'text'])
 <div class="form-control w-full">
     <label class="label">
         <span class="label-text">
@@ -11,6 +11,7 @@
         </span>
     </label>
     <input
+    x-model="{{$model}}"
     value="{{$value ?? old($name)}}"
     name="{{$name}}"
     @if($required)

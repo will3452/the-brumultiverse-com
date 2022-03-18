@@ -41,6 +41,7 @@ class Book extends Model implements TaggableInterface
         'cover',
         'chapters',
         'tags',
+        'category',
     ];
 
     protected $casts = [
@@ -80,7 +81,6 @@ class Book extends Model implements TaggableInterface
 
     public static function processToCreate($r) // r === request
     {
-
         $book = self::create([
             'user_id' => auth()->id(),
             'account_id' => $r->account,
@@ -104,6 +104,11 @@ class Book extends Model implements TaggableInterface
             'front_matter' => null,
         ]);
 
+        $book->update([
+            'heat_level_id' => $r->heat_level,
+            'violence_level_id' => $r->violence_level,
+        ]);
+
         $book->cover()->create([
             'path' => FileHelper::save($r->cover),
             'copyright_disclaimer' => true,
@@ -125,7 +130,7 @@ class Book extends Model implements TaggableInterface
             'title' => $r->title,
             // 'age_restriction' => null,
             'has_warning_message' => $r->has_warning_message,
-            // 'category_id' => $r->category,
+            'category_id' => $r->category,
             // 'credit' => $r->credit,
             'blurb' => $r->blurb,
             // 'language_id' => $r->language,

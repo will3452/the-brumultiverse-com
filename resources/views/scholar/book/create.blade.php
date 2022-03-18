@@ -44,11 +44,34 @@
             @endforeach
         </x-scholar.form.select>
 
-        <x-scholar.form.select name="genre" label="Genre">
-            @foreach ($genres as $id=>$label)
-                <option value="{{$id}}">{{$label}}</option>
-            @endforeach
-        </x-scholar.form.select>
+        <div x-data="{
+            genreId:0,
+            init() {
+                this.genreId = document.querySelector('select[name=genre]').value;
+            }
+        }">
+            <x-scholar.form.select model="genreId" name="genre" label="Genre">
+                @foreach ($genres as $id=>$label)
+                    <option value="{{$id}}">{{$label}}</option>
+                @endforeach
+            </x-scholar.form.select>
+
+            <x-scholar.form.select name="heat_level" label="Heat Level" required="0">
+                @foreach ($heatLevel as $l)
+                    <template x-if="{{$l->genre_id}} == genreId">
+                        <option value="{{$l->id}}">{{$l->name}}</option>
+                    </template>
+                @endforeach
+            </x-scholar.form.select>
+
+            <x-scholar.form.select name="violence_level" label="Violence Level" required="0">
+                @foreach ($violenceLevel as $l)
+                    <template x-if="{{$l->genre_id}} == genreId">
+                        <option value="{{$l->id}}">{{$l->name}}</option>
+                    </template>
+                @endforeach
+            </x-scholar.form.select>
+        </div>
 
         <x-scholar.form.checkbox name="has_warning_message" label="Please add a content warning to my book."/>
 
@@ -83,6 +106,7 @@
         </x-scholar.form.submit>
     </form>
     @push('head-script')
-        <script src='/vendor/ckeditor/ckeditor.js'></script>
+        <x-vendor.ckeditor/>
+        <x-vendor.alpinejs/>
     @endpush
 </x-scholar.layout>

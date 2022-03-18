@@ -35,4 +35,11 @@ class Category extends Model
             self::WORK_TYPE_BOOK
         )->get()->pluck('name', 'id');
     }
+
+    public static function forAudioBook()
+    {
+        return self::whereWorkType(
+            self::WORK_TYPE_AUDIO_BOOK
+        )->get()->pluck('name', 'id');
+    }
 }

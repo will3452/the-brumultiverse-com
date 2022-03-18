@@ -11,6 +11,7 @@ use App\Models\Category;
 use App\Models\Language;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Level;
 
 class BookController extends Controller
 {
@@ -31,6 +32,8 @@ class BookController extends Controller
             'cost' => ['numeric', 'gte:0'],
             'credit' => 'required',
             'cover' => ['image','max:2000'],
+            'violence_level' => '',
+            'heat_level' => '',
         ]);
     }
 
@@ -54,8 +57,10 @@ class BookController extends Controller
 
     public function create()
     {
+        $heatLevel = Level::whereType(Level::TYPE_HEAT)->get();
+        $violenceLevel = Level::whereType(Level::TYPE_VIOLENCE)->get();
         [$categories, $accounts, $genres, $languages, $colleges] = $this->getData();
-        return view('scholar.book.create', compact('categories', 'accounts', 'genres', 'languages', 'colleges'));
+        return view('scholar.book.create', compact('categories', 'accounts', 'genres', 'languages', 'colleges', 'heatLevel', 'violenceLevel'));
     }
 
     public function store(Request $request)
@@ -96,5 +101,10 @@ class BookController extends Controller
         ]);
 
         return redirect(route('scholar.book.show', ['book' => $book->id]))->withSuccess('Success');
+    }
+
+    public function showChapters(Book $book)
+    {
+        return view('scholar.book.chapter.index', compact('book'));
     }
 }

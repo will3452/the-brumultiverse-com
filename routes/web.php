@@ -17,9 +17,11 @@ use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ChangelogController;
+use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\FileUploaderController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\EmailVerificationController;
+use App\Http\Controllers\Scholar\AudioBookController;
 use App\Http\Controllers\Scholar\BookController;
 use App\Http\Controllers\Scholar\HomeController;
 
@@ -73,7 +75,8 @@ Route::get('/email-verify/{id}/{hash}', [EmailVerificationController::class, 've
 
 //file uploader
 Route::post('/upload-large-file', [FileUploaderController::class, 'upload']);
-
+Route::post('/filepond-upload', [FileUploaderController::class, 'filePond']);
+Route::patch('/filepond-upload', [FileUploaderController::class, 'filePondUpdate']);
 //contact us, to get aan, concerns,
 Route::get('/contact-form', fn () => view('contact-form'));
 Route::post('/contact-form', [InquiryController::class, 'submit']);
@@ -90,6 +93,10 @@ Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     //books
     Route::prefix('books')->name('book.')->group(function () {
+
+        //chapters
+        Route::get('/{book}/chapters', [BookController::class, 'showChapters'])->name('chapters');
+        //
         Route::get('/', [BookController::class, 'index'])->name('index');
         Route::get('/create', [BookController::class, 'create'])->name('create');
         Route::post('/', [BookController::class, 'store'])->name('store');
@@ -97,6 +104,18 @@ Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function
         Route::put('/book/pdf/{book}', [BookController::class, 'pdfUploadFormStore']);
         Route::get('/{book}', [BookController::class, 'show'])->name('show');
         Route::put('/{book}', [BookController::class, 'update'])->name('update');
+    });
+
+    Route::prefix('chapters')->name('chapter.')->group(function () {
+        Route::get('{book}/create', [ChapterController::class, 'create'])->name('create');
+        Route::post('{book}/store', [ChapterController::class, 'store'])->name('store');
+        Route::get('{chapter}', [ChapterController::class, 'show'])->name('show');
+        Route::put('{chapter}', [ChapterController::class, 'update'])->name('update');
+    });
+
+    Route::prefix('audio-books')->name('audiobook.')->group(function () {
+        Route::get('/', [AudioBookController::class, 'index'])->name('index');
+        Route::get('/create', [AudioBookController::class, 'create'])->name('create');
     });
 });
 

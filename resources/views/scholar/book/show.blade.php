@@ -37,7 +37,7 @@
 
                 <x-scholar.form.input label="Book Title" name="title" :value="$book->title"/>
 
-                <x-scholar.form.select name="category" label="Category">
+                <x-scholar.form.select :readonly="true" name="category" label="Category">
                     @foreach ($categories as $id=>$label)
                         <option value="{{$id}}" {{$book->category_id === $id ? 'selected':''}}>{{$label}}</option>
                     @endforeach
@@ -98,15 +98,14 @@
                 <img src="/storage/{{$book->cover->path}}" alt="Shoes" class="block w-full max-w-xs rounded shadow-md">
             </div>
             <div class="flex justify-center mt-4 flex-wrap items-center">
-                <a class="btn btn-primary btn-sm m-2">View all chapters.</a>
+                <a href="{{route('scholar.book.chapters', ['book' => $book->id])}}" class="btn btn-primary btn-sm m-2">View all chapters.</a>
                 <x-scholar.modal extra="btn-sm" button="request to publish">
                     hello world
                 </x-scholar.modal>
-                <x-scholar.modal extra="btn-sm btn-warning" button="Send ticket">
+                {{-- <x-scholar.modal extra="btn-sm btn-warning" button="Send ticket">
                     Send Ticket
-                </x-scholar.modal>
+                </x-scholar.modal> --}}
             </div>
-
         </div>
     </div>
     @push('head-script')

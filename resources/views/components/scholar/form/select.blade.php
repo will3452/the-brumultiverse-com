@@ -1,4 +1,4 @@
-@props(['label' => '', 'name' => '', 'help' => '', 'required' => true, 'readonly' => false])
+@props(['model'=>'','label' => '', 'name' => '', 'help' => '', 'required' => true, 'readonly' => false])
 <div class="form-control w-full">
     <label class="label">
         <span class="label-text">
@@ -11,6 +11,7 @@
         </span>
     </label>
     <select
+    x-model="{{$model}}"
     {{!$readonly ?:'disabled'}}
     class="select select-bordered @error($name) input-error @enderror"
     name="{{$name}}"

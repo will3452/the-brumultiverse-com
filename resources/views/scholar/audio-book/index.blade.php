@@ -9,16 +9,16 @@
                 ],
                 [
                     'href' => '#',
-                    'label' => 'Books',
+                    'label' => 'Audio Books',
                 ]
             ]
         "
     />
 
-    <x-scholar.page.index :creation-link="route('scholar.book.create')" title="My Books">
+    <x-scholar.page.index :creation-link="route('scholar.audiobook.create')" title="My Audio Books">
         <div class="mt-4 flex flex-wrap justify-start">
-            @foreach ($books as $b)
-                <x-scholar.work-card href="{{route('scholar.book.show', ['book' => $b->id])}}" cover="/storage/{{optional($b->cover)->path}}">
+            @foreach ($audioBooks as $b)
+                <x-scholar.work-card href="#" cover="/storage/{{optional($b->cover)->path}}">
                     {{$b->title}}
                 </x-scholar.work-card>
             @endforeach

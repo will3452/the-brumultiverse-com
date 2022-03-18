@@ -309,11 +309,11 @@
         },
         {
             "name": "coreproc/nova-permissions-field",
-            "version": "dev-the-brumultiverse-com",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "./nova-components/NovaPermissionsField",
-                "reference": "28acde79e69fc2d44408d3e836f6577fa22f282e"
+                "reference": "614a50f18d8486064f9fbe789621b2c38b070569"
             },
             "require": {
                 "php": ">=7.1.0"
@@ -1061,11 +1061,11 @@
         },
         {
             "name": "elezerk/bru-default",
-            "version": "dev-the-brumultiverse-com",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "./nova-components/BruDefault",
-                "reference": "a44c23b94317458372439e12b8e9a001b60877c7"
+                "reference": "09c4552d12f0f8720af2d85bc46611a9ce9f5698"
             },
             "require": {
                 "php": ">=7.1.0"
@@ -1097,11 +1097,11 @@
         },
         {
             "name": "elezerk/bru-profile",
-            "version": "dev-the-brumultiverse-com",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "./nova-components/BruProfile",
-                "reference": "152f8e305ad0c17b414b20332aca9940588d220d"
+                "reference": "f477496fbeb5527a16d0d8e4ce25c2472c1ffb7a"
             },
             "require": {
                 "php": ">=7.1.0"
@@ -1133,11 +1133,11 @@
         },
         {
             "name": "elezerk/large-file",
-            "version": "dev-the-brumultiverse-com",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "./nova-components/LargeFile",
-                "reference": "c84bc98ec810ca64c025bdb05449649f76321333"
+                "reference": "e4b188225ff9f01f74642c1c6033b1498d4cb45d"
             },
             "require": {
                 "php": ">=7.1.0"
@@ -1974,7 +1974,7 @@
             "dist": {
                 "type": "path",
                 "url": "./repos",
-                "reference": "d8047d4978d807a2b2a7d4ffcc87153def053bfa"
+                "reference": "60d1815bf82a9a508489b5f577227dc708a1a9df"
             },
             "require": {
                 "brick/money": "^0.5.0",
