@@ -130,34 +130,14 @@
 
         <x-scholar.form.ckeditor name="credit" label="Credit Page">{{is_null($book)?'':$book->credit}}</x-scholar.form.ckeditor>
 
-        <input type="file" name="file" required>
+        <x-scholar.form.filepond name="file" label="File" enable="button[type=submit]"/>
 
-        <x-scholar.form.submit>
+        <x-scholar.form.submit disabled="1">
             Submit
         </x-scholar.form.submit>
     </form>
     @push('head-script')
         <x-vendor.ckeditor/>
         <x-vendor.alpinejs/>
-        <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
-    @endpush
-
-    @push('body-script')
-        <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
-        <script>
-            window.onload = function () {
-                const iFile = document.querySelector('input[name=file]');
-                const pond = FilePond.create(iFile);
-                FilePond.setOptions({
-                    chunkUploads:true
-                    server: {
-                            url: '/filepond/api',
-                            headers: {
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                        }
-                }
-                });
-            }
-        </script>
     @endpush
 </x-scholar.layout>

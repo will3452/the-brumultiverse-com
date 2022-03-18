@@ -75,8 +75,9 @@ Route::get('/email-verify/{id}/{hash}', [EmailVerificationController::class, 've
 
 //file uploader
 Route::post('/upload-large-file', [FileUploaderController::class, 'upload']);
-Route::post('/filepond-upload', [FileUploaderController::class, 'filePond']);
-Route::patch('/filepond-upload', [FileUploaderController::class, 'filePondUpdate']);
+Route::post('/filepond-process', [FileUploaderController::class, 'filePond']);
+Route::patch('/filepond-patch', [FileUploaderController::class, 'filePondUpdate']);
+Route::delete('/filepond-revert', [FileUploaderController::class, 'filePondRevert']);
 //contact us, to get aan, concerns,
 Route::get('/contact-form', fn () => view('contact-form'));
 Route::post('/contact-form', [InquiryController::class, 'submit']);
