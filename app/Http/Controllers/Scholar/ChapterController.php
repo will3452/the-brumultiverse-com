@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Scholar;
 
-use App\Helpers\FileHelper;
 use App\Models\Book;
-use App\Models\Category;
 use App\Models\Chapter;
+use App\Models\Category;
+use App\Helpers\FileHelper;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ChapterController extends Controller
 {

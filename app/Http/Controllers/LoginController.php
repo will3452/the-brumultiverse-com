@@ -11,6 +11,10 @@ class LoginController extends ControllersLoginController
     public function redirectPath()
     {
         if (Auth::check()) {
+            if (auth()->user()->isScholar()) {
+                return "/scholar/home";
+            }
+
             if (! auth()->user()->accounts()->count()) {
                 return Nova::path() . '/resources/accounts';
             }

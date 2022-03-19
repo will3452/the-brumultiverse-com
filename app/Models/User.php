@@ -63,6 +63,12 @@ class User extends Authenticatable implements MustVerifyEmail
     const GENDER_FEMALE = 'Female';
     const GENDER_LGBT = 'LGBT';
 
+    public function isScholar(): bool
+    {
+        return $this->hasRole(self::ROLE_ARTIST) ||
+            $this->hasRole(self::ROLE_AUTHOR);
+    }
+
     public function aan()
     {
         return $this->hasOne(Aan::class);

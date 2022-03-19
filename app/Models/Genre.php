@@ -43,4 +43,14 @@ class Genre extends Model
     {
         return self::whereType(self::TYPE_TEXT)->get()->pluck('name', 'id');
     }
+
+    public static function forArtScene()
+    {
+        return self::whereType(self::TYPE_ART)->get()->pluck('name', 'id');
+    }
+
+    public static function forSong()
+    {
+        return self::whereType(self::TYPE_SONG)->get()->pluck('name', 'id');
+    }
 }

@@ -17,13 +17,15 @@ use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ChangelogController;
-use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\FileUploaderController;
 use App\Http\Controllers\RegistrationController;
-use App\Http\Controllers\EmailVerificationController;
-use App\Http\Controllers\Scholar\AudioBookController;
 use App\Http\Controllers\Scholar\BookController;
 use App\Http\Controllers\Scholar\HomeController;
+use App\Http\Controllers\Scholar\ChapterController;
+use App\Http\Controllers\EmailVerificationController;
+use App\Http\Controllers\Scholar\ArtSceneController;
+use App\Http\Controllers\Scholar\AudioBookController;
+use App\Http\Controllers\Scholar\SongController;
 
 //changelog
 Route::get('/changelog/create', [ChangelogController::class, 'create'])->middleware(['auth.basic']);
@@ -92,12 +94,15 @@ Route::post('/messages/create/{chat}', [ChatController::class, 'createMessage'])
 
 Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+    //profile
+
+    // Route::get('/profile/{user}', )
+
     //books
     Route::prefix('books')->name('book.')->group(function () {
-
         //chapters
         Route::get('/{book}/chapters', [BookController::class, 'showChapters'])->name('chapters');
-        //
         Route::get('/', [BookController::class, 'index'])->name('index');
         Route::get('/create', [BookController::class, 'create'])->name('create');
         Route::post('/', [BookController::class, 'store'])->name('store');
@@ -117,6 +122,22 @@ Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function
     Route::prefix('audio-books')->name('audiobook.')->group(function () {
         Route::get('/', [AudioBookController::class, 'index'])->name('index');
         Route::get('/create', [AudioBookController::class, 'create'])->name('create');
+        Route::post('/', [AudioBookController::class, 'store'])->name('store');
+        Route::get('/{audio}', [AudioBookController::class, 'show'])->name('show');
+        Route::put('/{audio}', [AudioBookController::class, 'update'])->name('update');
+    });
+
+    Route::prefix('art-scenes')->name('artscene.')->group(function () {
+        Route::get('/', [ArtSceneController::class, 'index'])->name('index');
+        Route::get('/create', [ArtSceneController::class, 'create'])->name('create');
+        Route::post('/', [ArtSceneController::class, 'store'])->name('store');
+        Route::get('/{art}', [ArtSceneController::class, 'show'])->name('show');
+        Route::put('/{art}', [ArtSceneController::class, 'update'])->name('update');
+    });
+
+    Route::prefix('songs')->name('song.')->group(function () {
+        Route::get('/', [SongController::class, 'index'])->name('index');
+        Route::get('/create', [SongController::class, 'create'])->name('create');
     });
 });
 

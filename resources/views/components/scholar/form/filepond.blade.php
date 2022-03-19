@@ -1,5 +1,5 @@
 {{-- this will upload large file --}}
-@props(['name' => 'file', 'label' => '', 'required' => true, 'enable' => ''])
+@props(['name' => 'file', 'label' => '', 'required' => true, 'enable' => '', 'accept' => ''])
 
 <div class="form-control">
     <div class="label">
@@ -8,6 +8,7 @@
         </div>
     </div>
     <input type="file" name="{{$name}}" required/>
+    <x-scholar.form.copyright-disclaimer/>
 </div>
 
 @push('head-script')
@@ -17,10 +18,29 @@
     @push('body-script')
         <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
         <script>
+            function getAllowedTypes(allowed) {
+                if (allowed == 'image') {
+                    return ['image/png', 'image/svg+xml', 'image/jpg', 'image/jpeg', 'image/webp'];
+                }
+
+                if (allowed == 'video') {
+                    return ['video/webm', 'video/ogg', 'video/mp4', 'video/MP2T', 'video/3gpp', 'video/quicktime', 'video/x-msvideo', 'video/x-ms-wmv']
+                }
+
+                if (allowed == 'audio') {
+                    return ['audio/mp3', 'audio/webm', 'audio/ogg', 'audio/wave', 'audio/wav', 'audio/x-wav', 'audio/x-pn-wav', 'audio/mpeg']
+                }
+
+                return [];
+            }
             window.onload = function () {
                 const iFile = document.querySelector('input[name={{$name}}]');
                 const pond = FilePond.create(iFile);
                 FilePond.setOptions({
+                    beforeAddFile(item) {
+                        let allowedTypes = getAllowedTypes(`{{$accept}}`);
+                        return allowedTypes.indexOf(item.file.type) !== -1;
+                    },
                     instantUpload:false,
                     chunkUploads:true,
                     chunkForce:true,

@@ -15,10 +15,10 @@
         "
     />
 
-    <x-scholar.page.index :creation-link="route('scholar.audiobook.create')" title="My Audio Books">
+    <x-scholar.page.index :model="$audioBooks" :creation-link="route('scholar.audiobook.create')" title="My Audio Books">
         <div class="mt-4 flex flex-wrap justify-start">
             @foreach ($audioBooks as $b)
-                <x-scholar.work-card href="#" cover="/storage/{{optional($b->cover)->path}}">
+                <x-scholar.work-card href="{{route('scholar.audiobook.show', ['audio' => $b->id])}}" cover="{{optional($b->cover)->getSize()}}">
                     {{$b->title}}
                 </x-scholar.work-card>
             @endforeach

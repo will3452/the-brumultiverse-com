@@ -3,3 +3,6 @@
 3. COMMENTS
 4. COLLABORATION
 5. picture upload make visible
+
+## new ui
+1 . store song

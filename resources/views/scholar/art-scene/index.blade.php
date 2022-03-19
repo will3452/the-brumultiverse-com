@@ -9,17 +9,17 @@
                 ],
                 [
                     'href' => '#',
-                    'label' => 'Books',
+                    'label' => 'Art Scenes',
                 ]
             ]
         "
     />
 
-    <x-scholar.page.index :model="$books" :creation-link="route('scholar.book.create')" title="My Books">
+    <x-scholar.page.index :model="$artScenes" :creation-link="route('scholar.artscene.create')" title="My Art Scenes">
         <div class="mt-4 flex flex-wrap justify-start">
-            @foreach ($books as $b)
-                <x-scholar.work-card href="{{route('scholar.book.show', ['book' => $b->id])}}" cover="{{optional($b->cover)->getSize()}}">
-                    {{$b->title}}
+            @foreach ($artScenes as $a)
+                <x-scholar.work-card href="{{route('scholar.artscene.show', ['art' => $a->id])}}" cover="{{optional($a->artFile)->getSize()}}">
+                    {{$a->title}}
                 </x-scholar.work-card>
             @endforeach
         </div>

@@ -95,12 +95,12 @@
         </div>
         <div class="w-full md:w-4/12 p-4">
             <div class="flex justify-center">
-                <img src="/storage/{{$book->cover->path}}" alt="Shoes" class="block w-full max-w-xs rounded shadow-md">
+                <img src="{{$book->cover->withWatermark()}}" alt="Shoes" class="block w-full max-w-xs rounded shadow-md">
             </div>
             <div class="flex justify-center mt-4 flex-wrap items-center">
                 <a href="{{route('scholar.book.chapters', ['book' => $book->id])}}" class="btn btn-primary btn-sm m-2">View all chapters.</a>
                 <x-scholar.modal extra="btn-sm" button="request to publish">
-                    hello world
+                    <x-scholar.request-publish-form :model="$book"/>
                 </x-scholar.modal>
                 {{-- <x-scholar.modal extra="btn-sm btn-warning" button="Send ticket">
                     Send Ticket

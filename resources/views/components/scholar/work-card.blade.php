@@ -1,8 +1,8 @@
 @props(['cover' => 'https://api.lorem.space/image/movie?w=200&h=280', 'href' => '#'])
-<div>
-    <div style="background:url('{{$cover}}');background-position:center;" class="overflow-hidden relative md:w-40 md:h-56 w-24 h-32 rounded shadow m-2">
+<div class="">
+    <div style="background:url('{{$cover}}');background-position:center;background-size:cover;" class="border overflow-hidden relative  w-24 h-32 rounded m-2 hover:scale-110">
     </div>
-    <div class="text-center md:w-40 w-16 text-xs">
+    <div class="text-center w-24 text-xs">
         <a href="{{$href}}" class="hover:underline">
             {{$slot}}
         </a>

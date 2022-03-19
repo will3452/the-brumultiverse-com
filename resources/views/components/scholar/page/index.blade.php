@@ -1,4 +1,4 @@
-@props(['creationLink' => '#', 'title' => 'Work'])
+@props(['creationLink' => '#', 'title' => 'Work', 'model' => []])
 <div class="items-center justify-between hidden md:flex">
     <div class="items-center flex justify-between md:justify-start sm:w-full md:w-1/2">
         <h1 class="text-2xl font-bold capatitalize">
@@ -23,6 +23,7 @@
 
 {{$slot}}
 
+<x-scholar.empty-index :data="$model"/>
 <div class="fixed bottom-2 right-2 md:hidden">
     <a href="{{$creationLink}}" class="btn btn-primary btn-sm">create new</a>
 </div>

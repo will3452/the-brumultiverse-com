@@ -44,6 +44,7 @@
         "gabrieliuga/laravel-nova-sidebar-links": "^1.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "hubertnnn/laravel-nova-field-dynamic-select": "^0.2.0",
+        "intervention/image": "^2.7",
         "laravel/framework": "^8.65",
         "laravel/nova": "*",
         "laravel/sanctum": "^2.12",

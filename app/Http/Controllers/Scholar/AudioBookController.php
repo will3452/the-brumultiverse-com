@@ -10,14 +10,14 @@ use App\Models\Category;
 use App\Models\Language;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Book;
+use App\Models\AudioBook;
 
 class AudioBookController extends Controller
 {
     public function customValidate(Request $request)
     {
         $request->validate([
-            'type' => 'required',
+            // 'type' => 'required',
             'title' => 'required',
             'category' => 'required',
             'account' => 'required',
@@ -70,6 +70,21 @@ class AudioBookController extends Controller
 
     public function store(Request $request)
     {
+        $this->customValidate($request);
+        $audioBook = AudioBook::processToCreate($request);
+        return redirect(route('scholar.audiobook.show', ['audio' => $audioBook->id]))->withSuccess('Success');
+    }
 
+    public function show(Request $request, AudioBook $audio)
+    {
+        [$categories, $accounts, $genres, $languages, $colleges] = $this->getData();
+        return view('scholar.audio-book.show', compact('audio', 'categories', 'accounts', 'genres', 'languages', 'colleges'));
+    }
+
+    public function update(Request $request, AudioBook $audio)
+    {
+        AudioBook::processToUpdate($request, $audio);
+
+        return back()->withSuccess('success!');
     }
 }

@@ -26,7 +26,7 @@
         <div class="alert alert-success">Auto-filled, please double check the form.</div>
     @endif
 
-    <form action="#" method="POST" enctype="multipart/form-data">
+    <form action="{{route('scholar.audiobook.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         @if (! request()->has('book'))
             <div x-data="{
@@ -130,7 +130,7 @@
 
         <x-scholar.form.ckeditor name="credit" label="Credit Page">{{is_null($book)?'':$book->credit}}</x-scholar.form.ckeditor>
 
-        <x-scholar.form.filepond name="file" label="File" enable="button[type=submit]"/>
+        <x-scholar.form.filepond accept="audio" name="file" label="File" enable="button[type=submit]"/>
 
         <x-scholar.form.submit disabled="1">
             Submit
