@@ -18,7 +18,7 @@
     <x-scholar.page.index :model="$songs" :creation-link="route('scholar.song.create')" title="My Songs">
         <div class="mt-4 flex flex-wrap justify-start">
             @foreach ($songs as $s)
-                <x-scholar.work-card href="{{route('scholar.song.show', ['book' => $s->id])}}" cover="{{optional($s->cover)->getSize()}}">
+                <x-scholar.work-card href="{{route('scholar.song.show', ['song' => $s->id])}}" cover="{{optional($s->cover)->getSize()}}">
                     {{$s->title}}
                 </x-scholar.work-card>
             @endforeach

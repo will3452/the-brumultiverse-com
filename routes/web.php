@@ -138,6 +138,9 @@ Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function
     Route::prefix('songs')->name('song.')->group(function () {
         Route::get('/', [SongController::class, 'index'])->name('index');
         Route::get('/create', [SongController::class, 'create'])->name('create');
+        Route::post('/', [SongController::class, 'store'])->name('store');
+        Route::get('/{song}', [SongController::class, 'show'])->name('show');
+        Route::put('/{song}', [SongController::class, 'update'])->name('update');
     });
 });
 

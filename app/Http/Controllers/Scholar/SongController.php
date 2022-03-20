@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Scholar;
 
+use App\Models\Song;
 use App\Models\Genre;
 use App\Models\Account;
 use Illuminate\Http\Request;
@@ -47,5 +48,28 @@ class SongController extends Controller
     {
         [$accounts, $genres] = $this->getData();
         return view('scholar.song.create', compact('accounts', 'genres'));
+    }
+
+
+    public function store(Request $request)
+    {
+        $this->customValidate($request);
+
+        $song = Song::processToCreate($request);
+
+        return redirect(route('scholar.song.show', ['song' => $song->id]))->withSuccess('Success');
+    }
+
+    public function show(Request $request, Song $song)
+    {
+        [$accounts, $genres] = $this->getData();
+        return view('scholar.song.show', compact('accounts', 'genres', 'song'));
+    }
+
+    public function update(Request $request, Song $song)
+    {
+        Song::processToUpdate($request, $song);
+
+        return back()->withSuccess('success!');
     }
 }
