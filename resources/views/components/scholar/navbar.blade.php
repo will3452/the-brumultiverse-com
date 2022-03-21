@@ -21,11 +21,11 @@
       </div>
       <div class="dropdown dropdown-end">
         <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-          <div class="w-10 rounded-full">
+          <div class="w-10 rounded-full border">
             <img src="/storage/{{auth()->user()->picture}}">
           </div>
         </label>
-        <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+        <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 w-52 border">
           {{-- <li>
             <a class="justify-between">
               Profile

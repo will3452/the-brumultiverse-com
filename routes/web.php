@@ -27,6 +27,7 @@ use App\Http\Controllers\Scholar\ArtSceneController;
 use App\Http\Controllers\Scholar\AudioBookController;
 use App\Http\Controllers\Scholar\FilmController;
 use App\Http\Controllers\Scholar\PodcastController;
+use App\Http\Controllers\Scholar\SearchController;
 use App\Http\Controllers\Scholar\SongController;
 
 //changelog
@@ -96,6 +97,11 @@ Route::post('/messages/create/{chat}', [ChatController::class, 'createMessage'])
 
 Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+
+    //search
+    Route::get('/search', [SearchController::class, 'search'])->name('search');
+
     Route::get('/logout', function () {
         auth()->logout();
         return redirect('/');
