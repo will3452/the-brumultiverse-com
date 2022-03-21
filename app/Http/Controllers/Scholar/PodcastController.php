@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Scholar;
 use App\Models\Account;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Podcast;
 
 class PodcastController extends Controller
 {
@@ -14,7 +15,6 @@ class PodcastController extends Controller
             'type' => 'required',
             'title' => 'required',
             'account' => 'required',
-            'genre' => 'required',
             'tags' => 'required',
             'description' => 'required',
             'cost' => ['numeric', 'gte:0'],
@@ -45,4 +45,24 @@ class PodcastController extends Controller
         return view('scholar.podcast.create', compact('accounts'));
     }
 
+    public function store(Request $r)
+    {
+        $this->customValidate($r);
+        $podcast = Podcast::processToCreate($r);
+
+        return redirect(route('scholar.podcast.show', ['podcast' => $podcast]))->withSuccess('success');
+    }
+
+    public function show(Request $r, Podcast $podcast)
+    {
+        [$accounts] = $this->getData();
+        return view('scholar.podcast.show', compact('accounts', 'podcast'));
+    }
+
+    public function update(Request $r, Podcast $podcast)
+    {
+        Podcast::processToUpdate($r, $podcast);
+
+        return back()->withSuccess('success!');
+    }
 }

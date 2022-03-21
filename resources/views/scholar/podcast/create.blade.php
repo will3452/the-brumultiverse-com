@@ -8,8 +8,8 @@
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholar.song.index'),
-                    'label' => 'Songs',
+                    'href' => route('scholar.podcast.index'),
+                    'label' => 'Podcasts',
                 ],
                 [
                     'href' => '#',
@@ -59,7 +59,7 @@
 
         <x-scholar.form.ckeditor name="credit" label="Credits"/>
 
-        <x-scholar.form.input label="Launch Date" name="" help="Format mm/dd/yyyy"/>
+        <x-scholar.form.input label="Launch Date" name="launch_at" help="Format mm/dd/yyyy"/>
 
         <x-scholar.form.submit :disabled="1">
             Submit
