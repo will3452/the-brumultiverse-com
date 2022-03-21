@@ -84,13 +84,14 @@
                 <img src="{{$film->cover->withWatermark()}}" alt="Shoes" class="block w-full max-w-xs rounded shadow-md">
             </div>
 
+            <div class="my-4">
+                <video src="/storage/{{$film->largeFile->path}}" controls></video>
+            </div>
+
             <div class="flex justify-center mt-4 flex-wrap items-center">
                 <x-scholar.modal extra="btn-sm" button="request to publish">
                     <x-scholar.request-publish-form :model="$film"/>
                 </x-scholar.modal>
-                {{-- <x-scholar.modal extra="btn-sm btn-warning" button="Send ticket">
-                    Send Ticket
-                </x-scholar.modal> --}}
             </div>
         </div>
     </div>
