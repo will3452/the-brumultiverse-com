@@ -63,7 +63,7 @@ class AudioBook extends Model implements TaggableInterface
     const TYPE_SPIN = 'Spin';
     const TYPE_EVENT = 'Event';
 
-    const DEFAULT_COST_TYPE = CrystalHelper::WHITE_CRYSTAL;
+    const DEFAULT_COST_TYPE = CrystalHelper::PURPLE_CRYSTAL;
 
 
     public static function processToCreate($r) // r === request

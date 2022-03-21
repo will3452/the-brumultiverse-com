@@ -45,7 +45,7 @@ class ArtScene extends Model implements TaggableInterface
         'published_at' => 'datetime',
     ];
 
-    const DEFAULT_COST_TYPE = CrystalHelper::WHITE_CRYSTAL;
+    const DEFAULT_COST_TYPE = CrystalHelper::PURPLE_CRYSTAL;
 
     public function genre()
     {

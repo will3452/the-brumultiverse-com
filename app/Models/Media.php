@@ -29,14 +29,13 @@ class Media extends Model
         $fileName = "$prefix-watermarked-$this->path";
         $filePath = '/img/watermarked/' . $fileName;
 
-        if (file_exists(public_path($filePath) && ! $new)) {
-            return $filePath;
-        } else {
+        if (! file_exists(public_path($filePath)) || $new)
+        {
             $path = $this->path;
             $img = Image::make(Storage::disk('public')->path($path));
-            $watermark = Image::make($watermark)->resize($img->width() / 2, null, function ($constraint) {
-                $constraint->aspectRatio();
-            });
+                $watermark = Image::make($watermark)->resize($img->width() / 2, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
             $img->insert($watermark, $position, 10, 10)->save(public_path($filePath), 75, 'png');
         }
 
@@ -46,12 +45,10 @@ class Media extends Model
     public function getSize($w = 96, $h = 128) {
         $fileName = "$h-$w-$this->path";
         $path = '/img/cover/' . $fileName;
-
-        if (file_exists(public_path($path))) {
-            return $path;
-        } else {
+        if (! file_exists(public_path($path)))
+        {
             $pathimg = $this->path;
-            $img = Image::make(Storage::disk('public')->path($pathimg))
+            Image::make(Storage::disk('public')->path($pathimg))
                 ->resize($w, $h)->save(public_path($path), 75, 'png');
         }
         return $path;
