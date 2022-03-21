@@ -26,13 +26,13 @@
           </div>
         </label>
         <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-          <li>
+          {{-- <li>
             <a class="justify-between">
               Profile
             </a>
-          </li>
-          <li><a>Settings</a></li>
-          <li><a>Logout</a></li>
+          </li> --}}
+          {{-- <li><a>Settings</a></li> --}}
+          <li><a href="{{route('scholar.logout')}}">Logout</a></li>
         </ul>
       </div>
     </div>

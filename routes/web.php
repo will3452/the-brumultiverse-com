@@ -96,7 +96,10 @@ Route::post('/messages/create/{chat}', [ChatController::class, 'createMessage'])
 
 Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-
+    Route::get('/logout', function () {
+        auth()->logout();
+        return redirect('/');
+    })->name('logout');
     //profile
 
     // Route::get('/profile/{user}', )
