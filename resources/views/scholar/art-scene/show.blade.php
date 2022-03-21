@@ -40,8 +40,6 @@
                     @endforeach
                 </x-scholar.form.select>
 
-                <x-scholar.form.checkbox checked="{{! is_null($artScene->has_warning_message)}}" name="has_warning_message" label="Please add a content warning to my book."/>
-
                 <x-scholar.form.tags name="tags" label="Tags" :value="\App\Helpers\TagHelper::toShow($artScene)"/>
 
                 <x-scholar.form.select readonly="true" name="lead_character" label="Lead Character">

@@ -53,4 +53,9 @@ class Genre extends Model
     {
         return self::whereType(self::TYPE_SONG)->get()->pluck('name', 'id');
     }
+
+    public static function forFilm()
+    {
+        return self::whereType(self::TYPE_VIDEO)->get()->pluck('name', 'id');
+    }
 }

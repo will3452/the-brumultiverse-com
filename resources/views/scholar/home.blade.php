@@ -7,7 +7,7 @@
         <x-scholar.dashboard-card icon="/img/icons/dashboard/speaker.svg" title="audio books" href="{{route('scholar.audiobook.index')}}"/>
         <x-scholar.dashboard-card icon="/img/icons/dashboard/image.svg" title="art scenes" href="{{route('scholar.artscene.index')}}" />
         <x-scholar.dashboard-card icon="/img/icons/dashboard/music.svg" title="songs" href="{{route('scholar.song.index')}}"/>
-        <x-scholar.dashboard-card icon="/img/icons/dashboard/film.svg" title="films" />
+        <x-scholar.dashboard-card icon="/img/icons/dashboard/film.svg" title="films" href="{{route('scholar.film.index')}}"/>
         <x-scholar.dashboard-card icon="/img/icons/dashboard/mic.svg" title="podcasts" />
     </div>
     {{-- <div class="rounded text-xs border border-yellow-700 max-w-sm w-full p-4 bg-yellow-200 text-yellow-900">

@@ -25,6 +25,7 @@ use App\Http\Controllers\Scholar\ChapterController;
 use App\Http\Controllers\EmailVerificationController;
 use App\Http\Controllers\Scholar\ArtSceneController;
 use App\Http\Controllers\Scholar\AudioBookController;
+use App\Http\Controllers\Scholar\FilmController;
 use App\Http\Controllers\Scholar\SongController;
 
 //changelog
@@ -141,6 +142,14 @@ Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function
         Route::post('/', [SongController::class, 'store'])->name('store');
         Route::get('/{song}', [SongController::class, 'show'])->name('show');
         Route::put('/{song}', [SongController::class, 'update'])->name('update');
+    });
+
+    Route::prefix('films')->name('film.')->group(function () {
+        Route::get('/', [FilmController::class, 'index'])->name('index');
+        Route::get('/create', [FilmController::class, 'create'])->name('create');
+        Route::post('/', [FilmController::class, 'store'])->name('store');
+        Route::get('/{film}', [FilmController::class, 'show'])->name('show');
+        Route::put('/{film}', [FilmController::class, 'update'])->name('update');
     });
 });
 
