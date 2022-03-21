@@ -9,13 +9,14 @@
         </div>
     </div>
 </div> --}}
-<a href="{{$href}}" class="hover:shadow-xl block w-32 h-32  rounded-md border m-2 p-2 flex items-center justify-center">
-    <div>
+<a href="{{$href}}" x-data="{isHover:false}" x-on:mouseover="isHover = true" x-on:mouseout="isHover = false" class="overflow-hidden relative hover:shadow-xl block w-32 h-32  rounded-md border m-2 p-2 flex items-center justify-center">
+    <div >
         <div class="flex justify-center">
-            <img src="{{$icon}}" alt="">
+            <img src="{{$icon}}" alt="" x-bind:class="{'animate-bounce':isHover}">
         </div>
         <div class="text-center font-bold uppercase text-xs mt-2">
             {{$title}}
         </div>
     </div>
+
 </a>
