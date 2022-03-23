@@ -100,7 +100,6 @@ Route::post('/messages/create/{chat}', [ChatController::class, 'createMessage'])
 Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-
     //search
     Route::get('/search', [SearchController::class, 'search'])->name('search');
 
@@ -178,4 +177,4 @@ Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function
     });
 });
 
-Route::get('/test', fn () => view('test'));
+Route::get('/test', fn () => 'hello world');
