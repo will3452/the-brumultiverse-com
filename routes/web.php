@@ -27,6 +27,7 @@ use App\Http\Controllers\Scholar\ArtSceneController;
 use App\Http\Controllers\Scholar\AudioBookController;
 use App\Http\Controllers\Scholar\FilmController;
 use App\Http\Controllers\Scholar\PodcastController;
+use App\Http\Controllers\Scholar\ProfileController;
 use App\Http\Controllers\Scholar\SearchController;
 use App\Http\Controllers\Scholar\SongController;
 
@@ -73,6 +74,7 @@ Route::get('/clubs', fn () =>
 );
 
 // email verification
+Route::view('/verify-email-first', 'verify-email-first');
 Route::get('/send-email-verification-notification', [EmailVerificationController::class, 'resend']);
 Route::get('/email-verify/{id}/{hash}', [EmailVerificationController::class, 'verify'])
     ->middleware(['signed'])
@@ -107,8 +109,13 @@ Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function
         return redirect('/');
     })->name('logout');
     //profile
-
-    // Route::get('/profile/{user}', )
+    Route::prefix('profiles')->name('profile.')->group(function () {
+        Route::get('/{user}', [ProfileController::class, 'show'])->name('show');
+        Route::put('/profile/{user}', [ProfileController::class, 'update'])->name('update');
+        Route::post('/account', [ProfileController::class, 'registerAccount'])->name('account.register');
+        Route::delete('/account/{account}', [ProfileController::class, 'removeAccount'])->name('account.delete');
+        Route::put('profile-picture-update', [ProfileController::class, 'updatePicture'])->name('update.picture');
+    });
 
     //books
     Route::prefix('books')->name('book.')->group(function () {

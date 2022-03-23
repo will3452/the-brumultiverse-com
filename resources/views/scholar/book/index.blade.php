@@ -1,5 +1,7 @@
 <x-scholar.layout>
-
+    <x-scholar.page.title>
+        My Books
+    </x-scholar.page.title>
     <x-chat.breadcrumbs
         :links="
             [

@@ -1,4 +1,7 @@
 <x-scholar.layout>
+    <x-scholar.page.title>
+        Chapters
+    </x-scholar.page.title>
     <x-chat.breadcrumbs
         :links="
             [
@@ -21,8 +24,7 @@
             ]
         "
     />
-
-    <x-scholar.page.index title="Chapters" creation-link="{{route('scholar.chapter.create', ['book' => $book->id])}}">
+    <x-scholar.page.index :model="$book->chapters" title="Chapters" creation-link="{{route('scholar.chapter.create', ['book' => $book->id])}}">
         <div class="mt-4">
             <x-scholar.table>
                 <thead>

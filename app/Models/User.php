@@ -20,7 +20,7 @@ class User extends Authenticatable implements MustVerifyEmail
         ScholarTrait,
         HasRoles;
     protected $with = [
-        'accounts',
+        // 'accounts',
     ];
     /**
      * The attributes that are mass assignable.
@@ -84,12 +84,22 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Account::class);
     }
 
+    public function hasAccountsApproved(): bool
+    {
+        return $this->accounts()->whereNotNull('approved_at')->exists();
+    }
+
     public function groups() // method to fetch all group where user belongs
     {
         $accountIds = $this->accounts->pluck('id')->toArray();
         return GroupMember::whereStatus(GroupMember::STATUS_CONFIRMED)
             ->whereIn('account_member_id', $accountIds)
             ->get();
+    }
+
+    public function getNameAttribute()
+    {
+        return "$this->first_name $this->last_name";
     }
 
 

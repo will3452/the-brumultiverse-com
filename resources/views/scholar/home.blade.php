@@ -1,7 +1,7 @@
 <x-scholar.layout>
-    <h1 class="text-2xl font-bold uppercase">
+    <x-scholar.page.title>
         Dashboard
-    </h1>
+    </x-scholar.page.title>
 
     <x-scholar.material-container title="Materials">
         <x-scholar.dashboard-card icon="/img/icons/dashboard/book.svg" title="books" href="{{route('scholar.book.index')}}" />

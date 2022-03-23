@@ -24,7 +24,7 @@
         <span class="label-text-alt">{{$help}}</span>
     </div>
     @error($name)
-        <span class="text-red-300">{{$message}}</span>
+        <span class="text-red-600">{{$message}}</span>
     @enderror
 </div>
 <x-scholar.form.copyright-disclaimer/>

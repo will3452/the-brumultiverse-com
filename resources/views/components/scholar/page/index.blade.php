@@ -1,9 +1,6 @@
 @props(['creationLink' => '#', 'title' => 'Work', 'model' => [], 'type'=>null, 'data' => 'books', 'view' => 'scholar.book.index'])
 <div class="items-center justify-between hidden md:flex">
     <div class="items-center flex justify-between md:justify-start sm:w-full md:w-1/2">
-        <h1 class="text-2xl font-bold capatitalize">
-            {{$title}}
-        </h1>
         <a href="{{$creationLink}}" class="btn btn-primary btn-sm mx-2 capitalize">create new</a>
     </div>
     @if ($type != null)
@@ -26,9 +23,6 @@
         <button class="btn btn-sm ml-1">Search</button>
     </form>
     @endif
-    <div class="text-center capitalize text-2xl">
-        {{$title}}
-    </div>
 </div>
 
 {{$slot}}
