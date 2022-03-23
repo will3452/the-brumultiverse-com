@@ -68,32 +68,32 @@
                     </x-scholar.modal>
                 </x-slot>
            @endif
-            <thead>
-                <tr>
-                    <th>
+            <thead class="dark:bg-gray-900">
+                <tr class="dark:bg-gray-900">
+                    <th class="dark:bg-gray-900 dark:text-white">
                         Status
                     </th>
-                    <th>
+                    <th class="dark:bg-gray-900 dark:text-white">
                         Date
                     </th>
-                    <th>
+                    <th class="dark:bg-gray-900 dark:text-white">
                         Pen-Name
                     </th>
-                    <th>
+                    <th class="dark:bg-gray-900 dark:text-white">
                         Country
                     </th>
-                    <th>
+                    <th class="dark:bg-gray-900 dark:text-white">
                         Gender
                     </th>
-                    <th>
+                    <th class="dark:bg-gray-900 dark:text-white">
 
                     </th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody >
                 @foreach ($user->accounts as $a)
                     <tr>
-                        <td>
+                        <td class="dark:bg-gray-900 dark:text-white">
                             @if (! is_null($a->approved_at))
                                 <div class="badge badge-success">
                                     Approved
@@ -104,19 +104,19 @@
                                 </div>
                             @endif
                         </td>
-                        <td>
+                        <td class="dark:bg-gray-900 dark:text-white">
                             {{$a->created_at->format('m/d/y')}}
                         </td>
-                        <td>
+                        <td class="dark:bg-gray-900 dark:text-white">
                             {{$a->penname}}
                         </td>
-                        <td>
+                        <td class="dark:bg-gray-900 dark:text-white">
                             {{$a->country_full}}
                         </td>
-                        <td>
+                        <td class="dark:bg-gray-900 dark:text-white">
                             {{$a->gender}}
                         </td>
-                        <td>
+                        <td class="dark:bg-gray-900 dark:text-white">
                             @if (is_null($a->approved_at))
                                 <x-scholar.modal button="delete" id="delete{{$a->id}}" extra="btn-xs bg-red-600 hover:bg-red-700 border-none text-white text-xs">
                                     <form action="{{route('scholar.profile.account.delete', ['account' => $a->id])}}" method="POST">

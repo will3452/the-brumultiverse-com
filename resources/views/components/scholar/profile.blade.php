@@ -26,7 +26,7 @@
             </form>
         </div>
     </div>
-    <div  class="relative flex flex-col md:flex-row items-center justify-center md:justify-start p-4 bg-gray-100 rounded-lg shadow">
+    <div  class="relative flex flex-col md:flex-row items-center justify-center md:justify-start p-4 bg-gray-100 dark:bg-gray-900 rounded-lg shadow">
         <label for="edit" class="absolute right-2 top-2 text-blue-700 text-sm underline underline-offset-1 cursor-pointer">
             <img src="/img/icons/crud/edit.svg" alt="">
         </label>
@@ -58,7 +58,7 @@
             </div>
         </div>
         <div class="ml-4">
-            <h2 class="text-xl font-bold text-gray-700 uppercase">{{$user->name}}</h2>
+            <h2 class="text-xl font-bold text-gray-700 uppercase dark:text-white">{{$user->name}}</h2>
             <div class="text-sm">
                 {{$user->user_name}} | {{auth()->user()->role}}
             </div>

@@ -8,7 +8,7 @@
             {{$option??''}}
         </div>
     </div>
-    <table class="table table-compact w-full mt-2">
+    <table class="table table-compact w-full mt-2 dark:text-black">
         {{$slot}}
     </table>
 </div>

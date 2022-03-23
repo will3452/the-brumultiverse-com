@@ -1,4 +1,4 @@
-<div class="navbar bg-base-100 border-b">
+<div class="navbar bg-base-100 border-b dark:bg-black">
     <div class="flex-1">
       <img src="/bru_assets/textlogo.png" class="w-48" alt="">
     </div>

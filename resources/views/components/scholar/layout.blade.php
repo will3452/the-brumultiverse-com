@@ -26,7 +26,7 @@
             </x-scholar.alert-success>
         @endif
     @endauth
-    <div id="app">
+    <div id="app" class="dark:bg-gray-800 dark:text-white">
         <x-scholar.container>
             {{$slot}}
         </x-scholar.container>

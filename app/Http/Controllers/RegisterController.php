@@ -25,6 +25,7 @@ class RegisterController extends Controller
 
         //save picture
         $validated['picture'] = FileHelper::save($request->picture);
+        FileHelper::generateImage(['size' => [30, 30]], $validated['picture']);
 
         //this will hold the interest of the user that will be created later,
         $interestField = [
@@ -62,7 +63,7 @@ class RegisterController extends Controller
 
         //log the user in
         auth()->login($user);
-        return redirect(Nova::path());
+        return redirect(route('scholar.home'));
     }
 
     public function registerStudent()
