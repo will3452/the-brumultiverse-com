@@ -30,7 +30,7 @@ class FileHelper
             $img = Image::make($file)->resize($w,$h, function ($constraint) {
                 $constraint->aspectRatio();
             });
-            $img->save(public_path("/img/profiles/" . $newFileName), 75, 'png');
+            $img->save(public_path("/img/profiles/" . $newFileName), 90, 'png');
         }
 
         return null;
