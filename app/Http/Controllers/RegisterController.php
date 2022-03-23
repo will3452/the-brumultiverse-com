@@ -101,6 +101,6 @@ class RegisterController extends Controller
 
         //log the user in
         auth()->login($user);
-        return redirect(Nova::path());
+        return redirect(route('scholar.home'));
     }
 }
