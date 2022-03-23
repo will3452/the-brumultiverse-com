@@ -75,6 +75,7 @@ class RegisterController extends Controller
         $validated = $request->validated();
 
         $validated['picture'] = FileHelper::save($request->picture);
+        FileHelper::generateImage(['size' => [30, 30]], $validated['picture']);
 
         //this will hold the interest of the user that will be created later,
         $interestField = [
