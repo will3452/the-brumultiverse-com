@@ -1,4 +1,4 @@
-@props(['label'])
+@props(['label' => ''])
 <div class="overflow-x-auto">
     <div class="flex justify-between">
         <x-scholar.page.title>

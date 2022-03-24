@@ -25,7 +25,9 @@ use App\Http\Controllers\Scholar\ChapterController;
 use App\Http\Controllers\EmailVerificationController;
 use App\Http\Controllers\Scholar\ArtSceneController;
 use App\Http\Controllers\Scholar\AudioBookController;
+use App\Http\Controllers\Scholar\EventsController;
 use App\Http\Controllers\Scholar\FilmController;
+use App\Http\Controllers\Scholar\NotificationController;
 use App\Http\Controllers\Scholar\PodcastController;
 use App\Http\Controllers\Scholar\ProfileController;
 use App\Http\Controllers\Scholar\SearchController;
@@ -99,6 +101,12 @@ Route::post('/messages/create/{chat}', [ChatController::class, 'createMessage'])
 
 Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+    //notifications
+    Route::prefix('notifications')->name('notification.')->group(function () {
+        Route::get('/', [NotificationController::class, 'index'])->name('index');
+        Route::get('/mark-as-read/{id}', [NotificationController::class, 'markAsRead'])->name('mark-as-read');
+    });
 
     //search
     Route::get('/search', [SearchController::class, 'search'])->name('search');
@@ -174,6 +182,15 @@ Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function
         Route::post('/', [PodcastController::class, 'store'])->name('store');
         Route::get('/{podcast}', [PodcastController::class, 'show'])->name('show');
         Route::put('/{podcast}', [PodcastController::class, 'update'])->name('update');
+    });
+
+    Route::prefix('events')->name('event.')->group(function () {
+        Route::get('/', [EventsController::class, 'index'])->name('index');
+        Route::get('/create', [EventsController::class, 'create'])->name('create');
+        Route::post('/', [EventsController::class, 'store'])->name('store');
+        Route::get('/{event}', [EventsController::class, 'show'])->name('show');
+        Route::put('/{event}', [EventsController::class, 'update'])->name('update');
+        Route::post('/request-for-approval/{event}', [EventsController::class, 'requestForApproval'])->name('request-to-approve');
     });
 });
 

@@ -22,6 +22,10 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $with = [
         // 'accounts',
     ];
+
+    protected $withCount = [
+        'unreadNotifications',
+    ];
     /**
      * The attributes that are mass assignable.
      *

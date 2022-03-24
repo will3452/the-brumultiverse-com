@@ -15,6 +15,7 @@ class Event extends Model
         'user_id',
         'account_id',
         'type',
+        'description',
         'cost',
         'cost_type',
         'title',
@@ -41,5 +42,33 @@ class Event extends Model
     public function getIsApprovedAttribute()
     {
         return $this->status === self::STATUS_APPROVED;
+    }
+
+    public static function processToCreate($r) // r === request
+    {
+        $event = self::create([
+            'user_id' => auth()->id(),
+            'account_id' => $r->account,
+            'title' => $r->title,
+            'description' => $r->description,
+            'start_date' => $r->start_date,
+            'end_date' => $r->end_date,
+        ]);
+
+        return $event;
+    }
+
+    public static function processToUpdate($r, $event) // r === request
+    {
+        $event->update([
+            'user_id' => auth()->id(),
+            'account_id' => $r->account,
+            'title' => $r->title,
+            'description' => $r->description,
+            'start_date' => $r->start_date,
+            'end_date' => $r->end_date,
+        ]);
+
+        return $event;
     }
 }

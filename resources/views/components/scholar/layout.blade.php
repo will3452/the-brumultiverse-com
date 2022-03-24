@@ -28,6 +28,7 @@
     @endauth
     <div id="app" class="dark:bg-gray-800 dark:text-white">
         <x-scholar.container>
+            <x-slot name="alert">{{$alert ?? ''}}</x-slot>
             {{$slot}}
         </x-scholar.container>
     </div>

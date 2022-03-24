@@ -25,6 +25,7 @@ class ProfileController extends Controller
         ]);
 
         $data['password'] = bcrypt($data['password']);
+        $data['copyright_disclaimer'] = true;
 
         $user->update($data);
 
