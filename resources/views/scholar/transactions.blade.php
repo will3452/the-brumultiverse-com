@@ -45,10 +45,10 @@
             @foreach ($transactions as $t)
                 <tr>
                     <td>
-                        {{$t->ref_no}}
+                        {{$t->ref_no ?? '---'}}
                     </td>
                     <td>
-                        {{$t->status}}
+                        {{$t->status ?? '---'}}
                     </td>
                     <td>
                         PHP {{number_format($t->amount, 2)}}
