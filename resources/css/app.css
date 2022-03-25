@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    cursor: url('/img/cursor/arrow.png'), default;
+}
+
+a, button, label, .dropdown, .btn, .breadcrumbs a {
+    cursor: url('/img/cursor/pointer.png'), default;
+}
