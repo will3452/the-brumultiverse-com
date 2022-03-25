@@ -1,4 +1,4 @@
-@props(['title' => "Untitled", "icon"=>"", "img" => 'https://raw.githubusercontent.com/will3452/bruxxx/main/public/img/card-bg-custom.png', 'href' => '#', 'proceedText' => 'view'])
+@props(['title' => "Untitled", 'fixing' => false, "icon"=>"", "img" => 'https://raw.githubusercontent.com/will3452/bruxxx/main/public/img/card-bg-custom.png', 'href' => '#', 'proceedText' => 'view'])
 {{-- <div class="card w-96 bg-base-100 shadow-xl image-full m-1">
     <figure><img src="{{$img}}" alt="{{$title}}"></figure>
     <div class="card-body">
@@ -9,7 +9,10 @@
         </div>
     </div>
 </div> --}}
-<a href="{{$href}}" x-data="{isHover:false}" x-on:mouseover="isHover = true" x-on:mouseout="isHover = false" class="overflow-hidden relative hover:shadow-xl block w-32 h-32  rounded-md border m-2 p-2 flex items-center justify-center">
+<a href="{{$fixing ? '#' : $href}}" x-data="{isHover:false}" x-on:mouseover="isHover = true" x-on:mouseout="isHover = false" class="overflow-hidden relative hover:shadow-xl block w-32 h-32  rounded-md border m-2 p-2 flex items-center justify-center">
+    @if($fixing)
+        <div class="absolute rotate-45 bg-gray-200  w-full text-center top-2 -right-10 font-bold uppercase text-sm">fixing</div>
+    @endif
     <div >
         <div class="flex justify-center">
             <img src="{{$icon}}" alt="" x-bind:class="{'animate-bounce':isHover}">

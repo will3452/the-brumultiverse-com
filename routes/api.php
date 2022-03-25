@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ApiAuthenticationController;
+use App\Models\PaymentTransaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +15,11 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+Route::post('/dragonpay-postback', function (Request $request) {
+     $transaction = PaymentTransaction::whereTxnid($request->txnid)->first();
+     $transaction->update(['status' => PaymentTransaction::STATUSES[$request->status]]);
+     return 'result=OK';
+});
 
 //private access
 Route::middleware('auth:sanctum')->group(function () {

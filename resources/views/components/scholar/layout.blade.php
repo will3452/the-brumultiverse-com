@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{config('app.name')}}</title>
+    <title>BRUMULTIVERSE</title>
     <link rel="stylesheet" href="/css/app.css"/>
     <link rel="stylesheet" href="/vendor/pace/flash.css">
     <script src="/js/app.js"></script>
     @stack('head-style')
     @stack('head-script')
 </head>
-<body>
+<body class="relative">
     <x-scholar.navbar></x-scholar.navbar>
     @if (session()->has('success'))
         <x-scholar.alert-success>
@@ -32,6 +32,7 @@
             {{$slot}}
         </x-scholar.container>
     </div>
+    <x-dev.bug-reporter/>
     <script data-pace-options='{ "ajax": false }' src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
     @stack('body-script')
 </body>

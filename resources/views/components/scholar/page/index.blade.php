@@ -1,8 +1,10 @@
-@props(['creationLink' => '#', 'title' => 'Work', 'model' => [], 'type'=>null, 'data' => 'books', 'view' => 'scholar.book.index'])
+@props(['creationLink' => null, 'title' => 'Work', 'model' => [], 'type'=>null, 'data' => 'books', 'view' => 'scholar.book.index'])
 <div class="items-center justify-between hidden md:flex">
-    <div class="items-center flex justify-between md:justify-start sm:w-full md:w-1/2">
-        <a href="{{$creationLink}}" class="btn btn-primary btn-sm mx-2 capitalize">create new</a>
-    </div>
+    @if (! is_null($creationLink))
+        <div class="items-center flex justify-between md:justify-start sm:w-full md:w-1/2">
+            <a href="{{$creationLink}}" class="btn btn-primary btn-sm mx-2 capitalize">create new</a>
+        </div>
+    @endif
     @if ($type != null)
     <form action="{{route('scholar.search')}}" class="flex hidden md:block">
         <input type="hidden" name="model" value="{{$type}}">
@@ -28,6 +30,8 @@
 {{$slot}}
 
 <x-scholar.empty-index :data="$model"/>
-<div class="fixed bottom-2 right-2 md:hidden">
-    <a href="{{$creationLink}}" class="btn btn-primary btn-sm">create new</a>
-</div>
+@if (! is_null($creationLink))
+    <div class="fixed bottom-2 right-2 md:hidden">
+        <a href="{{$creationLink}}" class="btn btn-primary btn-sm">create new</a>
+    </div>
+@endif

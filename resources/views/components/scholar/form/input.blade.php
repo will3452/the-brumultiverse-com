@@ -4,10 +4,12 @@
         <span class="label-text">
                 {{$label}}
                 @if ($required)
-                <span class="text-red-600">
-                    *
-                </span>
-            @endif
+                    <span class="text-red-600">
+                        *
+                    </span>
+                @else
+                    <span class="text-sm">(optional)</span>
+                @endif
         </span>
     </label>
     <input

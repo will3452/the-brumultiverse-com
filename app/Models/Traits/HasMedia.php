@@ -8,6 +8,6 @@ trait HasMedia
 {
     public function media()
     {
-            $this->morphMany(Media::class, 'mediable');
+        return $this->morphMany(Media::class, 'mediable');
     }
 }

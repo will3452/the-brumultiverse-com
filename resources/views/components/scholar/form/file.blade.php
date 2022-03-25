@@ -3,10 +3,12 @@
     <label class="label">
         <span class="label-text">
                 {{$label}}
-                @if ($required)
+            @if ($required)
                 <span class="text-red-600">
                     *
                 </span>
+            @else
+            <span class="text-sm">(optional)</span>
             @endif
         </span>
     </label>

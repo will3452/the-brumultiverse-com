@@ -3,8 +3,10 @@
 namespace App\Models;
 
 use App\Models\Traits\HasChat;
-use App\Models\Traits\ScholarTrait;
+use App\Models\Traits\HasMarket;
+use App\Models\Traits\HasPaymentTransactions;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Traits\ScholarTrait;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -13,12 +15,15 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens,
+    use HasMarket,
+        HasPaymentTransactions,
+        HasApiTokens,
         HasFactory,
         Notifiable,
         HasChat,
         ScholarTrait,
         HasRoles;
+
     protected $with = [
         // 'accounts',
     ];

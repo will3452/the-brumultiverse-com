@@ -17,21 +17,28 @@ use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ChangelogController;
+use App\Http\Controllers\Developer\BugController;
 use App\Http\Controllers\FileUploaderController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\Scholar\BookController;
 use App\Http\Controllers\Scholar\HomeController;
 use App\Http\Controllers\Scholar\ChapterController;
 use App\Http\Controllers\EmailVerificationController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\Scholar\AnnexController;
 use App\Http\Controllers\Scholar\ArtSceneController;
 use App\Http\Controllers\Scholar\AudioBookController;
+use App\Http\Controllers\Scholar\BulletinController;
 use App\Http\Controllers\Scholar\EventsController;
 use App\Http\Controllers\Scholar\FilmController;
+use App\Http\Controllers\Scholar\MarketingController;
 use App\Http\Controllers\Scholar\NotificationController;
+use App\Http\Controllers\Scholar\PaymentTransactionController;
 use App\Http\Controllers\Scholar\PodcastController;
 use App\Http\Controllers\Scholar\ProfileController;
 use App\Http\Controllers\Scholar\SearchController;
 use App\Http\Controllers\Scholar\SongController;
+use App\Supports\PaymentSupport;
 
 //changelog
 Route::get('/changelog/create', [ChangelogController::class, 'create'])->middleware(['auth.basic']);
@@ -192,6 +199,32 @@ Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function
         Route::put('/{event}', [EventsController::class, 'update'])->name('update');
         Route::post('/request-for-approval/{event}', [EventsController::class, 'requestForApproval'])->name('request-to-approve');
     });
+
+    Route::prefix('bulletins')->name('bulletin.')->group(function () {
+        Route::get('/', [BulletinController::class, 'index'])->name('index');
+        Route::get('/create', [BulletinController::class, 'create'])->name('create');
+        Route::post('/', [BulletinController::class, 'store'])->name('store');
+        Route::get('/{bulletin}', [BulletinController::class, 'show'])->name('show');
+        Route::put('/{bulletin}', [BulletinController::class, 'update'])->name('update');
+    });
+
+    // marketing save
+    Route::prefix('marketings')->name('marketing.')->group(function () {
+        Route::post('/save', [MarketingController::class, 'save'])->name('save');
+    });
+
+    Route::prefix('transactions')->name('transaction.')->group(function () {
+        Route::get('/', [PaymentTransactionController::class, 'getAllTransactions'])->name('index');
+    });
 });
 
-Route::get('/test', fn () => 'hello world');
+//misc
+Route::get('get-annex', [AnnexController::class, 'getAnnex']);
+
+//payment
+Route::post('/create-payment', [PaymentController::class, 'createPayment']);
+Route::get('/payment-result', [PaymentController::class, 'result']);
+
+
+//bug submit
+Route::post('/bug-submit', [BugController::class, 'store'])->name('submit.bug');

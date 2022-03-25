@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Package extends Model
 {
@@ -30,4 +31,11 @@ class Package extends Model
         self::TYPE_LOADING_IMAGE => self::TYPE_LOADING_IMAGE,
         self::TYPE_NEWSPAPER => self::TYPE_NEWSPAPER,
     ];
+
+    public function getNameAttribute()
+    {
+        $day = $this->number_of_days > 1 ? Str::plural('day') : 'day';
+        $cost = number_format($this->cost, 2);
+        return "$this->number_of_days $day - $cost";
+    }
 }

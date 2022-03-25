@@ -8,6 +8,9 @@
         </div>
     </div>
     <input type="file" name="{{$name}}" required/>
+    <div class="text-xs mb-4">
+        Please click the arrow button on the right to upload.
+    </div>
     <x-scholar.form.copyright-disclaimer/>
 </div>
 
