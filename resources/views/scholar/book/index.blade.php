@@ -32,8 +32,10 @@
             </div>
         @else
                 @foreach ($accounts as $account)
-                    <div class="mt-2">
-                        <h2 class="font-bold tracking-wider">{{$account->penname}}</h2>
+                    <div class="mt-4">
+                        <div class="mb-4">
+                            <x-scholar.material-title icon="/img/icons/dashboard/user.svg" :title="$account->penname" />
+                        </div>
                         <div class=" my-1 flex flex-wrap justify-start">
                             @foreach ($account->books as $b)
                                 <x-scholar.work-card href="{{route('scholar.book.show', ['book' => $b->id])}}" cover="{{optional($b->cover)->getSize()}}">
