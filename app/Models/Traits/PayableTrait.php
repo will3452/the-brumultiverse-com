@@ -4,7 +4,7 @@ namespace App\Models\Traits;
 
 use App\Models\PaymentTransaction;
 
-trait IsPayable
+trait PayableTrait
 {
     public function transactions()
     {
