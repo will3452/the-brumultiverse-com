@@ -44,7 +44,7 @@ class ChapterController extends Controller
         }
 
         //set the cost_type
-        $data['cost_type'] = Chapter::DEFAULT_COST_TYPE;
+        $data['cost_type'] = $request->cost_type ?? Chapter::DEFAULT_COST_TYPE;
 
         $book->chapters()->create($data);
 
