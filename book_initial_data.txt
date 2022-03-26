@@ -1,0 +1,22 @@
+"category" => [
+    "Novel",
+    "Short Story",
+    "Graphic Novel",
+    "Anthology",
+    "Poetry",
+    "Children's Book",
+    "Photobook",
+    "Coffee Table Book",
+    "Reference",
+]
+"genre" => [
+    "Teen Fiction / Young Adult",
+    "New Adult",
+    "Romance",
+    "LGBTQIA+",
+    "Contemporary and Mainstream",
+    "Action and Adventure",
+    "Detective and Mystery",
+    "Thriller and Horror",
+    "Historical",
+],

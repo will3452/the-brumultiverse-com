@@ -70,7 +70,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     const GENDER_MALE = 'Male';
     const GENDER_FEMALE = 'Female';
-    const GENDER_LGBT = 'LGBT';
+    const GENDER_LGBT = 'Non-Binary';
 
     public function isScholar(): bool
     {
