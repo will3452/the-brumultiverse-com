@@ -1,6 +1,6 @@
 <x-scholar.layout>
     <x-scholar.page.title>
-        Bulletin
+        Sliding Banner
     </x-scholar.page.title>
     <x-chat.breadcrumbs
         :links="
@@ -11,17 +11,17 @@
                 ],
                 [
                     'href' => '#',
-                    'label' => 'Bulletins',
+                    'label' => 'Sliding Banners',
                 ]
             ]
         "
     />
     <x-scholar.page.index
-    data="bulletins"
-    view="scholar.bulletin.index"
-    :model="$bulletins"
-    :creation-link="route('scholar.bulletin.create')"
-    title="Bulletins"
+    data="slidingBanners"
+    view="scholar.sliding-banner.index"
+    :model="$slidingBanners"
+    :creation-link="route('scholar.sliding-banner.create')"
+    title="Sliding Banners"
     >
         <x-scholar.table>
             <thead>
@@ -44,22 +44,22 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($bulletins as $b)
+                @foreach ($slidingBanners as $m)
                     <tr>
                         <td>
-                            {{$b->package->name}}
+                            {{$m->package->name}}
                         </td>
                         <td>
-                            {{$b->status}}
+                            {{$m->status}}
                         </td>
                         <td>
-                            {{$b->scheduled_at->format('m/d/y')}}
+                            {{$m->scheduled_at->format('m/d/y')}}
                         </td>
                         <td>
-                            {{$b->wasPaid() ? 'yes' : 'no'}}
+                            {{$m->wasPaid() ? 'yes' : 'no'}}
                         </td>
                         <td>
-                            <a href="{{route('scholar.bulletin.show', ['bulletin' => $b->id])}}"  class="underline underline-offset-1">
+                            <a href="{{route('scholar.sliding-banner.show', ['slidingBanner' => $m->id])}}"  class="underline underline-offset-1">
                                 show
                             </a>
                         </td>

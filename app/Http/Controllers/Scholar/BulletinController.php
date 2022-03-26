@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Scholar;
 
-use App\Helpers\FileHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Bulletin;
 use App\Models\Package;

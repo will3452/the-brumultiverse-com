@@ -15,32 +15,33 @@ use App\Http\Controllers\ChatController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\LibraryController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ChangelogController;
-use App\Http\Controllers\Developer\BugController;
 use App\Http\Controllers\FileUploaderController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\Scholar\BookController;
-use App\Http\Controllers\Scholar\HomeController;
-use App\Http\Controllers\Scholar\ChapterController;
-use App\Http\Controllers\EmailVerificationController;
-use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\Scholar\AnnexController;
-use App\Http\Controllers\Scholar\ArtSceneController;
-use App\Http\Controllers\Scholar\AudioBookController;
-use App\Http\Controllers\Scholar\BulletinController;
-use App\Http\Controllers\Scholar\EventsController;
 use App\Http\Controllers\Scholar\FilmController;
-use App\Http\Controllers\Scholar\FreeArtSceneController;
-use App\Http\Controllers\Scholar\MarketingController;
-use App\Http\Controllers\Scholar\NotificationController;
-use App\Http\Controllers\Scholar\PaymentTransactionController;
+use App\Http\Controllers\Scholar\HomeController;
+use App\Http\Controllers\Scholar\SongController;
+use App\Http\Controllers\Developer\BugController;
+use App\Http\Controllers\Scholar\AnnexController;
+use App\Http\Controllers\Scholar\EventsController;
+use App\Http\Controllers\Scholar\SearchController;
+use App\Http\Controllers\Scholar\ChapterController;
+use App\Http\Controllers\Scholar\MarqueeController;
 use App\Http\Controllers\Scholar\PodcastController;
 use App\Http\Controllers\Scholar\ProfileController;
+use App\Http\Controllers\Scholar\ArtSceneController;
+use App\Http\Controllers\Scholar\BulletinController;
+use App\Http\Controllers\EmailVerificationController;
+use App\Http\Controllers\Scholar\AudioBookController;
+use App\Http\Controllers\Scholar\MarketingController;
+use App\Http\Controllers\Scholar\FreeArtSceneController;
+use App\Http\Controllers\Scholar\NotificationController;
+use App\Http\Controllers\Scholar\SlidingBannerController;
 use App\Http\Controllers\Scholar\RequestToPublishController;
-use App\Http\Controllers\Scholar\SearchController;
-use App\Http\Controllers\Scholar\SongController;
-use App\Supports\PaymentSupport;
+use App\Http\Controllers\Scholar\PaymentTransactionController;
 
 //changelog
 Route::get('/changelog/create', [ChangelogController::class, 'create'])->middleware(['auth.basic']);
@@ -219,6 +220,22 @@ Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function
         Route::post('/', [BulletinController::class, 'store'])->name('store');
         Route::get('/{bulletin}', [BulletinController::class, 'show'])->name('show');
         Route::put('/{bulletin}', [BulletinController::class, 'update'])->name('update');
+    });
+
+    Route::prefix('marquees')->name('marquee.')->group(function () {
+        Route::get('/', [MarqueeController::class, 'index'])->name('index');
+        Route::get('/create', [MarqueeController::class, 'create'])->name('create');
+        Route::post('/', [MarqueeController::class, 'store'])->name('store');
+        Route::get('/{marquee}', [MarqueeController::class, 'show'])->name('show');
+        Route::put('/{marquee}', [MarqueeController::class, 'update'])->name('update');
+    });
+
+    Route::prefix('sliding-banners')->name('sliding-banner.')->group(function () {
+        Route::get('/', [SlidingBannerController::class, 'index'])->name('index');
+        Route::get('/create', [SlidingBannerController::class, 'create'])->name('create');
+        Route::post('/', [SlidingBannerController::class, 'store'])->name('store');
+        Route::get('/{slidingBanner}', [SlidingBannerController::class, 'show'])->name('show');
+        Route::put('/{slidingBanner}', [SlidingBannerController::class, 'update'])->name('update');
     });
 
     // marketing save

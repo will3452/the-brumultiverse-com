@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\Helpers\FileHelper;
 use Illuminate\Http\Request;
+use App\Models\Traits\HasMedia;
 use App\Models\Traits\HasPackage;
 use App\Models\Traits\PayableTrait;
 use App\Models\Traits\BelongsToUser;
@@ -10,19 +12,19 @@ use App\Models\Traits\MarketingTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Marquee extends Model
+class SlidingBanner extends Model
 {
     use HasFactory,
         PayableTrait,
         HasPackage,
         MarketingTrait,
-        BelongsToUser;
+        BelongsToUser,
+        HasMedia;
 
     protected $fillable = [
         'user_id',
         'package_id',
         'scheduled_at',
-        'content',
         'status',
     ];
 
@@ -33,7 +35,16 @@ class Marquee extends Model
     public static function processToCreate($data, Request $request)
     {
         $data['user_id'] = auth()->id();
-        $marquee = self::create($data);
-        return $marquee;
+        $slideBanner = self::create($data);
+
+        if ($request->has('file')) {
+            $file = FileHelper::save($request->file);
+            $slideBanner->media()->create([
+                'path' => $file,
+                'copyright_disclaimer' => true,
+            ]);
+        }
+        return $slideBanner;
     }
+
 }
