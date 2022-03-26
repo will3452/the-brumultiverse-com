@@ -86,7 +86,7 @@
                     {{$book->blurb}}
                 </x-scholar.form.ckeditor>
 
-                <x-scholar.form.number readonly="true" name="cost" value="{{$book->cost}}" label="Cost" help="Please note that leaving the cost of your book in 0 will allow free access to readers, so long as they have hall passes or silver tickets. Please indicate price in CRYSTALS."/>
+                <x-scholar.form.number readonly="true" name="cost" value="{{$book->cost}}" label="Cost" />
 
                 <x-scholar.form.ckeditor name="credit" label="Credit Page">
                     {{$book->credit}}
