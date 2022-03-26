@@ -11,7 +11,7 @@
 </div> --}}
 <a href="{{$fixing ? '#' : $href}}" x-data="{isHover:false}" x-on:mouseover="isHover = true" x-on:mouseout="isHover = false" class="overflow-hidden relative hover:shadow-xl block w-32 h-32  rounded-md border m-2 p-2 flex items-center justify-center">
     @if($fixing)
-        <div class="absolute rotate-45 bg-gray-200  w-full text-center top-2 -right-10 font-bold uppercase text-sm">fixing</div>
+        <div class="absolute rotate-45 bg-base-200  w-full text-center top-2 -right-10 font-bold uppercase text-sm">fixing</div>
     @endif
     <div >
         <div class="flex justify-center">

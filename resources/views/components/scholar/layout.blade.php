@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en"  data-theme="fantasy">
+{{-- <html lang="en"  data-theme="cyberpunk"> --}}
+{{-- <html lang="en"  data-theme="lofi"> --}}
+{{-- <html lang="en"  data-theme="winter"> --}}
+{{-- <html lang="en"  data-theme="pastel"> --}}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

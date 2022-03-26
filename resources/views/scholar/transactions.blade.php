@@ -38,6 +38,7 @@
                 <th>
                     Date
                 </th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -57,6 +58,11 @@
                     </td>
                     <td>
                         {{$t->created_at->format('m/d/y h:i A')}}
+                    </td>
+                    <td>
+                        <a href="javascript:alert('waiting for template')" class="btn btn-ghost btn-sm">
+                            <img src="/img/icons/dashboard/printer.svg" alt="">
+                        </a>
                     </td>
                 </tr>
             @endforeach

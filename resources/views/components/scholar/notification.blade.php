@@ -1,5 +1,5 @@
 @props(['time'=>'', 'model' => null])
-<a class=" bg-white shadow border rounded p-4 flex block mt-1" href="{{route('scholar.notification.mark-as-read', ['id' => $model->id])}}">
+<a class=" bg-base-100 shadow border-primary rounded p-4 flex block mt-1" href="{{route('scholar.notification.mark-as-read', ['id' => $model->id])}}">
     @if ($model->read_at === null)
         <span class="badge-xs badge badge-primary animate-pulse"></span>
     @endif
