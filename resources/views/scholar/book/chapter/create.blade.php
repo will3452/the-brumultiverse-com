@@ -41,7 +41,7 @@
             :value="count($book->chapters) === 0 ? 1 : $book->chapters()->latest()->first()->number + 1"
             name="number"
             label="Chapter No."
-            :help="count($book->chapters) === 0 ? 'This will be the 1st chapter of this book.' : 'Last chapter ' . $book->chapters()->latest()->first()->number" />
+            :help="count($book->chapters) === 0 ? 'This will be the 1st chapter of this book.' : 'Previous Chapter :' . $book->chapters()->latest()->first()->number" />
             @if ($fileType === \App\Models\Category::FILE_TYPE_TEXT)
                 <x-scholar.form.ckeditor label="Content" name="content"/>
             @endif

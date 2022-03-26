@@ -31,6 +31,7 @@ use App\Http\Controllers\Scholar\AudioBookController;
 use App\Http\Controllers\Scholar\BulletinController;
 use App\Http\Controllers\Scholar\EventsController;
 use App\Http\Controllers\Scholar\FilmController;
+use App\Http\Controllers\Scholar\FreeArtSceneController;
 use App\Http\Controllers\Scholar\MarketingController;
 use App\Http\Controllers\Scholar\NotificationController;
 use App\Http\Controllers\Scholar\PaymentTransactionController;
@@ -189,6 +190,12 @@ Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function
         Route::post('/', [PodcastController::class, 'store'])->name('store');
         Route::get('/{podcast}', [PodcastController::class, 'show'])->name('show');
         Route::put('/{podcast}', [PodcastController::class, 'update'])->name('update');
+    });
+
+    //free art_scene
+    Route::prefix('free')->name('free.')->group(function () {
+        Route::post('art-scene', [FreeArtSceneController::class, 'addFreeArtScene'])
+            ->name('art-scene');
     });
 
     Route::prefix('events')->name('event.')->group(function () {

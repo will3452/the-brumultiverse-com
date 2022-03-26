@@ -25,7 +25,7 @@
         <div class="mt-4 flex flex-wrap justify-start">
             @foreach ($artScenes as $a)
                 <x-scholar.work-card href="{{route('scholar.artscene.show', ['art' => $a->id])}}" cover="{{optional($a->artFile)->getSize()}}">
-                    {{$a->title}}z
+                    {{$a->title}}
                 </x-scholar.work-card>
             @endforeach
         </div>

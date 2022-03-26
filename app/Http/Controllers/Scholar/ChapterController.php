@@ -26,7 +26,8 @@ class ChapterController extends Controller
     }
     public function show(Chapter $chapter)
     {
-        return view('scholar.book.chapter.show', compact('chapter'));
+        $artScenes = auth()->user()->artScenes;
+        return view('scholar.book.chapter.show', compact('chapter', 'artScenes'));
     }
 
     public function create(Book $book)

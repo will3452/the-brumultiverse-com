@@ -3,12 +3,14 @@
 namespace App\Models;
 
 use App\Helpers\CrystalHelper;
+use App\Models\Traits\HasFreeArtScenes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Chapter extends Model
 {
-    use HasFactory;
+    use HasFactory,
+        HasFreeArtScenes;
 
     protected $fillable = [
         'model_id',
@@ -35,6 +37,11 @@ class Chapter extends Model
         self::TYPE_SPECIAL,
         // self::TYPE_PREMIUM_WITH_FREE_ART_SCENE,
     ];
+
+    public function isPremium()
+    {
+        return $this->type === self::TYPE_PREMIUM;
+    }
 
     const DEFAULT_COST_TYPE = CrystalHelper::HALL_PASS;
 

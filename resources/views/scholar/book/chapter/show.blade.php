@@ -73,7 +73,35 @@
             </form>
         </div>
         <div class="w-full md:w-4/12 p-4">
-
+            @if ($chapter->isPremium() && ! $chapter->hasArtScene())
+                <x-scholar.modal button="Add Free Art Scene">
+                    <form action="{{route('scholar.free.art-scene')}}" method="POST">
+                        @csrf
+                        <input type="hidden" name="type" value="Chapter">
+                        <input type="hidden" name="id" value="{{$chapter->id}}">
+                        <x-scholar.form.select name="art_scene_id" label="Select Art Scene">
+                            @foreach ($artScenes as $a)
+                                <option value="{{$a->id}}">
+                                    {{$a->title}}
+                                </option>
+                            @endforeach
+                        </x-scholar.form.select>
+                        <x-scholar.form.submit>
+                            Submit
+                        </x-scholar.form.submit>
+                    </form>
+                </x-scholar.modal>
+            @endif
+            @if ($chapter->isPremium() && $chapter->hasArtScene())
+                <div>
+                    <div class="mb-2">
+                        <x-scholar.material-title icon="/img/icons/dashboard/image.svg" title="Free Art Scene"/>
+                    </div>
+                    <x-scholar.work-card href="{{route('scholar.artscene.show', ['art' => $chapter->freeArtScene()->id])}}" cover="{{optional($chapter->freeArtScene()->artFile)->getSize()}}">
+                        {{$chapter->freeArtScene()->title}}
+                    </x-scholar.work-card>
+                </div>
+            @endif
         </div>
     </div>
 
