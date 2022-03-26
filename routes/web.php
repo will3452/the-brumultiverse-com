@@ -37,7 +37,9 @@ use App\Http\Controllers\Scholar\BulletinController;
 use App\Http\Controllers\EmailVerificationController;
 use App\Http\Controllers\Scholar\AudioBookController;
 use App\Http\Controllers\Scholar\MarketingController;
+use App\Http\Controllers\Scholar\NewspaperController;
 use App\Http\Controllers\Scholar\FreeArtSceneController;
+use App\Http\Controllers\Scholar\LoadingImageController;
 use App\Http\Controllers\Scholar\NotificationController;
 use App\Http\Controllers\Scholar\SlidingBannerController;
 use App\Http\Controllers\Scholar\RequestToPublishController;
@@ -222,12 +224,28 @@ Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function
         Route::put('/{bulletin}', [BulletinController::class, 'update'])->name('update');
     });
 
+    Route::prefix('newspapers')->name('newspaper.')->group(function () {
+        Route::get('/', [NewspaperController::class, 'index'])->name('index');
+        Route::get('/create', [NewspaperController::class, 'create'])->name('create');
+        Route::post('/', [NewspaperController::class, 'store'])->name('store');
+        Route::get('/{newspaper}', [NewspaperController::class, 'show'])->name('show');
+        Route::put('/{newspaper}', [NewspaperController::class, 'update'])->name('update');
+    });
+
     Route::prefix('marquees')->name('marquee.')->group(function () {
         Route::get('/', [MarqueeController::class, 'index'])->name('index');
         Route::get('/create', [MarqueeController::class, 'create'])->name('create');
         Route::post('/', [MarqueeController::class, 'store'])->name('store');
         Route::get('/{marquee}', [MarqueeController::class, 'show'])->name('show');
         Route::put('/{marquee}', [MarqueeController::class, 'update'])->name('update');
+    });
+
+    Route::prefix('loading-images')->name('loading-image.')->group(function () {
+        Route::get('/', [LoadingImageController::class, 'index'])->name('index');
+        Route::get('/create', [LoadingImageController::class, 'create'])->name('create');
+        Route::post('/', [LoadingImageController::class, 'store'])->name('store');
+        Route::get('/{loadingImage}', [LoadingImageController::class, 'show'])->name('show');
+        Route::put('/{loadingImage}', [LoadingImageController::class, 'update'])->name('update');
     });
 
     Route::prefix('sliding-banners')->name('sliding-banner.')->group(function () {
