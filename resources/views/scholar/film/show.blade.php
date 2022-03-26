@@ -20,9 +20,8 @@
     />
     <div class="flex md:flex-wrap flex-wrap-reverse">
         <div class="w-full md:w-8/12">
-            <form action="{{route('scholar.film.update', ['film' => $film->id])}}" method="POST" enctype="multipart/form-data">
-                @csrf
-                @method('PUT')
+
+            <x-scholar.page.update :editable="! $film->hasPublishedDate()" :update-link="route('scholar.film.update', ['film' => $film->id])">
 
                 <x-scholar.form.input label="Title" name="title" value="{{$film->title}}"/>
 
@@ -73,11 +72,7 @@
                 <x-scholar.form.number readonly name="cost" value="{{$film->cost}}" label="Cost"/>
 
                 <x-scholar.form.ckeditor name="credit" label="Credit Page">{{$film->credit}}</x-scholar.form.ckeditor>
-
-                <x-scholar.form.submit>
-                    Update
-                </x-scholar.form.submit>
-            </form>
+            </x-scholar.page.update>
         </div>
         <div class="w-full md:w-4/12 p-4">
             <div class="flex justify-center">
@@ -89,9 +84,7 @@
             </div>
 
             <div class="flex justify-center mt-4 flex-wrap items-center">
-                <x-scholar.modal extra="btn-sm" button="request to publish">
-                    <x-scholar.request-publish-form :model="$film"/>
-                </x-scholar.modal>
+                <x-scholar.request-publish-form :model="$film"/>
             </div>
         </div>
     </div>

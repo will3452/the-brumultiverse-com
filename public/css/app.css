@@ -3796,6 +3796,9 @@ body[dir="rtl"] .checkbox:checked,
 .bottom-8 {
   bottom: 2rem;
 }
+.top-1 {
+  top: 0.25rem;
+}
 .z-20 {
   z-index: 20;
 }
@@ -4640,6 +4643,18 @@ body[dir="rtl"] .checkbox:checked,
 .brightness-125 {
   --tw-brightness: brightness(1.25);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+.duration-300 {
+  transition-duration: 300ms;
+}
+.duration-200 {
+  transition-duration: 200ms;
+}
+.duration-100 {
+  transition-duration: 100ms;
+}
+.ease-in {
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
 
 * {

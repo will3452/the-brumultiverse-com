@@ -25,9 +25,12 @@
     @endif
     <div class="flex md:flex-wrap flex-wrap-reverse">
         <div class="w-full md:w-8/12">
-            <form action="{{route('scholar.book.update', ['book' => $book->id])}}" method="POST" enctype="multipart/form-data">
+            <form action="{{}}" method="POST" >
                 @method('PUT')
                 @csrf
+
+            </form>
+            <x-scholar.page.update :editable="! $book->hasPublishedDate()" :update-link="route('scholar.book.update', ['book' => $book->id])">
                 <x-scholar.form.select name="type" label="Book Type" readonly="true">
                     <option {{$book->type === \App\Models\Book::TYPE_REGULAR ? 'selected':''}} value="{{\App\Models\Book::TYPE_REGULAR}}">{{\App\Models\Book::TYPE_REGULAR}}</option>
                     <option {{$book->type === \App\Models\Book::TYPE_PREMIUM ? 'selected':''}} value="{{\App\Models\Book::TYPE_PREMIUM}}">{{\App\Models\Book::TYPE_PREMIUM}}</option>
@@ -88,10 +91,7 @@
                 <x-scholar.form.ckeditor name="credit" label="Credit Page">
                     {{$book->credit}}
                 </x-scholar.form.ckeditor>
-                <x-scholar.form.submit>
-                    Update
-                </x-scholar.form.submit>
-            </form>
+            </x-scholar.page.update>
         </div>
         <div class="w-full md:w-4/12 p-4">
             <div class="flex justify-center">
@@ -99,9 +99,7 @@
             </div>
             <div class="flex justify-center mt-4 flex-wrap items-center">
                 <a href="{{route('scholar.book.chapters', ['book' => $book->id])}}" class="btn btn-primary btn-sm m-2">View all chapters.</a>
-                <x-scholar.modal extra="btn-sm" button="request to publish">
-                    <x-scholar.request-publish-form :model="$book"/>
-                </x-scholar.modal>
+                <x-scholar.request-publish-form :model="$book"/>
                 {{-- <x-scholar.modal extra="btn-sm btn-warning" button="Send ticket">
                     Send Ticket
                 </x-scholar.modal> --}}

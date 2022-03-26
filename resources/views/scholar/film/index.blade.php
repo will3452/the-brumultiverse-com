@@ -24,7 +24,7 @@
     :model="$films" :creation-link="route('scholar.film.create')" title="My Films">
         <div class="mt-4 flex flex-wrap justify-start">
             @foreach ($films as $f)
-                <x-scholar.work-card href="{{route('scholar.film.show', ['film' => $f->id])}}" cover="{{optional($f->cover)->getSize()}}">
+                <x-scholar.work-card published="{{! is_null($f->published_at)}}" href="{{route('scholar.film.show', ['film' => $f->id])}}" cover="{{optional($f->cover)->getSize()}}">
                     {{$f->title}}
                 </x-scholar.work-card>
             @endforeach

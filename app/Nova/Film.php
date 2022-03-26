@@ -92,7 +92,7 @@ class Film extends Resource
                             ModelsFilm::TYPE_TRAILER => ModelsFilm::TYPE_TRAILER,
                         ])
                         ->rules(['required']),
-                    Text::make('Genre', fn () => $this->genre->name)
+                    Text::make('Genre', fn () => optional($this->genre)->name)
                         ->exceptOnForms(),
                     Select::make('Genre', 'genre_id')
                         ->onlyOnForms()

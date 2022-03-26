@@ -18,6 +18,10 @@ class NotificationController extends Controller
         $not = auth()->user()->notifications()->find($id);
         $not->markAsRead();
 
+        if ($not->data['url'] === '#') {
+            return back();
+        }
+
         return redirect($not->data['url']);
     }
 }

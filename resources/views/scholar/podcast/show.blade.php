@@ -20,9 +20,8 @@
     />
     <div class="flex md:flex-wrap flex-wrap-reverse">
         <div class="w-full md:w-8/12">
-            <form action="{{route('scholar.podcast.update', ['podcast' => $podcast->id])}}" method="POST" enctype="multipart/form-data">
-                @method('PUT')
-                @csrf
+
+            <x-scholar.page.update :editable="! $podcast->hasPublishedDate()" :update-link="route('scholar.podcast.update', ['podcast' => $podcast->id])">
 
                 <x-scholar.form.input label="Title" name="title" :value="$podcast->title"/>
 
@@ -53,11 +52,7 @@
                 </x-scholar.form.ckeditor>
 
                 <x-scholar.form.input label="Launch Date" name="launch_at" value="{{$podcast->launch_at->format('m/d/y')}}" readonly/>
-
-                <x-scholar.form.submit>
-                    Update
-                </x-scholar.form.submit>
-            </form>
+            </x-scholar.page.update>
         </div>
         <div class="w-full md:w-4/12 p-4">
             <div class="flex justify-center">
@@ -66,9 +61,7 @@
 
             <x-scholar.audio-player src="/storage/{{$podcast->largeFile->path}}"/>
             <div class="flex justify-center mt-4 flex-wrap items-center">
-                <x-scholar.modal extra="btn-sm" button="request to publish">
-                    <x-scholar.request-publish-form :model="$podcast"/>
-                </x-scholar.modal>
+                <x-scholar.request-publish-form :model="$podcast"/>
                 {{-- <x-scholar.modal extra="btn-sm btn-warning" button="Send ticket">
                     Send Ticket
                 </x-scholar.modal> --}}

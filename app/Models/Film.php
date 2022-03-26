@@ -60,6 +60,11 @@ class Film extends Model implements TaggableInterface
         return $this->belongsTo(Genre::class);
     }
 
+    public function language()
+    {
+        return $this->belongsTo(Language::class);
+    }
+
     public static function processToCreate($r) // r === request
     {
         $film = self::create([

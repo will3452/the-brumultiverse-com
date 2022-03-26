@@ -25,7 +25,7 @@
         @if (request()->has('keyword'))
             <div class="mt-4 flex flex-wrap justify-start">
                 @foreach ($books as $b)
-                    <x-scholar.work-card href="{{route('scholar.book.show', ['book' => $b->id])}}" cover="{{optional($b->cover)->getSize()}}">
+                    <x-scholar.work-card published="{{! is_null($b->published_at)}}" href="{{route('scholar.book.show', ['book' => $b->id])}}" cover="{{optional($b->cover)->getSize()}}">
                         {{$b->title}}
                     </x-scholar.work-card>
                 @endforeach
@@ -38,7 +38,7 @@
                         </div>
                         <div class=" my-1 flex flex-wrap justify-start">
                             @foreach ($account->books as $b)
-                                <x-scholar.work-card href="{{route('scholar.book.show', ['book' => $b->id])}}" cover="{{optional($b->cover)->getSize()}}">
+                                <x-scholar.work-card published="{{! is_null($b->published_at)}}" href="{{route('scholar.book.show', ['book' => $b->id])}}" cover="{{optional($b->cover)->getSize()}}">
                                     {{$b->title}}
                                 </x-scholar.work-card>
                             @endforeach
