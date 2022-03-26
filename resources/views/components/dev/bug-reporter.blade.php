@@ -3,7 +3,7 @@
 @endphp
     <x-scholar.modal no-button="1" id="report-form">
         <x-slot name="trigger">
-            <label for="report-form" class="btn btn-accent btn-xs fixed bottom-2 right-2 font-bold">Report Bug Here ({{count($bugs)}})</label>
+            <label for="report-form" class="btn btn-accent btn-xs fixed bottom-2 right-2 font-bold">Report Bug({{count($bugs)}})</label>
         </x-slot>
         <form action="{{route('submit.bug')}}" method="POST">
             @csrf

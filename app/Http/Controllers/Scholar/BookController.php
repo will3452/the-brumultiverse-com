@@ -52,7 +52,8 @@ class BookController extends Controller
     public function index()
     {
         $books = auth()->user()->books;
-        return view('scholar.book.index', compact('books'));
+        $accounts = auth()->user()->accounts()->whereNotNull('approved_at')->whereHas('books')->get();
+        return view('scholar.book.index', compact('books', 'accounts'));
     }
 
     public function create()

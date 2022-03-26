@@ -1,8 +1,8 @@
 @props(['creationLink' => null, 'title' => 'Work', 'model' => [], 'type'=>null, 'data' => 'books', 'view' => 'scholar.book.index'])
-<div class="items-center justify-between hidden md:flex">
+<div class="items-center justify-between hidden md:flex mt-2">
     @if (! is_null($creationLink))
         <div class="items-center flex justify-between md:justify-start sm:w-full md:w-1/2">
-            <a href="{{$creationLink}}" class="btn btn-primary btn-sm mx-2 capitalize">create new</a>
+            <a href="{{$creationLink}}" class="btn btn-primary btn-sm capitalize tracking-widest">create new</a>
         </div>
     @endif
     @if ($type != null)

@@ -17,7 +17,6 @@
             ]
         "
     />
-
     <x-scholar.page.index
     :model="$transactions"
     data="transactions">
@@ -64,5 +63,4 @@
         </tbody>
     </x-scholar.table>
     </x-scholar.page.index>
-
 </x-scholar.layout>
