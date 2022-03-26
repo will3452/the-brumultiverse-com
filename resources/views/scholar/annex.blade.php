@@ -12,7 +12,7 @@
                 <table class="w-full border text-left">
                     <tr>
                         <th class="border">Category</th>
-                        <td class="border">{{$model->type()}}</td>
+                        <td class="border">{{\Str::headline($model->type())}}</td>
                     </tr>
                     <tr>
                         <th class="border">Schedule</th>

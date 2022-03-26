@@ -63,7 +63,7 @@
             @if ($slidingBanner->wasPaid() && $slidingBanner->notSaved())
                 <form action="{{route('scholar.marketing.save')}}" class="mt-2" method="POST">
                     @csrf
-                    <input type="hidden" value="Sliding Banner" name="type">
+                    <input type="hidden" value="SlidingBanner" name="type">
                     <input type="hidden" value="{{$slidingBanner->id}}" name="id">
                     <x-scholar.form.submit>
                         Save Now
