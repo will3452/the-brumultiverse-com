@@ -51,7 +51,7 @@ class BulletinController extends Controller
         $data = $this->customValidate($request);
 
         $bulletin = Bulletin::processToCreate($data, $request);
-        return redirect(route('scholar.bulletin.show', ['bulletin' => $bulletin]));
+        return redirect(route('scholar.bulletin.show', ['bulletin' => $bulletin]))->withSuccess('Created!');
     }
 
     public function update(Request $request, Bulletin $bulletin)

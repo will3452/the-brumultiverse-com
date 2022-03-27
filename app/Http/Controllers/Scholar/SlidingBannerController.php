@@ -52,7 +52,7 @@ class SlidingBannerController extends Controller
         $data = $this->customValidate($request);
 
         $slidingBanner = SlidingBanner::processToCreate($data, $request);
-        return redirect(route('scholar.sliding-banner.show', ['slidingBanner' => $slidingBanner]));
+        return redirect(route('scholar.sliding-banner.show', ['slidingBanner' => $slidingBanner]))->withSuccess('Created!');
     }
 
     public function update(Request $request, SlidingBanner $bulletin)
