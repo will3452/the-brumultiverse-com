@@ -17,8 +17,18 @@ use Illuminate\Support\Facades\Route;
 */
 Route::post('/dragonpay-postback', function (Request $request) {
      $transaction = PaymentTransaction::whereTxnid($request->txnid)->first();
-     $transaction->update(['status' => PaymentTransaction::STATUSES[$request->status]]);
+     if ($transaction) {
+        $transaction->update(['status' => PaymentTransaction::STATUSES[$request->status]]);
+    }
      return 'result=OK';
+});
+
+Route::put('/dragonpay-postback', function (Request $request) {
+    $transaction = PaymentTransaction::whereTxnid($request->txnid)->first();
+    if ($transaction) {
+        $transaction->update(['status' => PaymentTransaction::STATUSES[$request->status]]);
+    }
+    return 'result=OK';
 });
 
 //private access
