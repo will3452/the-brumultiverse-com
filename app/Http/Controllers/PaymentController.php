@@ -47,13 +47,6 @@ class PaymentController extends Controller
 
     public function result(Request $r)
     {
-        //get the transaction made
-        PaymentTransaction::whereTxnid($r->txnid)->first()->update([
-            'message' => $r->message,
-            'ref_no' => $r->refno,
-            'status' => PaymentTransaction::STATUSES[$r->status],
-        ]);
-
         $status = $r->status;
         $message = $r->message;
         $refno = $r->refno;
