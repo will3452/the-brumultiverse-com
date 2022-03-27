@@ -49,7 +49,7 @@ class MarqueeController extends Controller
         $data = $this->customValidate($request);
 
         $marquee = Marquee::processToCreate($data, $request);
-        return redirect(route('scholar.bulletin.show', ['marquee' => $marquee]));
+        return redirect(route('scholar.marquee.show', ['marquee' => $marquee]));
     }
 
     public function update(Request $request, Marquee $bulletin)
