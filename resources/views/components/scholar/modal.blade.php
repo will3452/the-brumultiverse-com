@@ -5,7 +5,7 @@
     @if ($noButton)
     {{$trigger}}
     @else
-        <label for="{{$id}}" class="btn {{$extra}} modal-button btn-sm m-1">{{$button}}</label>
+        <label for="{{$id}}" class="btn {{$extra}} modal-button m-1">{{$button}}</label>
     @endif
 </div>
 

@@ -106,6 +106,7 @@ class BookController extends Controller
 
     public function showChapters(Book $book)
     {
-        return view('scholar.book.chapter.index', compact('book'));
+        $artScenes = auth()->user()->artScenes;
+        return view('scholar.book.chapter.index', compact('book', 'artScenes'));
     }
 }

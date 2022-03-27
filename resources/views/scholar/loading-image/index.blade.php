@@ -59,7 +59,7 @@
                             {{$m->wasPaid() ? 'yes' : 'no'}}
                         </td>
                         <td>
-                            <a href="{{route('scholar.loading-image.show', ['loadingImage' => $m->id])}}"  class="underline underline-offset-1">
+                            <a href="{{route('scholar.loading-image.show', ['loadingImage' => $m->id])}}"  class="btn btn-xs" >
                                 show
                             </a>
                         </td>

@@ -59,7 +59,7 @@
                             {{$b->wasPaid() ? 'yes' : 'no'}}
                         </td>
                         <td>
-                            <a href="{{route('scholar.bulletin.show', ['bulletin' => $b->id])}}"  class="underline underline-offset-1">
+                            <a href="{{route('scholar.bulletin.show', ['bulletin' => $b->id])}}"  class="btn btn-xs" >
                                 show
                             </a>
                         </td>

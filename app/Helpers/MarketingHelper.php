@@ -6,7 +6,9 @@ class MarketingHelper
 {
     const STATUS_DRAFT = 'Draft';
     const STATUS_RESUBMIT = 'Resubmit';
-    const STATUS_SAVED = 'Saved';
+    const STATUS_SAVED = 'Waiting for Admin approval'; // saved
+    const STATUS_ENDED = 'Ended';
+    const STATUS_RUNNING = 'In Progress';
 
     const MODEL = [
         'Bulletin',
