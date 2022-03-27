@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Events\MarketingHasBeenSaved;
+use App\Listeners\SendNotificationToAdministrator;
 use App\Models\Group;
 use App\Models\GroupMember;
 use App\Models\PaymentTransaction;
@@ -27,6 +29,9 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
+        ],
+        MarketingHasBeenSaved::class => [
+            SendNotificationToAdministrator::class,
         ],
     ];
 
