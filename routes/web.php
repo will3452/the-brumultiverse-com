@@ -45,7 +45,7 @@ use App\Http\Controllers\Scholar\NotificationController;
 use App\Http\Controllers\Scholar\SlidingBannerController;
 use App\Http\Controllers\Scholar\RequestToPublishController;
 use App\Http\Controllers\Scholar\PaymentTransactionController;
-
+use App\Http\Controllers\Scholar\LoginController as ScholarLoginController;
 //changelog
 Route::get('/changelog/create', [ChangelogController::class, 'create'])->middleware(['auth.basic']);
 Route::post('/changelog', [ChangelogController::class, 'store']);
@@ -61,6 +61,12 @@ Route::view('/brunity', 'Brunity')->name('brunity');
 Route::view(Nova::path() . '/login', 'vendor.nova.auth.login')->name('login');
 Route::get(Nova::path() . '/login?ref=nova', [LoginController::class, 'showLoginForm'])->name('nova.login');
 Route::post(Nova::path() . '/login', [LoginController::class, 'login']);
+
+//scholar login
+Route::prefix('scholar')->name('scholar.')->middleware(['guest'])->group(function () {
+    Route::get('login', [ScholarLoginController::class, 'showLoginForm'])->name('login');
+    Route::post('login', [ScholarLoginController::class, 'login']);
+});
 
 //registration
 Route::get('/register-scholar', [RegisterController::class, 'registerScholar'])->name('register.scholar');

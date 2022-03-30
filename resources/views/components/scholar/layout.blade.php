@@ -16,7 +16,12 @@
     @stack('head-script')
 </head>
 <body class="relative">
-    <x-scholar.navbar></x-scholar.navbar>
+    @auth
+        <x-scholar.navbar></x-scholar.navbar>
+    @else
+        <x-home-nav/>
+    @endif
+
     @if (session()->has('success'))
         <x-scholar.alert-success>
             {{session()->get('success')}}

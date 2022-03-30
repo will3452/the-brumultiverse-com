@@ -3995,6 +3995,9 @@ body[dir="rtl"] .checkbox:checked,
 .w-8 {
   width: 2rem;
 }
+.w-6\/12 {
+  width: 50%;
+}
 .max-w-md {
   max-width: 28rem;
 }
@@ -4508,6 +4511,10 @@ body[dir="rtl"] .checkbox:checked,
   --tw-text-opacity: 1;
   color: hsl(var(--p) / var(--tw-text-opacity));
 }
+.text-red-200 {
+  --tw-text-opacity: 1;
+  color: rgb(254 202 202 / var(--tw-text-opacity));
+}
 .underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
@@ -4698,6 +4705,10 @@ a, button, label, .dropdown, .btn, .breadcrumbs a {
 
   .md\:w-1\/2 {
     width: 50%;
+  }
+
+  .md\:w-5\/12 {
+    width: 41.666667%;
   }
 
   .md\:flex-row {
