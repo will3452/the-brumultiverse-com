@@ -1,7 +1,7 @@
 @props(['model' => '', 'id' => \Str::random(8), 'ref' => 'ref', 'label' => '', 'value'=> null, 'readonly' => false, 'name' => '', 'help' => '', 'placeholder' => '', 'required' => true, 'type' => 'text'])
 <div class="form-control w-full">
     <label class="label" for="{{$id}}">
-        <span class="label-text">
+        <span class="label-text text-gray-900 dark:text-white">
                 {{$label}}
                 @if ($required)
                     <span class="text-red-600">
@@ -23,7 +23,7 @@
     @endif
     type="{{$type}}"
     placeholder="{{$placeholder ?? $label}}"
-    class="input input-bordered w-full @error($name) input-error @enderror"
+    class="input text-black input-bordered w-full @error($name) input-error @enderror"
     @if ($readonly)
         disabled
     @endif

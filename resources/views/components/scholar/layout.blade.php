@@ -15,7 +15,7 @@
     @stack('head-style')
     @stack('head-script')
 </head>
-<body class="relative bg-base-100">
+<body class="relative bg-base-100 ">
     @auth
         <x-scholar.navbar></x-scholar.navbar>
     @else

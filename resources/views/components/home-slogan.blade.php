@@ -26,7 +26,7 @@
         Now-Known
     </h2>
 </div>
-<div class="md:text-6xl text-2xl font-bold uppercase absolute right-6 text-right">
+<div class="md:text-6xl text-2xl font-bold uppercase absolute right-6 text-right  text-white">
     <h2>
         Escape
     </h2>
