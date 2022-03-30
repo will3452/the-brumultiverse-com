@@ -20,7 +20,7 @@
         }
     </style>
 </head>
-<body>
+<body class="text-white">
     <div id="app">
         <x-home-nav></x-home-nav>
         {{$slot}}
