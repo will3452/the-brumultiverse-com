@@ -37,5 +37,7 @@
             </x-home-text-container>
         </footer>
     </div>
+
+<x-vendor.alpinejs/>
 </body>
 </html>

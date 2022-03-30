@@ -34,5 +34,4 @@
         </button>
     </ul>
 </nav>
-
 <x-vendor.alpinejs/>
