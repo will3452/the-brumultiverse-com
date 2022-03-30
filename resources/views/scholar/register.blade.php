@@ -98,7 +98,51 @@
 
         <x-scholar.form.password name="password_confirmation" label="Confirm Password"/>
 
+        <div class="shadow-lg mb-2 bg-yellow-100 text-yellow-900 flex p-4 text-xs rounded items-center">
+            <div>
+                <x-scholar.form.checkbox label="TERMS AND CONDITION"/>
+                <div class="pl-7" id="tncc">
+                    I have read and I agree with the <a href="#tnc" class="underline underline-offset-0 font-bold">Terms and Conditions.</a>
+                    <div class="modal bg-white" id="tnc">
+                        <div class="modal-box w-full w-11/12 max-w-5xl h-96">
+                            <iframe src="/terms-and-conditions" class="w-full h-72" frameborder="0"></iframe>
+                            <a href="#tncc" class="btn btn-sm mt-4 btn-block">Close</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="shadow-lg mb-2 bg-yellow-100 text-yellow-900 flex p-4 text-xs rounded items-center">
+            <div>
+                <x-scholar.form.checkbox label="ARE YOU SURE ABOUT ALL THE INFORMATION YOU HAVE DECLARED?"/>
+                <div class="pl-7">
+                    I certify that all information I have declared in this registration are true and correct to the best of my knowledge. I further understand that any false statement may result in denial or revocation of my account.
+                </div>
+            </div>
+        </div>
+        <div class="shadow-lg mb-2 bg-yellow-100 text-yellow-900 flex p-4 text-xs rounded items-center">
+            <div>
+                <x-scholar.form.checkbox label="COPYRIGHT CERTIFICATION"/>
+                <div class="pl-7">
+                    This is to reaffirm my duty to ensure all materials under my name and account in the BRUMULTIVERSE site and/or app are my property, and that I own the rights to them or I have obtained approval in writing to use them, as stated in my contract with BRUMULTIVERSE.
+                </div>
+            </div>
+        </div>
+        <div class="shadow-lg mb-2 bg-yellow-100 text-yellow-900 flex p-4 text-xs rounded items-center">
+            <div>
+                <x-scholar.form.checkbox label="DATA PRIVACY"/>
 
+                <div class="pl-7" id="ppc">
+                     I have read and I agree with the <a href="#pp" class="underline underline-offset-0 font-bold" >Privacy Policy.</a>
+                     <div class="modal bg-white" id="pp">
+                        <div class="modal-box w-full w-11/12 max-w-5xl h-96">
+                            <iframe src="/privacy-policy"  class="w-full h-72" frameborder="0"></iframe>
+                            <a href="#ppc" class="btn btn-sm mt-4 btn-block">Close</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <x-scholar.form.submit extra="btn-block">
             Register
         </x-scholar.form.submit>

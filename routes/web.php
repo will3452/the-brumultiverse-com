@@ -297,4 +297,7 @@ Route::get('/payment-result', [PaymentController::class, 'result']);
 //bug submit
 Route::post('/bug-submit', [BugController::class, 'store'])->name('submit.bug');
 
+Route::view('/terms-and-conditions', 'tnc');
+Route::view('/privacy-policy', 'pp');
+
 Route::get('/test', fn()=>now() . 'updated!');
