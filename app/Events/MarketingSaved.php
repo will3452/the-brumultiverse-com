@@ -10,11 +10,12 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class MarketingHasBeenSaved
+class MarketingSaved
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $marketing;
+
     /**
      * Create a new event instance.
      *

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Scholar;
 
 use App\Events\MarketingHasBeenSaved;
+use App\Events\MarketingSaved;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class MarketingController extends Controller
         $id = $request->id;
         $marketing = ("\\App\\Models\\$type")::find($id);
         $marketing->saveNow();
-        event(new MarketingHasBeenSaved($marketing));
+        event(new MarketingSaved($marketing));
         return back()->withSuccess('Saved!');
     }
 }

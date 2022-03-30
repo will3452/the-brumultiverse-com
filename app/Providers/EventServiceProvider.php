@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Events\MarketingHasBeenSaved;
+use App\Events\MarketingSaved;
+use App\Listeners\SendNotificationToAdmin;
 use App\Listeners\SendNotificationToAdministrator;
 use App\Models\Group;
 use App\Models\GroupMember;
@@ -30,9 +32,9 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-        MarketingHasBeenSaved::class => [
-            SendNotificationToAdministrator::class,
-        ],
+        MarketingSaved::class => [
+            SendNotificationToAdmin::class,
+        ]
     ];
 
     /**
