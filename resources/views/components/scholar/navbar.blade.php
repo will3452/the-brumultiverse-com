@@ -1,4 +1,4 @@
-<div class="navbar bg-base-100 border-b dark:bg-black">
+<div class="navbar bg-base-100 border-b dark:bg-gray-900">
     <div class="flex-1">
       <img src="/bru_assets/textlogo.png" class="w-48" alt="">
     </div>
@@ -6,7 +6,7 @@
     {{-- <div class="dropdown dropdown-hover dropdown-end"> --}}
     <div class="dropdown dropdown-end">
         <a tabindex="0" href="{{route('scholar.notification.index')}}" class="btn btn-ghost btn-circle">
-            <div class="indicator">
+            <div class="indicator dark:invert">
                 <x-nova.icon-bell/>
                 @if (auth()->user()->unread_notifications_count >= 1)
                     <span class="indicator-item w-1 h-1 rounded bg-purple-700 animate-pulse"></span>
@@ -32,7 +32,7 @@
     </div>
       <div class="dropdown dropdown-end">
         <a target="_blank" href="{{auth()->user()->chat_url}}" class="btn btn-ghost btn-circle">
-            <div class="indicator">
+            <div class="indicator dark:invert">
                 <x-nova.icon-message/>
               {{-- <span class="indicator-item badge badge-primary badge-xs"></span> --}}
             </div>
