@@ -39,6 +39,5 @@ class SendNotificationToAdmin
                 new ApprovalNotification("Marketing: $type of $owner has been saved, and need admin approval.", "#")
             );
         }
-
     }
 }

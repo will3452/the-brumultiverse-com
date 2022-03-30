@@ -15,7 +15,7 @@
         <x-scholar.dashboard-card icon="/img/icons/dashboard/ballot_black_24dp.svg" title="bulletin" href="{{route('scholar.bulletin.index')}}" />
         <x-scholar.dashboard-card icon="/img/icons/dashboard/sort_black_24dp.svg" title="marquee" href="{{route('scholar.marquee.index')}}"/>
         <x-scholar.dashboard-card icon="/img/icons/dashboard/slideshow_black_24dp.svg" title="sliding banner" href="{{route('scholar.sliding-banner.index')}}" />
-        <x-scholar.dashboard-card fixing="1" icon="/img/icons/dashboard/quickreply_black_24dp.svg" title="message blast" href="#"/>
+        <x-scholar.dashboard-card  icon="/img/icons/dashboard/quickreply_black_24dp.svg" title="message blast" href="{{route('scholar.message-blast.index')}}"/>
         <x-scholar.dashboard-card icon="/img/icons/dashboard/insert_photo_black_24dp.svg" title="loading image" href="{{route('scholar.loading-image.index')}}"/>
         <x-scholar.dashboard-card icon="/img/icons/dashboard/newspaper_black_24dp.svg" title="newspaper" href="{{route('scholar.newspaper.index')}}"/>
     </x-scholar.material-container>

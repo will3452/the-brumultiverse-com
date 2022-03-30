@@ -40,6 +40,7 @@ use App\Http\Controllers\Scholar\MarketingController;
 use App\Http\Controllers\Scholar\NewspaperController;
 use App\Http\Controllers\Scholar\FreeArtSceneController;
 use App\Http\Controllers\Scholar\LoadingImageController;
+use App\Http\Controllers\Scholar\MessageBlastController;
 use App\Http\Controllers\Scholar\NotificationController;
 use App\Http\Controllers\Scholar\SlidingBannerController;
 use App\Http\Controllers\Scholar\RequestToPublishController;
@@ -254,6 +255,14 @@ Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function
         Route::post('/', [SlidingBannerController::class, 'store'])->name('store');
         Route::get('/{slidingBanner}', [SlidingBannerController::class, 'show'])->name('show');
         Route::put('/{slidingBanner}', [SlidingBannerController::class, 'update'])->name('update');
+    });
+
+    Route::prefix('message-blasts')->name('message-blast.')->group(function () {
+        Route::get('/', [MessageBlastController::class, 'index'])->name('index');
+        Route::get('/create', [MessageBlastController::class, 'create'])->name('create');
+        Route::post('/', [MessageBlastController::class, 'store'])->name('store');
+        Route::get('/{messageBlast}', [MessageBlastController::class, 'show'])->name('show');
+        Route::put('/{messageBlast}', [MessageBlastController::class, 'update'])->name('update');
     });
 
     // marketing save

@@ -5,6 +5,7 @@ namespace App\Models\Traits;
 use App\Models\Bulletin;
 use App\Models\LoadingImage;
 use App\Models\Marquee;
+use App\Models\MessageBlast;
 use App\Models\Newspaper;
 use App\Models\SlidingBanner;
 
@@ -33,5 +34,10 @@ trait HasMarket
     public function newspapers()
     {
         return $this->hasMany(Newspaper::class, 'user_id');
+    }
+
+    public function messageBlasts()
+    {
+        return $this->hasMany(MessageBlast::class, 'user_id');
     }
 }
