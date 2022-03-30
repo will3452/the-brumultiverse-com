@@ -16,7 +16,7 @@
                     Home
                 </x-home-nav-link>
                 <x-home-nav-link href="/about" :isActive="url()->current() === route('about')">
-                    About
+                    About Us
                 </x-home-nav-link>
                 <x-home-nav-link href="/contact" :isActive="url()->current() === route('contact')">
                     Contact Us
