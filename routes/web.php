@@ -54,12 +54,14 @@ Route::get('/changelog', [ChangelogController::class, 'index']);
 
 //home
 Route::redirect('/', '/welcome');
+Route::redirect('/login', '/scholar/login')->name('login');
+
 Route::view('/welcome', 'Home')->name('welcome');
 Route::view('/about', 'About')->name('about');
 Route::view('/contact', 'Contact')->name('contact');
 Route::redirect('/home', Nova::path());
 Route::view('/brunity', 'Brunity')->name('brunity');
-Route::view(Nova::path() . '/login', 'vendor.nova.auth.login')->name('login');
+Route::view(Nova::path() . '/login', 'vendor.nova.auth.login');
 Route::get(Nova::path() . '/login?ref=nova', [LoginController::class, 'showLoginForm'])->name('nova.login');
 Route::post(Nova::path() . '/login', [LoginController::class, 'login']);
 
