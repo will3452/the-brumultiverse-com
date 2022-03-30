@@ -50,6 +50,8 @@ class ProfileController extends Controller
             'copyright_disclaimer' => '',
         ]);
 
+        $data['approved_at'] = now();
+
         $data['picture'] = FileHelper::save($data['picture']);
 
         auth()->user()->accounts()->create($data);

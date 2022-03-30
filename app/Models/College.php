@@ -13,6 +13,11 @@ class College extends Model
         'name',
     ];
 
+    protected $with = [
+        'clubs',
+        'courses',
+    ];
+
     public function courses()
     {
         return $this->hasMany(Course::class);

@@ -71,9 +71,6 @@
             <thead class="dark:bg-gray-900">
                 <tr class="dark:bg-gray-900">
                     <th class="dark:bg-gray-900 dark:text-white">
-                        Status
-                    </th>
-                    <th class="dark:bg-gray-900 dark:text-white">
                         Date
                     </th>
                     <th class="dark:bg-gray-900 dark:text-white">
@@ -93,17 +90,6 @@
             <tbody >
                 @foreach ($user->accounts as $a)
                     <tr>
-                        <td class="dark:bg-gray-900 dark:text-white">
-                            @if (! is_null($a->approved_at))
-                                <div class="badge badge-success">
-                                    Approved
-                                </div>
-                            @else
-                                <div class="badge badge-secondary">
-                                    Pending
-                                </div>
-                            @endif
-                        </td>
                         <td class="dark:bg-gray-900 dark:text-white">
                             {{$a->created_at->format('m/d/y')}}
                         </td>

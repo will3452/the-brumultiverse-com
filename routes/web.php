@@ -46,6 +46,7 @@ use App\Http\Controllers\Scholar\SlidingBannerController;
 use App\Http\Controllers\Scholar\RequestToPublishController;
 use App\Http\Controllers\Scholar\PaymentTransactionController;
 use App\Http\Controllers\Scholar\LoginController as ScholarLoginController;
+use App\Http\Controllers\Scholar\RegisterController as ScholarRegisterController;
 //changelog
 Route::get('/changelog/create', [ChangelogController::class, 'create'])->middleware(['auth.basic']);
 Route::post('/changelog', [ChangelogController::class, 'store']);
@@ -66,6 +67,8 @@ Route::post(Nova::path() . '/login', [LoginController::class, 'login']);
 Route::prefix('scholar')->name('scholar.')->middleware(['guest'])->group(function () {
     Route::get('login', [ScholarLoginController::class, 'showLoginForm'])->name('login');
     Route::post('login', [ScholarLoginController::class, 'login']);
+    Route::get('register', [ScholarRegisterController::class, 'showRegisterForm'])->name('register');
+    Route::post('register', [ScholarRegisterController::class, 'register']);
 });
 
 //registration

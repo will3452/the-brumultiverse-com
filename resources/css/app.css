@@ -9,3 +9,27 @@
 a, button, label, .dropdown, .btn, .breadcrumbs a {
     cursor: url('/img/cursor/pointer.png'), default;
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+    height: 16px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #edf2f7;
+  }
+
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 100vh;
+    border: 3px solid #edf2f7;
+  }
+
+/* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+  }
