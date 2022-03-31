@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
-use App\Helpers\CrystalHelper;
-use App\Helpers\FileHelper;
 use App\Helpers\TagHelper;
+use App\Helpers\FileHelper;
+use App\Helpers\CrystalHelper;
 use App\Models\Traits\HasCover;
 use App\Models\Traits\BookTrait;
+use App\Models\Traits\HasTickets;
 use Cartalyst\Tags\TaggableTrait;
 use App\Models\Traits\HasChapters;
 use App\Models\Traits\HasEpilogue;
@@ -25,6 +26,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Book extends Model implements TaggableInterface
 {
     use HasFactory,
+        HasTickets,
         BelongsToClass,
         HasPrologue,
         HasEpilogue,
@@ -46,6 +48,13 @@ class Book extends Model implements TaggableInterface
 
     protected $casts = [
         'published_at' => 'datetime',
+    ];
+
+    const TICKET_EDITABLE = [
+        'title',
+        'credit',
+        'blurb',
+        'cost',
     ];
 
     protected $fillable = [

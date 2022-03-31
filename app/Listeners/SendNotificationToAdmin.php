@@ -30,13 +30,11 @@ class SendNotificationToAdmin
      */
     public function handle($event)
     {
-        $owner = $event->marketing->user->name;
-        $type = Str::headline(basename(get_class($event->marketing)));
         $admins = User::role(Role::SUPERADMIN)->get();
         foreach ($admins as $user) {
             Notification::send(
                 $user,
-                new ApprovalNotification("Marketing: $type of $owner has been saved, and need admin approval.", "#")
+                new ApprovalNotification($event->getMessage(), "#")
             );
         }
     }

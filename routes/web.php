@@ -47,6 +47,8 @@ use App\Http\Controllers\Scholar\RequestToPublishController;
 use App\Http\Controllers\Scholar\PaymentTransactionController;
 use App\Http\Controllers\Scholar\LoginController as ScholarLoginController;
 use App\Http\Controllers\Scholar\RegisterController as ScholarRegisterController;
+use App\Http\Controllers\Scholar\TicketController;
+
 //changelog
 Route::get('/changelog/create', [ChangelogController::class, 'create'])->middleware(['auth.basic']);
 Route::post('/changelog', [ChangelogController::class, 'store']);
@@ -130,6 +132,11 @@ Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function
     Route::prefix('notifications')->name('notification.')->group(function () {
         Route::get('/', [NotificationController::class, 'index'])->name('index');
         Route::get('/mark-as-read/{id}', [NotificationController::class, 'markAsRead'])->name('mark-as-read');
+    });
+
+    //tickets
+    Route::prefix('tickets')->name('ticket.')->group(function () {
+        Route::post('store-update-ticket', [TicketController::class, 'storeUpdateTicket'])->name('store-update');
     });
 
     //search

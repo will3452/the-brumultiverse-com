@@ -27,7 +27,7 @@
     />
     <div class="flex md:flex-wrap flex-wrap-reverse">
         <div class="w-full md:w-8/12">
-            <form action="{{route('scholar.chapter.update', ['chapter' => $chapter->id])}}" method="POST" enctype="multipart/form-data">
+            <form action="#" method="POST" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
                 <x-scholar.form.input name="title" label="Title" value="{{$chapter->title}}" />
@@ -67,9 +67,9 @@
                 </div>
                 <x-scholar.form.ckeditor name="notes" label="Author's Note">{{$chapter->notes}}</x-scholar.form.ckeditor>
                 <x-scholar.form.number name="cost" label="Chapter Cost" :value="$chapter->cost" />
-                <x-scholar.form.submit>
+                {{-- <x-scholar.form.submit>
                     Update
-                </x-scholar.form.submit>
+                </x-scholar.form.submit> --}}
             </form>
         </div>
         <div class="w-full md:w-4/12 p-4">
@@ -81,6 +81,7 @@
                     <x-scholar.work-card href="{{route('scholar.artscene.show', ['art' => $chapter->freeArtScene()->id])}}" cover="{{optional($chapter->freeArtScene()->artFile)->getSize()}}">
                         {{$chapter->freeArtScene()->title}}
                     </x-scholar.work-card>
+                    <x-scholar.ticket-form :model="$chapter"/>
                 </div>
             @endif
         </div>

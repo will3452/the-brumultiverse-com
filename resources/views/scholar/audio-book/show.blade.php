@@ -86,9 +86,13 @@
             <x-scholar.audio-player src="/storage/{{$audio->largeFile->path}}"/>
             <div class="flex justify-center mt-4 flex-wrap items-center">
                 <x-scholar.request-publish-form :model="$audio"/>
+
                 {{-- <x-scholar.modal extra="btn-sm btn-warning" button="Send ticket">
                     Send Ticket
                 </x-scholar.modal> --}}
+            </div>
+            <div class="flex justify-center">
+                <x-scholar.ticket-form :model="$audio"/>
             </div>
         </div>
     </div>

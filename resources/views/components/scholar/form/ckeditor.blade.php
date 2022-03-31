@@ -1,4 +1,4 @@
-@props(['label' => '', 'name' => '', 'help' => '', 'placeholder' => '', 'required' => true])
+@props(['label' => '', 'id'=> Str::random(8), 'name' => '', 'help' => '', 'placeholder' => '', 'required' => true])
 <div class="form-control w-full">
     <label class="label">
         <span class="label-text">
@@ -11,7 +11,7 @@
         </span>
     </label>
     <textarea
-    id="{{$name}}"
+    id="{{$id}}"
     name="{{$name}}"
     @if($required)
         required
@@ -29,7 +29,7 @@
 
 @push('body-script')
     <script>
-        CKEDITOR.replace( '{{$name}}', {
+        CKEDITOR.replace( '{{$id}}', {
             customConfig: '/vendor/ckeditor/custom/basic_config.js'
         });
     </script>

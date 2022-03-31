@@ -104,6 +104,9 @@
                     Send Ticket
                 </x-scholar.modal> --}}
             </div>
+            <div class="flex justify-center">
+                <x-scholar.ticket-form :model="$book" />
+            </div>
         </div>
     </div>
     @push('head-script')

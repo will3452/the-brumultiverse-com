@@ -86,6 +86,9 @@
             <div class="flex justify-center mt-4 flex-wrap items-center">
                 <x-scholar.request-publish-form :model="$film"/>
             </div>
+            <div class="flex justify-center mt-4 flex-wrap items-center">
+                <x-scholar.ticket-form :model="$film"/>
+            </div>
         </div>
     </div>
     @push('head-script')

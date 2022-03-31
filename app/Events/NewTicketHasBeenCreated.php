@@ -2,6 +2,8 @@
 
 namespace App\Events;
 
+use App\Models\Chapter;
+use App\Models\Ticket;
 use Illuminate\Support\Str;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
@@ -11,27 +13,32 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class MarketingSaved
+class NewTicketHasBeenCreated
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $marketing;
+    public $ticket;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($marketing)
+    public function __construct(Ticket $ticket)
     {
-        $this->marketing = $marketing;
+        $this->ticket = $ticket;
     }
 
     public function getMessage()
     {
-        $owner = $this->marketing->user->name;
-        $type = Str::headline(basename(get_class($this->marketing)));
-        return "Marketing: $type of $owner has been saved, and need admin approval.";
+        $user = $this->ticket->user;
+        if ($this->ticket->model_type === Chapter::class) {
+            $owner = $this->ticket->model->model->user->name;
+        } else {
+            $owner = $user->name;
+        }
+        // $type = Str::headline(basename(get_class($this->)));
+        return "$owner a scholar made a ticket for his/her work, and need admin approval.";
     }
 
     /**

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bb002ef1067057dac81ede976abc2e88",
+    "content-hash": "488a1c41fb80eb961054589b67c50e17",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1796,6 +1796,68 @@
             "time": "2019-03-14T12:01:21+00:00"
         },
         {
+            "name": "imagine/imagine",
+            "version": "1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-imagine/Imagine.git",
+                "reference": "fc3e477a15907e8f2a11c32f1aecb07101c0bd31"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-imagine/Imagine/zipball/fc3e477a15907e8f2a11c32f1aecb07101c0bd31",
+                "reference": "fc3e477a15907e8f2a11c32f1aecb07101c0bd31",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8 || ^5.7 || ^6.5 || ^7.5 || ^8.4 || ^9.3"
+            },
+            "suggest": {
+                "ext-exif": "to read EXIF metadata",
+                "ext-gd": "to use the GD implementation",
+                "ext-gmagick": "to use the Gmagick implementation",
+                "ext-imagick": "to use the Imagick implementation"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Imagine\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bulat Shakirzyanov",
+                    "email": "mallluhuct@gmail.com",
+                    "homepage": "http://avalanche123.com"
+                }
+            ],
+            "description": "Image processing for PHP 5.3",
+            "homepage": "http://imagine.readthedocs.org/",
+            "keywords": [
+                "drawing",
+                "graphics",
+                "image manipulation",
+                "image processing"
+            ],
+            "support": {
+                "issues": "https://github.com/php-imagine/Imagine/issues",
+                "source": "https://github.com/php-imagine/Imagine/tree/1.3.1"
+            },
+            "time": "2022-03-15T15:19:48+00:00"
+        },
+        {
             "name": "intervention/image",
             "version": "2.7.1",
             "source": {
@@ -1878,6 +1940,63 @@
                 }
             ],
             "time": "2021-12-16T16:49:26+00:00"
+        },
+        {
+            "name": "ksubileau/color-thief-php",
+            "version": "v1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ksubileau/color-thief-php.git",
+                "reference": "fc2acefacbd037f68cf61bcc62b30ac1bb16ed59"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ksubileau/color-thief-php/zipball/fc2acefacbd037f68cf61bcc62b30ac1bb16ed59",
+                "reference": "fc2acefacbd037f68cf61bcc62b30ac1bb16ed59",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.13",
+                "phpunit/phpunit": "~4.8|~5.7"
+            },
+            "suggest": {
+                "ext-gd": "to use the GD image adapter.",
+                "ext-gmagick": "to use the Gmagick image adapter.",
+                "ext-imagick": "to use the Imagick image adapter."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ColorThief\\": "lib/ColorThief"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "CC-BY-2.5"
+            ],
+            "authors": [
+                {
+                    "name": "Kevin Subileau",
+                    "homepage": "http://www.kevinsubileau.fr"
+                }
+            ],
+            "description": "Grabs the dominant color or a representative color palette from an image.",
+            "homepage": "http://www.kevinsubileau.fr/projets/color-thief-php",
+            "keywords": [
+                "color",
+                "dominant",
+                "palette",
+                "php",
+                "thief"
+            ],
+            "support": {
+                "issues": "https://github.com/ksubileau/color-thief-php/issues",
+                "source": "https://github.com/ksubileau/color-thief-php/tree/master"
+            },
+            "time": "2018-10-27T18:57:38+00:00"
         },
         {
             "name": "laravel/framework",
@@ -2937,6 +3056,194 @@
             },
             "abandoned": "brick/math",
             "time": "2020-01-05T04:49:34+00:00"
+        },
+        {
+            "name": "mostafaznv/larupload",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mostafaznv/larupload.git",
+                "reference": "3d4a358e76382650066b03293dc00aaa61971694"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mostafaznv/larupload/zipball/3d4a358e76382650066b03293dc00aaa61971694",
+                "reference": "3d4a358e76382650066b03293dc00aaa61971694",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "imagine/imagine": "^1.2.4",
+                "ksubileau/color-thief-php": "^1.4",
+                "laravel/framework": "~8.0",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "6.*",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mostafaznv\\Larupload\\LaruploadServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mostafaznv\\Larupload\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "mostafaznv",
+                    "email": "mostafa.zeinivand@gmail.com"
+                }
+            ],
+            "description": "Larupload is a ORM based file uploader for laravel to upload image, video, audio and other known files.",
+            "keywords": [
+                "crop",
+                "ffmpeg",
+                "file",
+                "file manager",
+                "file system",
+                "hls",
+                "image",
+                "laravel",
+                "laravel 8",
+                "m3u8",
+                "media",
+                "mostafaznv",
+                "resize",
+                "s3",
+                "sftp",
+                "storage",
+                "stream",
+                "upload",
+                "video"
+            ],
+            "support": {
+                "docs": "https://github.com/mostafaznv/larupload/blob/master/README.md",
+                "issues": "https://github.com/mostafaznv/larupload/issues",
+                "source": "https://github.com/mostafaznv/larupload"
+            },
+            "time": "2021-09-06T17:50:38+00:00"
+        },
+        {
+            "name": "mostafaznv/nova-ckeditor",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mostafaznv/nova-ckeditor.git",
+                "reference": "0ea61e9261a04a707c033f896f5d9758a8fb8d8b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mostafaznv/nova-ckeditor/zipball/0ea61e9261a04a707c033f896f5d9758a8fb8d8b",
+                "reference": "0ea61e9261a04a707c033f896f5d9758a8fb8d8b",
+                "shasum": ""
+            },
+            "require": {
+                "intervention/image": "^2.5",
+                "laravel/framework": "^8.40.0",
+                "mostafaznv/nova-video": "^1.0",
+                "php": "^7.4|^8.0",
+                "spatie/laravel-image-optimizer": "^1.6"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mostafaznv\\NovaCkEditor\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mostafaznv\\NovaCkEditor\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "CkEditor for Laravel Nova",
+            "keywords": [
+                "CKEditor",
+                "ckeditor 5",
+                "image picker",
+                "laravel",
+                "media picker",
+                "nova",
+                "rich text editor",
+                "snippets",
+                "video picker",
+                "wysiwyg editor"
+            ],
+            "support": {
+                "issues": "https://github.com/mostafaznv/nova-ckeditor/issues",
+                "source": "https://github.com/mostafaznv/nova-ckeditor/tree/1.0.4"
+            },
+            "time": "2021-09-02T09:21:03+00:00"
+        },
+        {
+            "name": "mostafaznv/nova-video",
+            "version": "1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mostafaznv/nova-video.git",
+                "reference": "88800557bb7fc1b84663d97cade88b74b75e1610"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mostafaznv/nova-video/zipball/88800557bb7fc1b84663d97cade88b74b75e1610",
+                "reference": "88800557bb7fc1b84663d97cade88b74b75e1610",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "mostafaznv/larupload": "^0.1.0",
+                "php": "^7.4|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mostafaznv\\NovaVideo\\VideoFieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mostafaznv\\NovaVideo\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Video Field for Laravel Nova",
+            "keywords": [
+                "ffmpeg",
+                "hls",
+                "laravel",
+                "larupload",
+                "nova",
+                "stream",
+                "upload video",
+                "video",
+                "video field"
+            ],
+            "support": {
+                "issues": "https://github.com/mostafaznv/nova-video/issues",
+                "source": "https://github.com/mostafaznv/nova-video/tree/1.0.6"
+            },
+            "time": "2021-12-17T22:08:04+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -4728,6 +5035,60 @@
             "time": "2021-02-24T14:56:42+00:00"
         },
         {
+            "name": "spatie/image-optimizer",
+            "version": "1.6.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/image-optimizer.git",
+                "reference": "6db75529cbf8fa84117046a9d513f277aead90a0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/image-optimizer/zipball/6db75529cbf8fa84117046a9d513f277aead90a0",
+                "reference": "6db75529cbf8fa84117046a9d513f277aead90a0",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "php": "^7.3|^8.0",
+                "psr/log": "^1.0 | ^2.0 | ^3.0",
+                "symfony/process": "^4.2|^5.0|^6.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5.21|^9.4.4",
+                "symfony/var-dumper": "^4.2|^5.0|^6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\ImageOptimizer\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Easily optimize images using PHP",
+            "homepage": "https://github.com/spatie/image-optimizer",
+            "keywords": [
+                "image-optimizer",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/image-optimizer/issues",
+                "source": "https://github.com/spatie/image-optimizer/tree/1.6.2"
+            },
+            "time": "2021-12-21T10:08:05+00:00"
+        },
+        {
             "name": "spatie/laravel-backup",
             "version": "6.16.5",
             "source": {
@@ -4816,6 +5177,75 @@
                 }
             ],
             "time": "2021-09-12T10:04:18+00:00"
+        },
+        {
+            "name": "spatie/laravel-image-optimizer",
+            "version": "1.6.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-image-optimizer.git",
+                "reference": "c39e9ea77dee6b6eddfc26800adb1aa06a624294"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-image-optimizer/zipball/c39e9ea77dee6b6eddfc26800adb1aa06a624294",
+                "reference": "c39e9ea77dee6b6eddfc26800adb1aa06a624294",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^6.0|^7.0|^8.0",
+                "php": "^7.2|^8.0",
+                "spatie/image-optimizer": "^1.2.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^4.0|^5.0|^6.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\LaravelImageOptimizer\\ImageOptimizerServiceProvider"
+                    ],
+                    "aliases": {
+                        "ImageOptimizer": "Spatie\\LaravelImageOptimizer\\Facades\\ImageOptimizer"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\LaravelImageOptimizer\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Optimize images in your Laravel app",
+            "homepage": "https://github.com/spatie/laravel-image-optimizer",
+            "keywords": [
+                "laravel-image-optimizer",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-image-optimizer/issues",
+                "source": "https://github.com/spatie/laravel-image-optimizer/tree/1.6.4"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                }
+            ],
+            "time": "2020-11-27T18:27:06+00:00"
         },
         {
             "name": "spatie/laravel-permission",

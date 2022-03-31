@@ -13,18 +13,28 @@ use App\Models\Traits\BelongsToAccount;
 use App\Models\Traits\HasFreeArtScenes;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Traits\HasPublishApproval;
+use App\Models\Traits\HasTickets;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Film extends Model implements TaggableInterface
 {
     use HasFactory,
         HasCover,
+        HasTickets,
         HasFreeArtScenes,
         BelongsToAccount,
         BelongsToClass,
         HasLargeFile,
         HasPublishApproval,
         TaggableTrait;
+
+    const TICKET_EDITABLE = [
+        'title',
+        'type', // film | trailer | animation
+        'cost',
+        'credit',
+        'description',
+    ];
 
     protected $fillable = [
         'title',
