@@ -57,6 +57,7 @@
         "richardkeep/nova-timenow": "^1.0",
         "runlinenl/nova-profile-tool": "^1.1",
         "spatie/laravel-backup": "^6.16",
+        "spatie/laravel-cookie-consent": "^2.12",
         "spatie/laravel-permission": "^5.3",
         "spatie/nova-backup-tool": "^4.1"
     },

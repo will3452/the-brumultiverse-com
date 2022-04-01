@@ -3,14 +3,32 @@
 @tailwind utilities;
 
 
+.js-cookie-consent {
+    text-align: center;
+    position: fixed;
+    color: #fff;
+    padding:1em;
+    background: #000000;
+    bottom:0;
+    right: 0;
+    left: 0;
+}
+
+.js-cookie-consent-agree {
+    background:#222;
+    border-radius: 5px;
+    padding: 2px 6px;
+}
 @layer components {
     .btn-student-active {
       @apply px-4 py-1 border-2 border-white bg-gradient-to-r from-blue-900 to-purple-900 text-white rounded-full hover:brightness-50;
     }
 
+
     .btn-student {
         @apply px-4 py-1 border-2 border-white bg-gray-700 text-white rounded-full hover:brightness-50;
       }
+
       .avatar {
           @apply w-36 absolute bottom-10 right-0;
       }

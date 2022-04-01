@@ -13,4 +13,9 @@ class RegisterController extends Controller
         $colleges = College::get();
         return view('student.register', compact('colleges'));
     }
+
+    public function postRegister(Request $request)
+    {
+        return $request->all();
+    }
 }
