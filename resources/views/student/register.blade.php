@@ -19,14 +19,14 @@
                 <div class="w-full">
                     <div class="backdrop-brightness-50 backdrop-blur-sm p-4">
                         <x-scholar.page.typing message="Welcome to Berkeley-Reagan University. Let's enrol you, shall we?" delay="10" clear="0" class="text-white"/>
-                        <div class="flex justify-start  mt-4">
+                        <div class="flex justify-start  mt-4 flex-wrap">
                             <button class="btn-student-active mx-2" x-on:click="step++">
                                 Ok
                             </button>
                             <button class="btn-student mx-2" x-on:click="step = -1">
                                 Next Time
                             </button>
-                            <a class="btn-student mx-2 text-xs" href="/students/login">
+                            <a class="btn-student mx-2 text-xs text-center" href="/students/login">
                                 I'm already a BRU Student.
                             </a>
                         </div>
