@@ -11,4 +11,11 @@ class TicketHelper
         'credit' => 'scholar.form.ckeditor',
         'title' => 'scholar.form.input',
     ];
+
+
+    public static function getModel($path)
+    {
+        $path = explode("\\", $path);
+        return end($path);
+    }
 }

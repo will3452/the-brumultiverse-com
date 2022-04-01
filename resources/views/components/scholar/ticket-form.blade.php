@@ -3,7 +3,7 @@
 <x-scholar.modal button="submit ticket" extra="btn-sm">
     <form action="{{route('scholar.ticket.store-update')}}" method="POST">
         @csrf
-        <input type="hidden" name="type" value="{{basename(get_class($model))}}">
+        <input type="hidden" name="type" value="{{\App\Helpers\TicketHelper::getModel(get_class($model))}}">
         <input type="hidden" name="id" value="{{$model->id}}">
         <h1 class="text-center uppercase font-bold tracking-widest text-xl border-dashed border-2 p-4">Submit Ticket</h1>
         @foreach ($model->ticketCanUpdate() as $item)
