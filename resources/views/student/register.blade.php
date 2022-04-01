@@ -32,8 +32,8 @@
                 </div>
             </template>
 
-            <div class="w-full flex justify-center overflow-y-scroll " style="height:600px;" x-show="step == 3">
-                <form action="" class="w-11/12 pb-4 mx-auto mt-4 relative backdrop-brightness-50">
+            <div class="w-full flex justify-center "  style="height:600px" x-show="step == 3">
+                <form action="" class="w-11/12 pb-4 mx-auto mt-4 relative backdrop-brightness-50 overflow-y-scroll">
                     @csrf
                     <h2 class="bg-black text-white p-1 font-bold uppercase">Registration</h2>
                     <div class="px-4">
