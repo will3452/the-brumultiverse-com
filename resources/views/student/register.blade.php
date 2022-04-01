@@ -57,6 +57,41 @@
                                 <option value="{{$key}}">{{$val}}</option>
                             @endforeach
                         </x-student.form.select>
+                        <div x-data="{
+                            college:null,
+                            colleges:null,
+                            init() {
+                                this.college = {{$colleges[0]->id}};
+                            }
+                        }">
+
+                            <x-student.form.select model="college" name="college" label="College">
+                                @foreach ($colleges as $c)
+                                <option value="{{$c->id}}">
+                                    {{$c->name}}
+                                </option>
+                                @endforeach
+                            </x-student.form.select>
+
+                            @foreach ($colleges as $college)
+                                <template x-if="college == {{$college->id}}">
+                                    <x-student.form.select name="course" label="Course">
+                                        @foreach ($college->courses as $item)
+                                            <option value="{{$item->id}}">{{$item->name}}</option>
+                                        @endforeach
+                                    </x-student.form.select>
+                                </template>
+
+                                <template x-if="college == {{$college->id}}">
+                                    <x-student.form.select name="club" label="Club">
+                                        @foreach ($college->clubs as $item)
+                                            <option value="{{$item->id}}">{{$item->name}}</option>
+                                        @endforeach
+                                    </x-student.form.select>
+                                </template>
+                            @endforeach
+
+                        </div>
                         <x-student.form.input type="email" label="Email" name="email"/>
                         <x-student.form.input type="password" label="Password" name="password"/>
                         <x-student.form.input type="password" label="Confirm Password" name="password_confirmation"/>

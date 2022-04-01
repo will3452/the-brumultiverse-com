@@ -19,8 +19,6 @@ class RegisterController extends Controller
     public function showRegisterForm()
     {
         $colleges = College::get();
-        $clubs = Club::get();
-        $courses = Course::get();
         return view('scholar.register', compact('colleges'));
     }
 
