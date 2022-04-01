@@ -3935,6 +3935,15 @@ body[dir="rtl"] .checkbox:checked,
 .h-12 {
   height: 3rem;
 }
+.h-20 {
+  height: 5rem;
+}
+.h-16 {
+  height: 4rem;
+}
+.h-7 {
+  height: 1.75rem;
+}
 .min-h-full {
   min-height: 100%;
 }
@@ -4012,6 +4021,9 @@ body[dir="rtl"] .checkbox:checked,
 }
 .w-24 {
   width: 6rem;
+}
+.w-40 {
+  width: 10rem;
 }
 .max-w-5xl {
   max-width: 64rem;
@@ -4309,6 +4321,9 @@ body[dir="rtl"] .checkbox:checked,
 .bg-gradient-to-br {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
 }
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
 .from-blue-900 {
   --tw-gradient-from: #1e3a8a;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(30 58 138 / 0));
@@ -4316,6 +4331,17 @@ body[dir="rtl"] .checkbox:checked,
 .from-purple-900 {
   --tw-gradient-from: #581c87;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(88 28 135 / 0));
+}
+.from-blue-100 {
+  --tw-gradient-from: #dbeafe;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(219 234 254 / 0));
+}
+.from-blue-300 {
+  --tw-gradient-from: #93c5fd;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(147 197 253 / 0));
+}
+.via-blue-900 {
+  --tw-gradient-stops: var(--tw-gradient-from), #1e3a8a, var(--tw-gradient-to, rgb(30 58 138 / 0));
 }
 .to-purple-900 {
   --tw-gradient-to: #581c87;
@@ -4383,6 +4409,10 @@ body[dir="rtl"] .checkbox:checked,
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
 }
 .pt-4 {
   padding-top: 1rem;

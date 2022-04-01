@@ -48,6 +48,7 @@ use App\Http\Controllers\Scholar\PaymentTransactionController;
 use App\Http\Controllers\Scholar\LoginController as ScholarLoginController;
 use App\Http\Controllers\Scholar\RegisterController as ScholarRegisterController;
 use App\Http\Controllers\Scholar\TicketController;
+use App\Http\Controllers\Student\RegisterController as StudentRegisterController;
 
 //changelog
 Route::get('/changelog/create', [ChangelogController::class, 'create'])->middleware(['auth.basic']);
@@ -288,6 +289,11 @@ Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function
     Route::prefix('transactions')->name('transaction.')->group(function () {
         Route::get('/', [PaymentTransactionController::class, 'getAllTransactions'])->name('index');
     });
+});
+
+//students
+Route::prefix('students')->name('student.')->group(function () {
+    Route::get('/register', [StudentRegisterController::class, 'showRegister'])->name('register');
 });
 
 //misc
