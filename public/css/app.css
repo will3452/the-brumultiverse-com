@@ -3767,6 +3767,12 @@ body[dir="rtl"] .checkbox:checked,
 .bottom-8 {
   bottom: 2rem;
 }
+.-top-10 {
+  top: -2.5rem;
+}
+.-top-5 {
+  top: -1.25rem;
+}
 .z-20 {
   z-index: 20;
 }
@@ -3944,6 +3950,9 @@ body[dir="rtl"] .checkbox:checked,
 .h-7 {
   height: 1.75rem;
 }
+.h-28 {
+  height: 7rem;
+}
 .min-h-full {
   min-height: 100%;
 }
@@ -4024,6 +4033,12 @@ body[dir="rtl"] .checkbox:checked,
 }
 .w-40 {
   width: 10rem;
+}
+.w-16 {
+  width: 4rem;
+}
+.w-28 {
+  width: 7rem;
 }
 .max-w-5xl {
   max-width: 64rem;
