@@ -42,6 +42,7 @@
         </x-scholar.container>
     </div>
     <x-dev.bug-reporter/>
+    <x-scholar.page.footer/>
     <script data-pace-options='{ "ajax": false }' src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
     @stack('body-script')
 </body>

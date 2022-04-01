@@ -1,6 +1,17 @@
-<div class="navbar bg-base-100 border-b dark:bg-gray-900">
-    <div class="flex-1">
+<div class="navbar border-b dark:bg-gray-900">
+    <div class="flex-1 items-center flex">
       <img src="/bru_assets/textlogo.png" class="w-48" alt="">
+       <form action="javascript:alert('under developmemt')" class="flex items-center hidden md:flex">
+           <div>
+            <input type="text" class="input input-bordered input-sm" placeholder="Search here">
+           </div>
+           <div>
+            <button class="btn btn-primary btn-sm ml-1">
+                <img src="/img/icons/crud/search.svg" alt="" class="invert">
+                Search
+            </button>
+           </div>
+       </form>
     </div>
     <div class="flex-none">
     {{-- <div class="dropdown dropdown-hover dropdown-end"> --}}
@@ -52,6 +63,8 @@
           </li> --}}
           {{-- <li><a>Settings</a></li> --}}
           <li><a href="{{route('scholar.profile.show', ['user' => auth()->id()])}}">Profile</a></li>
+          <li><a href="{{route('scholar.transaction.index')}}">Payment</a></li>
+          <li><a href="javascript:alert('under development!')">Reports</a></li>
           <li><a href="{{route('scholar.logout')}}">Logout</a></li>
         </ul>
       </div>
