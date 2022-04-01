@@ -4532,6 +4532,14 @@ body[dir="rtl"] .checkbox:checked,
   --tw-text-opacity: 1;
   color: hsl(var(--p) / var(--tw-text-opacity));
 }
+.text-gray-400 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+.text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
+}
 .underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
@@ -4700,6 +4708,10 @@ a, button, label, .dropdown, .btn, .breadcrumbs a {
 }
   @media (min-width: 640px) {
 
+  .sm\:w-6\/12 {
+    width: 50%;
+  }
+
   .sm\:w-full {
     width: 100%;
   }
@@ -4733,10 +4745,6 @@ a, button, label, .dropdown, .btn, .breadcrumbs a {
 
   .md\:w-10\/12 {
     width: 83.333333%;
-  }
-
-  .md\:w-6\/12 {
-    width: 50%;
   }
 
   .md\:w-4\/12 {

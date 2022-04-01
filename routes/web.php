@@ -142,10 +142,7 @@ Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function
     //search
     Route::get('/search', [SearchController::class, 'search'])->name('search');
 
-    Route::get('/logout', function () {
-        auth()->logout();
-        return redirect('/');
-    })->name('logout');
+    Route::get('/logout', [ScholarLoginController::class, 'logout'])->name('logout');
     //profile
     Route::prefix('profiles')->name('profile.')->group(function () {
         Route::get('/{user}', [ProfileController::class, 'show'])->name('show');

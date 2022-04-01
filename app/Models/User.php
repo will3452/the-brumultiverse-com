@@ -52,6 +52,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'birth_date',
         'email',
         'password',
+        'last_login_at',
     ];
 
     //helper methods
@@ -122,11 +123,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'remember_token',
     ];
 
-    // //auto encrypt the password
-    // public function setPasswordAttribute($value)
-    // {
-    //     $this->attributes['password'] = bcrypt($value);
-    // }
 
     /**
      * The attributes that should be cast.
@@ -136,5 +132,11 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
         'birth_date' => 'datetime',
+        'last_login_at' => 'datetime',
     ];
+
+    public function updateLastLogin()
+    {
+        return $this->update(['last_login_at' => now()]);
+    }
 }
