@@ -26,6 +26,9 @@
                             <button class="btn-student mx-2" x-on:click="step = -1">
                                 Next Time
                             </button>
+                            <a class="btn-student mx-2 text-xs" href="/students/login">
+                                I'm already a BRU Student.
+                            </a>
                         </div>
                     </div>
                     <img src="/students/character/antonina-half.png" alt="Antonina" class="avatar">
