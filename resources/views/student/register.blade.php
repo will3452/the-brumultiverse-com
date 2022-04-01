@@ -85,7 +85,7 @@
             var data = {
                 step:0,
                 init () {
-                    window.onload = () => this.step = 1;
+                    window.onload = () => this.step = {{request()->has('step') ? request()->step : 1}};
                 },
             }
         </script>
