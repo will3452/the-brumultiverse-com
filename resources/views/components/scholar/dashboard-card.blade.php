@@ -15,7 +15,7 @@
     @endif
     <div >
         <div class="flex justify-center">
-            <img src="{{$icon}}" alt="" class="dark:invert" x-bind:class="{'animate-bounce':isHover}">
+            <img src="{{$icon}}" alt="" x-bind:class="{'animate-bounce':isHover}">
         </div>
         <div class="text-center font-bold uppercase text-xs mt-2 ">
             {{$title}}
