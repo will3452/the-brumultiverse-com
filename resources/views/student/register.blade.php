@@ -11,7 +11,7 @@
                             </button>
                         </div>
                     </div>
-                    <img src="/students/character/antonina.png" alt="Antonina" class="w-32 absolute bottom-0 right-0">
+                    <img src="/students/character/antonina-half.png" alt="Antonina" class="avatar">
                 </div>
             </template>
 
@@ -28,7 +28,7 @@
                             </button>
                         </div>
                     </div>
-                    <img src="/students/character/antonina.png" alt="Antonina" class="w-32 absolute bottom-0 right-0">
+                    <img src="/students/character/antonina-half.png" alt="Antonina" class="avatar">
                 </div>
             </template>
             <div class="w-full  justify-center overflow-auto" x-show="step == 3">

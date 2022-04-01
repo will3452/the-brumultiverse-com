@@ -11,6 +11,9 @@
     .btn-student {
         @apply px-4 py-1 border-2 border-white bg-gray-700 text-white rounded-full hover:brightness-50;
       }
+      .avatar {
+          @apply w-36 absolute bottom-10 right-0;
+      }
   }
 
 * {

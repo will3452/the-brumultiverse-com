@@ -3756,6 +3756,12 @@ body[dir="rtl"] .checkbox:checked,
   --tw-brightness: brightness(.5);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
+.avatar {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 0px;
+  width: 9rem;
+}
 .visible {
   visibility: visible;
 }
@@ -3783,14 +3789,11 @@ body[dir="rtl"] .checkbox:checked,
 .right-6 {
   right: 1.5rem;
 }
-.bottom-0 {
-  bottom: 0px;
-}
-.right-0 {
-  right: 0px;
-}
 .-right-2 {
   right: -0.5rem;
+}
+.bottom-0 {
+  bottom: 0px;
 }
 .bottom-2 {
   bottom: 0.5rem;
@@ -3809,6 +3812,9 @@ body[dir="rtl"] .checkbox:checked,
 }
 .left-0 {
   left: 0px;
+}
+.right-0 {
+  right: 0px;
 }
 .-top-5 {
   top: -1.25rem;
