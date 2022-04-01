@@ -24,7 +24,7 @@
     </div> --}}
     <x-scholar.material-container title="Development Changelog" icon="/img/icons/crud/upload.svg">
         <ul class="list-disc list-inside">
-            @foreach (\App\Models\Changelog::latest()->get() as $item)
+            @foreach (\App\Models\ChangeLog::latest()->get() as $item)
                 <li class="mt-2">
                     <span>{{$item->title}}</span> | {{$item->description}} <span class="text-xs">{{$item->created_at->diffForHumans()}}</span>
                 </li>
