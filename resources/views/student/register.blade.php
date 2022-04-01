@@ -1,12 +1,12 @@
 <x-student.layout>
     <x-student.static-background-container>
-        <div x-data="data" style="height:720px;">
+        <div x-data="data" x-effect="mouseClick(step)" style="height:720px;">
             <template x-if="step == 1">
                 <div  class="w-full max-h-fit" >
                     <div class="backdrop-brightness-50 backdrop-blur-sm p-4">
                         <x-scholar.page.typing message="Hello there! I’m Antonina, your Admin Clerk. To enjoy the full Berkeley-Reagan University experience, please enrol." delay="10" clear="0" class="text-white"/>
                         <div class="flex justify-center">
-                            <button class="btn-student-active mt-4" x-on:click="step++">
+                            <button class="btn-student-active mt-4" x-on:click="step++;">
                                 Ok
                             </button>
                         </div>
@@ -23,7 +23,7 @@
                             <button class="btn-student-active mx-2" x-on:click="step++">
                                 Ok
                             </button>
-                            <button class="btn-student mx-2" x-on:click="step = -1">
+                            <button class="btn-student mx-2" x-on:click="step = -1; window.mouseClick.play()">
                                 Next Time
                             </button>
                             <a class="btn-student m-2  text-center" href="/students/login">
@@ -136,6 +136,9 @@
         <script>
             var data = {
                 step:0,
+                mouseClick(label) {
+                    window.mouseClick.play();
+                },
                 init () {
                     window.onload = () => this.step = {{request()->has('step') ? request()->step : 1}};
                 },
