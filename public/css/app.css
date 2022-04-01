@@ -3756,7 +3756,7 @@ body[dir="rtl"] .checkbox:checked,
   --tw-brightness: brightness(.5);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
-.avatar {
+.avatar-img {
   position: absolute;
   bottom: 2.5rem;
   right: 0px;
@@ -4088,9 +4088,6 @@ body[dir="rtl"] .checkbox:checked,
 }
 .w-1 {
   width: 0.25rem;
-}
-.w-80 {
-  width: 20rem;
 }
 .w-52 {
   width: 13rem;

@@ -52,11 +52,6 @@ return [
 
         'content-lang' => 'en',
 
-        'browser' => [
-            'image' => true,
-            'video' => true
-        ],
-
         'snippets' => [
             ['name' => 'Image', 'html' => 'ckeditor.image'],
             ['name' => 'Media', 'html' => 'ckeditor.media'],

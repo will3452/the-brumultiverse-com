@@ -11,7 +11,7 @@
                             </button>
                         </div>
                     </div>
-                    <img src="/students/character/antonina-half.png" alt="Antonina" class="avatar">
+                    <img src="/students/character/antonina-half.png" alt="Antonina" class="avatar-img">
                 </div>
             </template>
 
@@ -31,7 +31,7 @@
                             </a>
                         </div>
                     </div>
-                    <img src="/students/character/antonina-half.png" alt="Antonina" class="avatar">
+                    <img src="/students/character/antonina-half.png" alt="Antonina" class="avatar-img">
                 </div>
             </template>
 
@@ -45,7 +45,7 @@
                             </a>
                         </div>
                     </div>
-                    <img src="/students/character/antonina-half.png" alt="Antonina" class="avatar">
+                    <img src="/students/character/antonina-half.png" alt="Antonina" class="avatar-img">
                 </div>
             </template>
 
