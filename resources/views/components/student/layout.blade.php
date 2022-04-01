@@ -7,12 +7,15 @@
     <title>BRUMULTIVERSE</title>
     <link href="/css/app.css" rel="stylesheet"/>
     <script src="/js/app.js" defer></script>
+    <x-vendor.alpinejs/>
+    <x-vendor.typewriterjs/>
 </head>
-<body class="relative">
-    <div class="w-full max-w-md h-screen relative mx-auto overflow-hidden">
+<body class="relative bg-black">
+    <div class="w-full max-w-md h-screen relative mx-auto overflow-auto">
         <x-student.topbar/>
             {{$slot}}
         <x-student.bottombar/>
     </div>
+    @stack('body-script')
 </body>
 </html>

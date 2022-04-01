@@ -1,4 +1,4 @@
-@props(['clear'=>true, 'id' => "writer" . \Str::random(6), 'message' => '', 'delay' => 50, 'loop' => false, 'pause' => 500])
+@props(['clear'=>true, 'class' => 'text-lg text-gray-800 mb-4', 'id' => "writer" . \Str::random(6), 'message' => '', 'delay' => 50, 'loop' => false, 'pause' => 500])
 <div x-data="{
     tw: null,
     init() {
@@ -18,9 +18,9 @@
                     .changeDeleteSpeed(1)
                 @endif
             @endforeach
-            .start()
+            .start();
     }
 }">
-    <div id="{{$id}}" class="text-lg text-gray-800 mb-4">
+    <div id="{{$id}}" class="{{$class}}">
     </div>
 </div>

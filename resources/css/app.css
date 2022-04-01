@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@layer components {
+    .btn-student-active {
+      @apply px-4 py-1 border-2 border-white bg-gradient-to-r from-blue-900 to-purple-900 text-white rounded-full hover:brightness-50;
+    }
+
+    .btn-student {
+        @apply px-4 py-1 border-2 border-white bg-gray-700 text-white rounded-full hover:brightness-50;
+      }
+  }
+
 * {
     cursor: url('/img/cursor/arrow.png'), default;
 }
