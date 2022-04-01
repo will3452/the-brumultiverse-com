@@ -23,11 +23,18 @@
     view="scholar.film.index"
     :model="$films" :creation-link="route('scholar.film.create')" title="My Films">
         <div class="mt-4 flex flex-wrap justify-start">
-            @foreach ($films as $f)
-                <x-scholar.work-card published="{{! is_null($f->published_at)}}" href="{{route('scholar.film.show', ['film' => $f->id])}}" cover="{{optional($f->cover)->getSize()}}">
-                    {{$f->title}}
-                </x-scholar.work-card>
-            @endforeach
+            @if (request()->has('keyword'))
+                <x-scholar.work-card-collection href="/scholar/films" :data="$films" />
+            @else
+                    @foreach ($accounts as $account)
+                        <div class="mt-4">
+                            <div class="mb-4">
+                                <x-scholar.material-title icon="/img/icons/dashboard/user.svg" :title="$account->penname" />
+                            </div>
+                            <x-scholar.work-card-collection href="/scholar/films" :data="$account->films" />
+                        </div>
+                    @endforeach
+            @endif
         </div>
     </x-scholar.page.index>
 </x-scholar.layout>

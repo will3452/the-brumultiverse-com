@@ -22,12 +22,17 @@
     data="artScenes"
     view="scholar.art-scene.index"
     :model="$artScenes" :creation-link="route('scholar.artscene.create')" title="My Art Scenes">
-        <div class="mt-4 flex flex-wrap justify-start">
-            @foreach ($artScenes as $a)
-                <x-scholar.work-card published="{{! is_null($a->published_at)}}" href="{{route('scholar.artscene.show', ['art' => $a->id])}}" cover="{{optional($a->artFile)->getSize()}}">
-                    {{$a->title}}
-                </x-scholar.work-card>
-            @endforeach
-        </div>
+        @if (request()->has('keyword'))
+            <x-scholar.work-card-collection href="/scholar/art-scenes" :data="$artScenes" />
+        @else
+                @foreach ($accounts as $account)
+                    <div class="mt-4">
+                        <div class="mb-4">
+                            <x-scholar.material-title icon="/img/icons/dashboard/user.svg" :title="$account->penname" />
+                        </div>
+                        <x-scholar.work-card-collection href="/scholar/art-scenes" :data="$account->artScenes" />
+                    </div>
+                @endforeach
+        @endif
     </x-scholar.page.index>
 </x-scholar.layout>

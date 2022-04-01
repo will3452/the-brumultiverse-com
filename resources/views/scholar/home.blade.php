@@ -16,6 +16,7 @@
         <x-scholar.dashboard-card icon="/img/icons/dashboard/film.svg" title="films" href="{{route('scholar.film.index')}}"/>
         <x-scholar.dashboard-card icon="/img/icons/dashboard/mic.svg" title="podcasts" href="{{route('scholar.podcast.index')}}"/>
     </x-scholar.material-container>
+
     <x-scholar.material-container title="Marketing" icon="/img/icons/dashboard/trending-up.svg">
         <x-scholar.dashboard-card icon="/img/icons/dashboard/ballot_black_24dp.svg" title="bulletin" href="{{route('scholar.bulletin.index')}}" />
         <x-scholar.dashboard-card icon="/img/icons/dashboard/sort_black_24dp.svg" title="marquee" href="{{route('scholar.marquee.index')}}"/>
@@ -24,6 +25,7 @@
         <x-scholar.dashboard-card icon="/img/icons/dashboard/insert_photo_black_24dp.svg" title="loading image" href="{{route('scholar.loading-image.index')}}"/>
         <x-scholar.dashboard-card icon="/img/icons/dashboard/newspaper_black_24dp.svg" title="newspaper" href="{{route('scholar.newspaper.index')}}"/>
     </x-scholar.material-container>
+
     {{-- <div class="rounded text-xs border border-yellow-700 w-full p-4 bg-yellow-200 text-yellow-900">
         The ideal eBook cover size is 1,600 x 2,650 pixels. These dimensions give a height/width ratio of 1.6:1. They’re ideal as they ensure the best quality for your cover image.
     </div> --}}
@@ -36,6 +38,7 @@
             @endforeach
         </ul>
     </x-scholar.material-container>
+
     @push('head-script')
         <x-vendor.alpinejs/>
     @endpush

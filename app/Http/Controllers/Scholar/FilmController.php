@@ -41,7 +41,8 @@ class FilmController extends Controller
     public function index()
     {
         $films = auth()->user()->films;
-        return view('scholar.film.index', compact('films'));
+        $accounts = auth()->user()->accounts()->whereNotNull('approved_at')->whereHas('films')->get();
+        return view('scholar.film.index', compact('films', 'accounts'));
     }
 
     public function create()

@@ -41,7 +41,8 @@ class SongController extends Controller
     public function index()
     {
         $songs = auth()->user()->songs;
-        return view('scholar.song.index', compact('songs'));
+        $accounts = auth()->user()->accounts()->whereNotNull('approved_at')->whereHas('songs')->get();
+        return view('scholar.song.index', compact('songs', 'accounts'));
     }
 
     public function create(Request $request)

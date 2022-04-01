@@ -22,12 +22,17 @@
     data="songs"
     view="scholar.song.index"
     :model="$songs" :creation-link="route('scholar.song.create')" title="My Songs">
-        <div class="mt-4 flex flex-wrap justify-start">
-            @foreach ($songs as $s)
-                <x-scholar.work-card published="{{! is_null($s->published_at)}}" href="{{route('scholar.song.show', ['song' => $s->id])}}" cover="{{optional($s->cover)->getSize()}}">
-                    {{$s->title}}
-                </x-scholar.work-card>
-            @endforeach
-        </div>
+        @if (request()->has('keyword'))
+            <x-scholar.work-card-collection href="/scholar/songs" :data="$songs" />
+        @else
+                @foreach ($accounts as $account)
+                    <div class="mt-4">
+                        <div class="mb-4">
+                            <x-scholar.material-title icon="/img/icons/dashboard/user.svg" :title="$account->penname" />
+                        </div>
+                        <x-scholar.work-card-collection href="/scholar/songs" :data="$account->songs" />
+                    </div>
+                @endforeach
+        @endif
     </x-scholar.page.index>
 </x-scholar.layout>

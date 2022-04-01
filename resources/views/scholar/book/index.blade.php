@@ -23,26 +23,14 @@
     view="scholar.book.index"
     :model="$books" :creation-link="route('scholar.book.create')" title="My Books">
         @if (request()->has('keyword'))
-            <div class="mt-4 flex flex-wrap justify-start">
-                @foreach ($books as $b)
-                    <x-scholar.work-card published="{{! is_null($b->published_at)}}" href="{{route('scholar.book.show', ['book' => $b->id])}}" cover="{{optional($b->cover)->getSize()}}">
-                        {{$b->title}}
-                    </x-scholar.work-card>
-                @endforeach
-            </div>
+            <x-scholar.work-card-collection href="/scholar/books" :data="$books" />
         @else
                 @foreach ($accounts as $account)
                     <div class="mt-4">
                         <div class="mb-4">
                             <x-scholar.material-title icon="/img/icons/dashboard/user.svg" :title="$account->penname" />
                         </div>
-                        <div class=" my-1 flex flex-wrap justify-start">
-                            @foreach ($account->books as $b)
-                                <x-scholar.work-card published="{{! is_null($b->published_at)}}" href="{{route('scholar.book.show', ['book' => $b->id])}}" cover="{{optional($b->cover)->getSize()}}">
-                                    {{$b->title}}
-                                </x-scholar.work-card>
-                            @endforeach
-                        </div>
+                        <x-scholar.work-card-collection href="/scholar/books" :data="$account->books" />
                     </div>
                 @endforeach
         @endif

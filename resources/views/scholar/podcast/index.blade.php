@@ -22,12 +22,17 @@
     data="podcasts"
     view="scholar.podcast.index"
     :model="$podcasts" :creation-link="route('scholar.podcast.create')" title="My Songs">
-        <div class="mt-4 flex flex-wrap justify-start">
-            @foreach ($podcasts as $p)
-                <x-scholar.work-card published="{{! is_null($p->published_at)}}" href="{{route('scholar.podcast.show', ['podcast' => $p->id])}}" cover="{{optional($p->cover)->getSize()}}">
-                    {{$p->title}}
-                </x-scholar.work-card>
-            @endforeach
-        </div>
+        @if (request()->has('keyword'))
+            <x-scholar.work-card-collection href="/scholar/podcasts" :data="$podcasts" />
+        @else
+                @foreach ($accounts as $account)
+                    <div class="mt-4">
+                        <div class="mb-4">
+                            <x-scholar.material-title icon="/img/icons/dashboard/user.svg" :title="$account->penname" />
+                        </div>
+                        <x-scholar.work-card-collection href="/scholar/podcasts" :data="$account->podcasts" />
+                    </div>
+                @endforeach
+        @endif
     </x-scholar.page.index>
 </x-scholar.layout>

@@ -40,7 +40,8 @@ class ArtSceneController extends Controller
     public function index()
     {
         $artScenes = auth()->user()->artScenes;
-        return view('scholar.art-scene.index', compact('artScenes'));
+        $accounts = auth()->user()->accounts()->whereNotNull('approved_at')->whereHas('artScenes')->get();
+        return view('scholar.art-scene.index', compact('artScenes', 'accounts'));
     }
 
     public function create()

@@ -36,7 +36,8 @@ class PodcastController extends Controller
     public function index()
     {
         $podcasts = auth()->user()->podcasts;
-        return view('scholar.podcast.index', compact('podcasts'));
+        $accounts = auth()->user()->accounts()->whereNotNull('approved_at')->whereHas('podcasts')->get();
+        return view('scholar.podcast.index', compact('podcasts', 'accounts'));
     }
 
     public function create(Request $request)
