@@ -11,7 +11,7 @@
     <x-vendor.typewriterjs/>
 </head>
 <body class="relative bg-black">
-    <div class="w-full max-w-md h-screen relative mx-auto overflow-auto">
+    <div class="w-full max-w-md relative mx-auto overflow-hidden max-h-screen">
         <x-student.topbar/>
             {{$slot}}
         <x-student.bottombar/>

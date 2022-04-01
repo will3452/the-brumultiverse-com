@@ -1,8 +1,8 @@
 <x-student.layout>
     <x-student.static-background-container>
-        <div x-data="data">
+        <div x-data="data" style="height:720px;">
             <template x-if="step == 1">
-                <div  class="w-full" style="height:75vh">
+                <div  class="w-full max-h-fit" >
                     <div class="backdrop-brightness-50 backdrop-blur-sm p-4">
                         <x-scholar.page.typing message="Hello there! I’m Antonina, your Admin Clerk. To enjoy the full Berkeley-Reagan University experience, please enrol." delay="10" clear="0" class="text-white"/>
                         <div class="flex justify-end">
@@ -16,7 +16,7 @@
             </template>
 
             <template x-if="step == 2">
-                <div class="w-full" style="height:75vh">
+                <div class="w-full">
                     <div class="backdrop-brightness-50 backdrop-blur-sm p-4">
                         <x-scholar.page.typing message="Welcome to Berkeley-Reagan University. Let's enrol you, shall we?" delay="10" clear="0" class="text-white"/>
                         <div class="flex justify-end  mt-4">
@@ -31,7 +31,8 @@
                     <img src="/students/character/antonina-half.png" alt="Antonina" class="avatar">
                 </div>
             </template>
-            <div class="w-full  justify-center overflow-auto" x-show="step == 3">
+
+            <div class="w-full flex justify-center overflow-y-scroll " style="height:600px;" x-show="step == 3">
                 <form action="" class="w-11/12 pb-4 mx-auto mt-4 relative backdrop-brightness-50">
                     @csrf
                     <h2 class="bg-black text-white p-1 font-bold uppercase">Registration</h2>
