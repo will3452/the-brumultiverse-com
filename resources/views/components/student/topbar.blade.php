@@ -1,4 +1,4 @@
-<div class="w-full fixed max-w-md z-30">
+<div class="w-full fixed max-w-sm z-30">
     <div class=" w-full h-16 flex items-center justify-between px-1"
         style="background:url('/students/nav/bg.png'); background-position:top center; background-size:cover;"
         >
