@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.14"
     },
     "dependencies": {
+        "animate.css": "^4.1.1",
         "daisyui": "^2.6.4",
         "moment": "^2.29.1",
         "vue": "^2.6.14"

@@ -1,4 +1,4 @@
-<div class="md:text-6xl text-2xl font-bold uppercase absolute right-7 text-right text-purple-900">
+<div class="animate__animated animate__lightSpeedInLeft md:text-6xl text-2xl font-bold uppercase absolute right-7 text-right text-purple-900">
     <h2>
         Escape
     </h2>
@@ -12,7 +12,7 @@
         Now-Known
     </h2>
 </div>
-<div class="md:text-6xl text-2xl font-bold uppercase absolute right-5 text-right text-blue-900">
+<div class="animate__animated animate__lightSpeedInLeft md:text-6xl text-2xl font-bold uppercase absolute right-5 text-right text-blue-900">
     <h2>
         Escape
     </h2>
@@ -26,7 +26,7 @@
         Now-Known
     </h2>
 </div>
-<div class="md:text-6xl text-2xl font-bold uppercase absolute right-6 text-right  text-white">
+<div class="animate__animated animate__lightSpeedInLeft md:text-6xl text-2xl font-bold uppercase absolute right-6 text-right  text-white">
     <h2>
         Escape
     </h2>

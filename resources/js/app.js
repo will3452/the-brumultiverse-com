@@ -1,4 +1,6 @@
 require('./bootstrap.js')
+import 'animate.css';
+
 import Vue from 'vue';
 import TheInterest from './components/TheInterest.vue';
 import ChatPanel from './components/chat/Panel.vue';
