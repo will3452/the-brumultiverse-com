@@ -30,10 +30,10 @@
         The ideal eBook cover size is 1,600 x 2,650 pixels. These dimensions give a height/width ratio of 1.6:1. They’re ideal as they ensure the best quality for your cover image.
     </div> --}}
     <x-scholar.material-container title="Development Changelog" icon="/img/icons/crud/upload.svg">
-        <ul class="list-disc list-inside">
-            @foreach (\App\Models\ChangeLog::latest()->get() as $item)
-                <li class="mt-2">
-                    <span>{{$item->title}}</span> | {{$item->description}} <span class="text-xs">{{$item->created_at->diffForHumans()}}</span>
+        <ul class=" font-mono text-sm mockup-code w-full mt-4">
+            @foreach (\App\Models\ChangeLog::latest()->get() as $key=>$item)
+                <li class="mt-2 pl-5">
+                    [{{$key + 1}}] <span>{{$item->title}}</span> | {{$item->description}} <span class="text-xs">{{$item->created_at->diffForHumans()}}</span>
                 </li>
             @endforeach
         </ul>
