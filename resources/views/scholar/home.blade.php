@@ -33,7 +33,7 @@
         <ul class=" font-mono text-sm mockup-code w-full mt-4">
             @foreach (\App\Models\ChangeLog::latest()->get() as $key=>$item)
                 <li class="mt-2 pl-5">
-                    [{{$key + 1}}] <span>{{$item->title}}</span> | {{$item->description}} <span class="text-xs">{{$item->created_at->diffForHumans()}}</span>
+                    [{{$key + 1}}] <span>{{$item->title}}</span> | {{$item->description}} [ <span class="text-xs">{{$item->created_at->diffForHumans()}}</span> ]
                 </li>
             @endforeach
         </ul>
