@@ -23,9 +23,23 @@
                             <button class="btn-student-active mx-2" x-on:click="step++">
                                 Ok
                             </button>
-                            <button class="btn-student mx-2" x-on:click="step--">
+                            <button class="btn-student mx-2" x-on:click="step = -1">
                                 Next Time
                             </button>
+                        </div>
+                    </div>
+                    <img src="/students/character/antonina-half.png" alt="Antonina" class="avatar">
+                </div>
+            </template>
+
+            <template x-if="step == -1">
+                <div class="w-full">
+                    <div class="backdrop-brightness-50 backdrop-blur-sm p-4">
+                        <x-scholar.page.typing message="Thank you for visiting. Come again!" delay="10" clear="0" class="text-white"/>
+                        <div class="flex justify-start  mt-4">
+                            <a href="/" class="btn-student-active mx-2">
+                                Leave
+                            </a>
                         </div>
                     </div>
                     <img src="/students/character/antonina-half.png" alt="Antonina" class="avatar">
