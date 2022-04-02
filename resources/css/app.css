@@ -1,3 +1,66 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.js-cookie-consent {
+    text-align: center;
+    position: fixed;
+    color: #fff;
+    padding:1em;
+    background: #000000;
+    bottom:0;
+    right: 0;
+    left: 0;
+}
+
+.js-cookie-consent-agree {
+    background:#222;
+    border-radius: 5px;
+    padding: 2px 6px;
+}
+@layer components {
+    .btn-student-active {
+      @apply px-4 py-1 border-2 border-white bg-gradient-to-r from-blue-900 to-purple-900 text-white rounded-full hover:brightness-50;
+    }
+
+    .btn-student {
+        @apply px-4 py-1 border-2 border-white bg-gray-700 text-white rounded-full hover:brightness-50;
+      }
+
+      .avatar-img {
+          @apply w-36 absolute bottom-10 right-0;
+      }
+  }
+
+* {
+    cursor: url('/img/cursor/arrow.png'), default;
+}
+
+a, button, label, .dropdown, .btn, .breadcrumbs a {
+    cursor: url('/img/cursor/pointer.png'), default;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+    height: 16px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #edf2f7;
+  }
+
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 100vh;
+    border: 3px solid #edf2f7;
+  }
+
+/* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+  }

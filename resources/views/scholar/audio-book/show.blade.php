@@ -20,9 +20,8 @@
     />
     <div class="flex md:flex-wrap flex-wrap-reverse">
         <div class="w-full md:w-8/12">
-            <form action="{{route('scholar.audiobook.update', ['audio' => $audio->id])}}" method="POST" enctype="multipart/form-data">
-                @method('PUT')
-                @csrf
+
+            <x-scholar.page.update :editable="! $audio->hasPublishedDate()" :update-link="route('scholar.audiobook.update', ['audio' => $audio->id])">
 
                 <x-scholar.form.input label="Book Title" name="title" :value="$audio->title"/>
 
@@ -77,10 +76,7 @@
                 <x-scholar.form.ckeditor name="credit" label="Credit Page">
                     {{$audio->credit}}
                 </x-scholar.form.ckeditor>
-                <x-scholar.form.submit>
-                    Update
-                </x-scholar.form.submit>
-            </form>
+            </x-scholar.page.update>
         </div>
         <div class="w-full md:w-4/12 p-4">
             <div class="flex justify-center">
@@ -89,12 +85,14 @@
 
             <x-scholar.audio-player src="/storage/{{$audio->largeFile->path}}"/>
             <div class="flex justify-center mt-4 flex-wrap items-center">
-                <x-scholar.modal extra="btn-sm" button="request to publish">
-                    <x-scholar.request-publish-form :model="$audio"/>
-                </x-scholar.modal>
+                <x-scholar.request-publish-form :model="$audio"/>
+
                 {{-- <x-scholar.modal extra="btn-sm btn-warning" button="Send ticket">
                     Send Ticket
                 </x-scholar.modal> --}}
+            </div>
+            <div class="flex justify-center">
+                <x-scholar.ticket-form :model="$audio"/>
             </div>
         </div>
     </div>

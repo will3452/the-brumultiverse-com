@@ -20,9 +20,7 @@
     />
     <div class="flex md:flex-wrap flex-wrap-reverse">
         <div class="w-full md:w-8/12">
-            <form action="{{route('scholar.song.update', ['song' => $song->id])}}" method="POST" enctype="multipart/form-data">
-                @method('PUT')
-                @csrf
+            <x-scholar.page.update :editable="! $song->hasPublishedDate()" :update-link="route('scholar.song.update', ['song' => $song->id])">
 
                 <x-scholar.form.input label="Song Title" name="title" :value="$song->title"/>
 
@@ -69,11 +67,7 @@
                 </x-scholar.form.ckeditor>
 
                 <x-scholar.form.checkbox checked="{{$song->not_yet_copyrighted}}" name="not_yet_copyrighted" label="This song is not yet copyrighted."/>
-
-                <x-scholar.form.submit>
-                    Update
-                </x-scholar.form.submit>
-            </form>
+            </x-scholar.page.update>
         </div>
         <div class="w-full md:w-4/12 p-4">
             <div class="flex justify-center">
@@ -82,12 +76,13 @@
 
             <x-scholar.audio-player src="/storage/{{$song->largeFile->path}}"/>
             <div class="flex justify-center mt-4 flex-wrap items-center">
-                <x-scholar.modal extra="btn-sm" button="request to publish">
-                    <x-scholar.request-publish-form :model="$song"/>
-                </x-scholar.modal>
+                <x-scholar.request-publish-form :model="$song"/>
                 {{-- <x-scholar.modal extra="btn-sm btn-warning" button="Send ticket">
                     Send Ticket
                 </x-scholar.modal> --}}
+            </div>
+            <div class="flex justify-center">
+                <x-scholar.ticket-form :model="$song" />
             </div>
         </div>
     </div>

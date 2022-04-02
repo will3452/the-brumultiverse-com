@@ -52,7 +52,8 @@ class BookController extends Controller
     public function index()
     {
         $books = auth()->user()->books;
-        return view('scholar.book.index', compact('books'));
+        $accounts = auth()->user()->accounts()->whereNotNull('approved_at')->whereHas('books')->get();
+        return view('scholar.book.index', compact('books', 'accounts'));
     }
 
     public function create()
@@ -105,6 +106,7 @@ class BookController extends Controller
 
     public function showChapters(Book $book)
     {
-        return view('scholar.book.chapter.index', compact('book'));
+        $artScenes = auth()->user()->artScenes;
+        return view('scholar.book.chapter.index', compact('book', 'artScenes'));
     }
 }

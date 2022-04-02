@@ -3,10 +3,12 @@
 namespace App\Nova\Actions\Event;
 
 use App\Models\Event;
+use App\Notifications\ApprovalNotification;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Notification;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
 
@@ -16,7 +18,7 @@ class Approve extends Action
 
     /**
      * Perform the action on the given models.
-     *
+    *
      * @param  \Laravel\Nova\Fields\ActionFields  $fields
      * @param  \Illuminate\Support\Collection  $models
      * @return mixed
@@ -27,6 +29,7 @@ class Approve extends Action
             $model->update([
                 'status' => Event::STATUS_APPROVED,
             ]);
+            Notification::send($model->user, new ApprovalNotification("Your Event \"$model->title\" has been approved.", route('scholar.event.show', ['event' => $model->id])));
         }
     }
 

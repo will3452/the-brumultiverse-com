@@ -3,8 +3,10 @@
 namespace App\Models;
 
 use App\Models\Traits\HasChat;
-use App\Models\Traits\ScholarTrait;
+use App\Models\Traits\HasMarket;
+use App\Models\Traits\HasPaymentTransactions;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Traits\ScholarTrait;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -13,14 +15,21 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens,
+    use HasMarket,
+        HasPaymentTransactions,
+        HasApiTokens,
         HasFactory,
         Notifiable,
         HasChat,
         ScholarTrait,
         HasRoles;
+
     protected $with = [
-        'accounts',
+        // 'accounts',
+    ];
+
+    protected $withCount = [
+        'unreadNotifications',
     ];
     /**
      * The attributes that are mass assignable.
@@ -43,6 +52,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'birth_date',
         'email',
         'password',
+        'last_login_at',
     ];
 
     //helper methods
@@ -61,7 +71,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     const GENDER_MALE = 'Male';
     const GENDER_FEMALE = 'Female';
-    const GENDER_LGBT = 'LGBT';
+    const GENDER_LGBT = 'Non-Binary';
 
     public function isScholar(): bool
     {
@@ -84,12 +94,22 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Account::class);
     }
 
+    public function hasAccountsApproved(): bool
+    {
+        return $this->accounts()->whereNotNull('approved_at')->exists();
+    }
+
     public function groups() // method to fetch all group where user belongs
     {
         $accountIds = $this->accounts->pluck('id')->toArray();
         return GroupMember::whereStatus(GroupMember::STATUS_CONFIRMED)
             ->whereIn('account_member_id', $accountIds)
             ->get();
+    }
+
+    public function getNameAttribute()
+    {
+        return "$this->first_name $this->last_name";
     }
 
 
@@ -103,11 +123,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'remember_token',
     ];
 
-    // //auto encrypt the password
-    // public function setPasswordAttribute($value)
-    // {
-    //     $this->attributes['password'] = bcrypt($value);
-    // }
 
     /**
      * The attributes that should be cast.
@@ -117,5 +132,11 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
         'birth_date' => 'datetime',
+        'last_login_at' => 'datetime',
     ];
+
+    public function updateLastLogin()
+    {
+        return $this->update(['last_login_at' => now()]);
+    }
 }

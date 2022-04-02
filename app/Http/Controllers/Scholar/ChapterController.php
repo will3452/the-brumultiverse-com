@@ -26,7 +26,8 @@ class ChapterController extends Controller
     }
     public function show(Chapter $chapter)
     {
-        return view('scholar.book.chapter.show', compact('chapter'));
+        $artScenes = auth()->user()->artScenes;
+        return view('scholar.book.chapter.show', compact('chapter', 'artScenes'));
     }
 
     public function create(Book $book)
@@ -44,7 +45,7 @@ class ChapterController extends Controller
         }
 
         //set the cost_type
-        $data['cost_type'] = Chapter::DEFAULT_COST_TYPE;
+        $data['cost_type'] = $request->cost_type ?? Chapter::DEFAULT_COST_TYPE;
 
         $book->chapters()->create($data);
 

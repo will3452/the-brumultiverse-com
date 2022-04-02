@@ -9,6 +9,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Collection;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
+use Laravel\Nova\Fields\Date;
 
 class PublishWork extends Action
 {
@@ -39,7 +40,7 @@ class PublishWork extends Action
             $this->updateRequest($requests); // this will update all rqeuest to approved state.
 
             $model->update([
-                'published_at' => now(),
+                'published_at' => $fields['date'],
             ]);
         }
     }
@@ -51,6 +52,9 @@ class PublishWork extends Action
      */
     public function fields()
     {
-        return [];
+        return [
+            Date::make('Date')
+                ->rules(['required']),
+        ];
     }
 }

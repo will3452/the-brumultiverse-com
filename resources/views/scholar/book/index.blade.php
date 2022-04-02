@@ -1,5 +1,7 @@
 <x-scholar.layout>
-
+    <x-scholar.page.title>
+        My Books
+    </x-scholar.page.title>
     <x-chat.breadcrumbs
         :links="
             [
@@ -20,12 +22,17 @@
     data="books"
     view="scholar.book.index"
     :model="$books" :creation-link="route('scholar.book.create')" title="My Books">
-        <div class="mt-4 flex flex-wrap justify-start">
-            @foreach ($books as $b)
-                <x-scholar.work-card href="{{route('scholar.book.show', ['book' => $b->id])}}" cover="{{optional($b->cover)->getSize()}}">
-                    {{$b->title}}
-                </x-scholar.work-card>
-            @endforeach
-        </div>
+        @if (request()->has('keyword'))
+            <x-scholar.work-card-collection href="/scholar/books" :data="$books" />
+        @else
+                @foreach ($accounts as $account)
+                    <div class="mt-4">
+                        <div class="mb-4">
+                            <x-scholar.material-title icon="/img/icons/dashboard/user.svg" :title="$account->penname" />
+                        </div>
+                        <x-scholar.work-card-collection href="/scholar/books" :data="$account->books" />
+                    </div>
+                @endforeach
+        @endif
     </x-scholar.page.index>
 </x-scholar.layout>

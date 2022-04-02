@@ -1,5 +1,7 @@
 <x-scholar.layout>
-
+    <x-scholar.page.title>
+        My Audio books
+    </x-scholar.page.title>
     <x-chat.breadcrumbs
         :links="
             [
@@ -20,12 +22,17 @@
     data="audioBooks"
     view="scholar.audio-book.index"
     :model="$audioBooks" :creation-link="route('scholar.audiobook.create')" title="My Audio Books">
-        <div class="mt-4 flex flex-wrap justify-start">
-            @foreach ($audioBooks as $b)
-                <x-scholar.work-card href="{{route('scholar.audiobook.show', ['audio' => $b->id])}}" cover="{{optional($b->cover)->getSize()}}">
-                    {{$b->title}}
-                </x-scholar.work-card>
-            @endforeach
-        </div>
+        @if (request()->has('keyword'))
+            <x-scholar.work-card-collection href="/scholar/audio-books" :data="$audioBooks" />
+        @else
+                @foreach ($accounts as $account)
+                    <div class="mt-4">
+                        <div class="mb-4">
+                            <x-scholar.material-title icon="/img/icons/dashboard/user.svg" :title="$account->penname" />
+                        </div>
+                        <x-scholar.work-card-collection href="/scholar/audio-books" :data="$account->audioBooks" />
+                    </div>
+                @endforeach
+        @endif
     </x-scholar.page.index>
 </x-scholar.layout>

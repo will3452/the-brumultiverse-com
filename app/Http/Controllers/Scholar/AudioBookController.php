@@ -40,7 +40,8 @@ class AudioBookController extends Controller
     public function index()
     {
         $audioBooks = auth()->user()->audioBooks;
-        return view('scholar.audio-book.index', compact('audioBooks'));
+        $accounts = auth()->user()->accounts()->whereNotNull('approved_at')->whereHas('audioBooks')->get();
+        return view('scholar.audio-book.index', compact('audioBooks', 'accounts'));
     }
 
     public function getData()

@@ -12,17 +12,26 @@ use Cartalyst\Tags\TaggableInterface;
 use App\Models\Traits\BelongsToAccount;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Traits\HasPublishApproval;
+use App\Models\Traits\HasTickets;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Podcast extends Model implements TaggableInterface
 {
     use HasFactory,
+        HasTickets,
         BelongsToAccount,
         BelongsToClass,
         HasCover,
         HasLargeFile,
         HasPublishApproval,
         TaggableTrait;
+
+    const TICKET_EDITABLE = [
+        'title',
+        'description',
+        'credit',
+        'cost',
+    ];
 
     protected $with = [
         'cover',

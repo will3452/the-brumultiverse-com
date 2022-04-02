@@ -12,11 +12,13 @@ use Cartalyst\Tags\TaggableInterface;
 use App\Models\Traits\BelongsToAccount;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Traits\HasPublishApproval;
+use App\Models\Traits\HasTickets;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ArtScene extends Model implements TaggableInterface
 {
     use HasFactory,
+        HasTickets,
         BelongsToClass,
         BelongsToAccount,
         HasArtFile,
@@ -25,6 +27,13 @@ class ArtScene extends Model implements TaggableInterface
 
     protected $with = [
         'artFile',
+    ];
+
+    const TICKET_EDITABLE = [
+        'title',
+        'description',
+        'credit',
+        'cost',
     ];
 
     protected $fillable = [

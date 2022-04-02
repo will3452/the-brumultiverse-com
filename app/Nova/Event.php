@@ -17,6 +17,7 @@ use App\Nova\Traits\ForUserIndividualOnly;
 use App\Rules\DateShouldAtLease;
 use Laravel\Nova\Fields\Badge;
 use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Event extends Resource
@@ -70,17 +71,19 @@ class Event extends Resource
                 ->default(fn () => auth()->id()),
             Text::make('Title')
                 ->rules(['required', 'unique:events,title,{{resourceId}}']),
-            Select::make('Crystal/Ticket/Passes', 'cost_type')
-                ->options([
-                    'None' => 'None',
-                    CrystalHelper::WHITE_CRYSTAL => CrystalHelper::WHITE_CRYSTAL,
-                    CrystalHelper::PURPLE_CRYSTAL => CrystalHelper::PURPLE_CRYSTAL,
-                    CrystalHelper::HALL_PASS => CrystalHelper::HALL_PASS,
-                    CrystalHelper::SILVER_TICKET => CrystalHelper::SILVER_TICKET,
-                ]),
-            Number::make('Cost', 'cost')
-                ->rules(['required', 'gt:-1'])
-                ->default(fn () => 0),
+            Textarea::make('Description')
+                ->rules(['required']),
+            // Select::make('Crystal/Ticket/Passes', 'cost_type')
+            //     ->options([
+            //         'None' => 'None',
+            //         CrystalHelper::WHITE_CRYSTAL => CrystalHelper::WHITE_CRYSTAL,
+            //         CrystalHelper::PURPLE_CRYSTAL => CrystalHelper::PURPLE_CRYSTAL,
+            //         CrystalHelper::HALL_PASS => CrystalHelper::HALL_PASS,
+            //         CrystalHelper::SILVER_TICKET => CrystalHelper::SILVER_TICKET,
+            //     ]),
+            // Number::make('Cost', 'cost')
+            //     ->rules(['required', 'gt:-1'])
+            //     ->default(fn () => 0),
             Select::make('Type')
                 ->options([
                     ModelsEvent::TYPE_SOLO => ModelsEvent::TYPE_SOLO,

@@ -19,9 +19,9 @@
         "
     />
 
-    <form action="{{route('scholar.book.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('scholar.book.store')}}" method="POST" enctype="multipart/form-data" x-data="{type:`{{\App\Models\Book::TYPE_REGULAR}}`}">
         @csrf
-        <x-scholar.form.select name="type" label="Please select what type of book you want to create.">
+        <x-scholar.form.select model="type" name="type" label="Please select what type of book you want to create.">
             <option value="{{\App\Models\Book::TYPE_REGULAR}}">{{\App\Models\Book::TYPE_REGULAR}}</option>
             <option value="{{\App\Models\Book::TYPE_PREMIUM}}">{{\App\Models\Book::TYPE_PREMIUM}}</option>
             <option value="{{\App\Models\Book::TYPE_SPIN}}">{{\App\Models\Book::TYPE_SPIN}}</option>
@@ -97,7 +97,13 @@
 
         <x-scholar.form.ckeditor name="blurb" label="Blurb"/>
 
-        <x-scholar.form.number name="cost" label="Cost" help="Please note that leaving the cost of your book in 0 will allow free access to readers, so long as they have hall passes or silver tickets. Please indicate price in CRYSTALS."/>
+        <template x-if="`{{\App\Models\Book::TYPE_REGULAR}}` != type">
+            <x-scholar.form.number name="cost" label="Cost" help="Please note that leaving the cost of your book in 0 will allow free access to readers, so long as they have hall passes or silver tickets. Please indicate price in CRYSTALS."/>
+        </template>
+
+        <template x-if="`{{\App\Models\Book::TYPE_REGULAR}}` == type">
+            <input type="hidden" name="cost" value="0">
+        </template>
 
         <x-scholar.form.ckeditor name="credit" label="Credit Page"/>
 

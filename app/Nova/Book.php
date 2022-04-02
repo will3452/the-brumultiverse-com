@@ -110,7 +110,7 @@ class Book extends Resource
                         ->nullable()
                         ->help('for X And Above only.'),
                     Boolean::make('Has warning message'),
-                    Text::make('Category', fn () => $this->category->name)
+                    Text::make('Category', fn () => optional($this->category)->name)
                         ->exceptOnForms(),
                     Select::make('Category', 'category_id')
                         ->onlyOnForms()
@@ -121,7 +121,7 @@ class Book extends Resource
                         )->rules(['required']),
                     Tags::make('Tags')
                         ->hideFromIndex(),
-                    Text::make('Genre', fn () => $this->genre->name)
+                    Text::make('Genre', fn () => optional($this->genre)->name)
                         ->exceptOnForms(),
                     Select::make('Genre', 'genre_id')
                         ->onlyOnForms()

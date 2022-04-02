@@ -8,6 +8,9 @@
         </div>
     </div>
     <input type="file" name="{{$name}}" required/>
+    <div class="text-xs mb-4">
+        Please click the arrow button on the right to upload.
+    </div>
     <x-scholar.form.copyright-disclaimer/>
 </div>
 
@@ -20,7 +23,7 @@
         <script>
             function getAllowedTypes(allowed) {
                 if (allowed == 'image') {
-                    return ['image/png', 'image/svg+xml', 'image/jpg', 'image/jpeg', 'image/webp'];
+                    return ['image/png', 'image/svg+xml', 'image/jpg', 'image/jpeg', 'image/webp', 'image/JPG'];
                 }
 
                 if (allowed == 'video') {
@@ -36,6 +39,7 @@
             window.onload = function () {
                 const iFile = document.querySelector('input[name={{$name}}]');
                 const pond = FilePond.create(iFile);
+                pond.required = {{$required}};
                 FilePond.setOptions({
                     beforeAddFile(item) {
                         let allowedTypes = getAllowedTypes(`{{$accept}}`);

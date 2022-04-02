@@ -13,6 +13,7 @@ use Cartalyst\Tags\TaggableInterface;
 use App\Models\Traits\BelongsToAccount;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Traits\HasPublishApproval;
+use App\Models\Traits\HasTickets;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Song extends Model implements TaggableInterface
@@ -24,7 +25,17 @@ class Song extends Model implements TaggableInterface
         BelongsToClass,
         HasPublishApproval,
         HasPublishApproval,
+        HasTickets,
         HasCover;
+
+    const TICKET_EDITABLE = [
+        'title',
+        'description',
+        'credit',
+        'cost',
+        'lyrics',
+        'copyright',
+    ];
 
     protected $with = [
             'cover',

@@ -5,10 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brumultiverse | {{$title}}</title>
+    <title>BRUMULTIVERSE</title>
     <link href="/bru_assets/circle_logo.png" rel="icon"/>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/app.css">
+    <script src="/js/app.js"></script>
     <style>
+        html, body {
+            background: #0F021B !important;
+        }
         .active {
             background:url('/bru_assets/button_bg.png') !important;
             background-position: right;
@@ -16,7 +20,7 @@
         }
     </style>
 </head>
-<body style="background:#0F021B !important;" class="text-white">
+<body class="text-white">
     <div id="app">
         <x-home-nav></x-home-nav>
         {{$slot}}
@@ -33,6 +37,7 @@
             </x-home-text-container>
         </footer>
     </div>
-    <script src="/js/app.js"></script>
+
+<x-vendor.alpinejs/>
 </body>
 </html>

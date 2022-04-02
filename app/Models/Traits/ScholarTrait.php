@@ -2,10 +2,11 @@
 
 namespace App\Models\Traits;
 
-use App\Models\Account;
 use App\Models\Book;
 use App\Models\Film;
 use App\Models\Song;
+use App\Models\Event;
+use App\Models\Account;
 use App\Models\Podcast;
 use App\Models\ArtScene;
 use App\Models\AudioBook;
@@ -20,6 +21,12 @@ trait ScholarTrait
 
         return 'user_id';
     }
+
+    public function events()
+    {
+        return $this->hasMany(Event::class, $this->scholarModel());
+    }
+
     public function books()
     {
         return $this->hasMany(Book::class, $this->scholarModel());

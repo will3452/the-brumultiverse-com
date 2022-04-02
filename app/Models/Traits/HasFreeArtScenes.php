@@ -10,4 +10,14 @@ trait HasFreeArtScenes
     {
         return $this->morphMany(FreeArtScene::class, 'model');
     }
+
+    public function hasArtScene(): bool
+    {
+        return count($this->freeArtScenes) > 0;
+    }
+
+    public function freeArtScene()
+    {
+        return $this->freeArtScenes()->latest()->first()->artScene;
+    }
 }

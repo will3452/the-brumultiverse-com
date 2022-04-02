@@ -15,11 +15,14 @@ use App\Models\Traits\BelongsToAccount;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Traits\HasReviewQuestion;
 use App\Models\Traits\HasPublishApproval;
+use App\Models\Traits\HasTickets;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Testing\Fluent\Concerns\Has;
 
 class AudioBook extends Model implements TaggableInterface
 {
     use HasFactory,
+        HasTickets,
         BelongsToClass,
         BelongsToAccount,
         TaggableTrait,
@@ -28,6 +31,13 @@ class AudioBook extends Model implements TaggableInterface
         HasLargeFile,
         HasPublishApproval,
         HasReviewQuestion;
+
+    const TICKET_EDITABLE = [
+        'title',
+        'credit',
+        'blurb',
+        'cost',
+    ];
 
     protected $with = [
         'cover',
