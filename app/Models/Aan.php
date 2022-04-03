@@ -36,7 +36,7 @@ class Aan extends Model
     }
 
     //helper
-    public static function generate(): string
+    public static function generate()
     {
         // desired format XXXX-XXXX-XXXXXX (year)(entry number today)(database count)
         $year = now()->format('Y');
@@ -44,12 +44,11 @@ class Aan extends Model
         $count = self::count();
         $result =  $year . Str::padLeft($countToday, 4, '0') . Str::padLeft($count, 6, '0');
 
-        self::create([
+        return self::create([
             'user_id' => request()->viaResourceId,
             'value' => $result,
             'generated_by_id' => auth()->id(),
         ]);
-        return true;
     }
 
     public static function checkIfValid($givenAan): bool

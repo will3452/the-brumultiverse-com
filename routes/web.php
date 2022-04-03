@@ -49,6 +49,7 @@ use App\Http\Controllers\Scholar\LoginController as ScholarLoginController;
 use App\Http\Controllers\Scholar\RegisterController as ScholarRegisterController;
 use App\Http\Controllers\Scholar\TicketController;
 use App\Http\Controllers\Student\RegisterController as StudentRegisterController;
+use App\Models\Aan;
 
 //changelog
 Route::get('/changelog/create', [ChangelogController::class, 'create'])->middleware(['auth.basic']);
@@ -313,3 +314,6 @@ Route::view('/terms-and-conditions', 'tnc');
 Route::view('/privacy-policy', 'pp');
 
 Route::get('/test', fn()=>now() . 'updated!');
+Route::get('aan-generate', function () {
+    return Aan::generate()->value;
+});
