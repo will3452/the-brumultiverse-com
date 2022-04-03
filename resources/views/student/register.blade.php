@@ -1,23 +1,23 @@
 <x-student.layout>
     <x-student.static-background-container>
-        <div x-data="data" x-effect="mouseClick(step)" style="height:720px;">
+        <div x-data="data" x-effect="mouseClick(step)">
             <template x-if="step == 1">
                 <div  class="w-full max-h-fit" >
-                    <div class="backdrop-brightness-50 backdrop-blur-sm p-4">
+                    <x-student.dialog-container>
                         <x-scholar.page.typing message="Hello there! I’m Antonina, your Admin Clerk. To enjoy the full Berkeley-Reagan University experience, please enrol." delay="10" clear="0" class="text-white"/>
                         <div class="flex justify-center">
                             <button class="btn-student-active mt-4" x-on:click="step++;">
                                 Ok
                             </button>
                         </div>
-                    </div>
+                    </x-student.dialog-container>
                     <img src="/students/character/antonina-half.png" alt="Antonina" class="avatar-img animate__animated animate__fadeInRight">
                 </div>
             </template>
 
             <template x-if="step == 2">
                 <div class="w-full">
-                    <div class="backdrop-brightness-50 backdrop-blur-sm p-4">
+                    <x-student.dialog-container>
                         <x-scholar.page.typing message="Welcome to Berkeley-Reagan University. Let's enrol you, shall we?" delay="10" clear="0" class="text-white"/>
                         <div class="flex justify-center  mt-4 flex-wrap">
                             <button class="btn-student-active mx-2" x-on:click="step++">
@@ -30,27 +30,32 @@
                                 I'm already a BRU Student.
                             </a>
                         </div>
-                    </div>
+                    </x-student.dialog-container>
                     <img src="/students/character/antonina-half.png" alt="Antonina" class="avatar-img ">
                 </div>
             </template>
 
             <template x-if="step == -1">
                 <div class="w-full">
-                    <div class="backdrop-brightness-50 backdrop-blur-sm p-4">
+                    <x-student.dialog-container>
                         <x-scholar.page.typing message="Thank you for visiting. Come again!" delay="10" clear="0" class="text-white"/>
                         <div class="flex justify-center  mt-4">
                             <a href="/" class="btn-student-active mx-2">
                                 Leave
                             </a>
                         </div>
-                    </div>
+                    </x-student.dialog-container>
                     <img src="/students/character/antonina-half.png" alt="Antonina" class="avatar-img">
                 </div>
             </template>
 
             <div class="w-full flex justify-center "  style="height:450px" x-show="step == 3">
-                <form action="" class="w-11/12 pb-4 mx-auto mt-4 relative backdrop-brightness-50 overflow-y-scroll">
+                <form
+                    action="{{route('student.register')}}"
+                    method="POST"
+                    class="w-11/12 pb-4 mx-auto mt-4 relative backdrop-brightness-50 overflow-y-scroll"
+                    >
+
                     @csrf
                     <h2 class="bg-black text-white p-1 font-bold uppercase">Registration</h2>
                     <div class="px-4">
@@ -125,7 +130,7 @@
                             I have read and I agree with the <a class="underline" href="/terms-and-conditions" target="_blank">Privacy Policy.</a>
                         </x-student.form.checker>
                         <x-student.form.submit>
-                            Submit
+                            Enrol Now
                         </x-student.form.submit>
                     </div>
                 </form>
@@ -137,7 +142,7 @@
             var data = {
                 step:0,
                 mouseClick(label) {
-                    window.mouseClick.play();
+                    // window.mouseClick.play();
                 },
                 init () {
                     window.onload = () => this.step = {{request()->has('step') ? request()->step : 1}};

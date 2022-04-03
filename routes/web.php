@@ -294,6 +294,8 @@ Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function
 //students
 Route::prefix('students')->name('student.')->group(function () {
     Route::get('/register', [StudentRegisterController::class, 'showRegister'])->name('register');
+    Route::post('/register', [StudentRegisterController::class, 'register']);
+    Route::get('/register-after', [StudentRegisterController::class, 'registerAfter'])->name('after.register');
 });
 
 //misc

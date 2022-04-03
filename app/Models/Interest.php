@@ -26,6 +26,11 @@ class Interest extends Model
         return $this->belongsTo(Course::class);
     }
 
+    public function college()
+    {
+        return $this->belongsTo(College::class);
+    }
+
     public function club()
     {
         return $this->belongsTo(Club::class);
