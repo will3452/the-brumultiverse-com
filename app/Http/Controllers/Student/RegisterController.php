@@ -67,6 +67,6 @@ class RegisterController extends Controller
 
     public function welcomeToDorm()
     {
-        return 'welcome to dorm!';
+        return view('student.welcome-dorm');
     }
 }
