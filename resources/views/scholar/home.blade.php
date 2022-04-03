@@ -6,7 +6,7 @@
                     Dashboard
                 </x-scholar.page.title>
                 <span class="uppercase text-xs font-bold text-gray-600 ml-4">
-                    Last Login At: {{auth()->user()->last_login_at->format('M d,y h:i a')}}
+                    Last Login At: {{auth()->user()->last_login_at ?? auth()->user()->last_login_at->format('M d,y h:i a')}}
                 </span>
             </div>
             <x-scholar.material-container title="Materials" icon="/img/icons/dashboard/folder.svg">
