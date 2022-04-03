@@ -3,6 +3,6 @@
         <input type="checkbox" required class="checkbox checkbox-sm">
     </div>
     <div>
-        <span>{{nova_get_setting('copyright_disclaimer')}}</span>
+        <span>I certify that I own the copyright and have obtained written approval for use of all the materials under my name and account, and hold BRUMULTIVERSE free of liabilities should any copyright infringement occurs.</span>
     </div>
 </div>

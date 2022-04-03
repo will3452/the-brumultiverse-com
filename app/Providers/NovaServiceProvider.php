@@ -45,8 +45,6 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 ->help('default value: 60'),
             Number::make('Maximum Account Per Scholar', 'max_account')
                 ->default(fn () => 3),
-            Textarea::make('Copyright Disclaimer')
-                ->default(fn () => 'I certify that I own the copyright and have obtained written approval for use of all the materials under my name and account, and hold BRUMULTIVERSE free of liabilities should any copyright infringement occurs.'),
             Number::make('Registration Age Restriction', 'registration_age_restriction'),
             Text::make('Bru Link'),
             Text::make('Bruniversity Link'),
