@@ -147,6 +147,9 @@ class InitialDataSeeder extends Seeder
         foreach ($bookCategories as $cat) {
             Category::create([ 'work_type' => Category::WORK_TYPE_BOOK, 'name' => $cat['name'], 'file_type' => $cat['file_type']]);
         }
+        foreach ($bookCategories as $cat) {
+            Category::create([ 'work_type' => Category::WORK_TYPE_AUDIO_BOOK, 'name' => $cat['name'], 'file_type' => Category::FILE_TYPE_AUDIO]);
+        }
     }
 
     public function seedPackages()
@@ -195,6 +198,17 @@ class InitialDataSeeder extends Seeder
 
     }
 
+public function setLevel($value, $genre)
+{
+    foreach ($value['heat'] as $heat) {
+        [$number, $name] = explode('*', $heat['name']);
+        Level::create(['type' => Level::TYPE_HEAT, 'number' => $number, 'name' => $name, 'genre_id' => $genre->id, 'age_restriction' => $heat['age']]);
+    }
+    foreach ($value['violence'] as $violence) {
+        [$number, $name] = explode('*', $violence['name']);
+        Level::create(['type' => Level::TYPE_VIOLENCE, 'number' => $number, 'name' => $name, 'genre_id' => $genre->id, 'age_restriction' => $violence['age']]);
+    }
+}
 
     public function seedGenres()
     {
@@ -502,17 +516,33 @@ class InitialDataSeeder extends Seeder
                 'violence' => []
             ],
         ];
+        $songGenres = [
+            'Pop',
+            'Rock',
+            'RnB',
+            'OPM',
+            'Jazz',
+            'Classical',
+            'Gospel',
+        ];
 
-        foreach ($bookGenres as $key => $value) {
+        $excludeInArts = ['Poetry'];
+
+        foreach ($bookGenres as $key => $value) { // arts
+           if (in_array($key, $excludeInArts)) {
+               continue;
+           }
+           $genre = Genre::create(['name' => $key, 'type' => Genre::TYPE_ART]);
+           $this->setLevel($value, $genre);
+        }
+
+        foreach ($bookGenres as $key => $value) { // books
             $genre = Genre::create(['name' => $key, 'type' => Genre::TYPE_TEXT]);
-            foreach ($value['heat'] as $heat) {
-                [$number, $name] = explode('*', $heat['name']);
-                Level::create(['type' => Level::TYPE_HEAT, 'number' => $number, 'name' => $name, 'genre_id' => $genre->id, 'age_restriction' => $heat['age']]);
-            }
-            foreach ($value['violence'] as $violence) {
-                [$number, $name] = explode('*', $violence['name']);
-                Level::create(['type' => Level::TYPE_VIOLENCE, 'number' => $number, 'name' => $name, 'genre_id' => $genre->id, 'age_restriction' => $violence['age']]);
-            }
+            $this->setLevel($value, $genre);
+        }
+
+        foreach ($songGenres as $value) { // songs
+            Genre::create(['name' => $value, 'type' => Genre::TYPE_SONG]);
         }
     }
     /**
