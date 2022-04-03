@@ -7,6 +7,7 @@ use App\Models\Traits\HasMarket;
 use App\Models\Traits\HasPaymentTransactions;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Traits\ScholarTrait;
+use App\Models\Traits\StudentTrait;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -22,6 +23,7 @@ class User extends Authenticatable implements MustVerifyEmail
         Notifiable,
         HasChat,
         ScholarTrait,
+        StudentTrait,
         HasRoles;
 
     protected $with = [

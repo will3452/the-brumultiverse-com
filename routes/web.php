@@ -48,6 +48,7 @@ use App\Http\Controllers\Scholar\PaymentTransactionController;
 use App\Http\Controllers\Scholar\LoginController as ScholarLoginController;
 use App\Http\Controllers\Scholar\RegisterController as ScholarRegisterController;
 use App\Http\Controllers\Scholar\TicketController;
+use App\Http\Controllers\Student\PaymentController as StudentPaymentController;
 use App\Http\Controllers\Student\RegisterController as StudentRegisterController;
 use App\Models\Aan;
 
@@ -297,6 +298,11 @@ Route::prefix('students')->name('student.')->group(function () {
     Route::get('/register', [StudentRegisterController::class, 'showRegister'])->name('register');
     Route::post('/register', [StudentRegisterController::class, 'register']);
     Route::get('/register-after', [StudentRegisterController::class, 'registerAfter'])->name('after.register');
+    Route::post('/save-setup-account', [StudentRegisterController::class, 'saveAccount'])->name('save.account');
+    Route::get('/welcome-to-dorm', [StudentRegisterController::class, 'welcomeToDorm'])->name('welcome.dorm');
+
+    // subscription / tuition settlement process
+    Route::get('/pay-tuition', [StudentPaymentController::class, 'payTuition'])->name('pay-tuition');
 });
 
 //misc

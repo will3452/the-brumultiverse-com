@@ -49,4 +49,24 @@ class RegisterController extends Controller
     {
         return view('student.after-register');
     }
+
+    public function saveAccount(Request $r)
+    {
+        if (! auth()->user()->hasSubscription()) {
+            auth()->user()->subscriptions()->create(); // for free students.
+        }
+
+        if ($r->account === User::ACCOUNT_PREMIUM) {
+            auth()->user()->changeSubscription(User::ACCOUNT_PREMIUM);
+        } else {
+            auth()->user()->changeSubscription(User::ACCOUNT_FREE);
+        }
+
+        return redirect(route('student.welcome.dorm'));
+    }
+
+    public function welcomeToDorm()
+    {
+        return 'welcome to dorm!';
+    }
 }

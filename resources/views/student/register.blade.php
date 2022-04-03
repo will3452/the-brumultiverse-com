@@ -4,12 +4,12 @@
             <template x-if="step == 1">
                 <div  class="w-full max-h-fit" >
                     <x-student.dialog-container>
-                        <x-scholar.page.typing message="Hello there! I’m Antonina, your Admin Clerk. To enjoy the full Berkeley-Reagan University experience, please enrol." delay="10" clear="0" class="text-white"/>
-                        <div class="flex justify-center">
+                        <x-student.typing message="Hello there! I’m Antonina, your Admin Clerk. To enjoy the full Berkeley-Reagan University experience, please enrol." delay="10" clear="0" />
+                        <x-student.dialog-button-container>
                             <button class="btn-student-active mt-4" x-on:click="step++;">
                                 Ok
                             </button>
-                        </div>
+                        </x-student.dialog-button-container>
                     </x-student.dialog-container>
                     <img src="/students/character/antonina-half.png" alt="Antonina" class="avatar-img animate__animated animate__fadeInRight">
                 </div>
@@ -18,18 +18,18 @@
             <template x-if="step == 2">
                 <div class="w-full">
                     <x-student.dialog-container>
-                        <x-scholar.page.typing message="Welcome to Berkeley-Reagan University. Let's enrol you, shall we?" delay="10" clear="0" class="text-white"/>
-                        <div class="flex justify-center  mt-4 flex-wrap">
+                        <x-student.typing message="Welcome to Berkeley-Reagan University. Let's enrol you, shall we?" delay="10" clear="0" />
+                        <x-student.dialog-button-container>
                             <button class="btn-student-active mx-2" x-on:click="step++">
                                 Ok
                             </button>
-                            <button class="btn-student mx-2" x-on:click="step = -1; window.mouseClick.play()">
+                            <button class="btn-student mx-2" x-on:click="step = -1;">
                                 Next Time
                             </button>
-                            <a class="btn-student m-2  text-center" href="/students/login">
+                            <a class="btn-student" href="/students/login">
                                 I'm already a BRU Student.
                             </a>
-                        </div>
+                        </x-student.dialog-button-container>
                     </x-student.dialog-container>
                     <img src="/students/character/antonina-half.png" alt="Antonina" class="avatar-img ">
                 </div>

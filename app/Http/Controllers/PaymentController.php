@@ -28,15 +28,20 @@ class PaymentController extends Controller
         ]);
     }
 
+    public function createParam($amount, $description)
+    {
+        return PaymentSupport::createParameters(
+            $amount,
+            config('payment.ccy'),
+            $description,
+            config('payment.merchant_email')
+        );
+    }
+
 
     public function createPayment(Request $r)
     {
-        $param = PaymentSupport::createParameters(
-            $r->amount,
-            config('payment.ccy'),
-            $r->description,
-            config('payment.merchant_email')
-        );
+        $param = $this->createParam($r->amount, $r->description);
 
         $this->createTransaction($r->type, $r->id, $param['txnid'], $r->amount, $r->description);
 
@@ -47,9 +52,17 @@ class PaymentController extends Controller
 
     public function result(Request $r)
     {
+
         $status = $r->status;
         $message = $r->message;
         $refno = $r->refno;
+
+        if (session()->exists('redirect')) {
+            $redirectUrl = session()->get('redirect');
+            session()->forget('redirect');
+            return redirect($redirectUrl);
+        }
+
         return view('payment.result', compact('status', 'message', 'refno'));
     }
 }
