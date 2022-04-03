@@ -47,7 +47,7 @@ class Aan extends Model
         return self::create([
             'user_id' => request()->viaResourceId,
             'value' => $result,
-            'generated_by_id' => auth()->id(),
+            'generated_by_id' => auth()->id() ?? 1,
         ]);
     }
 
