@@ -6,7 +6,7 @@
              <x-scholar.page.typing loop="1" delay="20" pause="2000" :message="['Hello! Welcome to BRUMULTIVERSE!', 'The Sign Up page is for authors, artists and creators who have received their contracts with BRUMULTIVERSE.', 'If you have no contract yet and are looking to join the growing BRU family, please click I HAVE NO AAN YET.', 'If you have a contract with BRU and have not received your AAN yet, please click on the same link. Thank you!']" />
             @csrf
 
-            <x-scholar.form.input label="AAN" name="aan" help="<a href='/contact-form' class='block animate-bounce text-purple-700' >I have no yet AAN</a>" />
+            <x-scholar.form.input label="AAN" name="aan" help="<a href='/contact-form' class='block  text-purple-700' >I have no yet AAN</a>" />
 
             <x-scholar.form.select name="role" label="Register As">
                 <option value="{{\App\Models\User::ROLE_AUTHOR}}">{{\App\Models\User::ROLE_AUTHOR}}</option>
