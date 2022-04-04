@@ -43,7 +43,7 @@ a, button, label, .dropdown, .btn, .breadcrumbs a {
 
 /* width */
 ::-webkit-scrollbar {
-    width: 20px;
+    width: 16px;
     height: 16px;
 }
 
