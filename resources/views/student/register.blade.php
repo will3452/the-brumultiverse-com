@@ -11,7 +11,9 @@
                             </button>
                         </x-student.dialog-button-container>
                     </x-student.dialog-container>
-                    <img src="/students/character/antonina-half.png" alt="Antonina" class="avatar-img animate__animated animate__fadeInRight">
+                    <x-student.scene blur="1">
+                        <img src="/students/character/antonina-half.png" alt="Antonina" class="avatar-img right-0 animate__animated animate__fadeInRight right-0">
+                    </x-student.scene>
                 </div>
             </template>
 
@@ -31,21 +33,25 @@
                             </a>
                         </x-student.dialog-button-container>
                     </x-student.dialog-container>
-                    <img src="/students/character/antonina-half.png" alt="Antonina" class="avatar-img ">
+                    <x-student.scene blur="1">
+                        <img src="/students/character/antonina-half.png" alt="Antonina" class="avatar-img right-0 ">
+                    </x-student.scene>
                 </div>
             </template>
 
             <template x-if="step == -1">
                 <div class="w-full">
                     <x-student.dialog-container>
-                        <x-scholar.page.typing message="Thank you for visiting. Come again!" delay="10" clear="0" class="text-white"/>
-                        <div class="flex justify-center  mt-4">
+                        <x-student.typing message="Thank you for visiting. Come again!" delay="10" clear="0"/>
+                        <x-student.dialog-button-container>
                             <a href="/" class="btn-student-active mx-2">
                                 Leave
                             </a>
-                        </div>
+                        </x-student.dialog-button-container>
                     </x-student.dialog-container>
-                    <img src="/students/character/antonina-half.png" alt="Antonina" class="avatar-img">
+                    <x-student.scene blur="1">
+                        <img src="/students/character/antonina-half.png" alt="Antonina" class="avatar-img right-0">
+                    </x-student.scene>
                 </div>
             </template>
 

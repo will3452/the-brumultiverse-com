@@ -29,7 +29,7 @@
       }
 
       .avatar-img {
-          @apply w-64 absolute -bottom-56 right-0;
+          @apply block absolute -bottom-1/3;
       }
   }
 

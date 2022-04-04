@@ -22,10 +22,13 @@
                     Contact Us
                 </x-home-nav-link>
                 <x-home-nav-link href="{{route('scholar.register')}}" :isActive=" url()->current() === route('scholar.register')">
-                    Sign Up
+                    Sign Up as Scholar
                 </x-home-nav-link>
                 <x-home-nav-link href="{{route('scholar.login')}}" :isActive="url()->current() === route('scholar.login')">
-                    Sign In
+                    Sign In as scholar
+                </x-home-nav-link>
+                <x-home-nav-link href="{{route('student.register')}}" :isActive="url()->current() === route('student.register')">
+                    Enroll now
                 </x-home-nav-link>
             </div>
         </template>
