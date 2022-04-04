@@ -1,4 +1,4 @@
-@props(['clear'=>true, 'class' => 'text-xl text-white mb-4', 'id' => "writer" . \Str::random(6), 'message' => '', 'delay' => 50, 'loop' => false, 'pause' => 500])
+@props(['clear'=>true, 'class' => 'text-md text-white mb-4', 'id' => "writer" . \Str::random(6), 'message' => '', 'delay' => 1, 'loop' => false, 'pause' => 500])
 <div x-data="{
     tw: null,
     init() {

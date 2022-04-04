@@ -43,7 +43,7 @@ a, button, label, .dropdown, .btn, .breadcrumbs a {
 
 /* width */
 ::-webkit-scrollbar {
-    width: 7px;
+    width: 20px;
     height: 16px;
 }
 
@@ -55,12 +55,12 @@ a, button, label, .dropdown, .btn, .breadcrumbs a {
 
   /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #cbd5e0;
+    background: #86B5F0;
     border-radius: 100vh;
     border: 3px solid #edf2f7;
   }
 
 /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #a0aec0;
+    background: #332F89;
   }
