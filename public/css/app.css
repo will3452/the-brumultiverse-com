@@ -3712,14 +3712,14 @@ a, button, label, .dropdown, .btn, .breadcrumbs a {
 
 /* Track */
 ::-webkit-scrollbar-track {
-    border-radius: 100vh;
+    border-radius:10px;
     background: #edf2f7;
   }
 
   /* Handle */
 ::-webkit-scrollbar-thumb {
     background: #130223;
-    border-radius: 100vh;
+    border-radius: 10px;
     border: 3px solid #edf2f7;
   }
 
