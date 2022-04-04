@@ -3718,14 +3718,14 @@ a, button, label, .dropdown, .btn, .breadcrumbs a {
 
   /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #86B5F0;
+    background: #130223;
     border-radius: 100vh;
     border: 3px solid #edf2f7;
   }
 
 /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #332F89;
+    background: #07000B;
   }
   .hover\:scale-110:hover {
   --tw-scale-x: 1.1;
