@@ -1,7 +1,7 @@
 <x-home-layout>
     <div
     style="
-        background: url('/bru_assets/main_bg.png');
+        background: url('{{getAsset('home/main_bg.png')}}');
         height:400px;
         background-position:center;
         background-size:cover;
