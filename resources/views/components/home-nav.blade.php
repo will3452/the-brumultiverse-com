@@ -27,9 +27,9 @@
                 <x-home-nav-link href="{{route('scholar.login')}}" :isActive="url()->current() === route('scholar.login')">
                     Sign In as scholar
                 </x-home-nav-link>
-                <x-home-nav-link href="{{route('student.register')}}" :isActive="url()->current() === route('student.register')">
+                {{-- <x-home-nav-link href="{{route('student.register')}}" :isActive="url()->current() === route('student.register')">
                     Enroll now
-                </x-home-nav-link>
+                </x-home-nav-link> --}}
             </div>
         </template>
         <button x-on:click="show = ! show" class="block md:hidden cursor-pointer bg-white border-4 border-black rounded-full rotate-90 absolute -bottom-4 right-3">
