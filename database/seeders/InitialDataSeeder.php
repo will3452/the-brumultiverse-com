@@ -7,12 +7,20 @@ use App\Models\Club;
 use App\Models\College;
 use App\Models\Course;
 use App\Models\Genre;
+use App\Models\Language;
 use App\Models\Level;
 use App\Models\Package;
 use Illuminate\Database\Seeder;
 
 class InitialDataSeeder extends Seeder
 {
+    public function seedLanguage()
+    {
+        $languages = ['Filipino', 'English'];
+        foreach ($languages as $language) {
+            Language::create(['name' => $language, 'country' => 'PH']);
+        }
+    }
     public function seedCollegeCoursesClubs()
     {
         $colleges = [
@@ -556,5 +564,6 @@ public function setLevel($value, $genre)
         $this->seedGenres();
         $this->seedCategories();
         $this->seedPackages();
+        $this->seedLanguage();
     }
 }
