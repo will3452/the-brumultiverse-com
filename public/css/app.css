@@ -2661,8 +2661,8 @@ body[dir="rtl"] .checkbox:checked,
 }
 .avatar-img {
   position: absolute;
-  bottom: -33.333333%;
   display: block;
+  width: 50%;
 }
 .visible {
   visibility: visible;
@@ -3033,11 +3033,6 @@ body[dir="rtl"] .checkbox:checked,
 }
 .rotate-45 {
   --tw-rotate: 45deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-.scale-150 {
-  --tw-scale-x: 1.5;
-  --tw-scale-y: 1.5;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 @keyframes pulse {
@@ -3698,6 +3693,10 @@ body[dir="rtl"] .checkbox:checked,
 
 * {
     cursor: url('/img/cursor/arrow.png'), default;
+}
+
+.avatar-img {
+    top:30vh;
 }
 
 a, button, label, .dropdown, .btn, .breadcrumbs a {

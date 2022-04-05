@@ -29,12 +29,16 @@
       }
 
       .avatar-img {
-          @apply block absolute -bottom-1/3;
+          @apply block absolute w-6/12;
       }
   }
 
 * {
     cursor: url('/img/cursor/arrow.png'), default;
+}
+
+.avatar-img {
+    top:30vh;
 }
 
 a, button, label, .dropdown, .btn, .breadcrumbs a {

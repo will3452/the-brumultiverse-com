@@ -23,7 +23,7 @@
                             </x-student.dialog-button-container>
                     </x-student.dialog-container>
                     <x-student.scene blur="1">
-                        <img src="{{auth()->user()->getAssistant('image')}}" alt="" class="avatar-img scale-150 block -bottom-1/2">
+                        <img src="{{auth()->user()->getAssistant('image')}}" alt="" class="avatar-img block -bottom-1/2">
                     </x-student.scene>
                 </div>
              </template>
@@ -39,7 +39,7 @@
                         </x-student.dialog-button-container>
                     </x-student.dialog-container>
                     <x-student.scene blur="1">
-                        <img src=" {{auth()->user()->getAssistant('image')}}" alt="" class="avatar-img scale-150 block -bottom-1/2">
+                        <img src=" {{auth()->user()->getAssistant('image')}}" alt="" class="avatar-img block -bottom-1/2">
                     </x-student.scene>
                 </div>
              </template>
@@ -55,7 +55,7 @@
                         </x-student.dialog-button-container>
                     </x-student.dialog-container>
                     <x-student.scene blur="1">
-                        <img src=" {{auth()->user()->getAssistant('image')}}" alt="" class="avatar-img scale-150 block -bottom-1/2">
+                        <img src=" {{auth()->user()->getAssistant('image')}}" alt="" class="avatar-img block -bottom-1/2">
                     </x-student.scene>
                 </div>
              </template>
@@ -77,7 +77,7 @@
                         </x-student.dialog-button-container>
                     </x-student.dialog-container>
                     <x-student.scene blur="1">
-                        <img src=" {{auth()->user()->getAssistant('image')}}" alt="" class="avatar-img scale-150 block -bottom-1/2">
+                        <img src=" {{auth()->user()->getAssistant('image')}}" alt="" class="avatar-img block -bottom-1/2">
                     </x-student.scene>
                 </div>
              </template>
@@ -96,7 +96,7 @@
                         </x-student.dialog-button-container>
                     </x-student.dialog-container>
                     <x-student.scene blur="1">
-                        <img src=" {{auth()->user()->getAssistant('image')}}" alt="" class="avatar-img scale-150 block -bottom-1/2">
+                        <img src=" {{auth()->user()->getAssistant('image')}}" alt="" class="avatar-img block -bottom-1/2">
                     </x-student.scene>
                 </div>
              </template>
@@ -115,7 +115,7 @@
                         </x-student.dialog-button-container>
                     </x-student.dialog-container>
                     <x-student.scene blur="1">
-                        <img src=" {{auth()->user()->getAssistant('image')}}" alt="" class="avatar-img scale-150 block -bottom-1/2">
+                        <img src=" {{auth()->user()->getAssistant('image')}}" alt="" class="avatar-img block -bottom-1/2">
                     </x-student.scene>
                 </div>
              </template>
@@ -281,7 +281,7 @@
                         </x-student.dialog-button-container>
                     </x-student.dialog-container>
                     <x-student.scene blur="1">
-                        <img src=" {{auth()->user()->getAssistant('image')}}" alt="" class="avatar-img scale-150 block -bottom-1/2">
+                        <img src=" {{auth()->user()->getAssistant('image')}}" alt="" class="avatar-img block -bottom-1/2">
                     </x-student.scene>
                 </div>
              </template>
@@ -297,7 +297,7 @@
                         </x-student.dialog-button-container>
                     </x-student.dialog-container>
                     <x-student.scene blur="1">
-                        <img src=" {{auth()->user()->getAssistant('image')}}" alt="" class="avatar-img scale-150 block -bottom-1/2">
+                        <img src=" {{auth()->user()->getAssistant('image')}}" alt="" class="avatar-img block -bottom-1/2">
                     </x-student.scene>
                 </div>
              </template>
@@ -313,7 +313,7 @@
                         </x-student.dialog-button-container>
                     </x-student.dialog-container>
                     <x-student.scene blur="1">
-                        <img src=" {{auth()->user()->getAssistant('image')}}" alt="" class="avatar-img scale-150 block -bottom-1/2">
+                        <img src=" {{auth()->user()->getAssistant('image')}}" alt="" class="avatar-img block -bottom-1/2">
                     </x-student.scene>
                 </div>
              </template>
