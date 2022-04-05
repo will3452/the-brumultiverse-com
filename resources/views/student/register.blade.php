@@ -12,7 +12,7 @@
                         </x-student.dialog-button-container>
                     </x-student.dialog-container>
                     <x-student.scene blur="1">
-                        <img src="/students/avatars/antonina.png" alt="Antonina" class="avatar-img right-0 animate__animated animate__fadeInRight right-0">
+                        <img src="{{getAsset('avatars/antonina.png')}}" alt="Antonina" class="avatar-img right-0 animate__animated animate__fadeInRight right-0">
                     </x-student.scene>
                 </div>
             </template>
@@ -34,7 +34,7 @@
                         </x-student.dialog-button-container>
                     </x-student.dialog-container>
                     <x-student.scene blur="1">
-                        <img src="/students/avatars/antonina.png" alt="Antonina" class="avatar-img right-0 ">
+                        <img src="{{getAsset('avatars/antonina.png')}}" alt="Antonina" class="avatar-img right-0 ">
                     </x-student.scene>
                 </div>
             </template>
@@ -50,7 +50,7 @@
                         </x-student.dialog-button-container>
                     </x-student.dialog-container>
                     <x-student.scene blur="1">
-                        <img src="/students/avatars/antonina.png" alt="Antonina" class="avatar-img right-0">
+                        <img src="{{getAsset('avatars/antonina.png')}}" alt="Antonina" class="avatar-img right-0">
                     </x-student.scene>
                 </div>
             </template>

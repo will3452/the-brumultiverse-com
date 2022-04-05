@@ -15,7 +15,7 @@ trait StudentTrait
             $assistant = [
                 'name' => 'Miel',
                 'school' => 'IS',
-                'image' => '/students/avatars/miel.png',
+                'image' => getAsset('avatars/miel.png'),
             ];
         }
 
@@ -23,7 +23,7 @@ trait StudentTrait
             $assistant = [
                 'name' => 'Masaru',
                 'school' => 'Berkeley',
-                'image' => '/students/avatars/masaru.png',
+                'image' => getAsset('avatars/masaru.png'),
             ];
         }
 
@@ -31,7 +31,7 @@ trait StudentTrait
             $assistant = [
                 'name' => 'Khiara',
                 'school' => 'Reagan',
-                'image' => '/students/avatars/khiara.png',
+                'image' => getAsset('avatars/khiara.png'),
             ];
         }
 

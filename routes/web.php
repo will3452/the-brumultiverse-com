@@ -319,7 +319,7 @@ Route::post('/bug-submit', [BugController::class, 'store'])->name('submit.bug');
 Route::view('/terms-and-conditions', 'tnc');
 Route::view('/privacy-policy', 'pp');
 
-Route::get('/test', fn()=>now() . 'updated!');
+Route::get('/test', fn()=>getAsset('avatars/masaru.png'));
 Route::get('aan-generate', function () {
     return Aan::generate()->value;
 });
