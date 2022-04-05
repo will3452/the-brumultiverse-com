@@ -33,7 +33,7 @@ class Media extends Model
         {
             $path = $this->path;
             $img = Image::make(Storage::disk('public')->path($path));
-                $watermark = Image::make($img)->resize($img->width() / 2, null, function ($constraint) {
+                $watermark = Image::make(Storage::disk('public')->path($path))->resize($img->width() / 2, null, function ($constraint) {
                     $constraint->aspectRatio();
                 });
             $img->insert($watermark, $position, 10, 10)->save(public_path($filePath), 75, 'png');
