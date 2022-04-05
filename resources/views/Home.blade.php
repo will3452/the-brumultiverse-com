@@ -1,7 +1,7 @@
 <x-home-layout>
     <div
     style="
-        background: url('/bru_assets/main_bg.png');
+        background: url('{{getAsset('/home/main_bg.png')}}');
         height:400px;
         background-position:center;
         background-size:cover;
@@ -19,7 +19,7 @@
     <div
     style="
         margin-top:2em;
-        background: url('/bru_assets/map_bg.jpg');
+        background: url('{{getAsset('home/map_bg.jpg')}}');
         height:300px;
         background-position:bottom;
         background-size:contain;
