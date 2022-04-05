@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Intervention\Image\Facades\Image;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Media extends Model
 {
@@ -33,7 +33,7 @@ class Media extends Model
         {
             $path = $this->path;
             $img = Image::make(Storage::disk('public')->path($path));
-                $watermark = Image::make($watermark)->resize($img->width() / 2, null, function ($constraint) {
+                $watermark = Image::make($filePath)->resize($img->width() / 2, null, function ($constraint) {
                     $constraint->aspectRatio();
                 });
             $img->insert($watermark, $position, 10, 10)->save(public_path($filePath), 75, 'png');
