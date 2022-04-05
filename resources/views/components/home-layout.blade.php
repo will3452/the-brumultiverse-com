@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BRUMULTIVERSE</title>
-    <link href="/bru_assets/circle_logo.png" rel="icon"/>
+    <link href="{{getAsset('home/circle_logo.png')}}" rel="icon"/>
     <link rel="stylesheet" href="/css/app.css">
     <script src="/js/app.js"></script>
     <style>
@@ -26,7 +26,7 @@
         {{$slot}}
         <footer>
             <div class="flex justify-center mt-4">
-                <img src="/bru_assets/circle_logo.png" alt="circle logo" class="w-20">
+                <img src="{{getAsset('home/circle_logo.png')}}" alt="circle logo" class="w-20">
             </div>
             <x-home-text-container>
                 We’d love for you to join our growing BRU family!

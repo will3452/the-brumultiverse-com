@@ -21,7 +21,7 @@
     <div
     style="
         margin-top:2em;
-        background: url('/bru_assets/about/BRUNITY.jpg');
+        background: url('{{getAsset('home/about/BRUNITY.jpg')}}');
         height:400px;
         background-position:bottom;
         background-size:cover;

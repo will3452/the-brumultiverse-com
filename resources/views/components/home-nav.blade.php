@@ -1,5 +1,5 @@
 <nav class="md:flex bg-black items-center justify-center md:justify-between shadow">
-    <img id="logo" onclick="logoClick()" src="/bru_assets/textlogo.png" alt="text logo" class="mx-auto md:mx-0" style="width:300px;">
+    <img id="logo" onclick="logoClick()" src="{{getAsset('/home/textlogo.png')}}" alt="text logo" class="mx-auto md:mx-0" style="width:300px;">
     <script>
         let click = 0;
         function logoClick() {

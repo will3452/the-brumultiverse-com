@@ -5,12 +5,12 @@
         </h2>
     </div>
     <x-vspace>
-        <x-about-banner-link image="/bru_assets/about/BRU.jpg" href="{{nova_get_setting('bru_link', '/')}}"></x-about-banner-link>
+        <x-about-banner-link image="{{getAsset('home/about/BRU.jpg')}}" href="{{nova_get_setting('bru_link', '/')}}"></x-about-banner-link>
     </x-vspace>
     <x-vspace>
-        <x-about-banner-link image="/bru_assets/about/BRUNIVERSITY.jpg" href="{{nova_get_setting('bruniversity_link', '/')}}"></x-about-banner-link>
+        <x-about-banner-link image="{{getAsset('home/about/BRUNIVERSITY.jpg')}}" href="{{nova_get_setting('bruniversity_link', '/')}}"></x-about-banner-link>
     </x-vspace>
     <x-vspace>
-        <x-about-banner-link image="/bru_assets/about/BRUNITY.jpg" href="/brunity"></x-about-banner-link>
+        <x-about-banner-link image="{{getAsset('home/about/BRUNITY.jpg')}}" href="/brunity"></x-about-banner-link>
     </x-vspace>
 </x-home-layout>
