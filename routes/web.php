@@ -323,3 +323,9 @@ Route::get('/test', fn()=>getAsset('avatars/masaru.png'));
 Route::get('aan-generate', function () {
     return Aan::generate()->value;
 });
+
+//devs
+Route::prefix('devs')->name('dev.')->group(function () {
+    Route::get('bugs', [BugController::class, 'bugs']);
+    Route::post('bugs', [BugController::class, 'markAsFixed']);
+});

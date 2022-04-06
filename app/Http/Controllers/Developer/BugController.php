@@ -18,4 +18,19 @@ class BugController extends Controller
         Bug::create($data);
         return back()->withSuccess('bugs submitted!');
     }
+
+    public function bugs()
+    {
+        $bugs = Bug::get();
+        return view('dev.bugs', compact('bugs'));
+    }
+
+    public function markAsFixed(Request $request, Bug $bug)
+    {
+        $bug->update([
+            'status' => Bug::STATUS_FIXED,
+        ]);
+
+        return back();
+    }
 }
