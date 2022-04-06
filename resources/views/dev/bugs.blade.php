@@ -12,10 +12,10 @@
         $unfixed = \App\Models\Bug::whereStatus(\App\Models\Bug::STATUS_PENDING)->count();
     @endphp
     <div>
-        progress rate: {{ ($fixed / count($bugs)) * 100 }}
+        progress rate: {{ number_format(($fixed / count($bugs)) * 100, 2) }}
     </div>
     <div>
-        remaining bugs: {{$unfixed}}
+        remaining bugs: {{$unfixed}} | fixed: {{$fixed}}
     </div>
     <table border="1">
         <thead>
