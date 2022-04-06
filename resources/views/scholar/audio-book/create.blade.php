@@ -126,7 +126,7 @@
 
         <x-scholar.form.ckeditor name="blurb" label="Blurb">{{is_null($book)?'':$book->blurb}}</x-scholar.form.ckeditor>
 
-        <x-scholar.form.number name="cost" label="Cost" :value="is_null($book)?0:$book->cost" help="Please note that leaving the cost of your book in 0 will allow free access to readers, so long as they have hall passes or silver tickets. Please indicate price in CRYSTALS."/>
+        <x-scholar.form.number name="cost" label="Cost" :value="is_null($book)?0:$book->cost" help="Please note that leaving the cost to ZERO will allow the users to download it for FREE. Please indicate price in CRYSTALS."/>
 
         <x-scholar.form.ckeditor name="credit" label="Credit Page">{{is_null($book)?'':$book->credit}}</x-scholar.form.ckeditor>
 

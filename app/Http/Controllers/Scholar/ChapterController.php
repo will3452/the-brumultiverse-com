@@ -17,7 +17,7 @@ class ChapterController extends Controller
             'title' => 'required',
             'number' => 'required',
             'content' => 'required',
-            'type' => 'required',
+            'type' => '',
             'description' => '',
             'age_restriction' => '',
             'notes' => 'required',
@@ -40,7 +40,6 @@ class ChapterController extends Controller
     {
         $data = $this->customValidate($request);
 
-
         if ($book->category->file_type != Category::FILE_TYPE_TEXT) {
             $data['content'] = FileHelper::save($data['content']);
         }
@@ -53,6 +52,8 @@ class ChapterController extends Controller
 
         //set the cost_type
         $data['cost_type'] = $request->cost_type ?? Chapter::DEFAULT_COST_TYPE;
+        $data['type'] = $request->type ?? Chapter::TYPE_PLATINUM;
+        $data['cost'] = $request->cost ?? 0;
 
         $book->chapters()->create($data);
 

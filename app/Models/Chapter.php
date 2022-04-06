@@ -37,6 +37,7 @@ class Chapter extends Model
     const TYPE_REGULAR = 'Regular';
     const TYPE_SPECIAL = 'Special';
     const TYPE_PREMIUM_WITH_FREE_ART_SCENE = 'Premium w/ Free Art Scene';
+    const TYPE_PLATINUM = 'Platinum'; // exclusive for platinum books
 
     const TYPE_OPTIONS = [
         self::TYPE_PREMIUM,

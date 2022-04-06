@@ -55,7 +55,7 @@
                     {{$artScene->description}}
                 </x-scholar.form.ckeditor>
 
-                <x-scholar.form.number readonly="true" name="cost" value="{{$artScene->cost}}" label="Cost" help="Please note that leaving the cost of your book in 0 will allow free access to readers, so long as they have hall passes or silver tickets. Please indicate price in CRYSTALS."/>
+                <x-scholar.form.number readonly="true" name="cost" value="{{$artScene->cost}}" label="Cost" help="Please note that leaving the cost to ZERO will allow the users to download it for FREE. Please indicate price in CRYSTALS."/>
 
                 <x-scholar.form.ckeditor name="credit" label="Credit Page">
                     {{$artScene->credit}}

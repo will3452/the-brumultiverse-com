@@ -25,7 +25,7 @@
             <option value="{{\App\Models\Book::TYPE_REGULAR}}">{{\App\Models\Book::TYPE_REGULAR}}</option>
             <option value="{{\App\Models\Book::TYPE_PREMIUM}}">{{\App\Models\Book::TYPE_PREMIUM}}</option>
             <option value="{{\App\Models\Book::TYPE_SPIN}}">{{\App\Models\Book::TYPE_SPIN}}</option>
-            <option value="{{\App\Models\Book::TYPE_EVENT}}">{{\App\Models\Book::TYPE_EVENT}}</option>
+            {{-- <option value="{{\App\Models\Book::TYPE_EVENT}}">{{\App\Models\Book::TYPE_EVENT}}</option> --}}
             <option value="{{\App\Models\Book::TYPE_PLATINUM}}">{{\App\Models\Book::TYPE_PLATINUM}}</option>
         </x-scholar.form.select>
 
@@ -99,7 +99,7 @@
         <x-scholar.form.ckeditor name="blurb" label="Blurb"/>
 
         <template x-if="`{{\App\Models\Book::TYPE_REGULAR}}` != type">
-            <x-scholar.form.number name="cost" label="Cost" help="Please note that leaving the cost of your book in 0 will allow free access to readers, so long as they have hall passes or silver tickets. Please indicate price in CRYSTALS."/>
+            <x-scholar.form.number name="cost" label="Cost" help="Please note that leaving the cost to ZERO will allow the users to download it for FREE. Please indicate price in CRYSTALS."/>
         </template>
 
         <template x-if="`{{\App\Models\Book::TYPE_REGULAR}}` == type">
