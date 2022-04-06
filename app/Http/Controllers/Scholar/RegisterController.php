@@ -10,6 +10,7 @@ use App\Models\College;
 use App\Models\Interest;
 use App\Helpers\FileHelper;
 use App\Helpers\FormHelper;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
@@ -53,7 +54,7 @@ class RegisterController extends Controller
 
         $userFields['password'] = bcrypt($userFields['password']);
 
-        $userFields['user_name'] = implode(',', [$userFields['first_name'], $userFields['last_name']]);// requested by ma'am khiara to ommit username and gender upon registration of the scholar so the solution is to register auto username in the background.
+        $userFields['user_name'] = implode(',', [$userFields['first_name'], $userFields['last_name'], Str::random(6)]);// requested by ma'am khiara to ommit username and gender upon registration of the scholar so the solution is to register auto username in the background.
         $userFields['gender'] = $userFields['sex']; //same as aboved
 
         //this will create a fields
