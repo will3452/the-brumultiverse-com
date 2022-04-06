@@ -2351,7 +2351,6 @@ __webpack_require__(/*! ./bootstrap.js */ "./resources/js/bootstrap.js");
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_2__["default"].component('the-interest', TheInterest);
 vue__WEBPACK_IMPORTED_MODULE_2__["default"].component('chat-panel', _components_chat_Panel_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var app = new vue__WEBPACK_IMPORTED_MODULE_2__["default"]({}).$mount('#app');
 
