@@ -15,7 +15,7 @@
         progress rate: {{ number_format(($fixed / count($bugs)) * 100, 2) }} %
     </div>
     <div>
-        remaining bugs: {{$unfixed}} | fixed: {{$fixed}}
+        total: {{count($bugs)}} | remaining bugs: {{$unfixed}} | fixed: {{$fixed}}
     </div>
     <table border="1">
         <thead>
