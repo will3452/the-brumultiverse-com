@@ -53,6 +53,9 @@ class RegisterController extends Controller
 
         $userFields['password'] = bcrypt($userFields['password']);
 
+        $userFields['user_name'] = implode(',', [$userFields['first_name'], $userFields['last_name']]);// requested by ma'am khiara to ommit username and gender upon registration of the scholar so the solution is to register auto username in the background.
+        $userFields['gender'] = $userFields['sex']; //same as aboved
+
         //this will create a fields
         $user = User::create($userFields);
 

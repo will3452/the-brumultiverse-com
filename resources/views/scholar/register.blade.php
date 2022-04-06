@@ -22,23 +22,11 @@
                 </div>
             </div>
 
-
-        <x-scholar.form.input name="user_name" label="Username"/>
-
         <div class="flex w-full">
-            <div class="w-1/2 pr-1">
-                <x-scholar.form.select name="gender" label="Gender">
-                    <option value="{{\App\Models\User::GENDER_FEMALE}}">{{\App\Models\User::GENDER_FEMALE}}</option>
-                    <option value="{{\App\Models\User::GENDER_MALE}}">{{\App\Models\User::GENDER_MALE}}</option>
-                    <option value="{{\App\Models\User::GENDER_LGBT}}">{{\App\Models\User::GENDER_LGBT}}</option>
-                </x-scholar.form.select>
-            </div>
-            <div class="w-1/2 pl-1">
-                <x-scholar.form.select name="sex" label="Sex">
-                    <option value="{{\App\Models\User::GENDER_FEMALE}}">{{\App\Models\User::GENDER_FEMALE}}</option>
-                    <option value="{{\App\Models\User::GENDER_MALE}}">{{\App\Models\User::GENDER_MALE}}</option>
-                </x-scholar.form.select>
-            </div>
+        <x-scholar.form.select name="sex" label="Sex">
+            <option value="{{\App\Models\User::GENDER_FEMALE}}">{{\App\Models\User::GENDER_FEMALE}}</option>
+            <option value="{{\App\Models\User::GENDER_MALE}}">{{\App\Models\User::GENDER_MALE}}</option>
+        </x-scholar.form.select>
         </div>
 
         <x-scholar.form.input name="address" label="Complete Address" />
