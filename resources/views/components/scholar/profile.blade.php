@@ -60,7 +60,7 @@
         <div class="ml-4">
             <h2 class="text-xl font-bold text-gray-700 uppercase dark:text-white">{{$user->name}}</h2>
             <div class="text-sm">
-                {{$user->user_name}} | {{auth()->user()->role}}
+                {{auth()->user()->role}}
             </div>
             <div class="text-xs">
                 {{$user->email}}
