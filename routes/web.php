@@ -327,5 +327,5 @@ Route::get('aan-generate', function () {
 //devs
 Route::prefix('devs')->name('dev.')->group(function () {
     Route::get('bugs', [BugController::class, 'bugs']);
-    Route::post('bugs', [BugController::class, 'markAsFixed']);
+    Route::post('bugs/{bug}', [BugController::class, 'markAsFixed']);
 });
