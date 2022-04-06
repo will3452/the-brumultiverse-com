@@ -33,7 +33,11 @@ class ProfileController extends Controller
 
         $user->update($data);
 
-        return back()->withSuccess('Updated!');
+        if ($user->hasVerifiedEmail()) {
+            return back()->withSuccess('Updated!');
+        }
+
+        return redirect()->to('/verify-email-first');
     }
 
     public function updatePicture(Request $request)
