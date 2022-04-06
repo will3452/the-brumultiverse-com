@@ -17,6 +17,7 @@ class ProfileController extends Controller
 
     public function update(Request $request, User $user)
     {
+        dd($request->all());
         $data = $request->validate([
             'email' => ['required', 'unique:users,email,'.$user->id],
             // 'user_name' => ['required', "unique:users,user_name,$user->id"],
@@ -30,7 +31,6 @@ class ProfileController extends Controller
         }
 
         $data['password'] = bcrypt($data['password']);
-        $data['copyright_disclaimer'] = true;
 
         $user->update($data);
 
@@ -40,6 +40,7 @@ class ProfileController extends Controller
     public function updatePicture(Request $request)
     {
         $data['picture'] = FileHelper::filepondSave($request->file, ['size' => [30, 30]]);
+        $data['copyright_disclaimer'] = true;
         auth()->user()->update($data);
 
         return back()->withSuccess('Updated!');
