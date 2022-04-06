@@ -84,6 +84,7 @@ class Book extends Model implements TaggableInterface
     const TYPE_PREMIUM = 'Premium';
     const TYPE_SPIN = 'Spin';
     const TYPE_EVENT = 'Event';
+    const TYPE_PLATINUM = 'Platinum';
 
 
     const DEFAULT_COST_TYPE = CrystalHelper::PURPLE_CRYSTAL;

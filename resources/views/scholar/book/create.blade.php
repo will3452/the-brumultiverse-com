@@ -26,6 +26,7 @@
             <option value="{{\App\Models\Book::TYPE_PREMIUM}}">{{\App\Models\Book::TYPE_PREMIUM}}</option>
             <option value="{{\App\Models\Book::TYPE_SPIN}}">{{\App\Models\Book::TYPE_SPIN}}</option>
             <option value="{{\App\Models\Book::TYPE_EVENT}}">{{\App\Models\Book::TYPE_EVENT}}</option>
+            <option value="{{\App\Models\Book::TYPE_PLATINUM}}">{{\App\Models\Book::TYPE_PLATINUM}}</option>
         </x-scholar.form.select>
 
         <x-scholar.form.input label="Book Title" name="title"/>

@@ -21,7 +21,7 @@ class ChapterController extends Controller
             'description' => '',
             'age_restriction' => '',
             'notes' => 'required',
-            'cost' => 'required',
+            'cost' => '',
         ]);
     }
     public function show(Chapter $chapter)
@@ -40,8 +40,15 @@ class ChapterController extends Controller
     {
         $data = $this->customValidate($request);
 
+
         if ($book->category->file_type != Category::FILE_TYPE_TEXT) {
             $data['content'] = FileHelper::save($data['content']);
+        }
+
+
+
+        if (! $request->has('cost')) {
+            $data['cost'] = 0;
         }
 
         //set the cost_type
