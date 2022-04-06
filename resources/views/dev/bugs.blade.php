@@ -7,6 +7,16 @@
     <title>bugs</title>
 </head>
 <body>
+    @php
+        $fixed = (\App\Models\Bug::whereStatus(\App\Models\Bug::STATS_FIXED)->count();
+        $unfixed = (\App\Models\Bug::whereStatus(\App\Models\Bug::STATS_PENDING)->count();
+    @endphp
+    <div>
+        progress rate: {{ $fixed / count($bugs)) * 100 }}
+    </div>
+    <div>
+        remaining bugs: {{$unfixed}}
+    </div>
     <table border="1">
         <thead>
             <tr>

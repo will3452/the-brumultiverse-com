@@ -269,14 +269,14 @@ public function setLevel($value, $genre)
                         'name' => '3*Steamy',
                         'age' => 18,
                     ],
-                    [
-                        'name' => '4*Erotic Romance',
-                        'age' => 18,
-                    ],
-                    [
-                        'name' => '5*Erotica',
-                        'age' => 18,
-                    ],
+                    // [
+                    //     'name' => '4*Erotic Romance',
+                    //     'age' => 18,
+                    // ],
+                    // [
+                    //     'name' => '5*Erotica',
+                    //     'age' => 18,
+                    // ],
                 ],
                 'violence' => []
             ],

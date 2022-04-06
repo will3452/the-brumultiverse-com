@@ -82,7 +82,7 @@ class Book extends Model implements TaggableInterface
 
     const TYPE_REGULAR = 'Regular';
     const TYPE_PREMIUM = 'Premium';
-    const TYPE_SPIN = 'Spin';
+    const TYPE_SPIN = 'Spin-Off';
     const TYPE_EVENT = 'Event';
     const TYPE_PLATINUM = 'Platinum';
 
