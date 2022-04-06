@@ -1,6 +1,6 @@
 <div class="navbar border-b dark:bg-gray-900">
     <div class="flex-1 items-center flex">
-      <img src="/bru_assets/textlogo.png" class="w-48" alt="">
+      <img src="{{getAsset('home/textlogo.png')}}" class="w-48" alt="">
        <form action="javascript:alert('under developmemt')" class="flex items-center hidden md:flex">
            <div>
             <input type="text" class="input input-bordered input-sm" placeholder="Search here">
