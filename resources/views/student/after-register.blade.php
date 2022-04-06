@@ -15,7 +15,7 @@
              <template x-if="step == 2">
                 <div>
                     <x-student.dialog-container>
-                        <x-student.typing message="Hi there, {{auth()->user()->first_name}}! Welcome to Berkeley-Reagan University or what we all call BRU." delay="10" clear="0"/>
+                        <x-student.typing message="Hi there, {{auth()->user()->user_name}}! Welcome to Berkeley-Reagan University or what we all call BRU." delay="10" clear="0"/>
                             <x-student.dialog-button-container>
                                 <button class="btn-student-active mt-2" x-on:click="step++">
                                     Next

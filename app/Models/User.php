@@ -64,6 +64,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasRole(Role::SUPERADMIN);
     }
 
+    public function isGenderMale(): bool
+    {
+        return $this->gender === self::GENDER_MALE;
+    }
+
     const ACCOUNT_PREMIUM = 'Premium';
     const ACCOUNT_FREE = 'Free';
 
