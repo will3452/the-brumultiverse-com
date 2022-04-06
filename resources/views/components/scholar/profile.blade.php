@@ -16,7 +16,7 @@
 
                 <x-scholar.form.input readonly="1" name="address" label="Address" :value="$user->address" />
 
-                <x-scholar.form.input name="email" type="email" label="Email" :value="$user->email" note="Editing your email will require you to verify it again."/>
+                <x-scholar.form.input name="email" type="email" label="Email" :value="$user->email" notes="Editing your email will require you to verify it again."/>
 
                 <x-scholar.form.password name="password" label="New Password" />
 
