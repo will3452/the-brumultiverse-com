@@ -50,7 +50,7 @@
                     </td>
                     <td>
                         @if ($b->status === \App\Models\Bug::STATUS_PENDING)
-                            <form action="/bugs/{{$b->id}}" method="POST">
+                            <form action="/devs/bugs/{{$b->id}}" method="POST">
                                 @csrf
                                 <button>mark as fixed!</button>
                             </form>

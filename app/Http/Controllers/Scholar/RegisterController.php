@@ -65,11 +65,8 @@ class RegisterController extends Controller
         $interestField['user_id'] = $user->id;
         Interest::create($interestField);
 
-        //log the user in
-        auth()->login($user);
-
         event(new Registered($user));
 
-        return redirect(route('scholar.home'));
+        return redirect(route('scholar.login'));
     }
 }
