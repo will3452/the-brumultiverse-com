@@ -74,7 +74,7 @@
             </x-scholar.form.select>
         </div>
 
-        <x-scholar.form.checkbox name="has_warning_message" label="Please add a content warning to my book."/>
+        <x-scholar.form.checkbox required="0" name="has_warning_message" label="Please add a content warning to my book."/>
 
         <x-scholar.form.tags name="tags" label="Tags"/>
 
