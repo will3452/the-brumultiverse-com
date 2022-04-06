@@ -25,7 +25,7 @@ class ProfileController extends Controller
             // 'address' => ['required'],
         ]);
 
-        if ($data['email'] !== $user->email) {
+        if ($data['email'] != $user->email) {
             $user->update(['email_verified_at' => null]);
         }
 
