@@ -3,7 +3,9 @@
 <!-- The button to open modal -->
 <div class="mt-4">
     @if ($noButton)
-    {{$trigger}}
+        <label for="{{$id}}">
+            {{$trigger}}
+        </label>
     @else
         <label for="{{$id}}" class="btn {{$extra}} modal-button m-1">{{$button}}</label>
     @endif
@@ -16,6 +18,8 @@
         <label for="{{$id}}" class="absolute top-2 right-2">
             <img src="/img/icons/crud/x.svg" alt="">
         </label>
-    {{$slot}}
+        <div>
+            {{$slot}}
+        </div>
   </div>
 </div>

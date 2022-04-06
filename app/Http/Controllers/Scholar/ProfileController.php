@@ -45,7 +45,6 @@ class ProfileController extends Controller
         $data['picture'] = FileHelper::filepondSave($request->file, ['size' => [30, 30]]);
         $data['copyright_disclaimer'] = true;
         auth()->user()->update($data);
-
         return back()->withSuccess('Updated!');
     }
 
@@ -62,6 +61,7 @@ class ProfileController extends Controller
         $data['approved_at'] = now();
 
         $data['picture'] = FileHelper::save($data['picture']);
+        FileHelper::generateImage([30, 30], $data['picture']);
 
         auth()->user()->accounts()->create($data);
         return back()->withSuccess('created!');
@@ -72,5 +72,18 @@ class ProfileController extends Controller
         FileHelper::delete($account);
         $account->delete();
         return back()->withSuccess('Deleted!');
+    }
+
+    public function updateAccountPicture(Request $request, Account $account)
+    {
+        $data = $request->validate([
+            'file' => ['required', 'image', 'max:2000'],
+        ]);
+
+        $picture = FileHelper::save($data['file']);
+        FileHelper::generateImage([30, 30], $picture);
+
+        $account->update(['picture' => $picture]);
+        return back()->withSuccess('Updated!');
     }
 }

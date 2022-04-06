@@ -1,5 +1,5 @@
-@props(['label' => ''])
-<div class="overflow-x-auto">
+@props(['label' => '', 'responsive' => true])
+<div class="overflow-x-auto" >
     <div class="flex justify-between">
         <x-scholar.page.title>
             {{$label}}
@@ -8,7 +8,7 @@
             {{$option??''}}
         </div>
     </div>
-    <table class="table table-compact w-full mt-2 dark:text-black">
+    <table class="{{$responsive ? 'table' : 'text-left'}} table-compact w-full mt-2 dark:text-black">
         {{$slot}}
     </table>
 </div>

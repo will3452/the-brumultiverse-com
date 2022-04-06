@@ -18,7 +18,7 @@
     />
     <x-scholar.profile :user="$user"/>
     <div class="mt-4">
-        <x-scholar.table>
+        <x-scholar.table responsive="0">
             <x-slot name="label">
                 Pen Names <span class="text-xs font-thin">({{$user->accounts()->count()}}/{{nova_get_setting('max_account', 3)}})</span>
             </x-slot>
@@ -27,7 +27,7 @@
                     <x-scholar.modal id="create-pen-name" no-button="1">
                         <x-slot name="trigger">
                             <label for="create-pen-name" class="btn btn-sm">
-                                create pen-name
+                                create pen name
                             </label>
                         </x-slot>
                         <form action="{{route('scholar.profile.account.register')}}" method="POST" enctype="multipart/form-data">
@@ -73,8 +73,9 @@
                     <th class="dark:bg-gray-900 dark:text-white">
                         Date
                     </th>
+                    <th></th>
                     <th class="dark:bg-gray-900 dark:text-white">
-                        Pen-Name
+                        Pen Name
                     </th>
                     <th class="dark:bg-gray-900 dark:text-white">
                         Country
@@ -92,6 +93,26 @@
                     <tr>
                         <td class="dark:bg-gray-900 dark:text-white">
                             {{$a->created_at->format('m/d/y')}}
+                        </td>
+                        <td>
+                            <x-scholar.modal no-button="1">
+                                <x-slot name="trigger">
+                                    <div class="tooltip tooltip-right" data-tip="click to upload new picture">
+                                        <img  src="/img/profiles/30-30-{{$a->picture}}" alt=""  class=" block w-10 h-10 object-cover rounded-full border-2">
+                                    </div>
+                                </x-slot>
+                                <form action="{{route('scholar.profile.account.picture.update', ['account' => $a->id])}}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('PUT')
+                                    <div>
+                                        <x-scholar.form.file name="file" label="New Picture"/>
+                                        <x-scholar.form.submit>
+                                            Submit
+                                        </x-scholar.form.submit>
+                                    </div>
+                                </form>
+                            </x-scholar.modal>
+
                         </td>
                         <td class="dark:bg-gray-900 dark:text-white">
                             {{$a->penname}}

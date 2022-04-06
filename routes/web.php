@@ -152,6 +152,7 @@ Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function
         Route::put('/profile/{user}', [ProfileController::class, 'update'])->name('update');
         Route::post('/account', [ProfileController::class, 'registerAccount'])->name('account.register');
         Route::delete('/account/{account}', [ProfileController::class, 'removeAccount'])->name('account.delete');
+        Route::put('/account-picture-update/{account}', [ProfileController::class, 'updateAccountPicture'])->name('account.picture.update');
         Route::put('profile-picture-update', [ProfileController::class, 'updatePicture'])->name('update.picture');
     });
 

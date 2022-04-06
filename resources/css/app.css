@@ -41,7 +41,7 @@
     top:30vh;
 }
 
-a, button, label, .dropdown, .btn, .breadcrumbs a {
+a, button, label, .dropdown, .btn, .breadcrumbs a, img:hover {
     cursor: url('/img/cursor/pointer.png'), default;
 }
 
