@@ -1,8 +1,8 @@
 <?php
 use App\Helpers\AssetHelper;
 if (! function_exists('getAsset')) {
-    function getAsset($path): string
+    function getAsset($path, $local=false): string
     {
-        return AssetHelper::get($path);
+        return AssetHelper::get($path, $local);
     }
 }
