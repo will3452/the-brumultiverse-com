@@ -13,6 +13,7 @@ use App\Helpers\FormHelper;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
@@ -66,6 +67,9 @@ class RegisterController extends Controller
 
         //log the user in
         auth()->login($user);
+
+        event(new Registered($user));
+
         return redirect(route('scholar.home'));
     }
 }
