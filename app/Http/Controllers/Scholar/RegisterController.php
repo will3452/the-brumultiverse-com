@@ -71,6 +71,6 @@ class RegisterController extends Controller
 
         event(new Registered($user));
 
-        return redirect(route('scholar.login'));
+        return redirect(route('scholar.login') . "?success");
     }
 }

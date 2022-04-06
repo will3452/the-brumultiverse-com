@@ -8,15 +8,15 @@
             <form action="{{route('scholar.profile.update', ['user' => $user->id])}}" method="POST">
                 @csrf
                 @method('PUT')
-                <x-scholar.form.input name="user_name" label="Username/BRUname" :value="$user->user_name"/>
+                {{-- <x-scholar.form.input name="user_name" label="Username/BRUname" :value="$user->user_name"/> --}}
 
                 <x-scholar.form.input readonly="1" name="first_name" label="First Name" :value="$user->first_name" />
 
                 <x-scholar.form.input readonly="1" name="last_name" label="Last Name" :value="$user->last_name" />
 
-                <x-scholar.form.input name="address" label="Address" :value="$user->address" />
+                <x-scholar.form.input readonly="1" name="address" label="Address" :value="$user->address" />
 
-                <x-scholar.form.input readonly="1" name="email" type="email" label="Email" :value="$user->email" />
+                <x-scholar.form.input name="email" type="email" label="Email" :value="$user->email" note="Editing your email will require you to verify it again."/>
 
                 <x-scholar.form.password name="password" label="New Password" />
 
