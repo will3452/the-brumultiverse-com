@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Traits\DormTrait;
 use App\Models\Traits\HasChat;
 use App\Models\Traits\HasMarket;
 use App\Models\Traits\HasPaymentTransactions;
@@ -24,6 +25,7 @@ class User extends Authenticatable implements MustVerifyEmail
         HasChat,
         ScholarTrait,
         StudentTrait,
+        DormTrait,
         HasRoles;
 
     protected $with = [

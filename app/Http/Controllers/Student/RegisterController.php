@@ -69,4 +69,10 @@ class RegisterController extends Controller
     {
         return view('student.welcome-dorm');
     }
+
+    public function welcomeToCloset()
+    {
+        dd('hello world');
+        return view('student.welcome-closet');
+    }
 }
