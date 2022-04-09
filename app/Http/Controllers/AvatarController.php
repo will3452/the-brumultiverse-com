@@ -27,8 +27,7 @@ class AvatarController extends Controller
         }
 
         $hairs = AvatarAsset::whereType(AvatarAsset::TYPE_HAIR)
-            ->whereGender($request->gender)
-            ->whereCollege($request->college)->get();
+            ->whereGender($request->gender)->get();
 
         foreach ($hairs as $value) {
             $value['thumbnail'] = $value->thumbnail;

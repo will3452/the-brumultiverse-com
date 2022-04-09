@@ -2131,7 +2131,7 @@ __webpack_require__.r(__webpack_exports__);
     fetch("".concat(this.uri, "api/avatars?gender=").concat(this.gender, "&college=").concat(this.college, "&is_premium=").concat(this.isPremium)).then(function (res) {
       return res.json();
     }).then(function (data) {
-      console.log(_this.choices = data);
+      _this.choices = data;
       _this.baseActive = data.bases[0].id;
       _this.hairActive = data.hairstyles[0].id;
       _this.clothesActive = data.clothes[0].id;
@@ -2163,6 +2163,11 @@ __webpack_require__.r(__webpack_exports__);
       var path = this.choices.bases.find(function (e) {
         return e.id == _this2.baseActive;
       });
+
+      if (path == null) {
+        return '#';
+      }
+
       return this.uri + "/storage/" + path.path;
     },
     currentHairImage: function currentHairImage() {
@@ -2171,6 +2176,11 @@ __webpack_require__.r(__webpack_exports__);
       var path = this.choices.hairstyles.find(function (e) {
         return e.id == _this3.hairActive;
       });
+
+      if (path == null) {
+        return '#';
+      }
+
       return this.uri + "/storage/" + path.path;
     },
     currentClothesImage: function currentClothesImage() {
@@ -2179,6 +2189,11 @@ __webpack_require__.r(__webpack_exports__);
       var path = this.choices.clothes.find(function (e) {
         return e.id == _this4.clothesActive;
       });
+
+      if (path == null) {
+        return '#';
+      }
+
       return this.uri + "/storage/" + path.path;
     }
   }

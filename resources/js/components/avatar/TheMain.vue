@@ -51,12 +51,11 @@ import ThumbnailVue from "./Thumbnail.vue";
             fetch(`${this.uri}api/avatars?gender=${this.gender}&college=${this.college}&is_premium=${this.isPremium}`)
                 .then(res=>res.json())
                 .then((data) =>{
-                    console.log(this.choices = data);
+                    this.choices = data;
                     this.baseActive = data.bases[0].id;
                     this.hairActive = data.hairstyles[0].id;
                     this.clothesActive = data.clothes[0].id;
                 });
-
         },
         methods: {
             thumbnailHandler ({type, id}) {
@@ -77,14 +76,23 @@ import ThumbnailVue from "./Thumbnail.vue";
         computed: {
             currentBaseImage () {
                 let path = this.choices.bases.find((e)=>e.id == this.baseActive);
+                if (path == null) {
+                    return '#';
+                }
                 return this.uri + "/storage/" + path.path;
             },
             currentHairImage () {
                 let path = this.choices.hairstyles.find((e)=>e.id == this.hairActive);
+                if (path == null) {
+                    return '#';
+                }
                 return this.uri + "/storage/" + path.path;
             },
             currentClothesImage () {
                 let path = this.choices.clothes.find((e)=>e.id == this.clothesActive);
+                if (path == null) {
+                    return '#';
+                }
                 return this.uri + "/storage/" + path.path;
             },
         }
