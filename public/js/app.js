@@ -2101,7 +2101,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['gender', 'isPremium', 'college'],
@@ -2112,13 +2114,13 @@ __webpack_require__.r(__webpack_exports__);
     return {
       baseActive: 1,
       hairActive: 1,
-      clothesActive: 0,
+      clothesActive: 1,
       uri: 'https://brumultiverse.com/',
       step: 1,
       avatar: {
         base: 1,
         hair: 1,
-        clothes: null
+        clothes: 1
       },
       choices: {}
     };
@@ -2129,7 +2131,10 @@ __webpack_require__.r(__webpack_exports__);
     fetch("".concat(this.uri, "api/avatars?gender=").concat(this.gender, "&college=").concat(this.college, "&is_premium=").concat(this.isPremium)).then(function (res) {
       return res.json();
     }).then(function (data) {
-      return console.log(_this.choices = data);
+      console.log(_this.choices = data);
+      _this.baseActive = data.bases[0].id;
+      _this.hairActive = data.hairstyles[0].id;
+      _this.clothesActive = data.clothes[0].id;
     });
   },
   methods: {
@@ -2144,6 +2149,10 @@ __webpack_require__.r(__webpack_exports__);
 
       if (type == 'hair') {
         this.hairActive = id;
+      }
+
+      if (type == 'clothes') {
+        this.clothesActive = id;
       }
     }
   },
@@ -2161,6 +2170,14 @@ __webpack_require__.r(__webpack_exports__);
 
       var path = this.choices.hairstyles.find(function (e) {
         return e.id == _this3.hairActive;
+      });
+      return this.uri + "/storage/" + path.path;
+    },
+    currentClothesImage: function currentClothesImage() {
+      var _this4 = this;
+
+      var path = this.choices.clothes.find(function (e) {
+        return e.id == _this4.clothesActive;
       });
       return this.uri + "/storage/" + path.path;
     }
@@ -43155,6 +43172,26 @@ var render = function () {
           )
         : _vm._e(),
       _vm._v(" "),
+      _vm.step == 3
+        ? _c(
+            "div",
+            { staticClass: "flex flex-wrap" },
+            _vm._l(_vm.choices.clothes, function (clothes) {
+              return _c("thumbnail-vue", {
+                key: clothes.id,
+                attrs: {
+                  "is-active": _vm.clothesActive,
+                  id: clothes.id,
+                  src: _vm.uri + clothes.thumbnail,
+                  type: "hair",
+                },
+                on: { "was-clicked": _vm.thumbnailHandler },
+              })
+            }),
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
       _c("div", { staticClass: "flex justify-between" }, [
         _c(
           "button",
@@ -43205,7 +43242,10 @@ var render = function () {
               attrs: { src: _vm.currentHairImage, alt: "" },
             }),
             _vm._v(" "),
-            _c("img", { staticClass: "absolute", attrs: { src: "", alt: "" } }),
+            _c("img", {
+              staticClass: "absolute",
+              attrs: { src: _vm.currentClothesImage, alt: "" },
+            }),
           ]
         ),
       ]

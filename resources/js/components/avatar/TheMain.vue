@@ -7,6 +7,9 @@
             <div v-if="step == 2" class="flex flex-wrap">
                 <thumbnail-vue :is-active="hairActive" :id="hair.id" :src="uri + hair.thumbnail" v-for="hair in choices.hairstyles" :key="hair.id" @was-clicked="thumbnailHandler" type="hair"/>
             </div>
+            <div v-if="step == 3" class="flex flex-wrap">
+                <thumbnail-vue :is-active="clothesActive" :id="clothes.id" :src="uri + clothes.thumbnail" v-for="clothes in choices.clothes" :key="clothes.id" @was-clicked="thumbnailHandler" type="hair"/>
+            </div>
             <div class="flex justify-between">
                 <button class="btn-student" @click="step != 1 ? step-- : step">Back</button>
                 <button class="btn-student-active" @click="step++">Apply</button>
@@ -16,14 +19,13 @@
             <div style="width:420px;height:594px;" class="border-2 bg-red-200">
                 <img :src="currentBaseImage" alt="" class="absolute">
                 <img :src="currentHairImage" alt="" class="absolute">
-                <img src="" alt="" class="absolute">
+                <img :src="currentClothesImage" alt="" class="absolute">
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import Vue from 'vue';
 import ThumbnailVue from "./Thumbnail.vue";
     export default {
         props: ['gender', 'isPremium', 'college'],
@@ -34,13 +36,13 @@ import ThumbnailVue from "./Thumbnail.vue";
             return {
                 baseActive:1,
                 hairActive:1,
-                clothesActive:0,
+                clothesActive:1,
                 uri: 'https://brumultiverse.com/',
                 step: 1,
                 avatar:{
                     base:1,
                     hair:1,
-                    clothes:null,
+                    clothes:1,
                 },
                 choices: {},
             }
@@ -48,7 +50,13 @@ import ThumbnailVue from "./Thumbnail.vue";
         mounted() {
             fetch(`${this.uri}api/avatars?gender=${this.gender}&college=${this.college}&is_premium=${this.isPremium}`)
                 .then(res=>res.json())
-                .then((data) => console.log(this.choices = data));
+                .then((data) =>{
+                    console.log(this.choices = data);
+                    this.baseActive = data.bases[0].id;
+                    this.hairActive = data.hairstyles[0].id;
+                    this.clothesActive = data.clothes[0].id;
+                });
+
         },
         methods: {
             thumbnailHandler ({type, id}) {
@@ -60,6 +68,10 @@ import ThumbnailVue from "./Thumbnail.vue";
                 if (type == 'hair') {
                     this.hairActive = id;
                 }
+
+                if (type == 'clothes') {
+                    this.clothesActive = id;
+                }
             }
         },
         computed: {
@@ -69,6 +81,10 @@ import ThumbnailVue from "./Thumbnail.vue";
             },
             currentHairImage () {
                 let path = this.choices.hairstyles.find((e)=>e.id == this.hairActive);
+                return this.uri + "/storage/" + path.path;
+            },
+            currentClothesImage () {
+                let path = this.choices.clothes.find((e)=>e.id == this.clothesActive);
                 return this.uri + "/storage/" + path.path;
             },
         }
