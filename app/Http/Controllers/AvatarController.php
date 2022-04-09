@@ -36,7 +36,7 @@ class AvatarController extends Controller
 
         $clothes = AvatarAsset::whereType(AvatarAsset::TYPE_CLOTHES)
             ->whereGender($request->gender)
-            ->whereForPremium($request->is_premium)->get();
+            ->orWhere('for_premium', $request->is_premium)->get();
 
         foreach ($clothes as $value) {
             $value['thumbnail'] = $value->thumbnail;

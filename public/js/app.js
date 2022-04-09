@@ -2091,12 +2091,19 @@ __webpack_require__.r(__webpack_exports__);
   props: ['gender', 'isPremium', 'college'],
   data: function data() {
     return {
+      uri: '//brumultiverse.com/api/avatars',
       step: 1,
       avatar: {},
       choices: {}
     };
   },
-  mounted: function mounted() {}
+  mounted: function mounted() {
+    fetch("".concat(this.uri, "?gender=").concat(this.gender, "&college=").concat(this.college, "&is_premium=").concat(this.isPremium)).then(function (res) {
+      return res.json();
+    }).then(function (data) {
+      return console.log(data);
+    });
+  }
 });
 
 /***/ }),

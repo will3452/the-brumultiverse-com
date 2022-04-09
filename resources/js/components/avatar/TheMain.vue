@@ -14,13 +14,16 @@
         props: ['gender', 'isPremium', 'college'],
         data () {
             return {
+                uri: '//brumultiverse.com/api/avatars',
                 step: 1,
                 avatar:{},
                 choices: {},
             }
         },
         mounted() {
-
+            fetch(`${this.uri}?gender=${this.gender}&college=${this.college}&is_premium=${this.isPremium}`)
+                .then(res=>res.json())
+                .then((data) => console.log(data));
         }
     }
 </script>
