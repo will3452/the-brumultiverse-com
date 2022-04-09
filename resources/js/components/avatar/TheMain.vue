@@ -2,7 +2,7 @@
     <div class="flex h-screen w-screen">
         <div class="w-6/12 h-full p-4 overflow-y-auto bg-gray-900">
             <div v-if="step == 1" class="flex flex-wrap justify-center">
-                    <thumbnail-vue :is-active="baseActive" :id="base.id" :src="uri + base.thumbnail" v-for="base in choices.bases" :key="'b' + base.id" @was-clicked="thumbnailHandler" type="base"/>
+                    <thumbnail-vue :is-premium="true" :is-active="baseActive" :id="base.id" :src="uri + base.thumbnail" v-for="base in choices.bases" :key="'b' + base.id" @was-clicked="thumbnailHandler" type="base"/>
             </div>
             <div v-if="step == 2" class="flex flex-wrap justify-center">
                 <thumbnail-vue :is-active="hairActive" :id="hair.id" :src="uri + hair.thumbnail" v-for="hair in choices.hairstyles" :key="hair.id" @was-clicked="thumbnailHandler" type="hair"/>

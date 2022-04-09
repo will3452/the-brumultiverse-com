@@ -2224,7 +2224,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['src', 'isActive', 'id', 'type'],
+  props: ['src', 'isActive', 'id', 'type', 'isPremium'],
   data: function data() {
     return {
       active: false
@@ -43163,6 +43163,7 @@ var render = function () {
                 return _c("thumbnail-vue", {
                   key: "b" + base.id,
                   attrs: {
+                    "is-premium": true,
                     "is-active": _vm.baseActive,
                     id: base.id,
                     src: _vm.uri + base.thumbnail,

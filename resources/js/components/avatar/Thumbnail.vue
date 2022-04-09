@@ -5,7 +5,7 @@
 <script>
     import Bus from './Bus.js';
     export default {
-        props: ['src', 'isActive', 'id', 'type'],
+        props: ['src', 'isActive', 'id', 'type', 'isPremium'],
         data () {
             return {
                 active:false,
