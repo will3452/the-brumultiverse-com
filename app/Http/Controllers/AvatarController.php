@@ -20,7 +20,7 @@ class AvatarController extends Controller
 
     public function apiGet(Request $request)
     {
-        $bases = AvatarBase::whereGender($request->gender);
+        $bases = AvatarBase::whereGender($request->gender)->get();
 
         foreach ($bases as $value) {
             $value['thumbnail'] = $value->thumbnail;
