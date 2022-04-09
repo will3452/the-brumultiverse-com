@@ -21,12 +21,26 @@ class AvatarController extends Controller
     public function apiGet(Request $request)
     {
         $bases = AvatarBase::whereGender($request->gender);
+
+        foreach ($bases as $value) {
+            $value['thumbnail'] = $value->thumbnail;
+        }
+
         $hairs = AvatarAsset::whereType(AvatarAsset::TYPE_HAIR)
             ->whereGender($request->gender)
             ->whereForPremium($request->is_premium)->get();
+
+        foreach ($hairs as $value) {
+            $value['thumbnail'] = $value->thumbnail;
+        }
+
         $clothes = AvatarAsset::whereType(AvatarAsset::TYPE_CLOTHES)
             ->whereGender($request->gender)
             ->whereForPremium($request->is_premium)->get();
+
+        foreach ($clothes as $value) {
+            $value['thumbnail'] = $value->thumbnail;
+        }
 
         return [
             'bases' => $bases,

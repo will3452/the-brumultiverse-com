@@ -11,8 +11,6 @@ class AvatarAsset extends Model
     use HasFactory,
         HasThumbnail;
 
-    protected $with = ['thumbnail'];
-
     protected $fillable = [
         'type',
         'name',

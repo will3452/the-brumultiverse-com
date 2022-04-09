@@ -10,10 +10,6 @@ class AvatarBase extends Model
 {
     use HasFactory, HasThumbnail;
 
-    protected $with = [
-        'thumbnail',
-    ];
-
     protected $fillable = [
         'group',
         'name',
