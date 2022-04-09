@@ -72,7 +72,6 @@ class RegisterController extends Controller
 
     public function welcomeToCloset()
     {
-        dd('hello world');
         return view('student.welcome-closet');
     }
 }

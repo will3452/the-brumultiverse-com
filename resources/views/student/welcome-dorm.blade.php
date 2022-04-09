@@ -1,5 +1,5 @@
 <x-student.layout>
-    <x-student.static-background-container bg="{{getAsset(auth()->user()->getDorm())}}">
+    <x-student.static-background-container bg="{{getAsset(auth()->user()->getDorm())}}" blur="1">
         <div>
             <x-student.dialog-container>
                 <x-student.typing clear="0" message="Your room is set up so that everything you need is within your reach. Wanna try this with me?" />

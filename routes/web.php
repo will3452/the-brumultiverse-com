@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AvatarController;
 use App\Models\Club;
 use Inertia\Inertia;
 use App\Models\Course;
@@ -302,7 +303,7 @@ Route::prefix('students')->name('student.')->group(function () {
     Route::get('/register-after', [StudentRegisterController::class, 'registerAfter'])->name('after.register');
     Route::post('/save-setup-account', [StudentRegisterController::class, 'saveAccount'])->name('save.account');
     Route::get('/welcome-dorm', [StudentRegisterController::class, 'welcomeToDorm'])->name('welcome.dorm');
-    Route::get('/welcome-closet', [StudentRegisterRequest::class, 'welcomeToCloset'])->name('welcome.closet');
+    Route::get('/welcome-closet', [StudentRegisterController::class, 'welcomeToCloset'])->name('welcome.closet');
 
     // subscription / tuition settlement process
     Route::get('/pay-tuition', [StudentPaymentController::class, 'payTuition'])->name('pay-tuition');
@@ -321,6 +322,10 @@ Route::post('/bug-submit', [BugController::class, 'store'])->name('submit.bug');
 
 Route::view('/terms-and-conditions', 'tnc');
 Route::view('/privacy-policy', 'pp');
+
+//avatars
+
+Route::get('avatars', [AvatarController::class, 'setup']);
 
 Route::get('/test', fn()=>getAsset('avatars/masaru.png'));
 Route::get('aan-generate', function () {

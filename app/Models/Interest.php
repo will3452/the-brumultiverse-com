@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Traits\BelongsToCollege;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Interest extends Model
 {
-    use HasFactory;
+    use HasFactory,
+        BelongsToCollege;
 
     protected $fillable = [
         'user_id',
@@ -24,11 +26,6 @@ class Interest extends Model
     public function course()
     {
         return $this->belongsTo(Course::class);
-    }
-
-    public function college()
-    {
-        return $this->belongsTo(College::class);
     }
 
     public function club()

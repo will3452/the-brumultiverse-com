@@ -47,14 +47,14 @@ a, button, label, .dropdown, .btn, .breadcrumbs a, img:hover {
 
 /* width */
 ::-webkit-scrollbar {
-    width: 16px;
+    width: 8px;
     height: 16px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
     border-radius:10px;
-    background: #edf2f7;
+    background: #ddd;
   }
 
   /* Handle */
