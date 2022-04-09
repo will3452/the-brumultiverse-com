@@ -1,25 +1,28 @@
 <template>
     <div class="flex h-screen w-screen">
         <div class="w-6/12 h-full p-4 overflow-y-auto bg-gray-900">
-            <div v-if="step == 1" class="flex flex-wrap">
+            <div v-if="step == 1" class="flex flex-wrap justify-center">
                     <thumbnail-vue :is-active="baseActive" :id="base.id" :src="uri + base.thumbnail" v-for="base in choices.bases" :key="'b' + base.id" @was-clicked="thumbnailHandler" type="base"/>
             </div>
-            <div v-if="step == 2" class="flex flex-wrap">
+            <div v-if="step == 2" class="flex flex-wrap justify-center">
                 <thumbnail-vue :is-active="hairActive" :id="hair.id" :src="uri + hair.thumbnail" v-for="hair in choices.hairstyles" :key="hair.id" @was-clicked="thumbnailHandler" type="hair"/>
             </div>
-            <div v-if="step == 3" class="flex flex-wrap">
+            <div v-if="step == 3" class="flex flex-wrap justify-center">
                 <thumbnail-vue :is-active="clothesActive" :id="clothes.id" :src="uri + clothes.thumbnail" v-for="clothes in choices.clothes" :key="clothes.id" @was-clicked="thumbnailHandler" type="clothes"/>
             </div>
-            <div class="flex justify-between">
-                <button class="btn-student" @click="step != 1 ? step-- : step">Back</button>
-                <button class="btn-student-active" @click="step++">Apply</button>
-            </div>
+
         </div>
-        <div class="w-6/12 bg-gray-200 h-full p-4 flex justify-center" style="background:url('https://raw.githubusercontent.com/will3452/bru-assets/main/closet/base.png'); background-size:cover;">
+        <div class="w-6/12 bg-gray-200 h-full p-4 flex justify-center flex-col items-center" style="background:url('https://raw.githubusercontent.com/will3452/bru-assets/main/closet/base.png'); background-size:cover;">
             <div style="width:420px;height:594px;" class="border-2 backdrop-blur-sm">
-                <img :src="currentBaseImage" alt="" class="absolute">
-                <img :src="currentHairImage" alt="" class="absolute">
-                <img :src="currentClothesImage" alt="" class="absolute">
+                <img :src="currentBaseImage" alt="" class="absolute animate-pulse">
+                <img :src="currentHairImage" alt="" class="absolute animate-pulse">
+                <img :src="currentClothesImage" alt="" class="absolute animate-pulse">
+            </div>
+            <div class="flex justify-between mt-2 w-full">
+                <button class="btn-student" @click="step != 1 ? step-- : step">Back</button>
+                <button class="btn-student-active" @click="step++">
+                    <span v-text="step == 3 ? 'Finish' : 'Next'"></span>
+                </button>
             </div>
         </div>
     </div>
@@ -35,14 +38,14 @@ import ThumbnailVue from "./Thumbnail.vue";
         data () {
             return {
                 baseActive:1,
-                hairActive:1,
-                clothesActive:1,
+                hairActive:0,
+                clothesActive:0,
                 uri: 'https://brumultiverse.com/',
                 step: 1,
                 avatar:{
                     base:1,
-                    hair:1,
-                    clothes:1,
+                    hair:0,
+                    clothes:0,
                 },
                 choices: {},
             }
@@ -53,8 +56,8 @@ import ThumbnailVue from "./Thumbnail.vue";
                 .then((data) =>{
                     this.choices = data;
                     this.baseActive = data.bases[0].id;
-                    this.hairActive = data.hairstyles[0].id;
-                    this.clothesActive = data.clothes[0].id;
+                    this.hairActive = 0;
+                    this.clothesActive = 0;
                     console.log(this.baseActive, this.hairActive, this.clothesActive);
                 });
         },

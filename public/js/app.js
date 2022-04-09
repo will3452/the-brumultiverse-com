@@ -2104,6 +2104,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['gender', 'isPremium', 'college'],
@@ -2113,14 +2116,14 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       baseActive: 1,
-      hairActive: 1,
-      clothesActive: 1,
+      hairActive: 0,
+      clothesActive: 0,
       uri: 'https://brumultiverse.com/',
       step: 1,
       avatar: {
         base: 1,
-        hair: 1,
-        clothes: 1
+        hair: 0,
+        clothes: 0
       },
       choices: {}
     };
@@ -2133,8 +2136,8 @@ __webpack_require__.r(__webpack_exports__);
     }).then(function (data) {
       _this.choices = data;
       _this.baseActive = data.bases[0].id;
-      _this.hairActive = data.hairstyles[0].id;
-      _this.clothesActive = data.clothes[0].id;
+      _this.hairActive = 0;
+      _this.clothesActive = 0;
       console.log(_this.baseActive, _this.hairActive, _this.clothesActive);
     });
   },
@@ -43155,7 +43158,7 @@ var render = function () {
         _vm.step == 1
           ? _c(
               "div",
-              { staticClass: "flex flex-wrap" },
+              { staticClass: "flex flex-wrap justify-center" },
               _vm._l(_vm.choices.bases, function (base) {
                 return _c("thumbnail-vue", {
                   key: "b" + base.id,
@@ -43175,7 +43178,7 @@ var render = function () {
         _vm.step == 2
           ? _c(
               "div",
-              { staticClass: "flex flex-wrap" },
+              { staticClass: "flex flex-wrap justify-center" },
               _vm._l(_vm.choices.hairstyles, function (hair) {
                 return _c("thumbnail-vue", {
                   key: hair.id,
@@ -43195,7 +43198,7 @@ var render = function () {
         _vm.step == 3
           ? _c(
               "div",
-              { staticClass: "flex flex-wrap" },
+              { staticClass: "flex flex-wrap justify-center" },
               _vm._l(_vm.choices.clothes, function (clothes) {
                 return _c("thumbnail-vue", {
                   key: clothes.id,
@@ -43211,8 +43214,46 @@ var render = function () {
               1
             )
           : _vm._e(),
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass:
+          "w-6/12 bg-gray-200 h-full p-4 flex justify-center flex-col items-center",
+        staticStyle: {
+          background:
+            "url('https://raw.githubusercontent.com/will3452/bru-assets/main/closet/base.png')",
+          "background-size": "cover",
+        },
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "border-2 backdrop-blur-sm",
+            staticStyle: { width: "420px", height: "594px" },
+          },
+          [
+            _c("img", {
+              staticClass: "absolute animate-pulse",
+              attrs: { src: _vm.currentBaseImage, alt: "" },
+            }),
+            _vm._v(" "),
+            _c("img", {
+              staticClass: "absolute animate-pulse",
+              attrs: { src: _vm.currentHairImage, alt: "" },
+            }),
+            _vm._v(" "),
+            _c("img", {
+              staticClass: "absolute animate-pulse",
+              attrs: { src: _vm.currentClothesImage, alt: "" },
+            }),
+          ]
+        ),
         _vm._v(" "),
-        _c("div", { staticClass: "flex justify-between" }, [
+        _c("div", { staticClass: "flex justify-between mt-2 w-full" }, [
           _c(
             "button",
             {
@@ -43236,46 +43277,15 @@ var render = function () {
                 },
               },
             },
-            [_vm._v("Apply")]
+            [
+              _c("span", {
+                domProps: {
+                  textContent: _vm._s(_vm.step == 3 ? "Finish" : "Next"),
+                },
+              }),
+            ]
           ),
         ]),
-      ]
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "w-6/12 bg-gray-200 h-full p-4 flex justify-center",
-        staticStyle: {
-          background:
-            "url('https://raw.githubusercontent.com/will3452/bru-assets/main/closet/base.png')",
-          "background-size": "cover",
-        },
-      },
-      [
-        _c(
-          "div",
-          {
-            staticClass: "border-2 backdrop-blur-sm",
-            staticStyle: { width: "420px", height: "594px" },
-          },
-          [
-            _c("img", {
-              staticClass: "absolute",
-              attrs: { src: _vm.currentBaseImage, alt: "" },
-            }),
-            _vm._v(" "),
-            _c("img", {
-              staticClass: "absolute",
-              attrs: { src: _vm.currentHairImage, alt: "" },
-            }),
-            _vm._v(" "),
-            _c("img", {
-              staticClass: "absolute",
-              attrs: { src: _vm.currentClothesImage, alt: "" },
-            }),
-          ]
-        ),
       ]
     ),
   ])
