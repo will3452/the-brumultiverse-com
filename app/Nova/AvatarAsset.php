@@ -66,7 +66,7 @@ class AvatarAsset extends Resource
                     AvatarBase::GENDER[1] => AvatarBase::GENDER[1],
                 ])->rules(['required']),
             Select::make('College')
-                ->options(College::get()->pluck('name', 'name')),
+                ->options(array_merge(['All' => 'All'], College::get()->pluck('name', 'name')->toArray())),
             Select::make('Crystal/Ticket/Passes', 'cost_type')
                 ->options([
                     'None' => 'None',

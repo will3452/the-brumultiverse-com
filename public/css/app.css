@@ -3172,9 +3172,6 @@ body[dir="rtl"] .checkbox:checked,
 .w-1\/2 {
   width: 50%;
 }
-.w-6\/12 {
-  width: 50%;
-}
 .w-10\/12 {
   width: 83.333333%;
 }
@@ -3461,10 +3458,6 @@ body[dir="rtl"] .checkbox:checked,
 .bg-yellow-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(254 249 195 / var(--tw-bg-opacity));
-}
-.bg-red-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
 }
 .bg-neutral {
   --tw-bg-opacity: 1;

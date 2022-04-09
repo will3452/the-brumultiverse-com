@@ -13,6 +13,8 @@ import 'animate.css';
 
 import Vue from 'vue';
 import ChatPanel from './components/chat/Panel.vue';
+import AvatarMain from './components/avatar/TheMain.vue';
 Vue.component('chat-panel', ChatPanel);
+Vue.component('avatar-main', AvatarMain);
 const app = new Vue({
 }).$mount('#app')

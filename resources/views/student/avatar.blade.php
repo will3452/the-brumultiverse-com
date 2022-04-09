@@ -9,11 +9,8 @@
     <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
-    <div class="flex h-screen">
-        <div class="w-6/12 h-full bg-gray-200">
-            avatar base
-        </div>
-        <div class="w-6/12 h-full bg-red-100"></div>
+    <div id="app">
+        <avatar-main></avatar-main>
     </div>
 </body>
 </html>
