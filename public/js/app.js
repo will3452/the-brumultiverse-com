@@ -2135,6 +2135,7 @@ __webpack_require__.r(__webpack_exports__);
       _this.baseActive = data.bases[0].id;
       _this.hairActive = data.hairstyles[0].id;
       _this.clothesActive = data.clothes[0].id;
+      console.log(_this.baseActive, _this.hairActive, _this.clothesActive);
     });
   },
   methods: {
@@ -2142,6 +2143,7 @@ __webpack_require__.r(__webpack_exports__);
       var type = _ref.type,
           id = _ref.id;
       this.avatar[type] = id;
+      console.log(this.avatar.base, this.avatar.clothes, this.avatar.hair);
 
       if (type == 'base') {
         this.baseActive = id;
@@ -43146,104 +43148,115 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "flex h-screen w-screen" }, [
-    _c("div", { staticClass: "w-6/12 h-full p-4 overflow-y-auto" }, [
-      _vm.step == 1
-        ? _c(
-            "div",
-            { staticClass: "flex flex-wrap" },
-            _vm._l(_vm.choices.bases, function (base) {
-              return _c("thumbnail-vue", {
-                key: base.id,
-                attrs: {
-                  "is-active": _vm.baseActive,
-                  id: base.id,
-                  src: _vm.uri + base.thumbnail,
-                  type: "base",
-                },
-                on: { "was-clicked": _vm.thumbnailHandler },
-              })
-            }),
-            1
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.step == 2
-        ? _c(
-            "div",
-            { staticClass: "flex flex-wrap" },
-            _vm._l(_vm.choices.hairstyles, function (hair) {
-              return _c("thumbnail-vue", {
-                key: hair.id,
-                attrs: {
-                  "is-active": _vm.hairActive,
-                  id: hair.id,
-                  src: _vm.uri + hair.thumbnail,
-                  type: "hair",
-                },
-                on: { "was-clicked": _vm.thumbnailHandler },
-              })
-            }),
-            1
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.step == 3
-        ? _c(
-            "div",
-            { staticClass: "flex flex-wrap" },
-            _vm._l(_vm.choices.clothes, function (clothes) {
-              return _c("thumbnail-vue", {
-                key: clothes.id,
-                attrs: {
-                  "is-active": _vm.clothesActive,
-                  id: clothes.id,
-                  src: _vm.uri + clothes.thumbnail,
-                  type: "hair",
-                },
-                on: { "was-clicked": _vm.thumbnailHandler },
-              })
-            }),
-            1
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _c("div", { staticClass: "flex justify-between" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn-student",
-            on: {
-              click: function ($event) {
-                _vm.step != 1 ? _vm.step-- : _vm.step
-              },
-            },
-          },
-          [_vm._v("Back")]
-        ),
+    _c(
+      "div",
+      { staticClass: "w-6/12 h-full p-4 overflow-y-auto bg-gray-900" },
+      [
+        _vm.step == 1
+          ? _c(
+              "div",
+              { staticClass: "flex flex-wrap" },
+              _vm._l(_vm.choices.bases, function (base) {
+                return _c("thumbnail-vue", {
+                  key: "b" + base.id,
+                  attrs: {
+                    "is-active": _vm.baseActive,
+                    id: base.id,
+                    src: _vm.uri + base.thumbnail,
+                    type: "base",
+                  },
+                  on: { "was-clicked": _vm.thumbnailHandler },
+                })
+              }),
+              1
+            )
+          : _vm._e(),
         _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn-student-active",
-            on: {
-              click: function ($event) {
-                _vm.step++
+        _vm.step == 2
+          ? _c(
+              "div",
+              { staticClass: "flex flex-wrap" },
+              _vm._l(_vm.choices.hairstyles, function (hair) {
+                return _c("thumbnail-vue", {
+                  key: hair.id,
+                  attrs: {
+                    "is-active": _vm.hairActive,
+                    id: hair.id,
+                    src: _vm.uri + hair.thumbnail,
+                    type: "hair",
+                  },
+                  on: { "was-clicked": _vm.thumbnailHandler },
+                })
+              }),
+              1
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.step == 3
+          ? _c(
+              "div",
+              { staticClass: "flex flex-wrap" },
+              _vm._l(_vm.choices.clothes, function (clothes) {
+                return _c("thumbnail-vue", {
+                  key: clothes.id,
+                  attrs: {
+                    "is-active": _vm.clothesActive,
+                    id: clothes.id,
+                    src: _vm.uri + clothes.thumbnail,
+                    type: "clothes",
+                  },
+                  on: { "was-clicked": _vm.thumbnailHandler },
+                })
+              }),
+              1
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex justify-between" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn-student",
+              on: {
+                click: function ($event) {
+                  _vm.step != 1 ? _vm.step-- : _vm.step
+                },
               },
             },
-          },
-          [_vm._v("Apply")]
-        ),
-      ]),
-    ]),
+            [_vm._v("Back")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn-student-active",
+              on: {
+                click: function ($event) {
+                  _vm.step++
+                },
+              },
+            },
+            [_vm._v("Apply")]
+          ),
+        ]),
+      ]
+    ),
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "w-6/12 bg-gray-200 h-full p-4 flex justify-center" },
+      {
+        staticClass: "w-6/12 bg-gray-200 h-full p-4 flex justify-center",
+        staticStyle: {
+          background:
+            "url('https://raw.githubusercontent.com/will3452/bru-assets/main/closet/base.png')",
+          "background-size": "cover",
+        },
+      },
       [
         _c(
           "div",
           {
-            staticClass: "border-2 bg-red-200",
+            staticClass: "border-2 backdrop-blur-sm",
             staticStyle: { width: "420px", height: "594px" },
           },
           [
@@ -43291,8 +43304,8 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("img", {
-    staticClass: "m-3 w-24 h-32 shadow border-2 rounded-md",
-    class: { "border-purple-500 bg-purple-300": _vm.active },
+    staticClass: "m-3 w-24 h-32 shadow border-2 rounded-md bg-white",
+    class: { "animate-pulse border-purple-500 bg-purple-300": _vm.active },
     attrs: { src: _vm.src },
     on: { click: _vm.clickHandler },
   })

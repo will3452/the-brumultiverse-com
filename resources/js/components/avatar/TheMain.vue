@@ -1,22 +1,22 @@
 <template>
     <div class="flex h-screen w-screen">
-        <div class="w-6/12 h-full p-4 overflow-y-auto">
+        <div class="w-6/12 h-full p-4 overflow-y-auto bg-gray-900">
             <div v-if="step == 1" class="flex flex-wrap">
-                <thumbnail-vue :is-active="baseActive" :id="base.id" :src="uri + base.thumbnail" v-for="base in choices.bases" :key="base.id" @was-clicked="thumbnailHandler" type="base"/>
+                    <thumbnail-vue :is-active="baseActive" :id="base.id" :src="uri + base.thumbnail" v-for="base in choices.bases" :key="'b' + base.id" @was-clicked="thumbnailHandler" type="base"/>
             </div>
             <div v-if="step == 2" class="flex flex-wrap">
                 <thumbnail-vue :is-active="hairActive" :id="hair.id" :src="uri + hair.thumbnail" v-for="hair in choices.hairstyles" :key="hair.id" @was-clicked="thumbnailHandler" type="hair"/>
             </div>
             <div v-if="step == 3" class="flex flex-wrap">
-                <thumbnail-vue :is-active="clothesActive" :id="clothes.id" :src="uri + clothes.thumbnail" v-for="clothes in choices.clothes" :key="clothes.id" @was-clicked="thumbnailHandler" type="hair"/>
+                <thumbnail-vue :is-active="clothesActive" :id="clothes.id" :src="uri + clothes.thumbnail" v-for="clothes in choices.clothes" :key="clothes.id" @was-clicked="thumbnailHandler" type="clothes"/>
             </div>
             <div class="flex justify-between">
                 <button class="btn-student" @click="step != 1 ? step-- : step">Back</button>
                 <button class="btn-student-active" @click="step++">Apply</button>
             </div>
         </div>
-        <div class="w-6/12 bg-gray-200 h-full p-4 flex justify-center">
-            <div style="width:420px;height:594px;" class="border-2 bg-red-200">
+        <div class="w-6/12 bg-gray-200 h-full p-4 flex justify-center" style="background:url('https://raw.githubusercontent.com/will3452/bru-assets/main/closet/base.png'); background-size:cover;">
+            <div style="width:420px;height:594px;" class="border-2 backdrop-blur-sm">
                 <img :src="currentBaseImage" alt="" class="absolute">
                 <img :src="currentHairImage" alt="" class="absolute">
                 <img :src="currentClothesImage" alt="" class="absolute">
@@ -55,11 +55,13 @@ import ThumbnailVue from "./Thumbnail.vue";
                     this.baseActive = data.bases[0].id;
                     this.hairActive = data.hairstyles[0].id;
                     this.clothesActive = data.clothes[0].id;
+                    console.log(this.baseActive, this.hairActive, this.clothesActive);
                 });
         },
         methods: {
             thumbnailHandler ({type, id}) {
                 this.avatar[type] = id;
+                console.log(this.avatar.base, this.avatar.clothes, this.avatar.hair);
                 if (type == 'base') {
                     this.baseActive = id;
                 }

@@ -1,5 +1,5 @@
 <template>
-    <img @click="clickHandler" :class="{'border-purple-500 bg-purple-300':active}" class="m-3 w-24 h-32 shadow border-2 rounded-md" :src="src"/>
+    <img @click="clickHandler" :class="{'animate-pulse border-purple-500 bg-purple-300':active}" class="m-3 w-24 h-32 shadow border-2 rounded-md bg-white" :src="src"/>
 </template>
 
 <script>
