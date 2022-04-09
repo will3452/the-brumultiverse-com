@@ -27,22 +27,14 @@ class AvatarController extends Controller
         }
 
         $hairs = AvatarAsset::whereType(AvatarAsset::TYPE_HAIR)
-            ->whereGender($request->gender)
-            ->orWhere([
-                'for_premium' => $request->is_premium,
-                'type' => AvatarAsset::TYPE_HAIR,
-            ])->get();
+            ->whereGender($request->gender)->get();
 
         foreach ($hairs as $value) {
             $value['thumbnail'] = $value->thumbnail;
         }
 
         $clothes = AvatarAsset::whereType(AvatarAsset::TYPE_CLOTHES)
-            ->whereGender($request->gender)
-            ->orWhere([
-                'for_premium' => $request->is_premium,
-                'type' => AvatarAsset::TYPE_CLOTHES,
-            ])->get();
+            ->whereGender($request->gender)->get();
 
         foreach ($clothes as $value) {
             $value['thumbnail'] = $value->thumbnail;
