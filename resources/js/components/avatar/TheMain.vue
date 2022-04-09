@@ -14,7 +14,7 @@
         props: ['gender', 'isPremium', 'college'],
         data () {
             return {
-                uri: '//brumultiverse.com/api/avatars',
+                uri: 'https://brumultiverse.com/api/avatars',
                 step: 1,
                 avatar:{},
                 choices: {},

@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="app">
-        <avatar-main></avatar-main>
+        <avatar-main college="Berkeley Business And Science" gender="Female" is-premium="1"></avatar-main>
     </div>
     <script src="/js/app.js" defer></script>
 </body>
