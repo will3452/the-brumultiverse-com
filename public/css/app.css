@@ -3172,6 +3172,9 @@ body[dir="rtl"] .checkbox:checked,
 .w-1\/2 {
   width: 50%;
 }
+.w-6\/12 {
+  width: 50%;
+}
 .w-10\/12 {
   width: 83.333333%;
 }
@@ -3204,9 +3207,6 @@ body[dir="rtl"] .checkbox:checked,
 }
 .w-64 {
   width: 16rem;
-}
-.w-6\/12 {
-  width: 50%;
 }
 .max-w-5xl {
   max-width: 64rem;
@@ -3462,6 +3462,10 @@ body[dir="rtl"] .checkbox:checked,
   --tw-bg-opacity: 1;
   background-color: rgb(254 249 195 / var(--tw-bg-opacity));
 }
+.bg-red-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
+}
 .bg-neutral {
   --tw-bg-opacity: 1;
   background-color: hsl(var(--n) / var(--tw-bg-opacity));
@@ -3497,14 +3501,6 @@ body[dir="rtl"] .checkbox:checked,
 .bg-red-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(220 38 38 / var(--tw-bg-opacity));
-}
-.bg-yellow-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(113 63 18 / var(--tw-bg-opacity));
-}
-.bg-red-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
 }
 .bg-gradient-to-br {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
@@ -3977,10 +3973,6 @@ a, button, label, .dropdown, .btn, .breadcrumbs a, img:hover {
   .dark .dark\:bg-gray-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(17 24 39 / var(--tw-bg-opacity));
-}
-  .dark .dark\:bg-black {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
   .dark .dark\:text-white {
   --tw-text-opacity: 1;

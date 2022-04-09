@@ -326,6 +326,7 @@ Route::view('/privacy-policy', 'pp');
 //avatars
 
 Route::get('avatars', [AvatarController::class, 'setup']);
+Route::get('create-avatar', [AvatarController::class, 'create']);
 
 Route::get('/test', fn()=>getAsset('avatars/masaru.png'));
 Route::get('aan-generate', function () {

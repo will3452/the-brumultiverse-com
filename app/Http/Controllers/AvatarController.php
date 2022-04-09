@@ -10,4 +10,9 @@ class AvatarController extends Controller
     {
         return view('student.avatar');
     }
+
+    public function create()
+    {
+        return view('avatar_create');
+    }
 }
