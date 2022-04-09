@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avatar setup</title>
-    <script src="/js/app.js"></script>
     <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
     <div id="app">
         <avatar-main></avatar-main>
     </div>
+    <script src="/js/app.js" defer></script>
 </body>
 </html>

@@ -2080,7 +2080,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['gender', 'isPremium', 'college'],
+  data: function data() {
+    return {
+      step: 1,
+      avatar: {},
+      choices: {}
+    };
+  },
+  mounted: function mounted() {}
+});
 
 /***/ }),
 
@@ -42880,8 +42897,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render),
 /* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
 /* harmony export */ });
-var render = function () {}
-var staticRenderFns = []
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex h-screen w-screen" }, [
+      _c("div", { staticClass: "w-6/12 bg-blue-200 h-full" }, [
+        _vm._v("\n        Controls here\n    "),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "w-6/12 bg-red-200 h-full" }),
+    ])
+  },
+]
+render._withStripped = true
 
 
 

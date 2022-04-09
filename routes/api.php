@@ -1,20 +1,11 @@
 <?php
 
 use App\Http\Controllers\ApiAuthenticationController;
+use App\Http\Controllers\AvatarController;
 use App\Models\PaymentTransaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
 Route::post('/dragonpay-postback', function (Request $request) {
      $transaction = PaymentTransaction::whereTxnid($request->txnid)->first();
      if ($transaction) {
@@ -43,3 +34,7 @@ Route::get('/public-test', function () {
 //user authentication
 Route::post('/register', [ApiAuthenticationController::class, 'register']);
 Route::post('/login', [ApiAuthenticationController::class, 'login']);
+
+
+//avatars api
+Route::get('/avatars', [AvatarController::class, 'apiGet']);

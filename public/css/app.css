@@ -3205,6 +3205,9 @@ body[dir="rtl"] .checkbox:checked,
 .w-64 {
   width: 16rem;
 }
+.w-6\/12 {
+  width: 50%;
+}
 .max-w-5xl {
   max-width: 64rem;
 }
@@ -3494,6 +3497,14 @@ body[dir="rtl"] .checkbox:checked,
 .bg-red-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+}
+.bg-red-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 202 202 / var(--tw-bg-opacity));
+}
+.bg-blue-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(191 219 254 / var(--tw-bg-opacity));
 }
 .bg-gradient-to-br {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
