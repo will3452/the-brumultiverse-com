@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="app">
-        <avatar-main college="Reagan Arts And Humanities" gender="Female" is-premium="1"></avatar-main>
+        <avatar-main college="Reagan Arts And Humanities" gender="Male" is-premium="1"></avatar-main>
     </div>
     <script src="/js/app.js" defer></script>
 </body>
