@@ -67,6 +67,11 @@ class BookController extends Controller
     public function store(Request $request)
     {
         $this->customValidate($request);
+
+        if (is_null($request->has_warning_message) || ! $request->has_warning_message) { // add false if no warning messagew
+            $request->has_warning_message = false;
+        }
+
         $book = Book::processToCreate($request);
         return redirect(route('scholar.book.show', ['book' => $book->id]))->withSuccess('Success');
     }
