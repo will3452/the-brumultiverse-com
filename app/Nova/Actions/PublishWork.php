@@ -10,6 +10,7 @@ use Illuminate\Support\Collection;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
 use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\Text;
 
 class PublishWork extends Action
 {
@@ -57,9 +58,9 @@ class PublishWork extends Action
     public function fields()
     {
         return [
-            Date::make('Date')
+            Text::make('Date')
                 ->rules(['required'])
-                ->help('The default value is the preferred date of the Author/Artist.')
+                ->help("format: $this->preferredDate, note: The default value is the preferred date of the Author/Artist.")
                 ->default(fn () => $this->preferredDate),
         ];
     }
