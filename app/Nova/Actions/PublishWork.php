@@ -15,7 +15,7 @@ class PublishWork extends Action
 {
     use InteractsWithQueue, Queueable;
 
-    private $latestRequest;
+    public $preferredDate;
 
     public function updateRequest($requests)
     {
@@ -39,7 +39,7 @@ class PublishWork extends Action
         foreach ($models as $model) {
             $requests = $model->publishApprovals;
 
-            $this->latestRequest = $model->publishApprovals()->latest()->first();
+            $this->preferredDate = $model->publishApprovals()->latest()->first()->preferred_date->format('Y-m-d');
 
             $this->updateRequest($requests); // this will update all rqeuest to approved state.
 
@@ -60,7 +60,7 @@ class PublishWork extends Action
             Date::make('Date')
                 ->rules(['required'])
                 ->help('The default value is the preferred date of the Author/Artist.')
-                ->default(fn () => optional($this->latestRequest)->preferred_date->format('Y-m-d')),
+                ->default(fn () => $this->preferredDate),
         ];
     }
 }
