@@ -163,6 +163,8 @@ class Book extends Resource
                             User::GENDER_MALE => User::GENDER_MALE,
                             User::GENDER_LGBT => User::GENDER_LGBT,
                         ]),
+                    Text::make('PDF', 'front_matter')
+                        ->help('Title, Copyright, Acknowledgements and Dedication pages.'),
                     // File::make('Back Matter'),
                 ]),
                 //relationship here
