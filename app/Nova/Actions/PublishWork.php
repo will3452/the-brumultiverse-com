@@ -56,7 +56,6 @@ class PublishWork extends Action
         return [
             Text::make('Date')
                 ->rules(['required'])
-                ->default(fn () => $this->preferredDate),
         ];
     }
 }
