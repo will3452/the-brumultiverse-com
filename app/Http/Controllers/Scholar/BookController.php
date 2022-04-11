@@ -91,14 +91,17 @@ class BookController extends Controller
 
     public function pdfUploadFormStore(Request $request, Book $book)
     {
-        $data = $request->validate([
-            'pdf' => ['max:2000', 'required'],
-        ]);
 
-        $pdf = FileHelper::save($data['pdf']);
+        $pdfs = [];
+
+        foreach ($request->pdf as $value) {
+            array_push($pdfs, FileHelper::save($value));
+        }
+
+        $pdfString = implode('!***!', $pdfs);
 
         $book->update([
-            'front_matter' => $pdf,
+            'front_matter' => $pdfString,
         ]);
 
         return redirect(route('scholar.book.show', ['book' => $book->id]))->withSuccess('Success');
