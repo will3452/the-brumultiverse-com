@@ -25,6 +25,7 @@ class PublishApproval extends Model
 
     protected $casts = [
         'approved_at' => 'datetime',
+        'preferred_date' => 'date',
     ];
 
     const STATUS_APPROVED = 'Approved';
