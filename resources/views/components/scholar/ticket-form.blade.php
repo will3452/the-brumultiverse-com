@@ -14,6 +14,14 @@
                 <x-scholar.form.input name="{{$item}}" label="{{\Str::headline($item)}}" :value="$model[$item]"/>
             @elseif (in_array($item, ['cost']))
                 <x-scholar.form.number name="{{$item}}" label="{{\Str::headline($item)}}" :value="$model[$item]" />
+            @elseif (in_array($item, ['type']))
+                <x-scholar.form.select name="{{$model}}" label="{{\Str::headline($item)}}" :value="$model[$item]">
+                    @foreach (get_class($model)::TYPES as $t)
+                        <option value="{{$t}}">
+                            {{$t}}
+                        </option>
+                    @endforeach
+                </x-scholar.form.select>
             @endif
 
         @endforeach

@@ -2,8 +2,8 @@
 
 namespace App\Nova;
 
+use App\Nova\User;
 use App\Models\Account;
-use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Text;
@@ -11,17 +11,17 @@ use Laravel\Nova\Fields\Badge;
 use Laravel\Nova\Fields\Hidden;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\MorphTo;
-use Laravel\Nova\Fields\BelongsTo;
-use Mostafaznv\NovaCkEditor\CkEditor;
-use App\Models\Ticket as ModelsTicket;
-use App\Nova\Actions\Ticket\Approve;
-use App\Nova\Traits\CannotCreateOrUpdate;
 use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\BelongsTo;
+use App\Nova\Actions\Ticket\Approve;
+use App\Models\Ticket as ModelsTicket;
+use App\Nova\Traits\CannotCreateOrUpdate;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Ticket extends Resource
 {
-    use CannotCreateOrUpdate;
+    // use CannotCreateOrUpdate;
     /**
      * The model the resource corresponds to.
      *
@@ -108,12 +108,12 @@ class Ticket extends Resource
                 return $str;
             })->onlyOnDetail()
                 ->asHtml(),
-            CkEditor::make('Author Notes', 'requestor_notes')
+            Textarea::make('Author Notes', 'requestor_notes')
                 ->onlyOnDetail(),
             DateTime::make('Approved At'),
             BelongsTo::make('Approver', 'approver', User::class),
-            CkEditor::make('Approver Notes')
-            ];
+            Textarea::make('Approver Notes'),
+        ];
     }
 
     /**

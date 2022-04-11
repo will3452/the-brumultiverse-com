@@ -55,6 +55,7 @@ class Book extends Model implements TaggableInterface
         'credit',
         'blurb',
         'cost',
+        'type',
     ];
 
     protected $fillable = [
@@ -85,6 +86,13 @@ class Book extends Model implements TaggableInterface
     const TYPE_SPIN = 'Spin-Off';
     const TYPE_EVENT = 'Event';
     const TYPE_PLATINUM = 'Platinum';
+
+    const TYPES = [
+        // self::TYPE_EVENT,
+        self::TYPE_PLATINUM,
+        self::TYPE_REGULAR,
+        self::TYPE_SPIN,
+    ];
 
 
     const DEFAULT_COST_TYPE = CrystalHelper::PURPLE_CRYSTAL;
