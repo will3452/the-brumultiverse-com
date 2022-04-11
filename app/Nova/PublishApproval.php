@@ -70,9 +70,12 @@ class PublishApproval extends Resource
     public function fields(Request $request)
     {
         return [
-            Date::make('Date', 'created_at')
+            Date::make('Requested Date', 'created_at')
                 ->exceptOnForms()
                 ->sortable(),
+
+            Date::make('Preferred Date', 'preferred_date'),
+
             Badge::make('Status')
                 ->map([
                     ModelsPublishApproval::STATUS_APPROVED => 'success',

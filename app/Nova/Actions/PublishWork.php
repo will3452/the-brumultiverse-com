@@ -15,6 +15,8 @@ class PublishWork extends Action
 {
     use InteractsWithQueue, Queueable;
 
+    private $latestRequest;
+
     public function updateRequest($requests)
     {
         foreach ($requests as $r) { // this will update
@@ -37,6 +39,8 @@ class PublishWork extends Action
         foreach ($models as $model) {
             $requests = $model->publishApprovals;
 
+            $this->latestRequest = $model->publishApprovals()->latest()->first();
+
             $this->updateRequest($requests); // this will update all rqeuest to approved state.
 
             $model->update([
@@ -54,7 +58,8 @@ class PublishWork extends Action
     {
         return [
             Date::make('Date')
-                ->rules(['required']),
+                ->rules(['required'])
+                ->default(fn () => $this->latestRequest),
         ];
     }
 }
