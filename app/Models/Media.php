@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Media extends Model
 {
     use HasFactory;
+    const COVER_HEIGHT = 800;
+    const COVER_WIDTH = 512;
 
     protected $fillable = [
         'mediable_id',
@@ -17,6 +19,23 @@ class Media extends Model
         'path',
         'copyright_disclaimer',
     ];
+
+    public function withFrame($frame = null, $new=false)
+    {
+        if (is_null($frame)) {
+            $frame = public_path('img/frame/book.png');
+        }
+        $fileName = "frame-$this->path";
+        $filePath = '/img/cover-frames/' . $fileName;
+
+        if (! file_exists(public_path($filePath)) || $new) {
+            $path = $this->path;
+            $img = Image::make(Storage::disk('public')->path($path))->resize(self::COVER_WIDTH, self::COVER_HEIGHT);
+            $frameImg = Image::make($frame)->resize(self::COVER_WIDTH, self::COVER_HEIGHT);
+            $img->insert($frameImg, 'top-left', 0, 0)->save(public_path($filePath));
+        }
+        return $filePath;
+    }
 
     public function withWatermark($watermark = null, $position='left-top', $new = false)
     {

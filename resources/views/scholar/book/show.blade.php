@@ -95,7 +95,7 @@
         </div>
         <div class="w-full md:w-4/12 p-4">
             <div class="flex justify-center">
-                <img src="{{$book->cover->withWatermark()}}" alt="Shoes" class="block w-full max-w-xs rounded shadow-md">
+                <img src="{{$book->cover->withFrame()}}" alt="Shoes" class="block w-full max-w-xs rounded shadow-md">
             </div>
             <div class="flex justify-center mt-4 flex-wrap items-center">
                 <a href="{{route('scholar.book.chapters', ['book' => $book->id])}}" class="btn btn-primary btn-sm m-2">View all chapters.</a>
@@ -106,6 +106,9 @@
             </div>
             <div class="flex justify-center">
                 <x-scholar.ticket-form :model="$book" />
+            </div>
+            <div class="flex justify-center mt-4">
+                <a class="btn btn-sm" href="{{route('scholar.book.demo', ['book' => $book])}}">View Demo</a>
             </div>
         </div>
     </div>

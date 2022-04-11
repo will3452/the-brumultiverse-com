@@ -117,4 +117,11 @@ class BookController extends Controller
         $artScenes = auth()->user()->artScenes;
         return view('scholar.book.chapter.index', compact('book', 'artScenes'));
     }
+
+    public function showBookDemo(Book $book)
+    {
+        $chapter = $book->chapters()->paginate(1);
+        $fileType = $book->category->file_type;
+        return view('scholar.book.demo', compact('book', 'chapter', 'fileType'));
+    }
 }

@@ -160,6 +160,8 @@ Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function
 
     //books
     Route::prefix('books')->name('book.')->group(function () {
+        //demo
+        Route::get('demo/{book}', [BookController::class, 'showBookDemo'])->name('demo');
         //chapters
         Route::get('/{book}/chapters', [BookController::class, 'showChapters'])->name('chapters');
         Route::get('/', [BookController::class, 'index'])->name('index');
