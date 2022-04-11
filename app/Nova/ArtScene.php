@@ -169,7 +169,8 @@ class ArtScene extends Resource
         return [
             (new SendEmail)
                 ->canSee(fn () => auth()->user()->hasRole(Role::SUPERADMIN)),
-            (new RequestToPublish),
+
+            // (new RequestToPublish),
 
             (new PublishWork)
                 ->canSee(fn () => auth()->user()->hasRole(Role::SUPERADMIN)),

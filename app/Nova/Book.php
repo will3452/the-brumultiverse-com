@@ -234,8 +234,8 @@ class Book extends Resource
             (new SendEmail)
                 ->canSee(fn () => auth()->user()->hasRole(Role::SUPERADMIN)),
 
-            (new RequestToPublish)
-                ->onlyOnDetail(),
+            // (new RequestToPublish)
+            //     ->onlyOnDetail(),
 
             (new PublishWork)
                 ->canSee(fn () => auth()->user()->hasRole(Role::SUPERADMIN)),
