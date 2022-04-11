@@ -17,6 +17,7 @@ class PublishApproval extends Model
         'model_type',
         'model_id',
         'notes',
+        'preferred_date',
         'status', // approved, declined, pending
         'approved_by_user_id',
         'approved_at',

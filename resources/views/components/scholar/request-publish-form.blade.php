@@ -19,6 +19,7 @@
                 @csrf
                 <input type="hidden" name="type" value="{{$model->modelType()}}">
                 <input type="hidden" name="id" value="{{$model->id}}">
+                <x-scholar.form.date label="Date" name="preferred_date"/>
                 <x-scholar.form.ckeditor name="notes" label="Notes" help="It's great if you put your wish date to publish your work."/>
                 <x-scholar.form.submit>
                     Submit
