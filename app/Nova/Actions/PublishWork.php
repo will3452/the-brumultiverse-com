@@ -39,7 +39,7 @@ class PublishWork extends Action
         foreach ($models as $model) {
             $requests = $model->publishApprovals;
 
-            $this->preferredDate = $model->publishApprovals()->latest()->first()->preferred_date->format('Y-m-d');
+            $this->preferredDate = $model->publishApprovals()->latest()->first()->preferred_date;
 
             $this->updateRequest($requests); // this will update all rqeuest to approved state.
 
