@@ -60,7 +60,7 @@ class PublishWork extends Action
             Date::make('Date')
                 ->rules(['required'])
                 ->help('The default value is the preferred date of the Author/Artist.')
-                ->default(fn () => optional($this->latestRequest)->preferred_date),
+                ->default(fn () => optional($this->latestRequest)->preferred_date->format('Y-m-d')),
         ];
     }
 }
