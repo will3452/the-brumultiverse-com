@@ -21,9 +21,9 @@
                     <x-student.dialog-container>
                         <x-student.typing clear="0" message="Great! Let's get to it. I can be your personal stylist today." />
                         <x-student.dialog-button-container>
-                            <button class="btn-student-active mx-2" x-on:click="step++">
+                            <a class="btn-student-active mx-2" href="/avatars">
                                 Proceed
-                            </button>
+                            </a>
                         </x-student.dialog-button-container>
                     </x-student.dialog-container>
                     <x-student.scene blur="1">

@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="app">
-        <avatar-main college="Reagan Arts And Humanities" gender="Male" is-premium="1"></avatar-main>
+        <avatar-main college="{{request()->college ?? request()->user()->interest->college->name}}" gender="{{request()->gender ?? auth()->user()->gender}}" is-premium="{{is_null(request()->premium) ? auth()->user()->isPremium(): request()->premium}}"></avatar-main>
     </div>
     <script src="/js/app.js" defer></script>
 </body>

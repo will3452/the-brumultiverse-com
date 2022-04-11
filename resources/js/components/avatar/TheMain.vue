@@ -1,14 +1,45 @@
 <template>
+<div class="relative">
+    <div v-if="modalIsActive" class="backdrop-blur backdrop-brightness-50 w-screen h-screen absolute z-50 flex justify-center items-start pt-10">
+        <div class="bg-white p-4 rounded-md w-full max-w-sm">
+            Hi! This option is for VIP students (premium account holders). Would you like to change your account type?
+            <div class="mt-4">
+                <a href="/students/register-after?step=5" class="btn-student-active">Yes</a>
+                <button class="btn-student" @click="modalIsActive = false">Next Time</button>
+            </div>
+        </div>
+    </div>
     <div class="flex h-screen w-screen">
+
         <div class="w-6/12 h-full p-4 overflow-y-auto bg-gray-900">
             <div v-if="step == 1" class="flex flex-wrap justify-center">
-                    <thumbnail-vue :is-premium="true" :is-active="baseActive" :id="base.id" :src="uri + base.thumbnail" v-for="base in choices.bases" :key="'b' + base.id" @was-clicked="thumbnailHandler" type="base"/>
+                    <thumbnail-vue :is-active="baseActive" :id="base.id" :src="uri + base.thumbnail" v-for="base in choices.bases" :key="'b' + base.id" @was-clicked="thumbnailHandler" type="base"/>
             </div>
             <div v-if="step == 2" class="flex flex-wrap justify-center">
-                <thumbnail-vue :is-active="hairActive" :id="hair.id" :src="uri + hair.thumbnail" v-for="hair in choices.hairstyles" :key="hair.id" @was-clicked="thumbnailHandler" type="hair"/>
+                <thumbnail-vue
+                    :is-user-premium="isPremium"
+                    :is-premium="hair.for_premium"
+                    :is-active="hairActive"
+                    :id="hair.id"
+                    :src="uri + hair.thumbnail"
+                    v-for="hair in choices.hairstyles"
+                    :key="hair.id"
+                    @was-clicked="thumbnailHandler"
+                    type="hair"
+                    />
             </div>
             <div v-if="step == 3" class="flex flex-wrap justify-center">
-                <thumbnail-vue :is-active="clothesActive" :id="clothes.id" :src="uri + clothes.thumbnail" v-for="clothes in choices.clothes" :key="clothes.id" @was-clicked="thumbnailHandler" type="clothes"/>
+                <thumbnail-vue
+                    :is-user-premium="isPremium"
+                    :is-premium="clothes.for_premium"
+                    :is-active="clothesActive"
+                    :id="clothes.id"
+                    :src="uri + clothes.thumbnail"
+                    v-for="clothes in choices.clothes"
+                    :key="clothes.id"
+                    @was-clicked="thumbnailHandler"
+                    type="clothes"
+                    />
             </div>
 
         </div>
@@ -20,15 +51,17 @@
             </div>
             <div class="flex justify-between mt-2 w-full">
                 <button class="btn-student" @click="step != 1 ? step-- : step">Back</button>
-                <button class="btn-student-active" @click="step++">
+                <button class="btn-student-active" @click="stepForward">
                     <span v-text="step == 3 ? 'Finish' : 'Next'"></span>
                 </button>
             </div>
         </div>
     </div>
+</div>
 </template>
 
 <script>
+import Bus from './Bus';
 import ThumbnailVue from "./Thumbnail.vue";
     export default {
         props: ['gender', 'isPremium', 'college'],
@@ -37,6 +70,7 @@ import ThumbnailVue from "./Thumbnail.vue";
         },
         data () {
             return {
+                modalIsActive:false,
                 baseActive:1,
                 hairActive:0,
                 clothesActive:0,
@@ -51,6 +85,9 @@ import ThumbnailVue from "./Thumbnail.vue";
             }
         },
         mounted() {
+            Bus.$on('trigger-modal',() => {
+                this.modalIsActive = true;
+            })
             fetch(`${this.uri}api/avatars?gender=${this.gender}&college=${this.college}&is_premium=${this.isPremium}`)
                 .then(res=>res.json())
                 .then((data) =>{
@@ -62,6 +99,13 @@ import ThumbnailVue from "./Thumbnail.vue";
                 });
         },
         methods: {
+            stepForward() {
+                this.step++;
+                if (this.step >= 4) {
+                    alert('saved!');
+                    window.location.href="/students/avatar-saved";
+                }
+            },
             thumbnailHandler ({type, id}) {
                 this.avatar[type] = id;
                 console.log(this.avatar.base, this.avatar.clothes, this.avatar.hair);

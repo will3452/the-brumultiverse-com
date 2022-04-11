@@ -304,7 +304,7 @@ Route::prefix('students')->name('student.')->group(function () {
     Route::post('/save-setup-account', [StudentRegisterController::class, 'saveAccount'])->name('save.account');
     Route::get('/welcome-dorm', [StudentRegisterController::class, 'welcomeToDorm'])->name('welcome.dorm');
     Route::get('/welcome-closet', [StudentRegisterController::class, 'welcomeToCloset'])->name('welcome.closet');
-
+    Route::get('/avatar-saved', fn () => 'your avatar has been saved! this page is under development <a href="/scholar/logout">logout</a>');
     // subscription / tuition settlement process
     Route::get('/pay-tuition', [StudentPaymentController::class, 'payTuition'])->name('pay-tuition');
 });

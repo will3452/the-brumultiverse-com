@@ -2076,7 +2076,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Thumbnail_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Thumbnail.vue */ "./resources/js/components/avatar/Thumbnail.vue");
+/* harmony import */ var _Bus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Bus */ "./resources/js/components/avatar/Bus.js");
+/* harmony import */ var _Thumbnail_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Thumbnail.vue */ "./resources/js/components/avatar/Thumbnail.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2108,13 +2141,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['gender', 'isPremium', 'college'],
   components: {
-    ThumbnailVue: _Thumbnail_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    ThumbnailVue: _Thumbnail_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
+      modalIsActive: false,
       baseActive: 1,
       hairActive: 0,
       clothesActive: 0,
@@ -2131,6 +2166,9 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
+    _Bus__WEBPACK_IMPORTED_MODULE_0__["default"].$on('trigger-modal', function () {
+      _this.modalIsActive = true;
+    });
     fetch("".concat(this.uri, "api/avatars?gender=").concat(this.gender, "&college=").concat(this.college, "&is_premium=").concat(this.isPremium)).then(function (res) {
       return res.json();
     }).then(function (data) {
@@ -2142,6 +2180,14 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
+    stepForward: function stepForward() {
+      this.step++;
+
+      if (this.step >= 4) {
+        alert('saved!');
+        window.location.href = "/students/avatar-saved";
+      }
+    },
     thumbnailHandler: function thumbnailHandler(_ref) {
       var type = _ref.type,
           id = _ref.id;
@@ -2222,9 +2268,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['src', 'isActive', 'id', 'type', 'isPremium'],
+  props: ['src', 'isActive', 'id', 'type', 'isPremium', 'isUserPremium'],
   data: function data() {
     return {
       active: false
@@ -2245,6 +2294,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     clickHandler: function clickHandler() {
+      if (this.isPremium && !this.isUserPremium) {
+        _Bus_js__WEBPACK_IMPORTED_MODULE_0__["default"].$emit('trigger-modal');
+        return;
+      }
+
       this.$emit('was-clicked', {
         type: this.type,
         id: this.id
@@ -43150,145 +43204,190 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "flex h-screen w-screen" }, [
-    _c(
-      "div",
-      { staticClass: "w-6/12 h-full p-4 overflow-y-auto bg-gray-900" },
-      [
-        _vm.step == 1
-          ? _c(
-              "div",
-              { staticClass: "flex flex-wrap justify-center" },
-              _vm._l(_vm.choices.bases, function (base) {
-                return _c("thumbnail-vue", {
-                  key: "b" + base.id,
-                  attrs: {
-                    "is-premium": true,
-                    "is-active": _vm.baseActive,
-                    id: base.id,
-                    src: _vm.uri + base.thumbnail,
-                    type: "base",
-                  },
-                  on: { "was-clicked": _vm.thumbnailHandler },
-                })
-              }),
-              1
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.step == 2
-          ? _c(
-              "div",
-              { staticClass: "flex flex-wrap justify-center" },
-              _vm._l(_vm.choices.hairstyles, function (hair) {
-                return _c("thumbnail-vue", {
-                  key: hair.id,
-                  attrs: {
-                    "is-active": _vm.hairActive,
-                    id: hair.id,
-                    src: _vm.uri + hair.thumbnail,
-                    type: "hair",
-                  },
-                  on: { "was-clicked": _vm.thumbnailHandler },
-                })
-              }),
-              1
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.step == 3
-          ? _c(
-              "div",
-              { staticClass: "flex flex-wrap justify-center" },
-              _vm._l(_vm.choices.clothes, function (clothes) {
-                return _c("thumbnail-vue", {
-                  key: clothes.id,
-                  attrs: {
-                    "is-active": _vm.clothesActive,
-                    id: clothes.id,
-                    src: _vm.uri + clothes.thumbnail,
-                    type: "clothes",
-                  },
-                  on: { "was-clicked": _vm.thumbnailHandler },
-                })
-              }),
-              1
-            )
-          : _vm._e(),
-      ]
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass:
-          "w-6/12 bg-gray-200 h-full p-4 flex justify-center flex-col items-center",
-        staticStyle: {
-          background:
-            "url('https://raw.githubusercontent.com/will3452/bru-assets/main/closet/base.png')",
-          "background-size": "cover",
-        },
-      },
-      [
-        _c(
+  return _c("div", { staticClass: "relative" }, [
+    _vm.modalIsActive
+      ? _c(
           "div",
           {
-            staticClass: "border-2 backdrop-blur-sm",
-            staticStyle: { width: "420px", height: "594px" },
+            staticClass:
+              "backdrop-blur backdrop-brightness-50 w-screen h-screen absolute z-50 flex justify-center items-start pt-10",
           },
           [
-            _c("img", {
-              staticClass: "absolute animate-pulse",
-              attrs: { src: _vm.currentBaseImage, alt: "" },
-            }),
-            _vm._v(" "),
-            _c("img", {
-              staticClass: "absolute animate-pulse",
-              attrs: { src: _vm.currentHairImage, alt: "" },
-            }),
-            _vm._v(" "),
-            _c("img", {
-              staticClass: "absolute animate-pulse",
-              attrs: { src: _vm.currentClothesImage, alt: "" },
-            }),
+            _c(
+              "div",
+              { staticClass: "bg-white p-4 rounded-md w-full max-w-sm" },
+              [
+                _vm._v(
+                  "\r\n            Hi! This option is for VIP students (premium account holders). Would you like to change your account type?\r\n            "
+                ),
+                _c("div", { staticClass: "mt-4" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn-student-active",
+                      attrs: { href: "/students/register-after?step=5" },
+                    },
+                    [_vm._v("Yes")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn-student",
+                      on: {
+                        click: function ($event) {
+                          _vm.modalIsActive = false
+                        },
+                      },
+                    },
+                    [_vm._v("Next Time")]
+                  ),
+                ]),
+              ]
+            ),
           ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "flex justify-between mt-2 w-full" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn-student",
-              on: {
-                click: function ($event) {
-                  _vm.step != 1 ? _vm.step-- : _vm.step
-                },
-              },
-            },
-            [_vm._v("Back")]
-          ),
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _c("div", { staticClass: "flex h-screen w-screen" }, [
+      _c(
+        "div",
+        { staticClass: "w-6/12 h-full p-4 overflow-y-auto bg-gray-900" },
+        [
+          _vm.step == 1
+            ? _c(
+                "div",
+                { staticClass: "flex flex-wrap justify-center" },
+                _vm._l(_vm.choices.bases, function (base) {
+                  return _c("thumbnail-vue", {
+                    key: "b" + base.id,
+                    attrs: {
+                      "is-active": _vm.baseActive,
+                      id: base.id,
+                      src: _vm.uri + base.thumbnail,
+                      type: "base",
+                    },
+                    on: { "was-clicked": _vm.thumbnailHandler },
+                  })
+                }),
+                1
+              )
+            : _vm._e(),
           _vm._v(" "),
+          _vm.step == 2
+            ? _c(
+                "div",
+                { staticClass: "flex flex-wrap justify-center" },
+                _vm._l(_vm.choices.hairstyles, function (hair) {
+                  return _c("thumbnail-vue", {
+                    key: hair.id,
+                    attrs: {
+                      "is-user-premium": _vm.isPremium,
+                      "is-premium": hair.for_premium,
+                      "is-active": _vm.hairActive,
+                      id: hair.id,
+                      src: _vm.uri + hair.thumbnail,
+                      type: "hair",
+                    },
+                    on: { "was-clicked": _vm.thumbnailHandler },
+                  })
+                }),
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.step == 3
+            ? _c(
+                "div",
+                { staticClass: "flex flex-wrap justify-center" },
+                _vm._l(_vm.choices.clothes, function (clothes) {
+                  return _c("thumbnail-vue", {
+                    key: clothes.id,
+                    attrs: {
+                      "is-user-premium": _vm.isPremium,
+                      "is-premium": clothes.for_premium,
+                      "is-active": _vm.clothesActive,
+                      id: clothes.id,
+                      src: _vm.uri + clothes.thumbnail,
+                      type: "clothes",
+                    },
+                    on: { "was-clicked": _vm.thumbnailHandler },
+                  })
+                }),
+                1
+              )
+            : _vm._e(),
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "w-6/12 bg-gray-200 h-full p-4 flex justify-center flex-col items-center",
+          staticStyle: {
+            background:
+              "url('https://raw.githubusercontent.com/will3452/bru-assets/main/closet/base.png')",
+            "background-size": "cover",
+          },
+        },
+        [
           _c(
-            "button",
+            "div",
             {
-              staticClass: "btn-student-active",
-              on: {
-                click: function ($event) {
-                  _vm.step++
-                },
-              },
+              staticClass: "border-2 backdrop-blur-sm",
+              staticStyle: { width: "420px", height: "594px" },
             },
             [
-              _c("span", {
-                domProps: {
-                  textContent: _vm._s(_vm.step == 3 ? "Finish" : "Next"),
-                },
+              _c("img", {
+                staticClass: "absolute animate-pulse",
+                attrs: { src: _vm.currentBaseImage, alt: "" },
+              }),
+              _vm._v(" "),
+              _c("img", {
+                staticClass: "absolute animate-pulse",
+                attrs: { src: _vm.currentHairImage, alt: "" },
+              }),
+              _vm._v(" "),
+              _c("img", {
+                staticClass: "absolute animate-pulse",
+                attrs: { src: _vm.currentClothesImage, alt: "" },
               }),
             ]
           ),
-        ]),
-      ]
-    ),
+          _vm._v(" "),
+          _c("div", { staticClass: "flex justify-between mt-2 w-full" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn-student",
+                on: {
+                  click: function ($event) {
+                    _vm.step != 1 ? _vm.step-- : _vm.step
+                  },
+                },
+              },
+              [_vm._v("Back")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn-student-active",
+                on: { click: _vm.stepForward },
+              },
+              [
+                _c("span", {
+                  domProps: {
+                    textContent: _vm._s(_vm.step == 3 ? "Finish" : "Next"),
+                  },
+                }),
+              ]
+            ),
+          ]),
+        ]
+      ),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -43314,12 +43413,32 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("img", {
-    staticClass: "m-3 w-24 h-32 shadow border-2 rounded-md bg-white",
-    class: { "animate-pulse border-purple-500 bg-purple-300": _vm.active },
-    attrs: { src: _vm.src },
-    on: { click: _vm.clickHandler },
-  })
+  return _c(
+    "div",
+    {
+      staticClass:
+        "m-3 w-24 h-32 shadow border-2 rounded-md relative overflow-hidden",
+    },
+    [
+      _c("img", {
+        staticClass: "w-full h-full bg-white",
+        class: { "animate-pulse border-purple-500 bg-purple-300": _vm.active },
+        attrs: { src: _vm.src },
+        on: { click: _vm.clickHandler },
+      }),
+      _vm._v(" "),
+      _vm.isPremium
+        ? _c(
+            "div",
+            {
+              staticClass:
+                "w-full absolute top-3 rotate-45 -right-7 text-center text-xs bg-purple-700 text-white",
+            },
+            [_vm._v("Premium")]
+          )
+        : _vm._e(),
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

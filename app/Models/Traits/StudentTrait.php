@@ -3,6 +3,7 @@
 namespace App\Models\Traits;
 
 use App\Models\Subscription;
+use App\Models\User;
 
 trait StudentTrait
 {
@@ -51,5 +52,10 @@ trait StudentTrait
     public function changeSubscription($newSubscription)
     {
         $this->update(['account_type' => $newSubscription]);
+    }
+
+    public function isPremium()
+    {
+        return $this->account_type === User::ACCOUNT_PREMIUM;
     }
 }
