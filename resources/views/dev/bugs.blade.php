@@ -53,7 +53,7 @@
                         {{$b->problem}}
                     </td>
                     <td>
-                        {{$b->replacement}}
+                        {!!$b->replacement!!}
                     </td>
                     <td>
                         {{$b->status}}
