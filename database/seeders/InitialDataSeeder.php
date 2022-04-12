@@ -250,7 +250,7 @@ public function setLevel($value, $genre)
                         'age' => 0,
                     ],
                     [
-                        'name' => '1*Non Violent',
+                        'name' => '1*Violent',
                         'age' => 16,
                     ]
                 ],
@@ -334,7 +334,7 @@ public function setLevel($value, $genre)
                         'age' => 0,
                     ],
                     [
-                        'name' => '1*Non Violent',
+                        'name' => '1*Violent',
                         'age' => 16,
                     ],
                     [
@@ -376,7 +376,7 @@ public function setLevel($value, $genre)
                         'age' => 0,
                     ],
                     [
-                        'name' => '1*Non Violent',
+                        'name' => '1*Violent',
                         'age' => 16,
                     ],
                     [
@@ -418,7 +418,7 @@ public function setLevel($value, $genre)
                         'age' => 0,
                     ],
                     [
-                        'name' => '1*Non Violent',
+                        'name' => '1*Violent',
                         'age' => 16,
                     ],
                     [
@@ -460,7 +460,7 @@ public function setLevel($value, $genre)
                         'age' => 0,
                     ],
                     [
-                        'name' => '1*Non Violent',
+                        'name' => '1*Violent',
                         'age' => 16,
                     ],
                     [
