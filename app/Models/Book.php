@@ -89,6 +89,7 @@ class Book extends Model implements TaggableInterface
 
     const TYPES = [
         // self::TYPE_EVENT,
+        self::TYPE_PREMIUM,
         self::TYPE_PLATINUM,
         self::TYPE_REGULAR,
         self::TYPE_SPIN,
