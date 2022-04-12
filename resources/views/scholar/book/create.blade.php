@@ -99,7 +99,7 @@
         <x-scholar.form.ckeditor name="blurb" label="Blurb"/>
 
         <template x-if="`{{\App\Models\Book::TYPE_REGULAR}}` != type">
-            <x-scholar.form.number name="cost" label="Cost" help="Please note that leaving the cost to ZERO will allow the users to download it for FREE. Please indicate price in CRYSTALS."/>
+            <x-scholar.form.number name="cost" label="Cost" help="Please note that leaving the cost to ZERO will allow the readers for FREE so long as they have hall passes. Please indicate price in purple crystals."/>
         </template>
 
         <template x-if="`{{\App\Models\Book::TYPE_REGULAR}}` == type">
