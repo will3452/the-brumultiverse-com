@@ -155,7 +155,18 @@ class InitialDataSeeder extends Seeder
         foreach ($bookCategories as $cat) {
             Category::create([ 'work_type' => Category::WORK_TYPE_BOOK, 'name' => $cat['name'], 'file_type' => $cat['file_type']]);
         }
-        foreach ($bookCategories as $cat) {
+
+        $audioBookCategories = [
+            [
+                'name' => 'Novel',
+                'file_type' => Category::FILE_TYPE_AUDIO,
+            ],
+            [
+                'name' => 'Anthology',
+                'file_type' => Category::FILE_TYPE_AUDIO,
+            ],
+        ];
+        foreach ($audioBookCategories as $cat) {
             Category::create([ 'work_type' => Category::WORK_TYPE_AUDIO_BOOK, 'name' => $cat['name'], 'file_type' => Category::FILE_TYPE_AUDIO]);
         }
     }
