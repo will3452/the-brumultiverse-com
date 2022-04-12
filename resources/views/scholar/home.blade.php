@@ -27,7 +27,7 @@
                 <x-scholar.dashboard-card icon="/img/icons/dashboard/newspaper_black_24dp.svg" title="newspaper" href="{{route('scholar.newspaper.index')}}"/>
             </x-scholar.material-container>
 
-            <x-dev.changelog/>
+            {{-- <x-dev.changelog/> --}}
         </div>
         <div class="w-2/12 bg-base-100 hidden md:block">
             {{-- extra space --}}

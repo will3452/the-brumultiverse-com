@@ -55,7 +55,7 @@
                             {{$event->end_date->format('m/d/y')}}
                         </td>
                         <td>
-                            <a href="{{route('scholar.event.show', ['event' => $event])}}" class="underline underline-offset-1">
+                            <a href="{{route('scholar.event.show', ['event' => $event])}}" class=" btn-sm btn-scholar btn">
                                 show
                             </a>
                         </td>

@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Traits\BelongsToAccount;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Http\Request;
 
 class Group extends Model
 {
@@ -32,6 +33,10 @@ class Group extends Model
         'approved_at' => 'datetime',
     ];
 
+    protected $withCount = [
+        'members',
+    ];
+
     public function approver()
     {
         return $this->belongsTo(User::class, 'approved_by_user_id');
@@ -48,5 +53,17 @@ class Group extends Model
         $creator = $this->account_id;
         $accountIds = $user->accounts()->pluck('id')->toArray();
         return in_array($creator, $accountIds);
+    }
+
+    //processes
+
+    public static function processToCreate(Request $request)
+    {
+        $data = $request->all();
+        $data['user_id'] = auth()->id();// just add the missing fields user_id
+
+        $group = self::create($data);
+
+        return $group;
     }
 }

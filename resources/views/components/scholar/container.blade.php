@@ -5,6 +5,7 @@
             <x-scholar.sidebar-item label="Dashboard" :href="route('scholar.home')"/>
             <x-scholar.sidebar-item label="Events" :href="route('scholar.event.index')"/>
             <x-scholar.sidebar-item label="Profile" :href="route('scholar.profile.show', ['user' => auth()->id()])"/>
+            <x-scholar.sidebar-item label="Groups" :href="route('scholar.group.index')" />
             <x-scholar.sidebar-item label="Payments" :href="route('scholar.transaction.index')"/>
             <x-scholar.sidebar-item label="Reports" href="javascript:alert('underdevelopment')"/>
         </ul>

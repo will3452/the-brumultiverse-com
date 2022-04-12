@@ -11,6 +11,10 @@ class GroupMember extends Model
     use HasFactory,
         HasInvitation;
 
+    protected $with = [
+        'group',
+    ];
+
     protected $fillable = [
         'group_id',
         'account_requestor_id', // the account of the user who request or add the group member
@@ -37,5 +41,17 @@ class GroupMember extends Model
     public function group()
     {
         return $this->belongsTo(Group::class, 'group_id');
+    }
+
+    //scopes and helpers
+
+    public function scopeConfirmed($q)
+    {
+        return $q->whereStatus(self::STATUS_CONFIRMED);
+    }
+
+    public function scopePending($q)
+    {
+        return $q->whereStatus(self::STATUS_PENDING);
     }
 }

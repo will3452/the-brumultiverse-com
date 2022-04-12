@@ -7,7 +7,7 @@
             {{$trigger}}
         </label>
     @else
-        <label for="{{$id}}" class="btn {{$extra}} modal-button m-1">{{$button}}</label>
+        <label for="{{$id}}" class="btn btn-scholar btn-sm {{$extra}} modal-button m-1">{{$button}}</label>
     @endif
 </div>
 

@@ -1,0 +1,87 @@
+<?php
+
+namespace App\Http\Controllers\Scholar;
+
+use App\Models\Group;
+use App\Models\Account;
+use App\Models\GroupType;
+use App\Models\GroupMember;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+class GroupController extends Controller
+{
+
+    public function customValidate(Request $request)
+    {
+        return $request->validate([
+            'name' => ['required', 'unique:groups,name'],
+            'account_id' => ['required', 'exists:accounts,id'],
+            'type' => ['required'],
+            'description' => ['required'],
+        ]);
+    }
+
+    public function create()
+    {
+        $accounts = auth()->user()->accounts()->whereNotNull('approved_at')->whereHas('books')->get();
+        $types = GroupType::get();
+        return view('scholar.group.create', compact('accounts', 'types'));
+    }
+
+    public function index()
+    {
+        $accounts = auth()->user()->accounts()->whereNotNull('approved_at')->whereHas('books')->get();
+        $memberships = GroupMember::confirmed()->whereIn('account_member_id', [$accounts->pluck('id')])->get();
+
+        return view('scholar.group.index', compact('memberships'));
+    }
+
+
+    public function show(Group $group)
+    {
+        $group->load('members'); // lazy load
+
+        return view('scholar.group.show', compact('group'));
+    }
+
+    public function store(Request $request)
+    {
+        $this->customValidate($request);
+
+        $group = Group::processToCreate($request);
+
+        return redirect(route('scholar.group.show', ['group' => $group]));
+    }
+
+    public function getAccountId($str)
+    {
+        return Account::wherePenname($str)->first()->id;
+    }
+
+    public function addMember(Request $request, Group $group)
+    {
+        $data = $request->validate([
+            'account' => ['required', 'exists:accounts,penname'],
+            'position' => 'required',
+        ]);
+
+        $accountId = $this->getAccountId($data['account']);
+
+
+        GroupMember::create([
+            'group_id' => $group->id,
+            'account_member_id' => $accountId,
+            'position' => $data['position'],
+        ]);
+
+        return back()->withSuccess('Invitation sent!');
+    }
+
+    public function editPosition(Request $request, GroupMember $member)
+    {
+        $member->update(['position' => $request->position]);
+
+        return back()->withSuccess('Position edited!');
+    }
+}

@@ -31,6 +31,10 @@
       .avatar-img {
           @apply block absolute w-6/12;
       }
+
+      .btn-scholar {
+          @apply bg-gradient-to-r from-purple-900 to-blue-900 text-white border-none;
+      }
   }
 
 * {

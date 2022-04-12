@@ -40,6 +40,7 @@ use App\Http\Controllers\Scholar\AudioBookController;
 use App\Http\Controllers\Scholar\MarketingController;
 use App\Http\Controllers\Scholar\NewspaperController;
 use App\Http\Controllers\Scholar\FreeArtSceneController;
+use App\Http\Controllers\Scholar\GroupController;
 use App\Http\Controllers\Scholar\LoadingImageController;
 use App\Http\Controllers\Scholar\MessageBlastController;
 use App\Http\Controllers\Scholar\NotificationController;
@@ -226,9 +227,20 @@ Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function
             ->name('art-scene');
     });
 
-    //requests
+    //requests to publish works
     Route::prefix('requests')->name('request.')->group(function () {
         Route::post('publish-work', [RequestToPublishController::class, 'requestToPublish'])->name('publish');
+    });
+
+    //groups
+
+    Route::prefix('groups')->name('group.')->group(function () {
+        Route::post('/edit-position/{member}', [GroupController::class, 'editPosition'])->name('edit.position');
+        Route::get('/', [GroupController::class, 'index'])->name('index');
+        Route::get('/create', [GroupController::class, 'create'])->name('create');
+        Route::post('/', [GroupController::class, 'store'])->name('store');
+        Route::get('/{group}', [GroupController::class, 'show'])->name('show');
+        Route::post('/new-member/{group}', [GroupController::class, 'addMember'])->name('add.member');
     });
 
     Route::prefix('events')->name('event.')->group(function () {
