@@ -2,7 +2,7 @@
     @if ($event->status === \App\Models\Event::STATUS_DRAFT)
         <x-slot name="alert">
             <x-scholar.alert-warning>
-                This event has not yet been submitted for approval.
+                Information successfully saved. Please click the REQUEST FOR APPROVAL button once ready.
             </x-scholar.alert-warning>
         </x-slot>
     @endif
