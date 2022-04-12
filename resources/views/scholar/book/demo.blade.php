@@ -29,7 +29,7 @@
             <div class="camera"></div>
             <div class="display">
                 <div class="artboard bg-white phone-1 pt-8 p-10 font-serif overflow-y-auto">
-                    <h1 class="text-center text-lg font-bold ">{{$c->title}}</h1>
+                    <h1 class="text-center text-lg font-bold p-8">{{$c->title}}</h1>
                     @if ($fileType === \App\Models\Category::FILE_TYPE_TEXT)
                         <div class="text-justify text-sm">
                             {!!$c->content!!}
