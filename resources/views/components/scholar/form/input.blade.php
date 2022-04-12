@@ -16,7 +16,7 @@
     id="{{$id}}"
     x-ref="{{$ref}}"
     x-model="{{$model}}"
-    value="{{html_entity_decode($value ?? old($name), ENT_QUOTES)}}"
+    value="{!!$value ?? old($name)!!}"
     name="{{$name}}"
     @if($required)
         required
