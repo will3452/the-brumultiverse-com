@@ -239,9 +239,12 @@ Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function
         Route::get('/', [GroupController::class, 'index'])->name('index');
         Route::get('/create', [GroupController::class, 'create'])->name('create');
         Route::post('/', [GroupController::class, 'store'])->name('store');
+        Route::get('/invitation', [GroupController::class, 'invitationGet'])->name('invitation');
+        Route::post('/invitation/{invitation}', [GroupController::class, 'acceptInvitation'])->name('invitation.accept');
         Route::get('/{group}', [GroupController::class, 'show'])->name('show');
         Route::post('/new-member/{group}', [GroupController::class, 'addMember'])->name('add.member');
     });
+
 
     Route::prefix('events')->name('event.')->group(function () {
         Route::get('/', [EventsController::class, 'index'])->name('index');

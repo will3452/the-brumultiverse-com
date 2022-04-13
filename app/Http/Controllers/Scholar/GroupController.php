@@ -8,6 +8,7 @@ use App\Models\GroupType;
 use App\Models\GroupMember;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\GroupInvitation;
 
 class GroupController extends Controller
 {
@@ -83,5 +84,17 @@ class GroupController extends Controller
         $member->update(['position' => $request->position]);
 
         return back()->withSuccess('Position edited!');
+    }
+
+    public function invitationGet()
+    {
+        $invitations = GroupInvitation::whereUserId(auth()->id())->get();
+        return view('scholar.group.invitation', compact('invitations'));
+    }
+
+    public function acceptInvitation(GroupInvitation $invitation)
+    {
+        $invitation->markAsConfirmed();
+        return back()->withSuccess('Confirmed!');
     }
 }

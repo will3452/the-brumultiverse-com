@@ -24,12 +24,8 @@ class Accept extends Action
     public function handle(ActionFields $fields, Collection $models)
     {
         foreach ($models as $model) {
-            $model->model()->update([
-                'confirmed_at' => now(),
-                'status' => (get_class($model->model))::STATUS_CONFIRMED,
-            ]);
             $groupId = $model->model->group_id;
-            $model->delete();
+            $model->markAsConfirmed();
             return Action::redirect(Nova::path() . '/resources/groups/' . $groupId);
         }
 

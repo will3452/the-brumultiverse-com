@@ -27,4 +27,14 @@ class Invitation extends Model
     {
         return $this->morphTo();
     }
+
+    public function markAsConfirmed()
+    {
+        $this->model()->update([
+            'confirmed_at' => now(),
+            'status' => (get_class($this->model))::STATUS_CONFIRMED,
+        ]);
+
+        $this->delete();
+    }
 }

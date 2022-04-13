@@ -15,7 +15,7 @@
     </div>
     <div class="flex-none">
         <div class="dropdown dropdown-end">
-            <a tabindex="0" href="javascript:alert('group Inivitation goes here. fixing...')" class="btn btn-ghost btn-circle">
+            <a tabindex="0" href="{{route('scholar.group.invitation')}}" class="btn btn-ghost btn-circle">
                 <div class="indicator dark:invert">
                     <x-nova.icon-group-add/>
                 </div>

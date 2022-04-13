@@ -9,7 +9,6 @@
     <div class="ml-4">
         <div class="text-sm ">
             {{$slot}}
-
         </div>
         <div class="text-xs font-bold">
             {{$time ?? ''}}
