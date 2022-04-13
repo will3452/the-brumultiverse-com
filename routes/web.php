@@ -161,6 +161,9 @@ Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function
 
     //books
     Route::prefix('books')->name('book.')->group(function () {
+        //epilogue & prologue
+        Route::post('/prologue/{book}', [BookController::class, 'prologue'])->name('prologue');
+        Route::post('/epilogue/{book}', [BookController::class, 'epilogue'])->name('epilogue');
         //demo
         Route::get('demo/{book}', [BookController::class, 'showBookDemo'])->name('demo');
         //chapters

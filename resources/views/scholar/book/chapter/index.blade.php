@@ -1,7 +1,4 @@
 <x-scholar.layout>
-    <x-scholar.page.title>
-        Chapters
-    </x-scholar.page.title>
     <x-chat.breadcrumbs
         :links="
             [
@@ -24,6 +21,35 @@
             ]
         "
     />
+    <div class="flex justify-between items-center">
+        <x-scholar.page.title>
+            Chapters
+        </x-scholar.page.title>
+        <div class="flex items-center">
+            @if (! $book->prologue()->exists())
+                <x-scholar.modal button="add prologue">
+                    <form action="{{route('scholar.book.prologue', ['book' => $book])}}" method="POST">
+                        @csrf
+                        <x-scholar.form.ckeditor name="body" label="Prologue Content"></x-scholar.form.ckeditor>
+                        <x-scholar.form.submit>
+                            Submit
+                        </x-scholar.form.submit>
+                    </form>
+                </x-scholar.modal>
+            @endif
+            @if (! $book->epilogue()->exists())
+                <x-scholar.modal button="add epilogue">
+                    <form action="{{route('scholar.book.epilogue', ['book' => $book])}}" method="POST">
+                        @csrf
+                        <x-scholar.form.ckeditor name="body" label="Epilogue Content"></x-scholar.form.ckeditor>
+                        <x-scholar.form.submit>
+                            Submit
+                        </x-scholar.form.submit>
+                    </form>
+                </x-scholar.modal>
+            @endif
+        </div>
+    </div>
     <x-scholar.page.index :model="$book->chapters" title="Chapters" creation-link="{{route('scholar.chapter.create', ['book' => $book->id])}}">
         <div class="mt-4">
             <x-scholar.table>
@@ -99,4 +125,8 @@
             </x-scholar.table>
         </div>
     </x-scholar.page.index>
+
+    @push('head-script')
+        <x-vendor.ckeditor/>
+    @endpush
 </x-scholar.layout>

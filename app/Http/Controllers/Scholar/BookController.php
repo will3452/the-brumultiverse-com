@@ -124,4 +124,20 @@ class BookController extends Controller
         $fileType = $book->category->file_type;
         return view('scholar.book.demo', compact('book', 'chapter', 'fileType'));
     }
+
+    public function prologue(Request $request, Book $book)
+    {
+        $book->prologue()->create([
+            'body' => $request->body,
+        ]);
+        return back()->withSuccess('Prologue added!');
+    }
+
+    public function epilogue(Request $request, Book $book)
+    {
+        $book->epilogue()->create([
+            'body' => $request->body,
+        ]);
+        return back()->withSuccess('Epilogue added!');
+    }
 }
