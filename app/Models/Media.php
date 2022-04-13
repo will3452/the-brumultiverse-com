@@ -20,18 +20,40 @@ class Media extends Model
         'copyright_disclaimer',
     ];
 
-    public function withFrame($frame = null, $new=false)
+    public function withFrame($frame = null, $new=false, $art=false)
     {
+        $width = self::COVER_WIDTH;
+        $height = self::COVER_HEIGHT;
+
         if (is_null($frame)) {
             $frame = public_path('img/frame/book.png');
         }
+
+        if ($art) {
+            $frame = public_path('img/frame/art.png');
+        }
+
+
         $fileName = "frame-$this->path";
         $filePath = '/img/cover-frames/' . $fileName;
 
         if (! file_exists(public_path($filePath)) || $new) {
             $path = $this->path;
-            $img = Image::make(Storage::disk('public')->path($path))->resize(self::COVER_WIDTH, self::COVER_HEIGHT);
-            $frameImg = Image::make($frame)->resize(self::COVER_WIDTH, self::COVER_HEIGHT);
+            $img = Image::make(Storage::disk('public')->path($path));
+
+            if ($art) {
+                if ($img->getWidth() > $img->getHeight()) {
+                    $frame = public_path('img/frame/art-landscape.png');
+                    $width = $img->getWidth();
+                    $height = $img->getHeight();
+                }
+            }
+
+            $img->resize($width, $height); //resize the main cover
+
+            $frameImg = Image::make($frame);
+
+            $frameImg->resize($width, $height); // resize the frame
             $img->insert($frameImg, 'top-left', 0, 0)->save(public_path($filePath));
         }
         return $filePath;

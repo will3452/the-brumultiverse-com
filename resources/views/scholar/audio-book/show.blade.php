@@ -80,7 +80,7 @@
         </div>
         <div class="w-full md:w-4/12 p-4">
             <div class="flex justify-center">
-                <img src="{{$audio->cover->withWatermark()}}" alt="Shoes" class="block w-full max-w-xs rounded shadow-md">
+                <img src="{{$audio->cover->withFrame()}}" alt="Shoes" class="block w-full max-w-xs rounded shadow-md">
             </div>
 
             <x-scholar.audio-player src="/storage/{{$audio->largeFile->path}}"/>

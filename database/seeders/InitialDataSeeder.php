@@ -232,6 +232,7 @@ public function setLevel($value, $genre)
     public function seedGenres()
     {
         $bookGenres = [
+            "Children's Literature" => ['heat' => [], 'violence' => []],
             "Teen and Young Adult" => [
                 'heat' => [
                     [
@@ -259,10 +260,6 @@ public function setLevel($value, $genre)
                     [
                         'name' => '1*Non Violent',
                         'age' => 0,
-                    ],
-                    [
-                        'name' => '1*Violent',
-                        'age' => 16,
                     ]
                 ],
             ],
@@ -289,34 +286,18 @@ public function setLevel($value, $genre)
                     //     'age' => 18,
                     // ],
                 ],
-                'violence' => []
-            ],
-            "Romance" => [
-                'heat' => [
+                'violence' => [
                     [
-                        'name' => '1*Sweet',
+                        'name' => '1*Non Violent',
                         'age' => 0,
                     ],
                     [
-                        'name' => '2*Romantic',
+                        'name' => '1*Violent',
                         'age' => 16,
                     ],
-                    [
-                        'name' => '3*Steamy',
-                        'age' => 18,
-                    ],
-                    [
-                        'name' => '4*Erotic Romance',
-                        'age' => 18,
-                    ],
-                    [
-                        'name' => '5*Erotica',
-                        'age' => 18,
-                    ],
-                ],
-                'violence' => []
+                ]
             ],
-            "Detective and Mystery" => [
+            "Romance" => [
                 'heat' => [
                     [
                         'name' => '1*Sweet',
@@ -348,12 +329,38 @@ public function setLevel($value, $genre)
                         'name' => '1*Violent',
                         'age' => 16,
                     ],
+                ]
+            ],
+            "Detective and Mystery" => [
+                'heat' => [
                     [
-                        'name' => '3*Bloody',
+                        'name' => '1*Sweet',
+                        'age' => 0,
+                    ],
+                    [
+                        'name' => '2*Romantic',
+                        'age' => 16,
+                    ],
+                    [
+                        'name' => '3*Steamy',
                         'age' => 18,
                     ],
                     [
-                        'name' => '4*Gruesome',
+                        'name' => '4*Erotic Romance',
+                        'age' => 18,
+                    ],
+                ],
+                'violence' => [
+                    [
+                        'name' => '1*Non Violent',
+                        'age' => 0,
+                    ],
+                    [
+                        'name' => '1*Violent',
+                        'age' => 16,
+                    ],
+                    [
+                        'name' => '3*Bloody',
                         'age' => 18,
                     ],
                 ],
@@ -374,10 +381,6 @@ public function setLevel($value, $genre)
                     ],
                     [
                         'name' => '4*Erotic Romance',
-                        'age' => 18,
-                    ],
-                    [
-                        'name' => '5*Erotica',
                         'age' => 18,
                     ],
                 ],
@@ -418,10 +421,6 @@ public function setLevel($value, $genre)
                         'name' => '4*Erotic Romance',
                         'age' => 18,
                     ],
-                    [
-                        'name' => '5*Erotica',
-                        'age' => 18,
-                    ],
                 ],
                 'violence' => [
                     [
@@ -454,14 +453,6 @@ public function setLevel($value, $genre)
                     ],
                     [
                         'name' => '3*Steamy',
-                        'age' => 18,
-                    ],
-                    [
-                        'name' => '4*Erotic Romance',
-                        'age' => 18,
-                    ],
-                    [
-                        'name' => '5*Erotica',
                         'age' => 18,
                     ],
                 ],
@@ -507,7 +498,20 @@ public function setLevel($value, $genre)
                         'age' => 18,
                     ],
                 ],
-                'violence' => []
+                'violence' => [
+                    [
+                        'name' => '1*Non Violent',
+                        'age' => 0,
+                    ],
+                    [
+                        'name' => '1*Violent',
+                        'age' => 16,
+                    ],
+                    [
+                        'name' => '3*Bloody',
+                        'age' => 18,
+                    ],
+                ]
             ],
             "Poetry" => [
                 'heat' => [
@@ -532,17 +536,29 @@ public function setLevel($value, $genre)
                         'age' => 18,
                     ],
                 ],
-                'violence' => []
+                'violence' => [
+                    [
+                        'name' => '1*Non Violent',
+                        'age' => 0,
+                    ],
+                    [
+                        'name' => '1*Violent',
+                        'age' => 16,
+                    ],
+                    [
+                        'name' => '3*Bloody',
+                        'age' => 18,
+                    ],
+                ]
             ],
         ];
         $songGenres = [
+            'Country',
             'Pop',
             'Rock',
             'RnB',
-            'OPM',
             'Jazz',
             'Classical',
-            'Gospel',
         ];
 
         $excludeInArts = ['Poetry'];

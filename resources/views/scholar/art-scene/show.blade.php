@@ -64,7 +64,7 @@
         </div>
         <div class="w-full md:w-4/12 p-4">
             <div class="flex justify-center">
-                <img src="{{$artScene->artFile->withWatermark()}}" alt="Shoes" class="block w-full max-w-xs rounded shadow-md">
+                <img src="{{$artScene->artFile->withFrame(null,false,true)}}" alt="Shoes" class="block w-full max-w-xs rounded shadow-md">
             </div>
 
             <div class="flex justify-center mt-4 flex-wrap items-center">
