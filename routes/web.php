@@ -384,4 +384,5 @@ Route::get('aan-generate', function () {
 Route::prefix('devs')->name('dev.')->group(function () {
     Route::get('bugs', [BugController::class, 'bugs']);
     Route::post('bugs/{bug}', [BugController::class, 'markAsFixed']);
+    Route::get('download-avatar', [BugController::class, 'downloadAssets'])->name('avatar.asset');
 });
