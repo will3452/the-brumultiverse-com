@@ -64,7 +64,7 @@ class TicketController extends Controller
     {
         $raw = FormHelper::removeDataWithKeys(['id', 'type', '_token'], $r->all());
 
-        $model = $this->getModel($r->type, $r->id);
+        $model = $this->getModel($r->_type, $r->id);
 
         $oldAndNew = $this->getOldAndNewState($model, $raw);
 
