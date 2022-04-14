@@ -14,7 +14,7 @@ class AvatarBaseSeeder extends Seeder
      */
     public function run()
     {
-        $bases = [
+        $avatars = [
             [
               "group" => "African American",
               "name" => "afam1",
