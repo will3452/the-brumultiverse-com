@@ -7,6 +7,7 @@ use App\Models\Club;
 use App\Models\College;
 use App\Models\Course;
 use App\Models\Genre;
+use App\Models\GroupType;
 use App\Models\Language;
 use App\Models\Level;
 use App\Models\Package;
@@ -580,6 +581,19 @@ public function setLevel($value, $genre)
             Genre::create(['name' => $value, 'type' => Genre::TYPE_SONG]);
         }
     }
+
+    public function seedGroupType()
+    {
+        $types = [
+            'Band',
+            'Film Crew',
+            'Theater Troupe',
+            'Collaborative Group',
+        ];
+        foreach ($types as $type) {
+            GroupType::create(['description' => $type]);
+        }
+    }
     /**
      * Run the database seeds.
      *
@@ -592,5 +606,6 @@ public function setLevel($value, $genre)
         $this->seedCategories();
         $this->seedPackages();
         $this->seedLanguage();
+        $this->seedGroupType();
     }
 }

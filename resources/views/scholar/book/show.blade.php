@@ -40,7 +40,7 @@
 
                 <x-scholar.form.input label="Book Title" name="title" :value="$book->title"/>
 
-                <x-scholar.form.select :readonly="true" name="category" label="Category">
+                <x-scholar.form.select :readonly="true" name="category" label="Category" :value="$book->category_id">
                     @foreach ($categories as $id=>$label)
                         <option value="{{$id}}" {{$book->category_id === $id ? 'selected':''}}>{{$label}}</option>
                     @endforeach

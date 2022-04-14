@@ -149,7 +149,7 @@ class Book extends Model implements TaggableInterface
             'title' => $r->title,
             // 'age_restriction' => null,
             'has_warning_message' => $r->has_warning_message,
-            'category_id' => $r->category,
+            // 'category_id' => $r->category,
             // 'credit' => $r->credit,
             'blurb' => $r->blurb,
             // 'language_id' => $r->language,
