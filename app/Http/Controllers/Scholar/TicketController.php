@@ -62,7 +62,7 @@ class TicketController extends Controller
 
     public function storeUpdateTicket(Request $r)
     {
-        $raw = FormHelper::removeDataWithKeys(['id', 'type', '_token'], $r->all());
+        $raw = FormHelper::removeDataWithKeys(['id', '_type', '_token'], $r->all());
 
         $model = $this->getModel($r->_type, $r->id);
 
