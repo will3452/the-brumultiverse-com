@@ -12,7 +12,7 @@
         $unfixed = \App\Models\Bug::whereStatus(\App\Models\Bug::STATUS_PENDING)->count();
     @endphp
     <div>
-        progress rate: {{ number_format(($fixed / count($bugs)) * 100, 2) }} %
+        {{-- progress rate: {{ number_format(($fixed / count($bugs)) * 100, 2) }} % --}}
     </div>
     <div>
         total: {{count($bugs)}} | remaining bugs: {{$unfixed}} | fixed: {{$fixed}}
@@ -50,7 +50,7 @@
                         {{$b->uri}}
                     </td>
                     <td>
-                        {{$b->problem}}
+                        {!!$b->problem!!}
                     </td>
                     <td>
                         {!!$b->replacement!!}
@@ -58,17 +58,29 @@
                     <td>
                         {{$b->status}}
                     </td>
-                    <td>
+                    <td >
                         @if ($b->status === \App\Models\Bug::STATUS_PENDING)
-                            <form action="/devs/bugs/{{$b->id}}" method="POST">
-                                @csrf
-                                <button>mark as fixed!</button>
-                            </form>
+                        <div x-data="{
+                            isHide:false,
+                            id:{{$b->id}},
+                            text:'Mark as Fix',
+                            submit() {
+                                this.text = 'loading ...';
+                                fetch('/devs/bugs/' + this.id, {method:'POST', body:JSON.stringify({_token:`{{csrf_token()}}`}), headers: {
+                                    'Content-type': 'application/json; charset=UTF-8'
+                                }})
+                                    .then(res=>this.isHide = true)
+                            },
+                        }">
+                        <button x-show="! isHide" x-on:click="submit" x-text="text"></button>
+                        </div>
                         @endif
+                        @csrf
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+    <x-vendor.alpinejs/>
 </body>
 </html>
