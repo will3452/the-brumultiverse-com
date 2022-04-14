@@ -33,4 +33,9 @@ class Album extends Model
 
     const TYPE_SONG = 'Song';
     const TYPE_ART_SCENE = 'Art Scene';
+
+    const TYPES = [
+        self::TYPE_ART_SCENE,
+        self::TYPE_SONG,
+    ];
 }

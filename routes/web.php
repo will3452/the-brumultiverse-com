@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AvatarController;
+use App\Models\Aan;
 use App\Models\Club;
 use Inertia\Inertia;
 use App\Models\Course;
@@ -14,21 +14,28 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AvatarController;
 use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ChangelogController;
+use App\Http\Requests\StudentRegisterRequest;
 use App\Http\Controllers\FileUploaderController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\Scholar\BookController;
 use App\Http\Controllers\Scholar\FilmController;
 use App\Http\Controllers\Scholar\HomeController;
 use App\Http\Controllers\Scholar\SongController;
+use App\Http\Controllers\Scholar\WorkController;
 use App\Http\Controllers\Developer\BugController;
+use App\Http\Controllers\Scholar\AlbumController;
 use App\Http\Controllers\Scholar\AnnexController;
+use App\Http\Controllers\Scholar\GroupController;
 use App\Http\Controllers\Scholar\EventsController;
 use App\Http\Controllers\Scholar\SearchController;
+use App\Http\Controllers\Scholar\SeriesController;
+use App\Http\Controllers\Scholar\TicketController;
 use App\Http\Controllers\Scholar\ChapterController;
 use App\Http\Controllers\Scholar\MarqueeController;
 use App\Http\Controllers\Scholar\PodcastController;
@@ -39,8 +46,8 @@ use App\Http\Controllers\EmailVerificationController;
 use App\Http\Controllers\Scholar\AudioBookController;
 use App\Http\Controllers\Scholar\MarketingController;
 use App\Http\Controllers\Scholar\NewspaperController;
+use App\Http\Controllers\Scholar\CollectionController;
 use App\Http\Controllers\Scholar\FreeArtSceneController;
-use App\Http\Controllers\Scholar\GroupController;
 use App\Http\Controllers\Scholar\LoadingImageController;
 use App\Http\Controllers\Scholar\MessageBlastController;
 use App\Http\Controllers\Scholar\NotificationController;
@@ -48,12 +55,9 @@ use App\Http\Controllers\Scholar\SlidingBannerController;
 use App\Http\Controllers\Scholar\RequestToPublishController;
 use App\Http\Controllers\Scholar\PaymentTransactionController;
 use App\Http\Controllers\Scholar\LoginController as ScholarLoginController;
-use App\Http\Controllers\Scholar\RegisterController as ScholarRegisterController;
-use App\Http\Controllers\Scholar\TicketController;
 use App\Http\Controllers\Student\PaymentController as StudentPaymentController;
+use App\Http\Controllers\Scholar\RegisterController as ScholarRegisterController;
 use App\Http\Controllers\Student\RegisterController as StudentRegisterController;
-use App\Http\Requests\StudentRegisterRequest;
-use App\Models\Aan;
 
 //changelog
 Route::get('/changelog/create', [ChangelogController::class, 'create'])->middleware(['auth.basic']);
@@ -236,7 +240,6 @@ Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function
     });
 
     //groups
-
     Route::prefix('groups')->name('group.')->group(function () {
         Route::post('/edit-position/{member}', [GroupController::class, 'editPosition'])->name('edit.position');
         Route::get('/', [GroupController::class, 'index'])->name('index');
@@ -248,6 +251,30 @@ Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function
         Route::post('/new-member/{group}', [GroupController::class, 'addMember'])->name('add.member');
     });
 
+    Route::prefix('albums')->name('album.')->group(function () {
+        Route::get('/', [AlbumController::class, 'index'])->name('index');
+        Route::get('/create', [AlbumController::class, 'create'])->name('create');
+        Route::get('/{album}', [AlbumController::class, 'show'])->name('show');
+        Route::post('/', [AlbumController::class, 'store'])->name('store');
+    });
+
+    Route::prefix('collections')->name('collection.')->group(function () {
+        Route::get('/', [CollectionController::class, 'index'])->name('index');
+        Route::get('/create', [CollectionController::class, 'create'])->name('create');
+        Route::get('/{collection}', [CollectionController::class, 'show'])->name('show');
+        Route::post('/', [CollectionController::class, 'store'])->name('store');
+    });
+
+    Route::prefix('series')->name('series.')->group(function () {
+        Route::get('/', [SeriesController::class, 'index'])->name('index');
+        Route::get('/create', [SeriesController::class, 'create'])->name('create');
+        Route::get('/{series}', [SeriesController::class, 'show'])->name('show');
+        Route::post('/', [SeriesController::class, 'store'])->name('store');
+    });
+
+
+    //especial route for adding of work for collection, albums and series
+    Route::post('add-work', [WorkController::class, 'addWork'])->name('add.work');
 
     Route::prefix('events')->name('event.')->group(function () {
         Route::get('/', [EventsController::class, 'index'])->name('index');

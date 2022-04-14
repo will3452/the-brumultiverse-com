@@ -25,4 +25,13 @@ class ClassWork extends Model
     {
         return $this->morphTo();
     }
+
+    const INDEX = [
+        Book::class => '/scholar/books/',
+        ArtScene::class => '/scholar/art-scenes/',
+        AudioBook::class => '/scholar/audio-books/',
+        Podcast::class => '/scholar/podcasts/',
+        Song::class => '/scholar/songs/',
+        Film::class => '/scholar/films/',
+    ];
 }

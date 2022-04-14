@@ -1,7 +1,7 @@
 @props(['label' => ''])
-<div class="my-2 flex">
+<div class="my-2 flex items-center">
     <div class="text-xs uppercase">
-        {{$label}}:
+        {{$label}} :
     </div>
     <div class="text-sm pl-4">
         {{$slot}}

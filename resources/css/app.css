@@ -35,6 +35,10 @@
       .btn-scholar {
           @apply bg-gradient-to-r from-purple-900 to-blue-900 text-white border-none;
       }
+
+      .quick-search {
+          @apply input input-bordered input-sm;
+      }
   }
 
 * {

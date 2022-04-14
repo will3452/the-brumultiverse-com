@@ -37,4 +37,34 @@ class Series extends Model
     const TYPE_FILM = 'Film';
     const TYPE_AUDIO_BOOK = 'Audio Book';
     const TYPE_PODCAST = 'Podcast';
+
+    const TYPES = [
+        self::TYPE_BOOK,
+        self::TYPE_FILM,
+        self::TYPE_AUDIO_BOOK,
+        self::TYPE_PODCAST,
+    ];
+
+    public function getOptionWorks($existingIds)
+    {
+        $optionWorks = [];
+
+        if ($this->type === self::TYPE_BOOK) {
+            $optionWorks = auth()->user()->books()->whereNotIn('id', $existingIds)->get();
+        }
+
+        if ($this->type === self::TYPE_FILM) {
+            $optionWorks = auth()->user()->films()->whereNotIn('id', $existingIds)->get();
+        }
+
+        if ($this->type === self::TYPE_AUDIO_BOOK) {
+            $optionWorks = auth()->user()->audioBooks()->whereNotIn('id', $existingIds)->get();
+        }
+
+        if ($this->type === self::TYPE_PODCAST) {
+            $optionWorks = auth()->user()->podcasts()->whereNotIn('id', $existingIds)->get();
+        }
+
+        return $optionWorks;
+    }
 }

@@ -18,6 +18,12 @@
                 <x-scholar.dashboard-card icon="/img/icons/dashboard/mic.svg" title="podcasts" href="{{route('scholar.podcast.index')}}"/>
             </x-scholar.material-container>
 
+            <x-scholar.material-container title="Collections" icon="/img/icons/dashboard/collection.svg">
+                <x-scholar.dashboard-card icon="/img/icons/dashboard/album.svg" title="albums" href="{{route('scholar.album.index')}}" />
+                <x-scholar.dashboard-card icon="/img/icons/dashboard/collection.svg" title="collections" href="{{route('scholar.collection.index')}}"/>
+                <x-scholar.dashboard-card icon="/img/icons/dashboard/library.svg" title="series" href="{{route('scholar.series.index')}}" />
+            </x-scholar.material-container>
+
             <x-scholar.material-container title="Marketing" icon="/img/icons/dashboard/trending-up.svg">
                 <x-scholar.dashboard-card icon="/img/icons/dashboard/ballot_black_24dp.svg" title="bulletin" href="{{route('scholar.bulletin.index')}}" />
                 <x-scholar.dashboard-card icon="/img/icons/dashboard/sort_black_24dp.svg" title="marquee" href="{{route('scholar.marquee.index')}}"/>

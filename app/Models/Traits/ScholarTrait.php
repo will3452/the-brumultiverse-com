@@ -7,9 +7,12 @@ use App\Models\Film;
 use App\Models\Song;
 use App\Models\Event;
 use App\Models\Account;
+use App\Models\Album;
 use App\Models\Podcast;
 use App\Models\ArtScene;
 use App\Models\AudioBook;
+use App\Models\Collection;
+use App\Models\Series;
 
 trait ScholarTrait
 {
@@ -55,5 +58,20 @@ trait ScholarTrait
     public function podcasts()
     {
         return $this->hasMany(Podcast::class, $this->scholarModel());
+    }
+
+    public function albums()
+    {
+        return $this->hasMany(Album::class, $this->scholarModel());
+    }
+
+    public function collections()
+    {
+        return $this->hasMany(Collection::class, $this->scholarModel());
+    }
+
+    public function series()
+    {
+        return $this->hasMany(Series::class, $this->scholarModel());
     }
 }

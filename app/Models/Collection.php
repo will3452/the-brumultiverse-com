@@ -37,4 +37,43 @@ class Collection extends Model
     const TYPE_PODCAST = 'Podcast';
     const TYPE_SONG = 'Song';
     const TYPE_ART_SCENE = 'Art Scene';
+
+    const TYPES = [
+        self::TYPE_ART_SCENE,
+        self::TYPE_BOOK,
+        self::TYPE_FILM,
+        self::TYPE_SONG,
+        self::TYPE_AUDIO_BOOK,
+        self::TYPE_PODCAST,
+    ];
+
+    public function getOptionWorks($existingIds)
+    {
+        $optionWorks = [];
+        if ($this->type === self::TYPE_ART_SCENE) {
+            $optionWorks = auth()->user()->artScenes()->whereNotIn('id', $existingIds)->get();
+        }
+
+        if ($this->type === self::TYPE_SONG) {
+            $optionWorks = auth()->user()->songs()->whereNotIn('id', $existingIds)->get();
+        }
+
+        if ($this->type === self::TYPE_BOOK) {
+            $optionWorks = auth()->user()->books()->whereNotIn('id', $existingIds)->get();
+        }
+
+        if ($this->type === self::TYPE_FILM) {
+            $optionWorks = auth()->user()->films()->whereNotIn('id', $existingIds)->get();
+        }
+
+        if ($this->type === self::TYPE_AUDIO_BOOK) {
+            $optionWorks = auth()->user()->audioBooks()->whereNotIn('id', $existingIds)->get();
+        }
+
+        if ($this->type === self::TYPE_PODCAST) {
+            $optionWorks = auth()->user()->podcasts()->whereNotIn('id', $existingIds)->get();
+        }
+
+        return $optionWorks;
+    }
 }
