@@ -15,7 +15,7 @@
 <input type="checkbox" id="{{$id}}" class="modal-toggle">
 <div class="modal">
     <div class="modal-box relative">
-        <label for="{{$id}}" class="absolute top-2 right-2">
+        <label for="{{$id}}" class="absolute top-1 right-1">
             <img src="/img/icons/crud/x.svg" alt="">
         </label>
         <div>

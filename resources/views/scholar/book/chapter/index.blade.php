@@ -73,6 +73,25 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @if ($book->prologue()->exists())
+                        <tr>
+                            <td>
+
+                            </td>
+                            <td>
+                                Prologue
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+                                {{$book->prologue->created_at->format('m/d/y')}}
+                            </td>
+                            <td>
+                                <a class="btn btn-xs btn-scholar" href="{{route('scholar.prologue.show', ['prologue' => $book->prologue])}}">View</a>
+                            </td>
+                        </tr>
+                    @endif
                     @foreach ($book->chapters as $c)
                         <tr>
                             <td>
@@ -116,11 +135,30 @@
                                     @endif
                                 </div>
                                 <div>
-                                    <a class="btn btn-xs" href="{{route('scholar.chapter.show', ['chapter' => $c->id])}}">View</a>
+                                    <a class="btn btn-xs btn-scholar" href="{{route('scholar.chapter.show', ['chapter' => $c->id])}}">View</a>
                                 </div>
                             </td>
                         </tr>
                     @endforeach
+                    @if ($book->epilogue()->exists())
+                        <tr>
+                            <td>
+
+                            </td>
+                            <td>
+                                Epilgoue
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+                                {{$book->epilogue->created_at->format('m/d/y')}}
+                            </td>
+                            <td>
+                                <a class="btn btn-xs btn-scholar" href="{{route('scholar.epilogue.show', ['epilogue' => $book->epilogue])}}">View</a>
+                            </td>
+                        </tr>
+                    @endif
                 </tbody>
             </x-scholar.table>
         </div>

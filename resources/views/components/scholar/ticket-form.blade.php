@@ -5,7 +5,7 @@
         @csrf
         <input type="hidden" name="_type" value="{{\App\Helpers\TicketHelper::getModel(get_class($model))}}">
         <input type="hidden" name="id" value="{{$model->id}}">
-        <h1 class="text-center uppercase font-bold tracking-widest text-xl border-dashed border-2 p-4">Submit Ticket</h1>
+        <h1 class="text-center uppercase font-bold tracking-widest text-xl p-4 bg-scholar rounded-md">Submit Ticket</h1>
         @foreach ($model->ticketCanUpdate() as $item)
 
             @if (in_array($item, ['description', 'blurb', 'credit', 'copyright', 'lyrics']))

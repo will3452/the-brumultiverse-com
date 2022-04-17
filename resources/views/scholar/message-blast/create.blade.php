@@ -66,7 +66,7 @@
              </div>
          @endfor
 
-        <x-scholar.form.file name="file" label="Upload image"/>
+        <x-scholar.form.file name="file" required="0" label="Upload image"/>
         <x-scholar.form.submit>
             Submit
         </x-scholar.form.submit>

@@ -18,7 +18,11 @@
     @endif
     placeholder="{{$placeholder ?? $label}}"
     class="input input-bordered w-full @error($name) input-error @enderror"
-    >{{$slot ?? old($name)}}</textarea>
+    >@if (is_null($slot) || strlen($slot) == 0)
+        {{old($name)}}
+    @else
+    {{$slot}}
+    @endif</textarea>
     <div class="label">
         <span class="label-text-alt">{{$help}}</span>
     </div>

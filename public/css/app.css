@@ -2968,6 +2968,15 @@ body[dir="rtl"] .checkbox:checked,
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+.bg-scholar {
+  border-style: none;
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+  --tw-gradient-from: #581c87;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(88 28 135 / 0));
+  --tw-gradient-to: #1e3a8a;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
 .quick-search {
   flex-shrink: 1;
   transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
@@ -3093,6 +3102,18 @@ body[dir="rtl"] .checkbox:checked,
 }
 .bottom-8 {
   bottom: 2rem;
+}
+.-top-2 {
+  top: -0.5rem;
+}
+.-top-10 {
+  top: -2.5rem;
+}
+.top-1 {
+  top: 0.25rem;
+}
+.right-1 {
+  right: 0.25rem;
 }
 .z-50 {
   z-index: 50;

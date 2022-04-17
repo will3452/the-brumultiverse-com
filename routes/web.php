@@ -55,6 +55,7 @@ use App\Http\Controllers\Scholar\SlidingBannerController;
 use App\Http\Controllers\Scholar\RequestToPublishController;
 use App\Http\Controllers\Scholar\PaymentTransactionController;
 use App\Http\Controllers\Scholar\LoginController as ScholarLoginController;
+use App\Http\Controllers\Scholar\PrologueEpilogueController;
 use App\Http\Controllers\Student\PaymentController as StudentPaymentController;
 use App\Http\Controllers\Scholar\RegisterController as ScholarRegisterController;
 use App\Http\Controllers\Student\RegisterController as StudentRegisterController;
@@ -161,6 +162,18 @@ Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function
         Route::delete('/account/{account}', [ProfileController::class, 'removeAccount'])->name('account.delete');
         Route::put('/account-picture-update/{account}', [ProfileController::class, 'updateAccountPicture'])->name('account.picture.update');
         Route::put('profile-picture-update', [ProfileController::class, 'updatePicture'])->name('update.picture');
+    });
+
+    //prologue
+    Route::prefix('prologue')->name('prologue.')->group(function () {
+        Route::get('/{prologue}', [PrologueEpilogueController::class, 'showPrologue'])->name('show');
+        Route::put('/{prologue}', [PrologueEpilogueController::class, 'updatePrologue'])->name('update');
+    });
+
+    //epilogue
+    Route::prefix('epilogue')->name('epilogue.')->group(function () {
+        Route::get('/{epilogue}', [PrologueEpilogueController::class, 'showEpilogue'])->name('show');
+        Route::put('/{epilogue}', [PrologueEpilogueController::class, 'updateEpilogue'])->name('update');
     });
 
     //books
