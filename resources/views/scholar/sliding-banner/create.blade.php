@@ -35,7 +35,7 @@
 
         <x-scholar.form.input type="date" name="scheduled_at" label="Schedule" help="Schedule must be 14 days from date of creation." />
 
-        <x-scholar.form.file name="file" label="Upload Image Banner"/>
+        <x-scholar.form.file name="file" label="Upload Image Banner" help="Create your own banner? click <a href='{{route('scholar.banner.editor')}}' class='underline'>here</a>"/>
 
         <x-scholar.form.submit>
             Submit

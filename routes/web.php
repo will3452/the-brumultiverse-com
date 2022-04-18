@@ -44,6 +44,7 @@ use App\Http\Controllers\Scholar\ArtSceneController;
 use App\Http\Controllers\Scholar\BulletinController;
 use App\Http\Controllers\EmailVerificationController;
 use App\Http\Controllers\Scholar\AudioBookController;
+use App\Http\Controllers\Scholar\BannerController;
 use App\Http\Controllers\Scholar\MarketingController;
 use App\Http\Controllers\Scholar\NewspaperController;
 use App\Http\Controllers\Scholar\CollectionController;
@@ -137,6 +138,9 @@ Route::post('/messages/create/{chat}', [ChatController::class, 'createMessage'])
 //scholars
 
 Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function () {
+
+    // scholar tools
+    Route::get('/banner-editor', [BannerController::class, 'index'])->name('banner.editor');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
     //notifications

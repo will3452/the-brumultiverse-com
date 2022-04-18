@@ -40,6 +40,10 @@
           @apply bg-gradient-to-r from-purple-900 to-blue-900 text-white border-none;
       }
 
+      .selected-bg  {
+          @apply border-2 border-purple-600;
+      }
+
       .quick-search {
           @apply input input-bordered input-sm;
       }

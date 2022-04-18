@@ -24,7 +24,7 @@
         class="w-full @error($name) input-error @enderror"
         >
         <div class="label">
-            <span class="label-text-alt">{{$help}}</span>
+            <span class="label-text-alt">{!!$help!!}</span>
         </div>
         @error($name)
             <span class="text-red-600">{{$message}}</span>
