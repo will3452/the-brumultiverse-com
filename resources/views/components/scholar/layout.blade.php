@@ -12,6 +12,7 @@
     <title>BRUMULTIVERSE</title>
     <link rel="stylesheet" href="/css/app.css"/>
     <link rel="stylesheet" href="/vendor/pace/flash.css">
+    <link rel="icon" href="{{getAsset('home/circle_logo.png')}}"
     <script src="/js/app.js"></script>
     @stack('head-style')
     @stack('head-script')
