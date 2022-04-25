@@ -38,7 +38,7 @@
                 <label for="title">Book Title</label>
                 <input type="text" x-ref="title" id="title" class="input input-sm input-bordered">
                 <label for="titlesize">Size</label>
-                <input type="number" x-ref="titlesize" id="titlesize" class="input input-sm input-bordered">
+                <input type="number" value="20" x-ref="titlesize" id="titlesize" class="input input-sm input-bordered">
                 <label for="titlecolor">Color</label>
                 <input type="color" x-ref="titlecolor" id="titlecolor">
             </div>
@@ -46,7 +46,7 @@
                 <label for="description">Description</label>
                 <input type="text" x-ref="description" id="description" class="input input-sm input-bordered">
                 <label for="descriptionsize">Size</label>
-                <input type="number" x-ref="descriptionsize" id="descriptionsize" class="input input-sm input-bordered">
+                <input type="number" value="20" x-ref="descriptionsize" id="descriptionsize" class="input input-sm input-bordered">
                 <label for="descriptioncolor">Color</label>
                 <input type="color" x-ref="descriptioncolor" id="descriptioncolor">
             </div>
@@ -54,7 +54,7 @@
                 <label for="cost">Cost</label>
                 <input type="text" x-ref="cost" id="cost" class="input input-sm input-bordered">
                 <label for="costsize">Size</label>
-                <input type="number" x-ref="costsize" id="costsize" class="input input-sm input-bordered">
+                <input type="number" value="20" x-ref="costsize" id="costsize" class="input input-sm input-bordered">
                 <label for="costcolor">Color</label>
                 <input type="color" x-ref="costcolor" id="costcolor">
             </div>
@@ -128,7 +128,8 @@
                     this.layer.draw();
                 },
                 init() {
-                    this.step = 1;
+                    this.step = 2;
+                    this.loadImageSelected(1); // for testing
                     this.initLayer();
                     var bookCoverEl = document.querySelector('#bookCover');
                     bookCoverEl.addEventListener('change', () => {
@@ -146,13 +147,13 @@
                                         scaleX:1,
                                         scaleY:1,
                                         skewY:-0.5,
-                                        skewX:0.28,
+                                        skewX:0.31,
                                         // offsetX:55,
                                         // offsetY:65,
-                                        width:103,
-                                        height:156,
-                                        x:68,
-                                        y:115,
+                                        width:125,
+                                        height:182,
+                                        x:50,
+                                        y:104,
                                         image:kImage,
                                         // draggable:true,
                                     });
@@ -192,46 +193,64 @@
 
                     title.addEventListener('keyup', ()=>{
                         titleText = this.setText(titleText, this.$refs.title.value, this.$refs.titlesize.value, this.$refs.titlecolor.value);
+                        titleText.x(620 / 2)
+                        titleText.y(320 / 2)
                         this.layer.add(titleText);
                     });
 
                     titlesize.addEventListener('keyup', () => {
                         titleText = this.setText(titleText, this.$refs.title.value, this.$refs.titlesize.value, this.$refs.titlecolor.value);
+                        titleText.x(620 / 2)
+                        titleText.y(320 / 2)
                         this.layer.add(titleText);
                     });
 
                     titlecolor.addEventListener('change', () => {
                         titleText = this.setText(titleText, this.$refs.title.value, this.$refs.titlesize.value, this.$refs.titlecolor.value);
+                        titleText.x(620 / 2)
+                        titleText.y(320 / 2)
                         this.layer.add(titleText);
                     });
 
                     description.addEventListener('keyup', ()=>{
                         descriptionText = this.setText(descriptionText, this.$refs.description.value, this.$refs.descriptionsize.value, this.$refs.descriptioncolor.value);
+                        descriptionText.x(620 / 2)
+                        descriptionText.y(320 / 2)
                         this.layer.add(descriptionText);
                     });
 
                     descriptionsize.addEventListener('keyup', () => {
                         descriptionText = this.setText(descriptionText, this.$refs.description.value, this.$refs.descriptionsize.value, this.$refs.descriptioncolor.value);
+                        descriptionText.x(620 / 2)
+                        descriptionText.y(320 / 2)
                         this.layer.add(descriptionText);
                     });
 
                     descriptioncolor.addEventListener('change', () => {
                         descriptionText = this.setText(descriptionText, this.$refs.description.value, this.$refs.descriptionsize.value, this.$refs.descriptioncolor.value);
+                        descriptionText.x(620 / 2)
+                        descriptionText.y(320 / 2)
                         this.layer.add(descriptionText);
                     });
 
                     cost.addEventListener('keyup', ()=>{
                         costText = this.setText(costText, this.$refs.cost.value, this.$refs.costsize.value, this.$refs.costcolor.value);
+                        costText.x(620 - 80)
+                        costText.y(320 - 80)
                         this.layer.add(costText);
                     });
 
                     costsize.addEventListener('keyup', () => {
                         costText = this.setText(costText, this.$refs.cost.value, this.$refs.costsize.value, this.$refs.costcolor.value);
+                        costText.x(620 - 80)
+                        costText.y(320 - 80)
                         this.layer.add(costText);
                     });
 
                     costcolor.addEventListener('change', () => {
                         costText = this.setText(costText, this.$refs.cost.value, this.$refs.costsize.value, this.$refs.costcolor.value);
+                        costText.x(620 - 80)
+                        costText.y(320 - 80)
                         this.layer.add(costText);
                     });
 
