@@ -48,14 +48,45 @@
                     Add new member
                 </label>
             </x-slot>
-            <form action="{{route('scholar.group.add.member', ['group' => $group->id])}}" method="POST">
+            <div
+            x-data="{
+                penname:'',
+                accountNotFound:false,
+                checkIfAccountIsExists() {
+                    axios.post('/api/account-exists', {'penname' : this.penname})
+                    .then(res => {
+                        if (res.data == '') {
+                            this.accountNotFound = true;
+                        } else {
+                            this.accountNotFound = false;
+                            this.submitFormNow();
+                        }
+                    })
+                },
+                submitFormNow () {
+                    this.$refs.formSubmit.submit();
+                },
+                submitForm() {
+                   this.checkIfAccountIsExists();
+                },
+            }">
+            <form
+            x-ref="formSubmit"
+             x-on:submit.prevent="submitForm"
+                action="{{route('scholar.group.add.member', ['group' => $group->id])}}" method="POST">
                 @csrf
-                <x-scholar.form.input name="account" label="Account Name"/>
+                <div x-show="accountNotFound" class="text-sm text-red-600">
+                    Account not found!
+                </div>
+                <x-scholar.form.input model="penname" name="account" label="Account Name"/>
+
                 <x-scholar.form.input name="position" label="Position"/>
-                <x-scholar.form.submit>
+                <x-scholar.form.submit id="submitAdd">
                     Submit
                 </x-scholar.form.submit>
             </form>
+            </div>
+
         </x-scholar.modal>
     </div>
 </div>
@@ -110,4 +141,5 @@
             @endforeach
         </tbody>
     </x-scholar.table>
+    <x-vendor.alpinejs/>
 </x-scholar.layout>

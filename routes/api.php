@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ApiAuthenticationController;
 use App\Http\Controllers\AvatarController;
+use App\Models\Account;
 use App\Models\PaymentTransaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +35,11 @@ Route::get('/public-test', function () {
 //user authentication
 Route::post('/register', [ApiAuthenticationController::class, 'register']);
 Route::post('/login', [ApiAuthenticationController::class, 'login']);
+
+Route::post('/account-exists', function (Request $request) {
+    // this will check if the account given is valid
+    return Account::wherePenname($request->penname)->exists();
+});
 
 
 //avatars api

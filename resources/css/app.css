@@ -40,6 +40,7 @@
           @apply bg-gradient-to-r from-purple-900 to-blue-900 text-white border-none;
       }
 
+
       .selected-bg  {
           @apply border-2 border-purple-600;
       }
@@ -48,6 +49,9 @@
           @apply input input-bordered input-sm;
       }
   }
+
+
+
 
 * {
     cursor: url('/img/cursor/arrow.png'), default;
@@ -84,3 +88,13 @@ a, button, label, .dropdown, .btn, .breadcrumbs a, img:hover {
   ::-webkit-scrollbar-thumb:hover {
     background: #07000B;
   }
+
+button:disabled {
+    background: #ddd !important;
+    color: #222 !important;
+    cursor:not-allowed !important;
+}
+
+button:disabled:hover {
+    cursor:not-allowed !important;
+}
