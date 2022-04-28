@@ -30,6 +30,8 @@ class Song extends Model implements TaggableInterface
         HasPreview,
         HasCover;
 
+    const PREVIEW_COST = 5; // white crystal
+
     const TICKET_EDITABLE = [
         'title',
         'description',

@@ -68,11 +68,17 @@
         <x-scholar.form.ckeditor name="description" label="Description"></x-scholar.form.ckeditor>
 
 
-        <x-scholar.form.select name="cost_type" label="Cystal">
-            @foreach (\App\Helpers\CrystalHelper::TYPE_OPTION_CRYSTALS as $c)
-                <option value="{{$c}}">{{$c}}</option>
-            @endforeach
-        </x-scholar.form.select>
+        <template x-if="type === `{{\App\Models\Film::TYPE_TRAILER}}`">
+            <x-scholar.form.select name="cost_type" label="Cystal">
+                @foreach (\App\Helpers\CrystalHelper::TYPE_OPTION_CRYSTALS as $c)
+                    <option value="{{$c}}">{{$c}}</option>
+                @endforeach
+            </x-scholar.form.select>
+        </template>
+
+        <template x-if="type != `{{\App\Models\Film::TYPE_TRAILER}}`">
+            <input type="hidden" name="cost_type" value="{{CrystalHelper::PURPLE_CRYSTAL}}" />
+        </template>
 
         <x-scholar.form.number name="cost" label="Cost" help="Please note that leaving the cost to ZERO will allow the users to download it for FREE. Please indicate price in CRYSTALS."/>
 

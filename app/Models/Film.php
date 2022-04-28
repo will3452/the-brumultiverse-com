@@ -38,6 +38,8 @@ class Film extends Model implements TaggableInterface
         'description',
     ];
 
+    const PREVIEW_COST = 10; // white crystal
+
     protected $fillable = [
         'title',
         'type', // film | trailer | animation
