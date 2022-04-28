@@ -20,7 +20,7 @@ class EventsController extends Controller
             // 'cost' => ['numeric', 'gte:0'],
             // 'cost_type' => 'required',
             // 'status' => '',
-            'start_date' => ['required', new DateShouldAtLease(nova_get_setting('event_day_away', 60), "Event should at least be " . nova_get_setting('event_day_away', 60) . " days away.")],
+            'start_date' => ['required', new DateShouldAtLease(nova_get_setting('event_day_away', 30), "Event should at least be " . nova_get_setting('event_day_away', 60) . " days away.")],
             'end_date' => ['required', 'after:start_date'],
         ]);
     }

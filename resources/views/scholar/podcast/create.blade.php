@@ -30,6 +30,11 @@
             @endforeach
         </x-scholar.form.select>
 
+        <x-scholar.form.select name="episode_type" label="Episode Type">
+            <option value="{{\App\Models\Podcast::EPISODE_TYPE_SERIES}}">{{\App\Models\Podcast::EPISODE_TYPE_SERIES}}</option>
+            <option value="{{\App\Models\Podcast::EPISODE_TYPE_SOLO}}">{{\App\Models\Podcast::EPISODE_TYPE_SOLO}}</option>
+        </x-scholar.form.select>
+
         <x-scholar.form.tags name="tags" label="Tags"/>
 
         <x-scholar.form.ckeditor name="description" label="Description"/>
@@ -37,7 +42,7 @@
         <div x-data="{
             type:`{{\App\Models\Podcast::TYPE_REGULAR}}`,
         }">
-            <x-scholar.form.select model="type" name="type" label="Episode Type">
+            <x-scholar.form.select model="type" name="type" label="Type">
                 <option value="{{\App\Models\Podcast::TYPE_REGULAR}}">{{\App\Models\Podcast::TYPE_REGULAR}}</option>
                 <option value="{{\App\Models\Podcast::TYPE_PREMIUM}}">{{\App\Models\Podcast::TYPE_PREMIUM}}</option>
             </x-scholar.form.select>

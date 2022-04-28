@@ -33,7 +33,7 @@
                     @endforeach
                 </x-scholar.form.select>
 
-                <x-scholar.form.select readonly model="type" name="type" label="Episode Type">
+                <x-scholar.form.select readonly model="type" name="type" label="Type">
                     <option {{$podcast->type === \App\Models\Podcast::TYPE_REGULAR ? 'selected':''}} value="{{\App\Models\Podcast::TYPE_REGULAR}}">{{\App\Models\Podcast::TYPE_REGULAR}}</option>
                     <option {{$podcast->type === \App\Models\Podcast::TYPE_PREMIUM ? 'selected':''}} value="{{\App\Models\Podcast::TYPE_PREMIUM}}">{{\App\Models\Podcast::TYPE_PREMIUM}}</option>
                 </x-scholar.form.select>

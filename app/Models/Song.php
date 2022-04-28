@@ -11,6 +11,7 @@ use App\Models\Traits\HasLargeFile;
 use App\Models\Traits\BelongsToClass;
 use Cartalyst\Tags\TaggableInterface;
 use App\Models\Traits\BelongsToAccount;
+use App\Models\Traits\HasPreview;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Traits\HasPublishApproval;
 use App\Models\Traits\HasTickets;
@@ -26,6 +27,7 @@ class Song extends Model implements TaggableInterface
         HasPublishApproval,
         HasPublishApproval,
         HasTickets,
+        HasPreview,
         HasCover;
 
     const TICKET_EDITABLE = [

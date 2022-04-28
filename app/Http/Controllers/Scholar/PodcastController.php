@@ -22,6 +22,7 @@ class PodcastController extends Controller
             'credit' => 'required',
             'launch_at' => 'required',
             'cover' => ['image','max:2000'],
+            'episode_type' => 'required',
         ]);
     }
 

@@ -37,7 +37,6 @@
                         <option value="{{$id}}" {{$song->genre_id === $id ? 'selected':''}}>{{$label}}</option>
                     @endforeach
                 </x-scholar.form.select>
-
                 <x-scholar.form.checkbox checked="{{! is_null($song->has_warning_message)}}" name="has_warning_message" label="Please add a content warning to my book."/>
 
                 <x-scholar.form.tags name="tags" label="Tags" :value="\App\Helpers\TagHelper::toShow($song)"/>
@@ -71,18 +70,21 @@
         </div>
         <div class="w-full md:w-4/12 p-4">
             <div class="flex justify-center">
-                <img src="{{$song->cover->withWatermark()}}" alt="Shoes" class="block w-full max-w-xs rounded shadow-md">
+                <img src="{{$song->cover->withFrame()}}" alt="Shoes" class="block w-full max-w-xs rounded shadow-md">
             </div>
 
             <x-scholar.audio-player src="/storage/{{$song->largeFile->path}}"/>
-            <div class="flex justify-center mt-4 flex-wrap items-center">
+            <div class="flex justify-center">
+                <x-scholar.preview-form :model="$song" type="Song"/>
+            </div>
+            <div class="flex justify-center flex-wrap items-center">
                 <x-scholar.request-publish-form :model="$song"/>
                 {{-- <x-scholar.modal extra="btn-sm btn-warning" button="Send ticket">
                     Send Ticket
                 </x-scholar.modal> --}}
             </div>
             <div class="flex justify-center">
-                <x-scholar.ticket-form :model="$song" />
+                <x-scholar.ticket-form :model="$song"/>
             </div>
         </div>
     </div>

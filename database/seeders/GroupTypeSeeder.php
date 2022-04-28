@@ -19,6 +19,7 @@ class GroupTypeSeeder extends Seeder
             'Film Crew',
             'Theater Troupe',
             'Collaborative Group',
+            'Anthology Group',
         ];
         foreach ($types as $type) {
             GroupType::create(['description' => $type]);

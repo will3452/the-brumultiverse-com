@@ -49,6 +49,7 @@ class Podcast extends Model implements TaggableInterface
         'description',
         'credit',
         'type', // regular | premium
+        'episode_type', //series or solo episode
         'cost_type',
         'cost',
         'launch_at',
@@ -57,6 +58,9 @@ class Podcast extends Model implements TaggableInterface
 
     const TYPE_REGULAR = 'Regular';
     const TYPE_PREMIUM = 'Premium';
+
+    const EPISODE_TYPE_SERIES = 'Series';
+    const EPISODE_TYPE_SOLO = 'Solo Episode';
 
     public static function processToCreate($r) // r === request
     {
@@ -71,6 +75,7 @@ class Podcast extends Model implements TaggableInterface
             'cost_type' => $r->cost_type,
             'launch_at' => $r->launch_at,
             'published_at' => $r->published_at,
+            'episode_type' => $r->episode_type,
         ]);
 
         $largeFile = FileHelper::filepondSave($r->file);

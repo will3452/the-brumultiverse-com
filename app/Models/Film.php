@@ -11,6 +11,7 @@ use App\Models\Traits\BelongsToClass;
 use Cartalyst\Tags\TaggableInterface;
 use App\Models\Traits\BelongsToAccount;
 use App\Models\Traits\HasFreeArtScenes;
+use App\Models\Traits\HasPreview;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Traits\HasPublishApproval;
 use App\Models\Traits\HasTickets;
@@ -26,6 +27,7 @@ class Film extends Model implements TaggableInterface
         BelongsToClass,
         HasLargeFile,
         HasPublishApproval,
+        HasPreview,
         TaggableTrait;
 
     const TICKET_EDITABLE = [

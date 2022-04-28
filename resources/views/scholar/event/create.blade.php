@@ -29,7 +29,7 @@
             @endforeach
         </x-scholar.form.select>
 
-        <x-scholar.form.input type="date" name="start_date" label="From" help="Event should at least be {{nova_get_setting('event_day_away', 60)}} days away."/>
+        <x-scholar.form.input type="date" name="start_date" label="From" help="Event should at least be {{nova_get_setting('event_day_away', 30)}} days away."/>
 
         <x-scholar.form.input type="date" name="end_date" label="To"/>
 

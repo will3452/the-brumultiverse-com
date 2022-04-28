@@ -56,6 +56,7 @@ use App\Http\Controllers\Scholar\SlidingBannerController;
 use App\Http\Controllers\Scholar\RequestToPublishController;
 use App\Http\Controllers\Scholar\PaymentTransactionController;
 use App\Http\Controllers\Scholar\LoginController as ScholarLoginController;
+use App\Http\Controllers\Scholar\PreviewController;
 use App\Http\Controllers\Scholar\PrologueEpilogueController;
 use App\Http\Controllers\Student\PaymentController as StudentPaymentController;
 use App\Http\Controllers\Scholar\RegisterController as ScholarRegisterController;
@@ -138,6 +139,9 @@ Route::post('/messages/create/{chat}', [ChatController::class, 'createMessage'])
 //scholars
 
 Route::prefix('scholar')->name('scholar.')->middleware(['auth'])->group(function () {
+
+    // preview
+    Route::post('/preview', [PreviewController::class, 'upload'])->name('upload.preview');
 
     // scholar tools
     Route::get('/banner-editor', [BannerController::class, 'index'])->name('banner.editor');
