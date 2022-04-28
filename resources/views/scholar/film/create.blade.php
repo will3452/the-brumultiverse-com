@@ -77,7 +77,9 @@
         </template>
 
         <template x-if="type != `{{\App\Models\Film::TYPE_TRAILER}}`">
-            <input type="hidden" name="cost_type" value="{{CrystalHelper::PURPLE_CRYSTAL}}" />
+            <div>
+                <input type="hidden" name="cost_type" value="{{CrystalHelper::PURPLE_CRYSTAL}}" />
+            </div>
         </template>
 
         <x-scholar.form.number name="cost" label="Cost" help="Please note that leaving the cost to ZERO will allow the users to download it for FREE. Please indicate price in CRYSTALS."/>
