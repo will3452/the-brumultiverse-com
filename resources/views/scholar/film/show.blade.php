@@ -83,6 +83,10 @@
                 <video src="/storage/{{$film->largeFile->path}}" controls></video>
             </div>
 
+            <div class="flex justify-center">
+                <x-scholar.preview-form :model="$film" type="Film"/>
+            </div>
+
             <div class="flex justify-center mt-4 flex-wrap items-center">
                 <x-scholar.request-publish-form :model="$film"/>
             </div>

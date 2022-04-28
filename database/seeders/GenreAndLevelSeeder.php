@@ -386,6 +386,10 @@ class GenreAndLevelSeeder extends Seeder
             $this->setLevel($value, $genre);
         }
 
+        foreach ($bookGenres as $key => $value) { // film video
+            $genre = Genre::create(['name' => $key, 'type' => Genre::TYPE_VIDEO]);
+        }
+
         foreach ($songGenres as $value) { // songs
             Genre::create(['name' => $value, 'type' => Genre::TYPE_SONG]);
         }

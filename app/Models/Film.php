@@ -32,7 +32,7 @@ class Film extends Model implements TaggableInterface
 
     const TICKET_EDITABLE = [
         'title',
-        'type', // film | trailer | animation
+        // 'type', // film | trailer | animation
         'cost',
         'credit',
         'description',
