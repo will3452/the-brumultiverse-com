@@ -7,7 +7,7 @@
                     <a class="btn-student-active mx-2" href="{{route('student.welcome.closet')}}">
                         Skip Tutorial
                     </a>
-                    <button class="btn-student mx-2" href="/room-tutorial">
+                    <button class="btn-student mx-2" href="javascript:alert('under dev')">
                         Let's Try
                     </button>
                 </x-student.dialog-button-container>

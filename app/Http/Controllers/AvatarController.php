@@ -18,6 +18,11 @@ class AvatarController extends Controller
         return view('avatar_create');
     }
 
+    public function update(Request $request)
+    {
+        dd($request->all());
+    }
+
     public function apiGet(Request $request)
     {
         $bases = AvatarBase::whereGender($request->gender)->get();
