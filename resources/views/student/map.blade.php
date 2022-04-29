@@ -1,3 +1,3 @@
 <x-student.layout>
-    <x-student.place.dorm/>
+    <x-student.place.map/>
 </x-student.layout>

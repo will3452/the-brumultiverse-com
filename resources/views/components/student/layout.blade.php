@@ -9,6 +9,7 @@
     <script src="/js/app.js" defer></script>
     <x-vendor.alpinejs/>
     <x-vendor.typewriterjs/>
+    @stack('head-script')
 </head>
 <body class="relative bg-black max-h-screen">
     <div class="w-full relative mx-auto overflow-hidden max-h-screen">
