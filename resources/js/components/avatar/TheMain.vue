@@ -102,8 +102,7 @@ import ThumbnailVue from "./Thumbnail.vue";
             stepForward() {
                 this.step++;
                 if (this.step >= 4) {
-                    alert('saved!');
-                    window.location.href="/students/avatar-saved";
+                    window.location.href=`/students/avatar-saved?base=${this.avatar.base}&hair=${this.avatar.hair}&dress=${this.avatar.clothes}`;
                 }
             },
             thumbnailHandler ({type, id}) {

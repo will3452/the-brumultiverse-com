@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AvatarAsset;
+use App\Models\Avatar;
 use App\Models\AvatarBase;
+use App\Models\AvatarAsset;
 use Illuminate\Http\Request;
 
 class AvatarController extends Controller
@@ -20,7 +21,20 @@ class AvatarController extends Controller
 
     public function update(Request $request)
     {
-        dd($request->all());
+        $base = AvatarBase::find($request->get('base'))->path;
+        $hair = AvatarAsset::find($request->get('hair'))->path;
+        $dress = AvatarAsset::find($request->get('dress'))->path;
+
+        $avatar = [
+            'user_id' => auth()->id(),
+            'base' => $base,
+            'hair' => $hair,
+            'dress' => $dress,
+        ];
+
+        Avatar::updateOrCreate(['user_id' => auth()->id()], $avatar);
+
+        return redirect(route('student.map'));
     }
 
     public function apiGet(Request $request)

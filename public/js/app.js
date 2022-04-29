@@ -2184,8 +2184,7 @@ __webpack_require__.r(__webpack_exports__);
       this.step++;
 
       if (this.step >= 4) {
-        alert('saved!');
-        window.location.href = "/students/avatar-saved";
+        window.location.href = "/students/avatar-saved?base=".concat(this.avatar.base, "&hair=").concat(this.avatar.hair, "&dress=").concat(this.avatar.clothes);
       }
     },
     thumbnailHandler: function thumbnailHandler(_ref) {
