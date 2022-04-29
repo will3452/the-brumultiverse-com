@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AvatarController;
 use App\Http\Controllers\Student\MapController;
@@ -15,4 +14,4 @@ Route::get('/welcome-closet', [RegisterController::class, 'welcomeToCloset'])->n
 Route::get('/avatar-saved', [AvatarController::class, 'update']);
 // subscription / tuition settlement process
 Route::get('/pay-tuition', [PaymentController::class, 'payTuition'])->name('pay-tuition');
-Route::get('/map', [MapController::class, 'viewMap'])->name('map');
+Route::get('/map-overview', [MapController::class, 'viewMap'])->name('map');

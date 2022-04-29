@@ -9,7 +9,6 @@ class MapController extends Controller
 {
     public function viewMap()
     {
-        return 'hell';
         return view('student.map');
     }
 }
