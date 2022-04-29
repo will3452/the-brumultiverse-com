@@ -5,7 +5,7 @@
         <x-slot name="trigger">
             <label for="report-form" class="btn btn-accent btn-xs fixed bottom-2 right-2 font-bold">Report Bug here <span class="badge badge-primary badge-xs w-4 w-4">{{count($bugs)}}</span></label>
         </x-slot>
-        <form action="{{route('submit.bug')}}" method="POST">
+        <form action="{{route('dev.submit.bug')}}" method="POST">
             @csrf
             <input type="hidden" name="uri" value="{{url()->current()}}">
             <span class="italic text-red-500 text-sm">{{url()->current()}}</span>
