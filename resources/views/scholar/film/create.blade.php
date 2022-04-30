@@ -78,7 +78,7 @@
 
         <template x-if="type != `{{\App\Models\Film::TYPE_TRAILER}}`">
             <div>
-                <input type="hidden" name="cost_type" value="{{CrystalHelper::PURPLE_CRYSTAL}}" />
+                <input type="hidden" name="cost_type" value="{{\App\Helpers\CrystalHelper::PURPLE_CRYSTAL}}" />
             </div>
         </template>
 
