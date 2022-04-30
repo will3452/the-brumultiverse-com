@@ -30,7 +30,7 @@
                         <div class="mb-4">
                             <x-scholar.material-title icon="/img/icons/dashboard/user.svg" :title="$account->penname" />
                         </div>
-                        <x-scholar.work-card-collection href="/scholar/books" :data="$account->books" />
+                        <x-scholar.work-card-collection href="/scholars/books" :data="$account->books" />
                     </div>
                 @endforeach
         @endif
