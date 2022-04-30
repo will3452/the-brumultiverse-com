@@ -24,14 +24,14 @@
     :model="$films" :creation-link="route('scholars.film.create')" title="My Films">
         <div class="mt-4 flex flex-wrap justify-start">
             @if (request()->has('keyword'))
-                <x-scholar.work-card-collection href="/scholar/films" :data="$films" />
+                <x-scholar.work-card-collection href="/scholars/films" :data="$films" />
             @else
                     @foreach ($accounts as $account)
                         <div class="mt-4">
                             <div class="mb-4">
                                 <x-scholar.material-title icon="/img/icons/dashboard/user.svg" :title="$account->penname" />
                             </div>
-                            <x-scholar.work-card-collection href="/scholar/films" :data="$account->films" />
+                            <x-scholar.work-card-collection href="/scholars/films" :data="$account->films" />
                         </div>
                     @endforeach
             @endif

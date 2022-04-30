@@ -20,10 +20,10 @@
     <x-scholar.page.index
     type="Book"
     data="books"
-    view="scholars.book.index"
+    view="scholar.book.index"
     :model="$books" :creation-link="route('scholars.book.create')" title="My Books">
         @if (request()->has('keyword'))
-            <x-scholar.work-card-collection href="/scholar/books" :data="$books" />
+            <x-scholar.work-card-collection href="/scholars/books" :data="$books" />
         @else
                 @foreach ($accounts as $account)
                     <div class="mt-4">

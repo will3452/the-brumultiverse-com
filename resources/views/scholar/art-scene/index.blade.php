@@ -23,14 +23,14 @@
     view="scholar.art-scene.index"
     :model="$artScenes" :creation-link="route('scholars.artscene.create')" title="My Art Scenes">
         @if (request()->has('keyword'))
-            <x-scholar.work-card-collection href="/scholar/art-scenes" :data="$artScenes" />
+            <x-scholar.work-card-collection href="/scholars/art-scenes" :data="$artScenes" />
         @else
                 @foreach ($accounts as $account)
                     <div class="mt-4">
                         <div class="mb-4">
                             <x-scholar.material-title icon="/img/icons/dashboard/user.svg" :title="$account->penname" />
                         </div>
-                        <x-scholar.work-card-collection href="/scholar/art-scenes" :data="$account->artScenes" />
+                        <x-scholar.work-card-collection href="/scholars/art-scenes" :data="$account->artScenes" />
                     </div>
                 @endforeach
         @endif

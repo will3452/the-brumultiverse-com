@@ -23,14 +23,14 @@
     view="scholar.podcast.index"
     :model="$podcasts" :creation-link="route('scholars.podcast.create')" title="My Songs">
         @if (request()->has('keyword'))
-            <x-scholar.work-card-collection href="/scholar/podcasts" :data="$podcasts" />
+            <x-scholar.work-card-collection href="/scholars/podcasts" :data="$podcasts" />
         @else
                 @foreach ($accounts as $account)
                     <div class="mt-4">
                         <div class="mb-4">
                             <x-scholar.material-title icon="/img/icons/dashboard/user.svg" :title="$account->penname" />
                         </div>
-                        <x-scholar.work-card-collection href="/scholar/podcasts" :data="$account->podcasts" />
+                        <x-scholar.work-card-collection href="/scholars/podcasts" :data="$account->podcasts" />
                     </div>
                 @endforeach
         @endif
