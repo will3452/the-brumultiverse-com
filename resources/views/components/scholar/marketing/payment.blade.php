@@ -2,7 +2,7 @@
 <x-scholar.marketing.card title="Payment">
     <form action="/create-payment" method="POST">
         @csrf
-        {{-- <input type="hidden" name="redirect" value="{{route('scholars.home')}}"> --}}
+        {{-- <input type="hidden" name="redirect" value="{{route('scholar.home')}}"> --}}
         <input type="hidden" name="type" value="{{$type}}">
         <input type="hidden" name="id" value="{{$model->id}}">
         <input type="hidden" name="description" value="{{$description}}">

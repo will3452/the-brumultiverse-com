@@ -2,7 +2,7 @@
     @auth
     <div class="w-2/12 h-screen overflow-y-auto hidden md:block border-r">
         <ul>
-            <x-scholar.sidebar-item label="Dashboard" :href="route('scholars.home')"/>
+            <x-scholar.sidebar-item label="Dashboard" :href="route('scholar.home')"/>
             <x-scholar.sidebar-item label="Events" :href="route('scholars.event.index')"/>
             <x-scholar.sidebar-item label="Profile" :href="route('scholars.profile.show', ['user' => auth()->id()])"/>
             <x-scholar.sidebar-item label="Groups" :href="route('scholars.group.index')" />

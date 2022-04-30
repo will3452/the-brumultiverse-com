@@ -63,7 +63,7 @@ class RegisterController extends Controller
 
         //log the user in
         auth()->login($user);
-        return redirect(route('scholars.home'));
+        return redirect(route('scholar.home'));
     }
 
     public function registerStudent()
@@ -103,6 +103,6 @@ class RegisterController extends Controller
 
         //log the user in
         auth()->login($user);
-        return redirect(route('scholars.home'));
+        return redirect(route('scholar.home'));
     }
 }

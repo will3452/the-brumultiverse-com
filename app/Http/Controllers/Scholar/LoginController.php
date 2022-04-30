@@ -26,7 +26,7 @@ class LoginController extends Controller
             }
 
             return redirect(
-                route('scholars.home')
+                route('scholar.home')
                 );
         }
 
