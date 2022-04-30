@@ -20,7 +20,7 @@
     <x-scholar.page.index
     type="Book"
     data="books"
-    view="scholar.book.index"
+    view="scholars.book.index"
     :model="$books" :creation-link="route('scholars.book.create')" title="My Books">
         @if (request()->has('keyword'))
             <x-scholar.work-card-collection href="/scholar/books" :data="$books" />
