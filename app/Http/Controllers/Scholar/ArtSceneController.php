@@ -55,7 +55,7 @@ class ArtSceneController extends Controller
     {
         $this->customValidate($request);
         $artScene = ArtScene::processToCreate($request);
-        return redirect(route('scholar.artscene.show', ['art' => $artScene->id]))->withSuccess('Success');
+        return redirect(route('scholars.artscene.show', ['art' => $artScene->id]))->withSuccess('Success');
     }
 
     public function show(Request $request, ArtScene $art)

@@ -4,11 +4,11 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholar.film.index'),
+                    'href' => route('scholars.film.index'),
                     'label' => 'Films',
                 ],
                 [
@@ -21,7 +21,7 @@
     <div class="flex md:flex-wrap flex-wrap-reverse">
         <div class="w-full md:w-8/12">
 
-            <x-scholar.page.update :editable="! $film->hasPublishedDate()" :update-link="route('scholar.film.update', ['film' => $film->id])">
+            <x-scholar.page.update :editable="! $film->hasPublishedDate()" :update-link="route('scholars.film.update', ['film' => $film->id])">
 
                 <x-scholar.form.input label="Title" name="title" value="{{$film->title}}"/>
 

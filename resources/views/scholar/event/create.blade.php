@@ -3,11 +3,11 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholar.event.index'),
+                    'href' => route('scholars.event.index'),
                     'label' => 'Events',
                 ],
                 [
@@ -17,7 +17,7 @@
             ]
         "
     />
-    <form action="{{route('scholar.event.store')}}" method="POST">
+    <form action="{{route('scholars.event.store')}}" method="POST">
         @csrf
         <x-scholar.form.input name="title" label="Event title"/>
 

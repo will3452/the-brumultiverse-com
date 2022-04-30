@@ -43,6 +43,6 @@ class CollectionController extends Controller
         $data['user_id'] = auth()->user()->id;
 
         $collection = Collection::create($data);
-        return redirect(route('scholar.collection.show', ['collection' => $collection]))->withSuccess('Collection created!');
+        return redirect(route('scholars.collection.show', ['collection' => $collection]))->withSuccess('Collection created!');
     }
 }

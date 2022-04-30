@@ -6,11 +6,11 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholar.sliding-banner.index'),
+                    'href' => route('scholars.sliding-banner.index'),
                     'label' => 'Sliding Banners',
                 ],
                 [
@@ -22,7 +22,7 @@
     />
     <form
     enctype="multipart/form-data"
-    action="{{route('scholar.sliding-banner.store')}}"
+    action="{{route('scholars.sliding-banner.store')}}"
     method="POST">
         @csrf
         <x-scholar.form.select name="package_id" label="Duration">
@@ -35,7 +35,7 @@
 
         <x-scholar.form.input type="date" name="scheduled_at" label="Schedule" help="Schedule must be 14 days from date of creation." />
 
-        <x-scholar.form.file name="file" label="Upload Image Banner" help="Create your own banner? click <a href='{{route('scholar.banner.editor')}}' class='underline'>here</a>"/>
+        <x-scholar.form.file name="file" label="Upload Image Banner" help="Create your own banner? click <a href='{{route('scholars.banner.editor')}}' class='underline'>here</a>"/>
 
         <x-scholar.form.submit>
             Submit

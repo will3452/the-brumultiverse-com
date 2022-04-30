@@ -58,7 +58,7 @@ class SongController extends Controller
 
         $song = Song::processToCreate($request);
 
-        return redirect(route('scholar.song.show', ['song' => $song->id]))->withSuccess('Success');
+        return redirect(route('scholars.song.show', ['song' => $song->id]))->withSuccess('Success');
     }
 
     public function show(Request $request, Song $song)

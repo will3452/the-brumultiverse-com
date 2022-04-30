@@ -3,7 +3,7 @@
     :links="
         [
             [
-                'href' => route('scholar.home'),
+                'href' => route('scholars.home'),
                 'label' => 'Home',
             ],
             [

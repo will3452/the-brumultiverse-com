@@ -4,11 +4,11 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholar.song.index'),
+                    'href' => route('scholars.song.index'),
                     'label' => 'Songs',
                 ],
                 [
@@ -18,7 +18,7 @@
             ]"
     />
 
-    <form action="{{route('scholar.song.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('scholars.song.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <x-scholar.form.input label="Song Title" name="title"/>
 

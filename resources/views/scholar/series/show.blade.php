@@ -3,11 +3,11 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholar.series.index'),
+                    'href' => route('scholars.series.index'),
                     'label' => 'Series',
                 ],
                 [
@@ -28,7 +28,7 @@
     ]"/>
      @if (count($optionWorks))
      <x-scholar.modal button="add work">
-         <form action="{{route('scholar.add.work')}}" method="POST">
+         <form action="{{route('scholars.add.work')}}" method="POST">
              @csrf
              <input type="hidden" name="class_type" value="{{get_class($series)}}"/>
              <input type="hidden" name="class_id" value="{{$series->id}}"/>

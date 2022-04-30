@@ -57,7 +57,7 @@ class ChapterController extends Controller
 
         $book->chapters()->create($data);
 
-        return redirect(route('scholar.book.chapters', ['book' => $book->id]))->withSuccess('Chapter Created!');
+        return redirect(route('scholars.book.chapters', ['book' => $book->id]))->withSuccess('Chapter Created!');
     }
 
     public function update(Request $request, Chapter $chapter)

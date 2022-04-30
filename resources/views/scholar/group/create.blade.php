@@ -2,11 +2,11 @@
     <x-chat.breadcrumbs
         :links="[
                     [
-                        'href' => route('scholar.home'),
+                        'href' => route('scholars.home'),
                         'label' => 'Home',
                     ],
                     [
-                        'href' => route('scholar.group.index'),
+                        'href' => route('scholars.group.index'),
                         'label' => 'Groups',
                     ],
                     [
@@ -18,7 +18,7 @@
     <x-scholar.alert no-ok="1">
         The group to be created will be reviewed and approved by the Administrator.
     </x-scholar.alert>
-    <form action="{{route('scholar.group.store')}}" method="POST">
+    <form action="{{route('scholars.group.store')}}" method="POST">
         @csrf
         <x-scholar.form.select label="Account" name="account_id">
             @foreach ($accounts as $a)

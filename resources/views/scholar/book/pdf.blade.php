@@ -4,15 +4,15 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholar.book.index'),
+                    'href' => route('scholars.book.index'),
                     'label' => 'Books',
                 ],
                 [
-                    'href' => route('scholar.book.show', ['book' => $book->id]),
+                    'href' => route('scholars.book.show', ['book' => $book->id]),
                     'label' => $book->title,
                 ],
                 [
@@ -22,7 +22,7 @@
             ]
         "
     />
-    <form action="{{route('scholar.book.pdf', ['book' => $book->id])}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('scholars.book.pdf', ['book' => $book->id])}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method("PUT")
         <x-scholar.form.file accept="aplication/*.pdf" name="pdf[]" label="BOOK TITLE PAGE"/>

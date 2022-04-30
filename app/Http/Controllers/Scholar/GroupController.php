@@ -52,7 +52,7 @@ class GroupController extends Controller
 
         $group = Group::processToCreate($request);
 
-        return redirect(route('scholar.group.show', ['group' => $group]));
+        return redirect(route('scholars.group.show', ['group' => $group]));
     }
 
     public function getAccountId($str)

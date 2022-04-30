@@ -3,11 +3,11 @@
     <x-chat.breadcrumbs
         :links="[
                     [
-                        'href' => route('scholar.home'),
+                        'href' => route('scholars.home'),
                         'label' => 'Home',
                     ],
                     [
-                        'href' => route('scholar.film.index'),
+                        'href' => route('scholars.film.index'),
                         'label' => 'Film',
                     ],
                     [
@@ -17,7 +17,7 @@
             ]"
     />
 
-    <form action="{{route('scholar.film.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('scholars.film.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <x-scholar.form.input label="Title" name="title" />

@@ -3,19 +3,19 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholar.book.index'),
+                    'href' => route('scholars.book.index'),
                     'label' => 'Books',
                 ],
                 [
-                    'href' => route('scholar.book.show', ['book' => $chapter->model_id]),
+                    'href' => route('scholars.book.show', ['book' => $chapter->model_id]),
                     'label' => $chapter->model->title,
                 ],
                 [
-                    'href' => route('scholar.book.chapters', ['book' => $chapter->model_id]),
+                    'href' => route('scholars.book.chapters', ['book' => $chapter->model_id]),
                     'label' => 'Chapters',
                 ],
                 [
@@ -78,7 +78,7 @@
                     <div class="mb-2">
                         <x-scholar.material-title icon="/img/icons/dashboard/image.svg" title="Free Art Scene"/>
                     </div>
-                    <x-scholar.work-card href="{{route('scholar.artscene.show', ['art' => $chapter->freeArtScene()->id])}}" cover="{{optional($chapter->freeArtScene()->artFile)->getSize()}}">
+                    <x-scholar.work-card href="{{route('scholars.artscene.show', ['art' => $chapter->freeArtScene()->id])}}" cover="{{optional($chapter->freeArtScene()->artFile)->getSize()}}">
                         {{$chapter->freeArtScene()->title}}
                     </x-scholar.work-card>
                     <x-scholar.ticket-form :model="$chapter"/>

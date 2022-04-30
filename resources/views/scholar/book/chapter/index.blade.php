@@ -3,15 +3,15 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholar.book.index'),
+                    'href' => route('scholars.book.index'),
                     'label' => 'Books',
                 ],
                 [
-                    'href' => route('scholar.book.show', ['book' => $book->id]),
+                    'href' => route('scholars.book.show', ['book' => $book->id]),
                     'label' => $book->title,
                 ],
                 [
@@ -28,7 +28,7 @@
         <div class="flex items-center">
             @if (! $book->prologue()->exists())
                 <x-scholar.modal button="add prologue">
-                    <form action="{{route('scholar.book.prologue', ['book' => $book])}}" method="POST">
+                    <form action="{{route('scholars.book.prologue', ['book' => $book])}}" method="POST">
                         @csrf
                         <x-scholar.form.ckeditor name="body" label="Prologue Content"></x-scholar.form.ckeditor>
                         <x-scholar.form.submit>
@@ -39,7 +39,7 @@
             @endif
             @if (! $book->epilogue()->exists())
                 <x-scholar.modal button="add epilogue">
-                    <form action="{{route('scholar.book.epilogue', ['book' => $book])}}" method="POST">
+                    <form action="{{route('scholars.book.epilogue', ['book' => $book])}}" method="POST">
                         @csrf
                         <x-scholar.form.ckeditor name="body" label="Epilogue Content"></x-scholar.form.ckeditor>
                         <x-scholar.form.submit>
@@ -50,7 +50,7 @@
             @endif
         </div>
     </div>
-    <x-scholar.page.index :model="$book->chapters" title="Chapters" creation-link="{{route('scholar.chapter.create', ['book' => $book->id])}}">
+    <x-scholar.page.index :model="$book->chapters" title="Chapters" creation-link="{{route('scholars.chapter.create', ['book' => $book->id])}}">
         <div class="mt-4">
             <x-scholar.table>
                 <thead>
@@ -88,7 +88,7 @@
                                 {{$book->prologue->created_at->format('m/d/y')}}
                             </td>
                             <td>
-                                <a class="btn btn-xs btn-scholar" href="{{route('scholar.prologue.show', ['prologue' => $book->prologue])}}">View</a>
+                                <a class="btn btn-xs btn-scholar" href="{{route('scholars.prologue.show', ['prologue' => $book->prologue])}}">View</a>
                             </td>
                         </tr>
                     @endif
@@ -116,7 +116,7 @@
                                                     <img src="/img/icons/dashboard/image.svg" alt="" class="w-4 h-4">
                                                 </label>
                                             </x-slot>
-                                            <form action="{{route('scholar.free.art-scene')}}" method="POST">
+                                            <form action="{{route('scholars.free.art-scene')}}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="type" value="Chapter">
                                                 <input type="hidden" name="id" value="{{$c->id}}">
@@ -135,7 +135,7 @@
                                     @endif
                                 </div>
                                 <div>
-                                    <a class="btn btn-xs btn-scholar" href="{{route('scholar.chapter.show', ['chapter' => $c->id])}}">View</a>
+                                    <a class="btn btn-xs btn-scholar" href="{{route('scholars.chapter.show', ['chapter' => $c->id])}}">View</a>
                                 </div>
                             </td>
                         </tr>
@@ -155,7 +155,7 @@
                                 {{$book->epilogue->created_at->format('m/d/y')}}
                             </td>
                             <td>
-                                <a class="btn btn-xs btn-scholar" href="{{route('scholar.epilogue.show', ['epilogue' => $book->epilogue])}}">View</a>
+                                <a class="btn btn-xs btn-scholar" href="{{route('scholars.epilogue.show', ['epilogue' => $book->epilogue])}}">View</a>
                             </td>
                         </tr>
                     @endif

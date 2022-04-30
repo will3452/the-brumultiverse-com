@@ -4,15 +4,15 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholar.audiobook.index'),
+                    'href' => route('scholars.audiobook.index'),
                     'label' => 'Audio Books',
                 ],
                 [
-                    'href' => route('scholar.book.create'),
+                    'href' => route('scholars.book.create'),
                     'label' => 'Create',
                 ]
             ]
@@ -26,7 +26,7 @@
         <div class="alert alert-success">Auto-filled, please double check the form.</div>
     @endif
 
-    <form action="{{route('scholar.audiobook.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('scholars.audiobook.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         @if (! request()->has('book'))
             <div x-data="{

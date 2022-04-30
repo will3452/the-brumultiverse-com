@@ -6,11 +6,11 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholar.sliding-banner.index'),
+                    'href' => route('scholars.sliding-banner.index'),
                     'label' => 'Sliding Banner',
                 ],
                 [
@@ -23,7 +23,7 @@
     @if ($slidingBanner->notSaved())
         <form
         enctype="multipart/form-data"
-        action="{{route('scholar.sliding-banner.update', ['slidingBanner' => $slidingBanner->id])}}"
+        action="{{route('scholars.sliding-banner.update', ['slidingBanner' => $slidingBanner->id])}}"
         method="POST">
     @endif
         @method('PUT')
@@ -61,7 +61,7 @@
         <div class="mt-4">
             <x-scholar.marketing.timeline/>
             @if ($slidingBanner->wasPaid() && $slidingBanner->notSaved())
-                <form action="{{route('scholar.marketing.save')}}" class="mt-2" method="POST">
+                <form action="{{route('scholars.marketing.save')}}" class="mt-2" method="POST">
                     @csrf
                     <input type="hidden" value="SlidingBanner" name="type">
                     <input type="hidden" value="{{$slidingBanner->id}}" name="id">

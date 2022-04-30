@@ -3,21 +3,21 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholar.collection.index'),
+                    'href' => route('scholars.collection.index'),
                     'label' => 'Collections',
                 ],
                 [
-                    'href' => route('scholar.book.create'),
+                    'href' => route('scholars.book.create'),
                     'label' => 'Create',
                 ]
             ]
         "
     />
-    <form action="{{route('scholar.collection.store')}}" method="POST">
+    <form action="{{route('scholars.collection.store')}}" method="POST">
         @csrf
         <x-scholar.form.input name="title" label="Title"/>
 

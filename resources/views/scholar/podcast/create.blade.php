@@ -4,11 +4,11 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholar.podcast.index'),
+                    'href' => route('scholars.podcast.index'),
                     'label' => 'Podcasts',
                 ],
                 [
@@ -18,7 +18,7 @@
             ]"
     />
 
-    <form action="{{route('scholar.podcast.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('scholars.podcast.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <x-scholar.form.input label="Title" name="title"/>
 

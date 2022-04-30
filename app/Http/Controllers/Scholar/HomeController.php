@@ -28,7 +28,7 @@ class HomeController extends Controller
 
 
         if (! auth()->user()->hasAccountsApproved()) {
-            return redirect(route('scholar.profile.show', ['user' => auth()->user()->id]));
+            return redirect(route('scholars.profile.show', ['user' => auth()->user()->id]));
         }
 
         return abort(404);

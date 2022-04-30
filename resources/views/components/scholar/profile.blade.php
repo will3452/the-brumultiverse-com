@@ -5,7 +5,7 @@
             <label for="edit" class="absolute top-2 right-2">
                 <img src="/img/icons/crud/x.svg" alt="">
             </label>
-            <form action="{{route('scholar.profile.update', ['user' => $user->id])}}" method="POST">
+            <form action="{{route('scholars.profile.update', ['user' => $user->id])}}" method="POST">
                 @csrf
                 @method('PUT')
                 {{-- <x-scholar.form.input name="user_name" label="Username/BRUname" :value="$user->user_name"/> --}}
@@ -46,7 +46,7 @@
                             </div>
                         </label>
                     </x-slot>
-                    <form action="{{route('scholar.profile.update.picture')}}" method="POST">
+                    <form action="{{route('scholars.profile.update.picture')}}" method="POST">
                         @csrf
                         @method('PUT')
                         <x-scholar.form.filepond name="file" accept="image" label="Upload New Image" enable="#upload-button"/>

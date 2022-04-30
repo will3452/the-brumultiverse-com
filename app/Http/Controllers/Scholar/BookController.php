@@ -73,7 +73,7 @@ class BookController extends Controller
         }
 
         $book = Book::processToCreate($request);
-        return redirect(route('scholar.book.show', ['book' => $book->id]))->withSuccess('Success');
+        return redirect(route('scholars.book.show', ['book' => $book->id]))->withSuccess('Success');
     }
 
     public function show(Request $request, Book $book)
@@ -109,7 +109,7 @@ class BookController extends Controller
             'front_matter' => $pdfString,
         ]);
 
-        return redirect(route('scholar.book.show', ['book' => $book->id]))->withSuccess('Success');
+        return redirect(route('scholars.book.show', ['book' => $book->id]))->withSuccess('Success');
     }
 
     public function showChapters(Book $book)

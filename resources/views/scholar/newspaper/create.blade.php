@@ -6,11 +6,11 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholar.newspaper.index'),
+                    'href' => route('scholars.newspaper.index'),
                     'label' => 'Newspapers',
                 ],
                 [
@@ -22,7 +22,7 @@
     />
     <form
     enctype="multipart/form-data"
-    action="{{route('scholar.newspaper.store')}}"
+    action="{{route('scholars.newspaper.store')}}"
     method="POST">
         @csrf
         <x-scholar.form.select name="package_id" label="Duration">

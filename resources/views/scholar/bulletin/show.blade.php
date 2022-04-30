@@ -6,11 +6,11 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholar.bulletin.index'),
+                    'href' => route('scholars.bulletin.index'),
                     'label' => 'Bulletins',
                 ],
                 [
@@ -23,7 +23,7 @@
     @if ($bulletin->notSaved())
         <form
         enctype="multipart/form-data"
-        action="{{route('scholar.bulletin.update', ['bulletin' => $bulletin->id])}}"
+        action="{{route('scholars.bulletin.update', ['bulletin' => $bulletin->id])}}"
         method="POST">
     @endif
         @method('PUT')
@@ -62,7 +62,7 @@
         <div class="mt-4">
             <x-scholar.marketing.timeline/>
             @if ($bulletin->wasPaid() && $bulletin->notSaved())
-                <form action="{{route('scholar.marketing.save')}}" class="mt-2" method="POST">
+                <form action="{{route('scholars.marketing.save')}}" class="mt-2" method="POST">
                     @csrf
                     <input type="hidden" value="Bulletin" name="type">
                     <input type="hidden" value="{{$bulletin->id}}" name="id">

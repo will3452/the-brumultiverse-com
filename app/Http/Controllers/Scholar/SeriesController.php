@@ -43,6 +43,6 @@ class SeriesController extends Controller
         $data['user_id'] = auth()->user()->id;
 
         $series = Series::create($data);
-        return redirect(route('scholar.series.show', ['series' => $series]))->withSuccess('Series created!');
+        return redirect(route('scholars.series.show', ['series' => $series]))->withSuccess('Series created!');
     }
 }

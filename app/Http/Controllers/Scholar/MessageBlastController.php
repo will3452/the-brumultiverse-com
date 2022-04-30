@@ -51,7 +51,7 @@ class MessageBlastController extends Controller
         $data = $this->customValidate($request);
 
         $messageBlast = MessageBlast::processToCreate($data, $request);
-        return redirect(route('scholar.message-blast.show', ['messageBlast' => $messageBlast]))
+        return redirect(route('scholars.message-blast.show', ['messageBlast' => $messageBlast]))
             ->withSuccess('Created!');
     }
 

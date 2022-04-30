@@ -6,7 +6,7 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
@@ -30,7 +30,7 @@
                                 create pen name
                             </label>
                         </x-slot>
-                        <form action="{{route('scholar.profile.account.register')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('scholars.profile.account.register')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <x-scholar.form.input
                             help="Please note that your pen names become permanent when used on an uploaded material."
@@ -101,7 +101,7 @@
                                         <img  src="/img/profiles/30-30-{{$a->picture}}" alt=""  class=" block w-10 h-10 object-cover rounded-full border-2">
                                     </div>
                                 </x-slot>
-                                <form action="{{route('scholar.profile.account.picture.update', ['account' => $a->id])}}" method="POST" enctype="multipart/form-data">
+                                <form action="{{route('scholars.profile.account.picture.update', ['account' => $a->id])}}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <div>
@@ -126,7 +126,7 @@
                         <td class="dark:bg-gray-900 dark:text-white">
                             @if (is_null($a->approved_at))
                                 <x-scholar.modal button="delete" id="delete{{$a->id}}" extra="btn-xs bg-red-600 hover:bg-red-700 border-none text-white text-xs">
-                                    <form action="{{route('scholar.profile.account.delete', ['account' => $a->id])}}" method="POST">
+                                    <form action="{{route('scholars.profile.account.delete', ['account' => $a->id])}}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <div class="font-bold text-xl">

@@ -4,22 +4,22 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholar.book.index'),
+                    'href' => route('scholars.book.index'),
                     'label' => 'Books',
                 ],
                 [
-                    'href' => route('scholar.book.create'),
+                    'href' => route('scholars.book.create'),
                     'label' => 'Create',
                 ]
             ]
         "
     />
 
-    <form action="{{route('scholar.book.store')}}" method="POST" enctype="multipart/form-data" x-data="{type:`{{\App\Models\Book::TYPE_REGULAR}}`}">
+    <form action="{{route('scholars.book.store')}}" method="POST" enctype="multipart/form-data" x-data="{type:`{{\App\Models\Book::TYPE_REGULAR}}`}">
         @csrf
         <x-scholar.form.select model="type" name="type" label="Please select what type of book you want to create.">
             <option value="{{\App\Models\Book::TYPE_REGULAR}}">{{\App\Models\Book::TYPE_REGULAR}}</option>

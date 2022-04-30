@@ -6,11 +6,11 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholar.loading-image.index'),
+                    'href' => route('scholars.loading-image.index'),
                     'label' => 'Loading Image',
                 ],
                 [
@@ -23,7 +23,7 @@
     @if ($loadingImage->notSaved())
         <form
         enctype="multipart/form-data"
-        action="{{route('scholar.loading-image.update', ['loadingImage' => $loadingImage->id])}}"
+        action="{{route('scholars.loading-image.update', ['loadingImage' => $loadingImage->id])}}"
         method="POST">
     @endif
         @method('PUT')
@@ -61,7 +61,7 @@
         <div class="mt-4">
             <x-scholar.marketing.timeline/>
             @if ($loadingImage->wasPaid() && $loadingImage->notSaved())
-                <form action="{{route('scholar.marketing.save')}}" class="mt-2" method="POST">
+                <form action="{{route('scholars.marketing.save')}}" class="mt-2" method="POST">
                     @csrf
                     <input type="hidden" value="LoadingImage" name="type">
                     <input type="hidden" value="{{$loadingImage->id}}" name="id">

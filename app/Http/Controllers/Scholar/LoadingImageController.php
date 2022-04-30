@@ -52,7 +52,7 @@ class LoadingImageController extends Controller
         $data = $this->customValidate($request);
 
         $loadingImage = LoadingImage::processToCreate($data, $request);
-        return redirect(route('scholar.loading-image.show', ['loadingImage' => $loadingImage]))->withSuccess('Created!');
+        return redirect(route('scholars.loading-image.show', ['loadingImage' => $loadingImage]))->withSuccess('Created!');
     }
 
     public function update(Request $request, LoadingImage $loadingImage)

@@ -4,11 +4,11 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholar.podcast.index'),
+                    'href' => route('scholars.podcast.index'),
                     'label' => 'Podcasts',
                 ],
                 [
@@ -21,7 +21,7 @@
     <div class="flex md:flex-wrap flex-wrap-reverse">
         <div class="w-full md:w-8/12">
 
-            <x-scholar.page.update :editable="! $podcast->hasPublishedDate()" :update-link="route('scholar.podcast.update', ['podcast' => $podcast->id])">
+            <x-scholar.page.update :editable="! $podcast->hasPublishedDate()" :update-link="route('scholars.podcast.update', ['podcast' => $podcast->id])">
 
                 <x-scholar.form.input label="Title" name="title" :value="$podcast->title"/>
 

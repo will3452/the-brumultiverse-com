@@ -6,11 +6,11 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholar.message-blast.index'),
+                    'href' => route('scholars.message-blast.index'),
                     'label' => 'Message Blasts',
                 ],
                 [
@@ -22,7 +22,7 @@
     />
     <form
     enctype="multipart/form-data"
-    action="{{route('scholar.message-blast.store')}}"
+    action="{{route('scholars.message-blast.store')}}"
     method="POST"
     >
         @csrf

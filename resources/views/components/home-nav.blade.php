@@ -21,10 +21,10 @@
                 <x-home-nav-link href="/contact" :isActive="url()->current() === route('contact')">
                     Contact Us
                 </x-home-nav-link>
-                <x-home-nav-link href="{{route('scholar.register')}}" :isActive=" url()->current() === route('scholar.register')">
+                <x-home-nav-link href="{{route('scholars.register')}}" :isActive=" url()->current() === route('scholars.register')">
                     Sign Up as Scholar
                 </x-home-nav-link>
-                <x-home-nav-link href="{{route('scholar.login')}}" :isActive="url()->current() === route('scholar.login')">
+                <x-home-nav-link href="{{route('scholars.login')}}" :isActive="url()->current() === route('scholars.login')">
                     Sign In as scholar
                 </x-home-nav-link>
                 {{-- <x-home-nav-link href="{{route('student.register')}}" :isActive="url()->current() === route('student.register')">

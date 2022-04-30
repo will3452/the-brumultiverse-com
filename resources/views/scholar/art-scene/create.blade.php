@@ -4,11 +4,11 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholar.artscene.index'),
+                    'href' => route('scholars.artscene.index'),
                     'label' => 'Art Scenes',
                 ],
                 [
@@ -19,7 +19,7 @@
         "
     />
 
-    <form action="{{route('scholar.artscene.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('scholars.artscene.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <x-scholar.form.input label="Art Scene Title" name="title"/>
 

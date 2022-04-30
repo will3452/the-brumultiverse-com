@@ -4,7 +4,7 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
@@ -14,7 +14,7 @@
             ]
         "
     />
-    <x-scholar.page.index creation-link="{{route('scholar.event.create')}}" title="Event" :model="$events" type="Event" data="events" view="scholar.event.index">
+    <x-scholar.page.index creation-link="{{route('scholars.event.create')}}" title="Event" :model="$events" type="Event" data="events" view="scholar.event.index">
         <x-scholar.table>
             <thead>
                 <tr>
@@ -55,7 +55,7 @@
                             {{$event->end_date->format('m/d/y')}}
                         </td>
                         <td>
-                            <a href="{{route('scholar.event.show', ['event' => $event])}}" class=" btn-sm btn-scholar btn">
+                            <a href="{{route('scholars.event.show', ['event' => $event])}}" class=" btn-sm btn-scholar btn">
                                 show
                             </a>
                         </td>

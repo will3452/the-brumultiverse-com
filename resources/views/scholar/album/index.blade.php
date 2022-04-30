@@ -4,7 +4,7 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
@@ -14,7 +14,7 @@
             ]
         "
     />
-    <x-scholar.page.index creation-link="{{route('scholar.album.create')}}" title="Album" :model="$albums" >
+    <x-scholar.page.index creation-link="{{route('scholars.album.create')}}" title="Album" :model="$albums" >
         <x-scholar.table>
             <thead>
                 <tr>
@@ -43,7 +43,7 @@
                             {{$album->type}}
                         </td>
                         <td>
-                            <a class="btn btn-sm btn-scholar" href="{{route('scholar.album.show', ['album' => $album->id])}}">show</a>
+                            <a class="btn btn-sm btn-scholar" href="{{route('scholars.album.show', ['album' => $album->id])}}">show</a>
                         </td>
                     </tr>
                 @endforeach

@@ -6,7 +6,7 @@
         </div>
     @endif
     @if ($type != null)
-    <form action="{{route('scholar.search')}}" class="flex hidden md:block">
+    <form action="{{route('scholars.search')}}" class="flex hidden md:block">
         <input type="hidden" name="model" value="{{$type}}">
         <input type="hidden" name="view" value="{{$view}}">
         <input type="hidden" name="data" value="{{$data}}">
@@ -17,7 +17,7 @@
 </div>
 <div class="md:hidden">
     @if ($type != null)
-    <form class="mb-4 justify-center flex" action="{{route('scholar.search')}}">
+    <form class="mb-4 justify-center flex" action="{{route('scholars.search')}}">
         <input type="hidden" name="model" value="{{$type}}">
         <input type="hidden" name="view" value="{{$view}}">
         <input type="hidden" name="data" value="{{$data}}">

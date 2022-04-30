@@ -1,7 +1,7 @@
 <x-scholar.layout>
       <div class="flex justify-center">
 
-        <form action="{{route('scholar.register')}}" method="POST" class="w-full mt-4" enctype="multipart/form-data">
+        <form action="{{route('scholars.register')}}" method="POST" class="w-full mt-4" enctype="multipart/form-data">
             <h1 class="text-2xl mb-4 uppercase font-bold">Scholar's Registration Page</h1>
              <x-scholar.page.typing loop="1" delay="20" pause="2000" :message="['Hello! Welcome to BRUMULTIVERSE!', 'The Sign Up page is for authors, artists and creators who have received their contracts with BRUMULTIVERSE.', 'If you have no contract yet and are looking to join the growing BRU family, please click I HAVE NO AAN YET.', 'If you have a contract with BRU and have not received your AAN yet, please click on the same link. Thank you!']" />
             @csrf

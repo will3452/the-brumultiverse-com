@@ -52,7 +52,7 @@ class PodcastController extends Controller
         $this->customValidate($r);
         $podcast = Podcast::processToCreate($r);
 
-        return redirect(route('scholar.podcast.show', ['podcast' => $podcast]))->withSuccess('success');
+        return redirect(route('scholars.podcast.show', ['podcast' => $podcast]))->withSuccess('success');
     }
 
     public function show(Request $r, Podcast $podcast)

@@ -3,19 +3,19 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholar.book.index'),
+                    'href' => route('scholars.book.index'),
                     'label' => 'Books',
                 ],
                 [
-                    'href' => route('scholar.book.show', ['book' => $book->id]),
+                    'href' => route('scholars.book.show', ['book' => $book->id]),
                     'label' => $book->title,
                 ],
                 [
-                    'href' => route('scholar.book.chapters', ['book' => $book->id]),
+                    'href' => route('scholars.book.chapters', ['book' => $book->id]),
                     'label' => 'Chapters',
                 ],
                 [
@@ -26,7 +26,7 @@
         "
     />
     <div>
-        <form action="{{route('scholar.chapter.store', ['book' => $book->id])}}"
+        <form action="{{route('scholars.chapter.store', ['book' => $book->id])}}"
             x-data="{
                 type:'',
                 init() {

@@ -6,11 +6,11 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholar.marquee.index'),
+                    'href' => route('scholars.marquee.index'),
                     'label' => 'Marquees',
                 ],
                 [
@@ -22,7 +22,7 @@
     />
     <form
     enctype="multipart/form-data"
-    action="{{route('scholar.marquee.store')}}"
+    action="{{route('scholars.marquee.store')}}"
     method="POST">
         @csrf
         <x-scholar.form.select name="package_id" label="Duration">

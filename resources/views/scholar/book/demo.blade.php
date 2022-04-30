@@ -3,15 +3,15 @@
     :links="
         [
             [
-                'href' => route('scholar.home'),
+                'href' => route('scholars.home'),
                 'label' => 'Home',
             ],
             [
-                'href' => route('scholar.book.index'),
+                'href' => route('scholars.book.index'),
                 'label' => 'Books',
             ],
             [
-                'href' => route('scholar.book.show', ['book' => $book->id]),
+                'href' => route('scholars.book.show', ['book' => $book->id]),
                 'label' => $book->title,
             ],
             [

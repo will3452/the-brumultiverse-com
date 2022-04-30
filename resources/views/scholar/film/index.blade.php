@@ -6,7 +6,7 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
@@ -21,7 +21,7 @@
     type="Film"
     data="films"
     view="scholar.film.index"
-    :model="$films" :creation-link="route('scholar.film.create')" title="My Films">
+    :model="$films" :creation-link="route('scholars.film.create')" title="My Films">
         <div class="mt-4 flex flex-wrap justify-start">
             @if (request()->has('keyword'))
                 <x-scholar.work-card-collection href="/scholar/films" :data="$films" />

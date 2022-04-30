@@ -6,7 +6,7 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
@@ -21,7 +21,7 @@
     type="ArtScene"
     data="artScenes"
     view="scholar.art-scene.index"
-    :model="$artScenes" :creation-link="route('scholar.artscene.create')" title="My Art Scenes">
+    :model="$artScenes" :creation-link="route('scholars.artscene.create')" title="My Art Scenes">
         @if (request()->has('keyword'))
             <x-scholar.work-card-collection href="/scholar/art-scenes" :data="$artScenes" />
         @else

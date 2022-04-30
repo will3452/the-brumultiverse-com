@@ -6,7 +6,7 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
@@ -20,7 +20,7 @@
     data="bulletins"
     view="scholar.message-blast.index"
     :model="$messageBlasts"
-    :creation-link="route('scholar.message-blast.create')"
+    :creation-link="route('scholars.message-blast.create')"
     title="Message Blasts"
     >
         <x-scholar.table>
@@ -59,7 +59,7 @@
                             {{$m->wasPaid() ? 'yes' : 'no'}}
                         </td>
                         <td>
-                            <a href="{{route('scholar.message-blast.show', ['messageBlast' => $m->id])}}"  class="btn btn-xs" >
+                            <a href="{{route('scholars.message-blast.show', ['messageBlast' => $m->id])}}"  class="btn btn-xs" >
                                 show
                             </a>
                         </td>

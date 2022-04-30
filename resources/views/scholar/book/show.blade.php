@@ -4,11 +4,11 @@
         :links="
             [
                 [
-                    'href' => route('scholar.home'),
+                    'href' => route('scholars.home'),
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholar.book.index'),
+                    'href' => route('scholars.book.index'),
                     'label' => 'Books',
                 ],
                 [
@@ -19,7 +19,7 @@
         "
     />
     @if (is_null($book->front_matter))
-        <x-scholar.alert proceed-text="upload now" href="{{route('scholar.book.pdf', ['book' => $book->id])}}">
+        <x-scholar.alert proceed-text="upload now" href="{{route('scholars.book.pdf', ['book' => $book->id])}}">
             Please click "Upload Now" to upload one .PDF file that contains your BOOK TITLE PAGE, COPYRIGHT PAGE, ACKNOWLEDGMENT PAGE AND DEDICATION PAGE. Thank you!
         </x-scholar.alert>
     @endif
@@ -30,7 +30,7 @@
                 @csrf
 
             </form>
-            <x-scholar.page.update :editable="! $book->hasPublishedDate()" :update-link="route('scholar.book.update', ['book' => $book->id])">
+            <x-scholar.page.update :editable="! $book->hasPublishedDate()" :update-link="route('scholars.book.update', ['book' => $book->id])">
                 <x-scholar.form.select name="type" label="Book Type" readonly="true">
                     <option {{$book->type === \App\Models\Book::TYPE_REGULAR ? 'selected':''}} value="{{\App\Models\Book::TYPE_REGULAR}}">{{\App\Models\Book::TYPE_REGULAR}}</option>
                     <option {{$book->type === \App\Models\Book::TYPE_PREMIUM ? 'selected':''}} value="{{\App\Models\Book::TYPE_PREMIUM}}">{{\App\Models\Book::TYPE_PREMIUM}}</option>
@@ -102,13 +102,13 @@
             </div>
             <div class="flex justify-center flex-wrap items-center">
                 <x-scholar.request-publish-form :model="$book"/>
-                <a href="{{route('scholar.book.chapters', ['book' => $book->id])}}" class="btn btn-scholar btn-sm m-2">View all chapters.</a>
+                <a href="{{route('scholars.book.chapters', ['book' => $book->id])}}" class="btn btn-scholar btn-sm m-2">View all chapters.</a>
                 {{-- <x-scholar.modal extra="btn-sm btn-warning" button="Send ticket">
                     Send Ticket
                 </x-scholar.modal> --}}
             </div>
             <div class="flex justify-center">
-                <a class="btn btn-sm btn-scholar" href="{{route('scholar.book.demo', ['book' => $book])}}">View Demo</a>
+                <a class="btn btn-sm btn-scholar" href="{{route('scholars.book.demo', ['book' => $book])}}">View Demo</a>
             </div>
         </div>
     </div>
