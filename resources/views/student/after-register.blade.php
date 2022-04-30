@@ -104,7 +104,7 @@
              <template x-if="step == 7">
                 <div>
                     <x-student.dialog-container>
-                        <x-student.typing message="Awesome! You may now start customizing your experience! Remember, should you choose to upgrade your account, you may do so in your DASHBOARD for only P149/month." delay="10" clear="0"/>
+                        <x-student.typing message="Awesome! You may now start customizing your experience! Remember, should you choose to upgrade your account, you may do so in your DASHBOARD for only P299/month." delay="10" clear="0"/>
                         <x-student.dialog-button-container>
                             <a class="block btn-student-active mx-1" x-on:click="submitForm">
                                 Save
@@ -132,7 +132,7 @@
                             <th class="border"></th>
                             <th class="border">Details</th>
                             <th class="border">Free</th>
-                            <th class="border">Premium (at Php149/mo)</th>
+                            <th class="border">Premium (at Php299/mo)</th>
                         </tr>
                         <tr>
                             <td class="border p-1">

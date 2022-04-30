@@ -15,7 +15,7 @@ class PaymentController extends BasePaymentController
 
     public function payTuition(Request $request)
     {
-        $tuitionFee = 149;
+        $tuitionFee = 299;
         $description = "Premium Subscription";
 
         $param = $this->createParam($tuitionFee, $description);

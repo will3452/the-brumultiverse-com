@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BRUMULTIVERSE</title>
     <link href="{{getAsset('home/circle_logo.png')}}" rel="icon"/>
-    <link rel="stylesheet" href="/css/app.css">
-    <script src="/js/app.js"></script>
+    <link rel="stylesheet" href="/css/app.css" defer>
+    <script src="/js/app.js" defer></script>
     <style>
         html, body {
             background: #0F021B !important;
