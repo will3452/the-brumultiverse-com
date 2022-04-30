@@ -15,14 +15,14 @@
     </div>
     <div class="flex-none">
         <div class="dropdown dropdown-end">
-            <a tabindex="0" href="{{route('scholars.group.invitation')}}" class="btn btn-ghost btn-circle">
+            <a tabindex="0" href="{{route('scholar.group.invitation')}}" class="btn btn-ghost btn-circle">
                 <div class="indicator dark:invert">
                     <x-nova.icon-group-add/>
                 </div>
             </a>
         </div>
         <div class="dropdown dropdown-end">
-            <a tabindex="0" href="{{route('scholars.notification.index')}}" class="btn btn-ghost btn-circle">
+            <a tabindex="0" href="{{route('scholar.notification.index')}}" class="btn btn-ghost btn-circle">
                 <div class="indicator dark:invert">
                     <x-nova.icon-bell/>
                     @if (auth()->user()->unread_notifications_count >= 1)
@@ -46,10 +46,10 @@
             </div>
             </label>
             <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 w-52 border">
-                <li><a href="{{route('scholars.profile.show', ['user' => auth()->id()])}}">Profile</a></li>
-                <li><a href="{{route('scholars.transaction.index')}}">Payment</a></li>
+                <li><a href="{{route('scholar.profile.show', ['user' => auth()->id()])}}">Profile</a></li>
+                <li><a href="{{route('scholar.transaction.index')}}">Payment</a></li>
                 <li><a href="javascript:alert('under development!')">Reports</a></li>
-                <li><a href="{{route('scholars.logout')}}">Logout</a></li>
+                <li><a href="{{route('scholar.logout')}}">Logout</a></li>
             </ul>
         </div>
     </div>

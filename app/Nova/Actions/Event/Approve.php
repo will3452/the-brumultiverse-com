@@ -29,7 +29,7 @@ class Approve extends Action
             $model->update([
                 'status' => Event::STATUS_APPROVED,
             ]);
-            Notification::send($model->user, new ApprovalNotification("Your Event \"$model->title\" has been approved.", route('scholars.event.show', ['event' => $model->id])));
+            Notification::send($model->user, new ApprovalNotification("Your Event \"$model->title\" has been approved.", route('scholar.event.show', ['event' => $model->id])));
         }
     }
 

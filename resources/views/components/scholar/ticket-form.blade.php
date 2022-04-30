@@ -1,7 +1,7 @@
 @props(['model' => null])
 @if (! $model->tickets()->whereStatus(\App\Models\Ticket::STATUS_PENDING)->exists())
 <x-scholar.modal button="submit ticket" extra="btn-sm">
-    <form action="{{route('scholars.ticket.store-update')}}" method="POST">
+    <form action="{{route('scholar.ticket.store-update')}}" method="POST">
         @csrf
         <input type="hidden" name="_type" value="{{\App\Helpers\TicketHelper::getModel(get_class($model))}}">
         <input type="hidden" name="id" value="{{$model->id}}">

@@ -8,18 +8,18 @@
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholars.book.index'),
+                    'href' => route('scholar.book.index'),
                     'label' => 'Books',
                 ],
                 [
-                    'href' => route('scholars.book.create'),
+                    'href' => route('scholar.book.create'),
                     'label' => 'Create',
                 ]
             ]
         "
     />
 
-    <form action="{{route('scholars.book.store')}}" method="POST" enctype="multipart/form-data" x-data="{type:`{{\App\Models\Book::TYPE_REGULAR}}`}">
+    <form action="{{route('scholar.book.store')}}" method="POST" enctype="multipart/form-data" x-data="{type:`{{\App\Models\Book::TYPE_REGULAR}}`}">
         @csrf
         <x-scholar.form.select model="type" name="type" label="Please select what type of book you want to create.">
             <option value="{{\App\Models\Book::TYPE_REGULAR}}">{{\App\Models\Book::TYPE_REGULAR}}</option>

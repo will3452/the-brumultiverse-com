@@ -8,7 +8,7 @@
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholars.artscene.index'),
+                    'href' => route('scholar.artscene.index'),
                     'label' => 'Art Scenes',
                 ],
                 [
@@ -20,7 +20,7 @@
     />
     <div class="flex md:flex-wrap flex-wrap-reverse">
         <div class="w-full md:w-8/12">
-            <x-scholar.page.update :editable="! $artScene->hasPublishedDate()" :update-link="route('scholars.artscene.update', ['art' => $artScene->id])">
+            <x-scholar.page.update :editable="! $artScene->hasPublishedDate()" :update-link="route('scholar.artscene.update', ['art' => $artScene->id])">
                 <x-scholar.form.input label="Art Scene Title" name="title" :value="$artScene->title"/>
 
                 {{-- <x-scholar.form.file name="cover" label="Book Cover"/> --}}

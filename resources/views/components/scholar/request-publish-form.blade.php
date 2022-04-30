@@ -12,7 +12,7 @@
 <x-scholar.modal extra="btn-sm" button="request to publish">
     <div>
         @if (! $model->hasPendingPublishApproval() && ! $model->wasPublishedApproved())
-            <form action="{{route('scholars.request.publish')}}" method="POST">
+            <form action="{{route('scholar.request.publish')}}" method="POST">
                 <div class="bg-yellow-200 text-yellow-900 p-2 text-xs rounded">
                     Reminder: Editing other details of your work alone, is not possible, when it has a published date.
                 </div>

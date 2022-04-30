@@ -7,15 +7,15 @@
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholars.book.index'),
+                    'href' => route('scholar.book.index'),
                     'label' => 'Books',
                 ],
                 [
-                    'href' => route('scholars.book.show', ['book' => $book->id]),
+                    'href' => route('scholar.book.show', ['book' => $book->id]),
                     'label' => $book->title,
                 ],
                 [
-                    'href' => route('scholars.book.chapters', ['book' => $book->id]),
+                    'href' => route('scholar.book.chapters', ['book' => $book->id]),
                     'label' => 'Chapters',
                 ],
                 [
@@ -26,7 +26,7 @@
         "
     />
     <div>
-        <form action="{{route('scholars.chapter.store', ['book' => $book->id])}}"
+        <form action="{{route('scholar.chapter.store', ['book' => $book->id])}}"
             x-data="{
                 type:'',
                 init() {

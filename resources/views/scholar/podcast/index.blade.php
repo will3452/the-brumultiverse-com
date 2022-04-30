@@ -21,7 +21,7 @@
     type="Podcast"
     data="podcasts"
     view="scholar.podcast.index"
-    :model="$podcasts" :creation-link="route('scholars.podcast.create')" title="My Songs">
+    :model="$podcasts" :creation-link="route('scholar.podcast.create')" title="My Songs">
         @if (request()->has('keyword'))
             <x-scholar.work-card-collection href="/scholars/podcasts" :data="$podcasts" />
         @else

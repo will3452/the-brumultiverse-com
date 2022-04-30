@@ -49,6 +49,6 @@ class AlbumController extends Controller
         $data['user_id'] = auth()->user()->id;
 
         $album = Album::create($data);
-        return redirect(route('scholars.album.show', ['album' => $album]))->withSuccess('Album created!');
+        return redirect(route('scholar.album.show', ['album' => $album]))->withSuccess('Album created!');
     }
 }

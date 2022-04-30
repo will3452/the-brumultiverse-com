@@ -21,7 +21,7 @@
     type="AudioBook"
     data="audioBooks"
     view="scholar.audio-book.index"
-    :model="$audioBooks" :creation-link="route('scholars.audiobook.create')" title="My Audio Books">
+    :model="$audioBooks" :creation-link="route('scholar.audiobook.create')" title="My Audio Books">
         @if (request()->has('keyword'))
             <x-scholar.work-card-collection href="/scholars/audio-books" :data="$audioBooks" />
         @else

@@ -7,17 +7,17 @@
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholars.collection.index'),
+                    'href' => route('scholar.collection.index'),
                     'label' => 'Collections',
                 ],
                 [
-                    'href' => route('scholars.book.create'),
+                    'href' => route('scholar.book.create'),
                     'label' => 'Create',
                 ]
             ]
         "
     />
-    <form action="{{route('scholars.collection.store')}}" method="POST">
+    <form action="{{route('scholar.collection.store')}}" method="POST">
         @csrf
         <x-scholar.form.input name="title" label="Title"/>
 

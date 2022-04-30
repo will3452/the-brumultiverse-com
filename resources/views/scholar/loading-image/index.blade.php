@@ -20,7 +20,7 @@
     data="slidingBanners"
     view="scholar.loading-image.index"
     :model="$loadingImages"
-    :creation-link="route('scholars.loading-image.create')"
+    :creation-link="route('scholar.loading-image.create')"
     title="Loading Images"
     >
         <x-scholar.table>
@@ -59,7 +59,7 @@
                             {{$m->wasPaid() ? 'yes' : 'no'}}
                         </td>
                         <td>
-                            <a href="{{route('scholars.loading-image.show', ['loadingImage' => $m->id])}}"  class="btn btn-xs" >
+                            <a href="{{route('scholar.loading-image.show', ['loadingImage' => $m->id])}}"  class="btn btn-xs" >
                                 show
                             </a>
                         </td>

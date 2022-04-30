@@ -7,15 +7,15 @@
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholars.book.index'),
+                    'href' => route('scholar.book.index'),
                     'label' => 'Books',
                 ],
                 [
-                    'href' => route('scholars.book.show', ['book' => $book->id]),
+                    'href' => route('scholar.book.show', ['book' => $book->id]),
                     'label' => $book->title,
                 ],
                 [
-                    'href' => route('scholars.book.chapters', ['book' => $book->id]),
+                    'href' => route('scholar.book.chapters', ['book' => $book->id]),
                     'label' => 'Chapters',
                 ],
                 [
@@ -28,7 +28,7 @@
     <x-scholar.page.title>
         Prologue
     </x-scholar.page.title>
-    <form action="{{route('scholars.prologue.update', ['prologue' => $prologue])}}" method="POST">
+    <form action="{{route('scholar.prologue.update', ['prologue' => $prologue])}}" method="POST">
         @csrf
         @method("PUT")
         <x-scholar.form.ckeditor name="body" label="Content">{{$prologue->body}}</x-scholar.form.ckeditor>

@@ -21,7 +21,7 @@
     type="Song"
     data="songs"
     view="scholar.song.index"
-    :model="$songs" :creation-link="route('scholars.song.create')" title="My Songs">
+    :model="$songs" :creation-link="route('scholar.song.create')" title="My Songs">
         @if (request()->has('keyword'))
             <x-scholar.work-card-collection href="/scholars/songs" :data="$songs" />
         @else

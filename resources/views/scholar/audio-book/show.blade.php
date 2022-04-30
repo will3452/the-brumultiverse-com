@@ -8,7 +8,7 @@
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholars.audiobook.index'),
+                    'href' => route('scholar.audiobook.index'),
                     'label' => 'Audio Books',
                 ],
                 [
@@ -21,7 +21,7 @@
     <div class="flex md:flex-wrap flex-wrap-reverse">
         <div class="w-full md:w-8/12">
 
-            <x-scholar.page.update :editable="! $audio->hasPublishedDate()" :update-link="route('scholars.audiobook.update', ['audio' => $audio->id])">
+            <x-scholar.page.update :editable="! $audio->hasPublishedDate()" :update-link="route('scholar.audiobook.update', ['audio' => $audio->id])">
 
                 <x-scholar.form.input label="Book Title" name="title" :value="$audio->title"/>
 

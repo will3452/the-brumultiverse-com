@@ -10,7 +10,7 @@
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholars.message-blast.index'),
+                    'href' => route('scholar.message-blast.index'),
                     'label' => 'Message Blasts',
                 ],
                 [
@@ -22,7 +22,7 @@
     />
     <form
     enctype="multipart/form-data"
-    action="{{route('scholars.message-blast.store')}}"
+    action="{{route('scholar.message-blast.store')}}"
     method="POST"
     >
         @csrf

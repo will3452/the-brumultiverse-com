@@ -25,7 +25,7 @@ class EmailVerificationController extends Controller
 
         if ($request->user()->hasVerifiedEmail()) {
             if ($request->user()->isScholar()) {
-                return redirect(route('scholars.profile.show', ['user' => $request->user()->id]));
+                return redirect(route('scholar.profile.show', ['user' => $request->user()->id]));
             }
             return $request->wantsJson()
                         ? new JsonResponse([], 204)
@@ -41,7 +41,7 @@ class EmailVerificationController extends Controller
         }
 
         if ($request->user()->isScholar()) {
-            return redirect(route('scholars.profile.show', ['user' => $request->user()->id]));
+            return redirect(route('scholar.profile.show', ['user' => $request->user()->id]));
         }
 
         return $request->wantsJson()

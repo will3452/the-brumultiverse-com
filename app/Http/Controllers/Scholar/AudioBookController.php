@@ -73,7 +73,7 @@ class AudioBookController extends Controller
     {
         $this->customValidate($request);
         $audioBook = AudioBook::processToCreate($request);
-        return redirect(route('scholars.audiobook.show', ['audio' => $audioBook->id]))->withSuccess('Success');
+        return redirect(route('scholar.audiobook.show', ['audio' => $audioBook->id]))->withSuccess('Success');
     }
 
     public function show(Request $request, AudioBook $audio)

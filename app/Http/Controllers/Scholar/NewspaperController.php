@@ -50,7 +50,7 @@ class NewspaperController extends Controller
         $data = $this->customValidate($request);
 
         $newspaper = Newspaper::processToCreate($data, $request);
-        return redirect(route('scholars.newspaper.show', ['newspaper' => $newspaper]))->withSuccess('Created!');
+        return redirect(route('scholar.newspaper.show', ['newspaper' => $newspaper]))->withSuccess('Created!');
     }
 
     public function update(Request $request, Newspaper $newspaper)

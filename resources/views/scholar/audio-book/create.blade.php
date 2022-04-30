@@ -8,11 +8,11 @@
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholars.audiobook.index'),
+                    'href' => route('scholar.audiobook.index'),
                     'label' => 'Audio Books',
                 ],
                 [
-                    'href' => route('scholars.book.create'),
+                    'href' => route('scholar.book.create'),
                     'label' => 'Create',
                 ]
             ]
@@ -26,7 +26,7 @@
         <div class="alert alert-success">Auto-filled, please double check the form.</div>
     @endif
 
-    <form action="{{route('scholars.audiobook.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('scholar.audiobook.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         @if (! request()->has('book'))
             <div x-data="{

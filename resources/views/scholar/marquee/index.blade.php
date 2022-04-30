@@ -20,7 +20,7 @@
     data="marquees"
     view="scholar.marquee.index"
     :model="$marquees"
-    :creation-link="route('scholars.marquee.create')"
+    :creation-link="route('scholar.marquee.create')"
     title="Marquees"
     >
         <x-scholar.table>
@@ -59,7 +59,7 @@
                             {{$m->wasPaid() ? 'yes' : 'no'}}
                         </td>
                         <td>
-                            <a href="{{route('scholars.marquee.show', ['marquee' => $m->id])}}"  class="btn btn-xs" >
+                            <a href="{{route('scholar.marquee.show', ['marquee' => $m->id])}}"  class="btn btn-xs" >
                                 show
                             </a>
                         </td>

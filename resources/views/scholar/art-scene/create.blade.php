@@ -8,7 +8,7 @@
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholars.artscene.index'),
+                    'href' => route('scholar.artscene.index'),
                     'label' => 'Art Scenes',
                 ],
                 [
@@ -19,7 +19,7 @@
         "
     />
 
-    <form action="{{route('scholars.artscene.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('scholar.artscene.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <x-scholar.form.input label="Art Scene Title" name="title"/>
 

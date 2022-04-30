@@ -7,7 +7,7 @@
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholars.event.index'),
+                    'href' => route('scholar.event.index'),
                     'label' => 'Events',
                 ],
                 [
@@ -17,7 +17,7 @@
             ]
         "
     />
-    <form action="{{route('scholars.event.store')}}" method="POST">
+    <form action="{{route('scholar.event.store')}}" method="POST">
         @csrf
         <x-scholar.form.input name="title" label="Event title"/>
 

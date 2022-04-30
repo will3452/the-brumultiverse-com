@@ -50,7 +50,7 @@ class EventsController extends Controller
         $this->customValidate($request);
         $event = Event::processToCreate($request);
 
-        return redirect(route('scholars.event.show', ['event' => $event]));
+        return redirect(route('scholar.event.show', ['event' => $event]));
     }
 
     public function show(Request $request, Event $event)

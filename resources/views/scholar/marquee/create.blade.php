@@ -10,7 +10,7 @@
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholars.marquee.index'),
+                    'href' => route('scholar.marquee.index'),
                     'label' => 'Marquees',
                 ],
                 [
@@ -22,7 +22,7 @@
     />
     <form
     enctype="multipart/form-data"
-    action="{{route('scholars.marquee.store')}}"
+    action="{{route('scholar.marquee.store')}}"
     method="POST">
         @csrf
         <x-scholar.form.select name="package_id" label="Duration">

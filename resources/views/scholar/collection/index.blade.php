@@ -14,7 +14,7 @@
             ]
         "
     />
-    <x-scholar.page.index creation-link="{{route('scholars.collection.create')}}" title="Collection" :model="$collections" >
+    <x-scholar.page.index creation-link="{{route('scholar.collection.create')}}" title="Collection" :model="$collections" >
         <x-scholar.table>
             <thead>
                 <tr>
@@ -43,7 +43,7 @@
                             {{$collection->type}}
                         </td>
                         <td>
-                            <a class="btn btn-sm btn-scholar" href="{{route('scholars.collection.show', ['collection' => $collection->id])}}">show</a>
+                            <a class="btn btn-sm btn-scholar" href="{{route('scholar.collection.show', ['collection' => $collection->id])}}">show</a>
                         </td>
                     </tr>
                 @endforeach

@@ -7,7 +7,7 @@
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholars.collection.index'),
+                    'href' => route('scholar.collection.index'),
                     'label' => 'Albums',
                 ],
                 [
@@ -28,7 +28,7 @@
     ]"/>
      @if (count($optionWorks))
      <x-scholar.modal button="add work">
-         <form action="{{route('scholars.add.work')}}" method="POST">
+         <form action="{{route('scholar.add.work')}}" method="POST">
              @csrf
              <input type="hidden" name="class_type" value="{{get_class($collection)}}"/>
              <input type="hidden" name="class_id" value="{{$collection->id}}"/>

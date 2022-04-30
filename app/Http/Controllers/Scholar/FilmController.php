@@ -55,7 +55,7 @@ class FilmController extends Controller
     {
         $this->customValidate($request);
         $film = Film::processToCreate($request);
-        return redirect(route('scholars.film.show', ['film' => $film]))->withSuccess('Success');
+        return redirect(route('scholar.film.show', ['film' => $film]))->withSuccess('Success');
     }
 
     public function show(Request $request, Film $film)

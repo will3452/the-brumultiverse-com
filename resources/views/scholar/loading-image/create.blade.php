@@ -10,7 +10,7 @@
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholars.loading-image.index'),
+                    'href' => route('scholar.loading-image.index'),
                     'label' => 'Loading Images',
                 ],
                 [
@@ -22,7 +22,7 @@
     />
     <form
     enctype="multipart/form-data"
-    action="{{route('scholars.loading-image.store')}}"
+    action="{{route('scholar.loading-image.store')}}"
     method="POST">
         @csrf
         <x-scholar.form.select name="package_id" label="Duration">

@@ -7,7 +7,7 @@
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholars.group.index'),
+                    'href' => route('scholar.group.index'),
                     'label' => 'Groups',
                 ],
                 [
@@ -73,7 +73,7 @@
             <form
             x-ref="formSubmit"
              x-on:submit.prevent="submitForm"
-                action="{{route('scholars.group.add.member', ['group' => $group->id])}}" method="POST">
+                action="{{route('scholar.group.add.member', ['group' => $group->id])}}" method="POST">
                 @csrf
                 <div x-show="accountNotFound" class="text-sm text-red-600">
                     Account not found!
@@ -128,7 +128,7 @@
                             <x-slot name="trigger">
                                 <label for="edit{{$m->id}}" class="btn btn-sm btn-scholar">Edit position</label>
                             </x-slot>
-                            <form method="POST" action="{{route('scholars.group.edit.position', ['member' => $m->id])}}">
+                            <form method="POST" action="{{route('scholar.group.edit.position', ['member' => $m->id])}}">
                                 @csrf
                                 <x-scholar.form.input name="position" label="New Position"/>
                                 <x-scholar.form.submit>

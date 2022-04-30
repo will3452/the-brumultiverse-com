@@ -7,11 +7,11 @@
                 'label' => 'Home',
             ],
             [
-                'href' => route('scholars.book.index'),
+                'href' => route('scholar.book.index'),
                 'label' => 'Books',
             ],
             [
-                'href' => route('scholars.book.show', ['book' => $book->id]),
+                'href' => route('scholar.book.show', ['book' => $book->id]),
                 'label' => $book->title,
             ],
             [

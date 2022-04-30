@@ -8,7 +8,7 @@
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholars.song.index'),
+                    'href' => route('scholar.song.index'),
                     'label' => 'Songs',
                 ],
                 [
@@ -18,7 +18,7 @@
             ]"
     />
 
-    <form action="{{route('scholars.song.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('scholar.song.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <x-scholar.form.input label="Song Title" name="title"/>
 

@@ -7,7 +7,7 @@
                         'label' => 'Home',
                     ],
                     [
-                        'href' => route('scholars.film.index'),
+                        'href' => route('scholar.film.index'),
                         'label' => 'Film',
                     ],
                     [
@@ -17,7 +17,7 @@
             ]"
     />
 
-    <form action="{{route('scholars.film.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('scholar.film.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <x-scholar.form.input label="Title" name="title" />

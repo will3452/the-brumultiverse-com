@@ -10,7 +10,7 @@
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholars.message-blast.index'),
+                    'href' => route('scholar.message-blast.index'),
                     'label' => 'Message Blasts',
                 ],
                 [
@@ -23,7 +23,7 @@
     @if ($messageBlast->notSaved())
         <form
         enctype="multipart/form-data"
-        action="{{route('scholars.message-blast.update', ['messageBlast' => $messageBlast->id])}}"
+        action="{{route('scholar.message-blast.update', ['messageBlast' => $messageBlast->id])}}"
         method="POST">
     @endif
         @method('PUT')
@@ -71,7 +71,7 @@
         <div class="mt-4">
             <x-scholar.marketing.timeline/>
             @if ($messageBlast->wasPaid() && $messageBlast->notSaved())
-                <form action="{{route('scholars.marketing.save')}}" class="mt-2" method="POST">
+                <form action="{{route('scholar.marketing.save')}}" class="mt-2" method="POST">
                     @csrf
                     <input type="hidden" value="Message Blast" name="type">
                     <input type="hidden" value="{{$messageBlast->id}}" name="id">

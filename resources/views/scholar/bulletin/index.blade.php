@@ -20,7 +20,7 @@
     data="bulletins"
     view="scholar.bulletin.index"
     :model="$bulletins"
-    :creation-link="route('scholars.bulletin.create')"
+    :creation-link="route('scholar.bulletin.create')"
     title="Bulletins"
     >
         <x-scholar.table>
@@ -59,7 +59,7 @@
                             {{$b->wasPaid() ? 'yes' : 'no'}}
                         </td>
                         <td>
-                            <a href="{{route('scholars.bulletin.show', ['bulletin' => $b->id])}}"  class="btn btn-xs" >
+                            <a href="{{route('scholar.bulletin.show', ['bulletin' => $b->id])}}"  class="btn btn-xs" >
                                 show
                             </a>
                         </td>

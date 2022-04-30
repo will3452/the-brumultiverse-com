@@ -14,7 +14,7 @@
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholars.event.index'),
+                    'href' => route('scholar.event.index'),
                     'label' => 'Events',
                 ],
                 [
@@ -26,7 +26,7 @@
     />
     <div class="flex md:flex-wrap flex-wrap-reverse">
         <div class="w-full md:w-8/12">
-            <form action="{{route('scholars.event.update', ['event' => $event->id])}}" method="POST">
+            <form action="{{route('scholar.event.update', ['event' => $event->id])}}" method="POST">
                 @method('put')
                 @csrf
                 <x-scholar.form.input name="title" label="Event title" :value="$event->title"/>
@@ -53,7 +53,7 @@
         <div class="w-full md:w-4/12 p-4 flex justify-center">
             @if ($event->status != \App\Models\Event::STATUS_APPROVED)
             <x-scholar.modal button="request for approval" id="r2p">
-                <form action="{{route('scholars.event.request-to-approve', ['event' => $event])}}" method="POST">
+                <form action="{{route('scholar.event.request-to-approve', ['event' => $event])}}" method="POST">
                     @csrf
                       <div class="label">
                           <div class="label-text">

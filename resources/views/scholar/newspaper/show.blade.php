@@ -10,7 +10,7 @@
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholars.newspaper.index'),
+                    'href' => route('scholar.newspaper.index'),
                     'label' => 'Newspapers',
                 ],
                 [
@@ -23,7 +23,7 @@
     @if ($newspaper->notSaved())
         <form
         enctype="multipart/form-data"
-        action="{{route('scholars.newspaper.update', ['newspaper' => $newspaper->id])}}"
+        action="{{route('scholar.newspaper.update', ['newspaper' => $newspaper->id])}}"
         method="POST">
     @endif
         @method('PUT')
@@ -62,7 +62,7 @@
         <div class="mt-4">
             <x-scholar.marketing.timeline/>
             @if ($newspaper->wasPaid() && $newspaper->notSaved())
-                <form action="{{route('scholars.marketing.save')}}" class="mt-2" method="POST">
+                <form action="{{route('scholar.marketing.save')}}" class="mt-2" method="POST">
                     @csrf
                     <input type="hidden" value="Newspaper" name="type">
                     <input type="hidden" value="{{$newspaper->id}}" name="id">

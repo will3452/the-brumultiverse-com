@@ -24,7 +24,7 @@
                 <h3 class="title tracking-wider">{{$i->title}}</h3>
                 <p class="message text-xs">{{$i->body}} [ {{$i->created_at->format('m/d/y')}} ]</p>
                 <div class="mt-2">
-                    <form action="{{route('scholars.group.invitation.accept', ['invitation' => $i->id])}}" method="POST">
+                    <form action="{{route('scholar.group.invitation.accept', ['invitation' => $i->id])}}" method="POST">
                         @csrf
                         <button class="btn btn-sm btn-scholar">Accept</button>
                     </form>

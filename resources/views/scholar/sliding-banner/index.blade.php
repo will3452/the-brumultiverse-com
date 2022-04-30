@@ -20,7 +20,7 @@
     data="slidingBanners"
     view="scholar.sliding-banner.index"
     :model="$slidingBanners"
-    :creation-link="route('scholars.sliding-banner.create')"
+    :creation-link="route('scholar.sliding-banner.create')"
     title="Sliding Banners"
     >
         <x-scholar.table>
@@ -59,7 +59,7 @@
                             {{$m->wasPaid() ? 'yes' : 'no'}}
                         </td>
                         <td>
-                            <a href="{{route('scholars.sliding-banner.show', ['slidingBanner' => $m->id])}}"  class="btn btn-xs" >
+                            <a href="{{route('scholar.sliding-banner.show', ['slidingBanner' => $m->id])}}"  class="btn btn-xs" >
                                 show
                             </a>
                         </td>

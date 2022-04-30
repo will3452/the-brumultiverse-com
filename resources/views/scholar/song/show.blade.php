@@ -8,7 +8,7 @@
                     'label' => 'Home',
                 ],
                 [
-                    'href' => route('scholars.song.index'),
+                    'href' => route('scholar.song.index'),
                     'label' => 'Songs',
                 ],
                 [
@@ -20,7 +20,7 @@
     />
     <div class="flex md:flex-wrap flex-wrap-reverse">
         <div class="w-full md:w-8/12">
-            <x-scholar.page.update :editable="! $song->hasPublishedDate()" :update-link="route('scholars.song.update', ['song' => $song->id])">
+            <x-scholar.page.update :editable="! $song->hasPublishedDate()" :update-link="route('scholar.song.update', ['song' => $song->id])">
 
                 <x-scholar.form.input label="Song Title" name="title" :value="$song->title"/>
 
