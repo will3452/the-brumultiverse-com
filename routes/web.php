@@ -14,8 +14,8 @@ use App\Http\Controllers\EmailVerificationController;
 
 //home & static
 Route::redirect('/', '/welcome');
-Route::redirect('/login', '/scholar/login')->name('login');
-Route::redirect('/home', '/scholar/home');
+Route::redirect('/login', '/scholars/login')->name('login');
+Route::redirect('/home', '/scholars/home');
 Route::view('/welcome', 'Home')->name('welcome');
 Route::view('/about', 'About')->name('about');
 Route::view('/contact', 'Contact')->name('contact');

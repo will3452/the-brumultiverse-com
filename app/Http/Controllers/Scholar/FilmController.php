@@ -21,7 +21,7 @@ class FilmController extends Controller
             'tags' => 'required',
             'language' => 'required',
             'description' => 'required',
-            'cost_type' => 'required',
+            'cost_type' => '',
             'cost' => ['numeric', 'gte:0'],
             'credit' => 'required',
             'cover' => ['image','max:2000'],
