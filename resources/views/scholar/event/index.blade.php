@@ -14,7 +14,7 @@
             ]
         "
     />
-    <x-scholar.page.index creation-link="{{route('scholars.event.create')}}" title="Event" :model="$events" type="Event" data="events" view="scholar.event.index">
+    <x-scholar.page.index creation-link="{{route('scholar.event.create')}}" title="Event" :model="$events" type="Event" data="events" view="scholar.event.index">
         <x-scholar.table>
             <thead>
                 <tr>
