@@ -1,6 +1,21 @@
 <x-student.layout>
     <x-student.static-background-container bg="{{getAsset('/closet/base.png')}}">
         <div x-data="data">
+            <template x-if="step == 0">
+                <div>
+                    <x-student.dialog-container>
+                        <x-student.typing clear="0" message="We’re done with your room tour." />
+                        <x-student.dialog-button-container>
+                            <button class="btn-student-active mx-2" x-on:click="step++">
+                                Ok
+                            </button>
+                        </x-student.dialog-button-container>
+                    </x-student.dialog-container>
+                    <x-student.scene blur="1">
+                        <img src="{{auth()->user()->getAssistant('image')}}" alt="" class="avatar-img block -bottom-1/2">
+                    </x-student.scene>
+                </div>
+            </template>
             <template x-if="step == 1">
                 <div>
                     <x-student.dialog-container>
