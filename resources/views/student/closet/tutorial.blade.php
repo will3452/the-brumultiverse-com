@@ -106,6 +106,7 @@
                             kbaseCloset.filters([Konva.Filters.Brighten])
                             this.layer.add(kbaseCloset);
                             kbaseCloset.brightness(-0.3);
+                            this.loadItem();
                         }
                         baseCloset.src = `${this.assetUri}/base.png`;
                     },
@@ -117,7 +118,6 @@
                         const loader = new Konva.Text({text:'loading...', fill:'white', x:0,y:0});
                         this.layer.add(loader);
                         this.loadImages();
-                        this.loadItem();
                         this.stage.add(this.layer);
                     }
                 };
