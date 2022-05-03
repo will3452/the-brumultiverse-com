@@ -16,6 +16,35 @@
         <x-student.topbar/>
             {{$slot}}
         <x-student.bottombar/>
+        @auth
+            <a href="/scholars/logout" class="px-2 py-1 text-bold rounded text-white fixed bottom-2 right-2 bg-red-600">
+                Logout
+            </a>
+        @endauth
+        @guest
+            @if (url()->current() == route('student.map'))
+            <div class="fixed right-2 bottom-2">
+                <x-student.modal button="login">
+                    <form action="{{route('student.login')}}" method="POST" class="backdrop-brightness-50">
+                        @csrf
+                        <h1 class="text-white text-2xl">Login</h1>
+                        <x-student.form.input name="email" label="Email" />
+                        <x-student.form.input name="password" label="Password" type="password"/>
+                        <div class="my-2">
+                            <button class="btn btn-student-active w-full">
+                                Login
+                            </button>
+                        </div>
+                       <div class="my-2">
+                            <a href="{{route('student.register')}}" class="btn btn-student w-full">
+                                Register
+                            </a>
+                       </div>
+                    </form>
+                </x-student.modal>
+            </div>
+            @endif
+        @endguest
     </div>
     @stack('body-script')
 </body>

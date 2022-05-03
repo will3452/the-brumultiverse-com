@@ -11,4 +11,9 @@ class DormController extends Controller
     {
         return view('student.dorm.tutorial');
     }
+
+    public function myDorm()
+    {
+        return view('student.dorm.me');
+    }
 }

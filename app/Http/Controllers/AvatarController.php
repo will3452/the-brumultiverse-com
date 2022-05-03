@@ -34,7 +34,9 @@ class AvatarController extends Controller
 
         Avatar::updateOrCreate(['user_id' => auth()->id()], $avatar);
 
-        return redirect(route('student.map'));
+        auth()->user()->update(['avatar_updated' => true]);
+
+        return redirect(route('student.dorm.me'));
     }
 
     public function apiGet(Request $request)

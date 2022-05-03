@@ -72,6 +72,7 @@ class RegisterController extends Controller
 
     public function welcomeToCloset()
     {
+        auth()->user()->finishTutorial(); // tutorial once only
         return view('student.welcome-closet');
     }
 }

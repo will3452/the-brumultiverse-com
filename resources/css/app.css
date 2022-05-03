@@ -21,7 +21,7 @@
 }
 @layer components {
     .btn-student-active {
-      @apply text-xl px-10 py-2 border-2 border-white bg-gradient-to-r from-blue-900 to-purple-900 text-white rounded-full hover:brightness-50 animate-pulse;
+      @apply text-xl px-10 py-2 border-2 border-white bg-gradient-to-r from-blue-900 to-purple-900 text-white rounded-full hover:brightness-50;
     }
 
     .btn-student {

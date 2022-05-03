@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use App\Models\Traits\DormTrait;
+use App\Models\Traits\HasAvatar;
 use App\Models\Traits\HasChat;
 use App\Models\Traits\HasMarket;
 use App\Models\Traits\HasPaymentTransactions;
+use App\Models\Traits\HasTutorial;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Traits\ScholarTrait;
 use App\Models\Traits\StudentTrait;
@@ -26,6 +28,8 @@ class User extends Authenticatable implements MustVerifyEmail
         ScholarTrait,
         StudentTrait,
         DormTrait,
+        HasTutorial,
+        HasAvatar,
         HasRoles;
 
     protected $with = [
@@ -58,6 +62,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'last_login_at',
         'email_verified_at',
+        'tutorial_finished',
+        'avatar_updated',
     ];
 
     //helper methods
