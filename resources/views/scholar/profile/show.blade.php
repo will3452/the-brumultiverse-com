@@ -50,6 +50,11 @@
                                 </option>
                             </x-scholar.form.select>
 
+                            <x-scholar.form.select label="Type" name="type">
+                                <option value="Author">Author</option>
+                                <option value="Artist">Artist</option>
+                            </x-scholar.form.select>
+
                             <x-scholar.form.select
                                 name="country"
                                 label="Country"
@@ -76,6 +81,9 @@
                     <th></th>
                     <th class="dark:bg-gray-900 dark:text-white">
                         Pen Name
+                    </th>
+                    <th class="dark:bg-gray-900 dark:text-white">
+                        Type
                     </th>
                     <th class="dark:bg-gray-900 dark:text-white">
                         Country
@@ -116,6 +124,9 @@
                         </td>
                         <td class="dark:bg-gray-900 dark:text-white">
                             {{$a->penname}}
+                        </td>
+                        <td class="dark:bg-gray-900 dark:text-white">
+                            {{$a->type}}
                         </td>
                         <td class="dark:bg-gray-900 dark:text-white">
                             {{$a->country_full}}

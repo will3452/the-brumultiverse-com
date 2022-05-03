@@ -41,7 +41,7 @@ class UserRequest extends FormRequest
             'college' => 'required',
             'course' => 'required',
             'club' => 'required',
-            'role' => 'required',
+            // 'role' => 'required',
             'picture' => ['required', 'image', 'max:5000']
         ];
     }

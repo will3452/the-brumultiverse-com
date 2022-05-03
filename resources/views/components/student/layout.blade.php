@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BRUMULTIVERSE</title>
+    @stack('head-script')
     <link href="/css/app.css" rel="stylesheet"/>
     <script src="/js/app.js" defer></script>
     <x-vendor.alpinejs/>
     <x-vendor.typewriterjs/>
-    @stack('head-script')
+
 </head>
 <body class="relative bg-black max-h-screen">
     <div class="w-full relative mx-auto overflow-hidden max-h-screen">

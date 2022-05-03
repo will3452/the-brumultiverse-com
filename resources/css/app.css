@@ -19,9 +19,14 @@
     border-radius: 5px;
     padding: 2px 6px;
 }
+
 @layer components {
     .btn-student-active {
       @apply text-xl px-10 py-2 border-2 border-white bg-gradient-to-r from-blue-900 to-purple-900 text-white rounded-full hover:brightness-50;
+    }
+
+    .bg-active {
+        @apply bg-gradient-to-r from-blue-900 to-purple-900 text-white
     }
 
     .btn-student {
@@ -61,7 +66,7 @@
     top:25vh;
 }
 
-a, button, label, .dropdown, .btn, .breadcrumbs a, img:hover {
+a, button, label, .dropdown, .btn, .breadcrumbs a, img:hover, .work-card {
     cursor: url('/img/cursor/pointer.png'), default;
 }
 

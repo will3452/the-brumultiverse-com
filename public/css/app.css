@@ -2920,6 +2920,14 @@ body[dir="rtl"] .checkbox:checked,
   --tw-brightness: brightness(.5);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
+.bg-active {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+  --tw-gradient-from: #1e3a8a;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(30 58 138 / 0));
+  --tw-gradient-to: #581c87;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
 .btn-student {
   border-radius: 9999px;
   border-width: 2px;
@@ -3124,6 +3132,9 @@ body[dir="rtl"] .checkbox:checked,
 .m-2 {
   margin: 0.5rem;
 }
+.m-10 {
+  margin: 2.5rem;
+}
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -3159,6 +3170,10 @@ body[dir="rtl"] .checkbox:checked,
 .my-24 {
   margin-top: 6rem;
   margin-bottom: 6rem;
+}
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 .my-3 {
   margin-top: 0.75rem;
@@ -3217,6 +3232,12 @@ body[dir="rtl"] .checkbox:checked,
 }
 .mb-1 {
   margin-bottom: 0.25rem;
+}
+.mt-28 {
+  margin-top: 7rem;
+}
+.mb-52 {
+  margin-bottom: 13rem;
 }
 .-ml-2 {
   margin-left: -0.5rem;
@@ -3391,6 +3412,15 @@ body[dir="rtl"] .checkbox:checked,
 .w-64 {
   width: 16rem;
 }
+.w-12 {
+  width: 3rem;
+}
+.w-40 {
+  width: 10rem;
+}
+.w-36 {
+  width: 9rem;
+}
 .max-w-5xl {
   max-width: 64rem;
 }
@@ -3545,6 +3575,18 @@ body[dir="rtl"] .checkbox:checked,
 .rounded-lg {
   border-radius: 0.5rem;
 }
+.rounded-r-xl {
+  border-top-right-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+}
+.rounded-l-full {
+  border-top-left-radius: 9999px;
+  border-bottom-left-radius: 9999px;
+}
+.rounded-r-full {
+  border-top-right-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+}
 .border-4 {
   border-width: 4px;
 }
@@ -3577,6 +3619,9 @@ body[dir="rtl"] .checkbox:checked,
 }
 .border-r-4 {
   border-right-width: 4px;
+}
+.border-r-0 {
+  border-right-width: 0px;
 }
 .border-b-2 {
   border-bottom-width: 2px;
@@ -3620,6 +3665,10 @@ body[dir="rtl"] .checkbox:checked,
 }
 .border-transparent {
   border-color: transparent;
+}
+.border-purple-900 {
+  --tw-border-opacity: 1;
+  border-color: rgb(88 28 135 / var(--tw-border-opacity));
 }
 .border-base-300 {
   --tw-border-opacity: 1;
@@ -3995,13 +4044,13 @@ body[dir="rtl"] .checkbox:checked,
   --tw-text-opacity: 1;
   color: rgb(185 28 28 / var(--tw-text-opacity));
 }
-.text-red-300 {
-  --tw-text-opacity: 1;
-  color: rgb(252 165 165 / var(--tw-text-opacity));
-}
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+.text-red-300 {
+  --tw-text-opacity: 1;
+  color: rgb(252 165 165 / var(--tw-text-opacity));
 }
 .text-purple-600 {
   --tw-text-opacity: 1;
@@ -4096,6 +4145,10 @@ body[dir="rtl"] .checkbox:checked,
   -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
           backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
+.backdrop-filter {
+  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+          backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+}
 .duration-100 {
   transition-duration: 100ms;
 }
@@ -4132,7 +4185,7 @@ body[dir="rtl"] .checkbox:checked,
     top:25vh;
 }
 
-a, button, label, .dropdown, .btn, .breadcrumbs a, img:hover {
+a, button, label, .dropdown, .btn, .breadcrumbs a, img:hover, .work-card {
     cursor: url('/img/cursor/pointer.png'), default;
 }
 

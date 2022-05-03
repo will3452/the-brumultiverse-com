@@ -3,8 +3,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AvatarController;
 use App\Http\Controllers\Student\ClosetController;
 use App\Http\Controllers\Student\DormController;
+use App\Http\Controllers\Student\LibraryController;
 use App\Http\Controllers\Student\LoginController;
 use App\Http\Controllers\Student\MapController;
+use App\Http\Controllers\Student\MuseumController;
 use App\Http\Controllers\Student\PaymentController;
 use App\Http\Controllers\Student\RegisterController;
 
@@ -31,3 +33,14 @@ Route::prefix('dorm')->name('dorm.')->group(function () {
 
 //closet
 Route::get('/closet-tutorial', [ClosetController::class, 'tutorial'])->name('closet.tutorial');
+
+
+// library
+Route::prefix('library')->name('library.')->group(function () {
+    Route::get('/', [LibraryController::class, 'index'])->name('index');
+});
+
+// museum
+Route::prefix('museum')->name('museum.')->group(function () {
+    Route::get('/', [MuseumController::class, 'index'])->name('index');
+});

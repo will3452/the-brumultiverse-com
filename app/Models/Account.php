@@ -20,6 +20,7 @@ class Account extends Model
         'picture',
         'copyright_disclaimer',
         'approved_at',
+        'type',
     ];
 
     protected $with = [

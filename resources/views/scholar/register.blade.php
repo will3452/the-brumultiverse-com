@@ -8,11 +8,6 @@
 
             <x-scholar.form.input label="AAN" name="aan" help="<a href='/contact-form' class='block  text-purple-700' >I have no yet AAN</a>" />
 
-            <x-scholar.form.select name="role" label="Register As">
-                <option value="{{\App\Models\User::ROLE_AUTHOR}}">{{\App\Models\User::ROLE_AUTHOR}}</option>
-                <option value="{{\App\Models\User::ROLE_ARTIST}}">{{\App\Models\User::ROLE_ARTIST}}</option>
-            </x-scholar.form.select>
-
             <div class="flex w-full">
                 <div class="w-1/2 pr-1">
                     <x-scholar.form.input name="first_name" label="First Name"/>

@@ -21,6 +21,7 @@ class CreateAccountsTable extends Migration
             $table->string('country');
             $table->string('penname')->unique();
             $table->string('picture');
+            $table->string('type')->default('Author');
             $table->timestamp('approved_at')->nullable();
             $table->timestamps();
         });

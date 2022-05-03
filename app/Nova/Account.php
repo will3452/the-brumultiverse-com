@@ -76,6 +76,12 @@ class Account extends Resource
                     'pending' => 'info',
                 ]),
 
+            Select::make('Type')
+                ->options([
+                    'Artist' => 'Artist',
+                    'Author' => 'Author',
+                ])->rules(['required']),
+
             Text::make('PenName', 'penname')
                 ->hideWhenUpdating(fn () => $this->approved_at !== null)
                 ->rules(['required', 'unique:accounts,penname,{{resourceId}}']),

@@ -83,6 +83,7 @@ class User extends Authenticatable implements MustVerifyEmail
     const ROLE_AUTHOR = 'Author';
     const ROLE_NORMAL = 'Normal';
     const ROLE_ARTIST = 'Artist';
+    const ROLE_SCHOLAR = 'Scholar';
     const ROLE_ADMIN = 'Super Admin';
 
     const GENDER_MALE = 'Male';
@@ -92,7 +93,7 @@ class User extends Authenticatable implements MustVerifyEmail
     public function isScholar(): bool
     {
         return $this->hasRole(self::ROLE_ARTIST) ||
-            $this->hasRole(self::ROLE_AUTHOR);
+            $this->hasRole(self::ROLE_AUTHOR) || $this->hasRole(self::ROLE_SCHOLAR);
     }
 
     public function aan()

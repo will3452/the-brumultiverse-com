@@ -53,6 +53,7 @@ class ProfileController extends Controller
         $data = $request->validate([
             'penname' => ['required', 'unique:accounts,penname'],
             'gender' => ['required'],
+            'type' => ['required'],
             'country' => ['required'],
             'picture' => ['required', 'image', 'max:2000'],
             'copyright_disclaimer' => '',

@@ -53,15 +53,15 @@
                 Item.src = `${this.baseUri}/${path}`;
             },
             objectClickables : [
-                {item:'library', path:'active-library.png', url:''},
-                {item:'admin', path:'active-admin-building.png', url:''},
-                {item:'berkeley', path:'active-berkeley-hall.png', url:''},
-                {item:'hippodrome', path:'active-hippodrome.png', url:''},
-                {item:'is', path:'active-integrated-school.png', url:''},
-                {item:'museum', path:'active-museum.png', url:''},
-                {item:'reagan', path:'active-reagan-hall.png', url:''},
-                {item:'teather', path:'active-theater.png', url:''},
-                {item:'vacant', path:'active-vacant-slot.png', url:''}
+                {item:'library', path:'active-library-min.png', url:''},
+                {item:'admin', path:'active-admin-building-min.png', url:''},
+                {item:'berkeley', path:'active-berkeley-hall-min.png', url:''},
+                {item:'hippodrome', path:'active-hippodrome-min.png', url:''},
+                {item:'is', path:'active-integrated-school-min.png', url:''},
+                {item:'museum', path:'active-museum-min.png', url:''},
+                {item:'reagan', path:'active-reagan-hall-min.png', url:''},
+                {item:'teather', path:'active-theater-min.png', url:''},
+                {item:'vacant', path:'active-vacant-slot-min.png', url:''}
             ],
         init () {
             this.screenWidth = window.innerWidth;
@@ -98,7 +98,7 @@
 
             // load base map image
             let baseMap = new Image();
-            baseMap.src = this.baseUri + 'base.png';
+            baseMap.src = this.baseUri + 'base-min.png';
 
             baseMap.onload = () => {
                 let sw = this.screenWidth;
