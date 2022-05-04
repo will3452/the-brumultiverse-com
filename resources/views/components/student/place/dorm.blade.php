@@ -55,7 +55,6 @@
                     container: '#konva-container',
                     height: height,
                     width:width,
-                    draggable:true,
                 })
 
                 this.stage.on('dragmove', function() {

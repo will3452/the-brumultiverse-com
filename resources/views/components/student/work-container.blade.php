@@ -5,6 +5,9 @@
         {{$slot}}
     </div>
 </div>
+@push('head-script')
+    <x-vendor.jsmodal/>
+@endpush
 @push('body-script')
     <script>
         $(document).ready(function(){

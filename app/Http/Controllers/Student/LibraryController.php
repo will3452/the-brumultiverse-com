@@ -19,4 +19,9 @@ class LibraryController extends Controller
     {
         return view('student.library.index', ['works' => $this->getBooks()]);
     }
+
+    public function show(Book $work)
+    {
+        return view('student.library.show', compact('work'));
+    }
 }
