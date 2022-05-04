@@ -47,6 +47,7 @@
         clickableSetter() {
             this.objectClickables.forEach((item) => this.loadClickables(item))
         },
+        userDorm:`{{auth()->user()->interest->college_id}}`,
         loadClickables({item, path}) {
                 const Item = new Image();
 
@@ -64,9 +65,25 @@
 
                     kItem.on('mouseover', function () {
                         this.opacity(1)
-                    })
+                    });
+
+                    let dorms = ['berkeley', 'is', 'reagan'];
 
                     kItem.on('click', () => {
+                        if (dorms.find((e) => e === item)) {
+                            if (this.userDorm == 1 && item == 'is') {
+                                window.location.href = '{{route("student.dorm.me")}}';
+                                return;
+                            }
+                            if (this.userDorm == 2 && item == 'berkeley') {
+                                window.location.href = '{{route("student.dorm.me")}}';
+                                return;
+                            }
+                            if (this.userDorm == 3 && item == 'reagan') {
+                                window.location.href = '{{route("student.dorm.me")}}';
+                                return;
+                            }
+                        }
                         this.step = item;
                     });
 
