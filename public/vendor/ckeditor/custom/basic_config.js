@@ -14,7 +14,7 @@ CKEDITOR.editorConfig = function( config ) {
         { name: 'colors', groups: [ 'colors' ] },
         { name: 'about', groups: [ 'about' ] }
     ];
-    config.extraPlugins = 'pastefromword,font';
+    config.extraPlugins = 'pastefromword,font,pastefromgdocs';
     config.format_tags = 'p;h1;h2;h3;pre';
     config.removeButtons = 'Underline,Subscript,Superscript,Cut,Copy,Paste,PasteText,PasteFromWord,Image,Table,HorizontalRule,SpecialChar,Source,Outdent,Indent,About,Scayt,BulletedList,NumberedList,Redo,Blockquote';
 };

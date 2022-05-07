@@ -108,7 +108,7 @@
                 </x-scholar.modal> --}}
             </div>
             <div class="flex justify-center">
-                <a class="btn btn-sm btn-scholar" href="{{route('scholar.book.demo', ['book' => $book])}}">View Demo</a>
+                <a class="btn btn-sm btn-scholar" href="javascript:alert('under maintenance')">View Demo</a>
             </div>
         </div>
     </div>
