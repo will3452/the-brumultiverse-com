@@ -9,27 +9,29 @@
         </div>
     </div>
 @else
-<x-scholar.modal extra="btn-sm" button="request to publish">
-    <div>
-        @if (! $model->hasPendingPublishApproval() && ! $model->wasPublishedApproved())
-            <form action="{{route('scholar.request.publish')}}" method="POST">
-                <div class="bg-yellow-200 text-yellow-900 p-2 text-xs rounded">
-                    Reminder: Editing other details of your work alone, is not possible, when it has a published date.
+<div class="flex justify-center">
+    <x-scholar.modal extra="btn-sm" button="request to publish">
+        <div>
+            @if (! $model->hasPendingPublishApproval() && ! $model->wasPublishedApproved())
+                <form action="{{route('scholar.request.publish')}}" method="POST">
+                    <div class="bg-yellow-200 text-yellow-900 p-2 text-xs rounded">
+                        Reminder: Editing other details of your work alone, is not possible, when it has a published date.
+                    </div>
+                    @csrf
+                    <input type="hidden" name="type" value="{{$model->modelType()}}">
+                    <input type="hidden" name="id" value="{{$model->id}}">
+                    <x-scholar.form.date label="Date" name="preferred_date"/>
+                    <x-scholar.form.ckeditor name="notes" label="Notes"/>
+                    <x-scholar.form.submit>
+                        Submit
+                    </x-scholar.form.submit>
+                </form>
+            @elseif($model->hasPendingPublishApproval())
+                <div>
+                    You have submitted, and your request is processed.
                 </div>
-                @csrf
-                <input type="hidden" name="type" value="{{$model->modelType()}}">
-                <input type="hidden" name="id" value="{{$model->id}}">
-                <x-scholar.form.date label="Date" name="preferred_date"/>
-                <x-scholar.form.ckeditor name="notes" label="Notes"/>
-                <x-scholar.form.submit>
-                    Submit
-                </x-scholar.form.submit>
-            </form>
-        @elseif($model->hasPendingPublishApproval())
-            <div>
-                You have submitted, and your request is processed.
-            </div>
-        @endif
-    </div>
-</x-scholar.modal>
+            @endif
+        </div>
+    </x-scholar.modal>
+</div>
 @endif
