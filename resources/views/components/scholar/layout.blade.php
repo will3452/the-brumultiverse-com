@@ -43,7 +43,8 @@
             {{$slot}}
         </x-scholar.container>
     </div>
-    <x-dev.bug-reporter/>
+    {{-- <x-dev.bug-reporter/> --}}
+    <x-dev.tawkto/>
     <x-scholar.page.footer/>
     <script data-pace-options='{ "ajax": false }' src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
     @stack('body-script')

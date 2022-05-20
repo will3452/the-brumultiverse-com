@@ -37,7 +37,7 @@
             </x-home-text-container>
         </footer>
     </div>
-
+    <x-dev.tawkto/>
 <x-vendor.alpinejs/>
 </body>
 </html>
