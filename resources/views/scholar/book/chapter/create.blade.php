@@ -54,7 +54,9 @@
                 <div>
                     <x-scholar.form.select label="Type" name="type" model="type">
                         @foreach (\App\Models\Chapter::TYPE_OPTIONS as $o)
-                            <option value="{{$o}}">{{$o}}</option>
+                            @if (! ($o == \App\Models\Chapter::TYPE_PREMIUM && $book->type === \App\Models\Book::TYPE_SPIN))
+                                <option value="{{$o}}">{{$o}}</option>
+                            @endif
                         @endforeach
                     </x-scholar.form.select>
                     <template x-if="(type == `{{\App\Models\Chapter::TYPE_PREMIUM}}` || type == `{{\App\Models\Chapter::TYPE_PREMIUM_WITH_FREE_ART_SCENE}}`)">

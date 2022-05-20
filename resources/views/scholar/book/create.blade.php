@@ -94,6 +94,7 @@
             @foreach ($colleges as $name)
                 <option value="{{$name}}">{{$name}}</option>
             @endforeach
+            <option value="NON-BRU">NON-BRU</option>
         </x-scholar.form.select>
 
         <x-scholar.form.ckeditor name="blurb" label="Blurb"/>
