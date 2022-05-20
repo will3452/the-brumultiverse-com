@@ -8,8 +8,8 @@
         {{$slot}}
     </div>
 @if ($editable)
-{{-- <x-scholar.form.submit>
+<x-scholar.form.submit>
     Update
-</x-scholar.form.submit> --}}
+</x-scholar.form.submit>
 </form>
 @endif

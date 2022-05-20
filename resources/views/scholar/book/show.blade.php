@@ -100,16 +100,18 @@
             <div class="flex justify-center">
                 <x-scholar.ticket-form :model="$book" />
             </div>
-            <div class="flex justify-center flex-wrap items-center">
+            <div class="flex justify-content-center items-center">
                 <x-scholar.request-publish-form :model="$book"/>
+            </div>
+            <div class="flex justify-center flex-wrap items-center">
                 <a href="{{route('scholar.book.chapters', ['book' => $book->id])}}" class="btn btn-scholar btn-sm m-2">View all chapters.</a>
                 {{-- <x-scholar.modal extra="btn-sm btn-warning" button="Send ticket">
                     Send Ticket
                 </x-scholar.modal> --}}
             </div>
-            <div class="flex justify-center">
+            {{-- <div class="flex justify-center">
                 <a class="btn btn-sm btn-scholar" href="javascript:alert('under maintenance')">View Demo</a>
-            </div>
+            </div> --}}
         </div>
     </div>
     @push('head-script')
