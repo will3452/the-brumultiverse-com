@@ -9,7 +9,7 @@
     </div>
 @if ($editable)
 <x-scholar.form.submit>
-    Update
+    Save Changes
 </x-scholar.form.submit>
 </form>
 @endif
