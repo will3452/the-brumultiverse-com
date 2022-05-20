@@ -13,7 +13,7 @@ use App\Http\Controllers\EmailVerificationController;
 
 
 //home & static
-Route::view('/landing-business', 'landing-business');
+Route::view('/landing-business', 'landing-business'); // new
 Route::redirect('/', '/welcome');
 Route::redirect('/login', '/scholars/login')->name('login');
 Route::redirect('/home', '/scholars/home');

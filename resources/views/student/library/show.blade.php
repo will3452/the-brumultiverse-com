@@ -41,10 +41,10 @@
                     </tr>
                     <tr>
                         <th class="text-left mr-2 font-bold">
-                            Description
+                            Blurb
                         </th>
-                        <td class="text-sm font-mono max-h-40 overflow-y-auto">
-                            {!!$work->blurb!!}
+                        <td class="text-sm font-mono max-h-40">
+                            {!!\Str::limit($work->blurb, 200)!!}
                         </td>
                     </tr>
                     <tr>
