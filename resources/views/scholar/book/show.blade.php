@@ -100,7 +100,7 @@
             <div class="flex justify-center">
                 <x-scholar.ticket-form :model="$book" />
             </div>
-            <div class="flex justify-content-center items-center">
+            <div class="flex justify-center items-center">
                 <x-scholar.request-publish-form :model="$book"/>
             </div>
             <div class="flex justify-center flex-wrap items-center">
