@@ -31,13 +31,13 @@
                 </div>
             </a>
         </div>
-        <div class="dropdown dropdown-end">
+        {{-- <div class="dropdown dropdown-end">
             <a target="_blank" href="{{auth()->user()->chat_url}}" class="btn btn-ghost btn-circle">
                 <div class="indicator dark:invert">
                     <x-nova.icon-message/>
                 </div>
             </a>
-        </div>
+        </div> --}}
 
         <div class="dropdown dropdown-end">
             <label tabindex="0" class="btn btn-ghost btn-circle avatar">
