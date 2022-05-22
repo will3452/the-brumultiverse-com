@@ -50,7 +50,7 @@ class ChatController extends Controller
         ]);
 
         $message = $chat->messages()->create(['message'=> $request->message, 'user_id' => auth()->id()]);
-        //just to take on top
+        //to take on top
         $chat->updated_at = now();
         $chat->save();
         return $message;

@@ -53,6 +53,22 @@
       .quick-search {
           @apply input input-bordered input-sm;
       }
+
+      .message-me {
+          @apply flex justify-end;
+      }
+
+      .message-other {
+          @apply flex justify-start;
+      }
+
+      .message-me .message {
+          @apply bg-blue-500 text-white p-2 rounded ;
+      }
+
+      .message-other .message {
+          @apply bg-gray-300 p-2 rounded;
+      }
   }
 
 

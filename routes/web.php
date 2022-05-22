@@ -3,6 +3,7 @@
 use Laravel\Nova\Nova;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\Chat1Controller;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AvatarController;
 use App\Http\Controllers\InquiryController;
@@ -46,12 +47,17 @@ Route::delete('/filepond-revert', [FileUploaderController::class, 'filePondRever
 Route::get('/contact-form', fn () => view('contact-form'));
 Route::post('/contact-form', [InquiryController::class, 'submit']);
 
-//chats
+//old chats admin supported
 Route::post('/chats', [ChatController::class, 'store']);
 Route::get('/chats/create', [ChatController::class, 'create']);
 Route::get('/chats/{chat}', [ChatController::class, 'index']);
 Route::post('/messages/create/{chat}', [ChatController::class, 'createMessage']);
 
+//new chat interface for scholars and students
+Route::get('/chats-1/create', [Chat1Controller::class, 'create'])->name('chat.1.create');
+Route::post('/chats-1', [Chat1Controller::class, 'store'])->name('chat.1.store');
+Route::get('/chats-1/{chat}', [Chat1Controller::class, 'index'])->name('chat.1.index');
+Route::post('/messages/create-1/{chat}', [Chat1Controller::class, 'createMessage'])->name('chat.1.create.message');
 //misc
 Route::get('get-annex', [AnnexController::class, 'getAnnex']);
 Route::view('/terms-and-conditions', 'tnc');

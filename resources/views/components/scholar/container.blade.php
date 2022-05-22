@@ -7,11 +7,12 @@
             <x-scholar.sidebar-item label="Profile" :href="route('scholar.profile.show', ['user' => auth()->id()])"/>
             <x-scholar.sidebar-item label="Groups" :href="route('scholar.group.index')" />
             <x-scholar.sidebar-item label="Payments" :href="route('scholar.transaction.index')"/>
+            <x-scholar.sidebar-item label="Messages" :href="auth()->user()->getChat(1)" />
             <x-scholar.sidebar-item label="Reports" href="javascript:alert('underdevelopment')"/>
         </ul>
     </div>
     @endauth
-    <div class="w-full md:w-10/12 relative h-screen overflow-y-auto mx-auto">
+    <div class="w-10/12 relative h-screen overflow-y-auto mx-auto">
         {{$alert}}
         <div class="p-4">
             {{$slot}}

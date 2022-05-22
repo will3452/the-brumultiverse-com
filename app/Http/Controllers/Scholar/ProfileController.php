@@ -55,7 +55,7 @@ class ProfileController extends Controller
             'gender' => ['required'],
             'type' => ['required'],
             'country' => ['required'],
-            'picture' => ['required', 'image', 'max:2000'],
+            'picture' => ['required', 'image', 'max:5000'],
             'copyright_disclaimer' => '',
         ]);
 
