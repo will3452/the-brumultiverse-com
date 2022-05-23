@@ -128,8 +128,8 @@
                     this.layer.draw();
                 },
                 init() {
-                    this.step = 2;
-                    this.loadImageSelected(1); // for testing
+                    this.step = 1;
+                    // this.loadImageSelected(1); // for testing
                     this.initLayer();
                     var bookCoverEl = document.querySelector('#bookCover');
                     bookCoverEl.addEventListener('change', () => {
