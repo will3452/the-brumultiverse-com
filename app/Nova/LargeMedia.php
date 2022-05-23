@@ -20,7 +20,7 @@ class LargeMedia extends Media
 
     public static function availableForNavigation(Request $request)
     {
-        return auth()->user()->hasRole(\App\Models\Role::SUPERADMIN);
+        return false;
     }
 
     public function fields(Request $request)

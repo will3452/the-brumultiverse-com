@@ -2,31 +2,29 @@
 
 namespace App\Nova;
 
-use App\Helpers\FormHelper;
-use App\Rules\ShouldChecked;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
-use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\Date;
-use Laravel\Nova\Fields\File;
-use Laravel\Nova\Fields\Hidden;
 use Laravel\Nova\Fields\ID;
+use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\Hidden;
+use Laravel\Nova\Fields\Select;
+use App\Helpers\MarketingHelper;
+use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\BelongsTo;
+use App\Nova\Traits\MarketingTrait;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Media extends Resource
+class Marquee extends Resource
 {
-    public static $group = 'misc';
+    use MarketingTrait;
+
+public static $group = 'Marketing';
+
     /**
      * The model the resource corresponds to.
      *
      * @var string
      */
-    public static $model = \App\Models\Media::class;
-
-    public static function availableForNavigation(Request $request)
-    {
-        return false;
-    }
+    public static $model = \App\Models\Marquee::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -44,6 +42,9 @@ class Media extends Resource
         'id',
     ];
 
+
+    const PACKAGE_TYPE = \App\Models\Package::TYPE_MARQUEE;
+
     /**
      * Get the fields displayed by the resource.
      *
@@ -53,13 +54,31 @@ class Media extends Resource
     public function fields(Request $request)
     {
         return [
-            Date::make('Date Uploaded', 'created_at')
+            Date::make('Created date', 'created_at')
+                ->sortable()
                 ->exceptOnForms(),
-            File::make('File', 'path')
+            BelongsTo::make('User', 'user', User::class)
+                ->exceptOnForms(),
+            Select::make('Package', 'package_id')
+                ->rules(['required'])
+                ->displayUsingLabels()
+                ->options($this->optionPackages()),
+            Date::make('Scheduled At')
+                ->rules(['required', 'after:now']),
+            Textarea::make('Content')
+                ->alwaysShow()
+                ->rules(['required', 'max:100']),
+            Hidden::make('user_id')
+                ->default(fn () => auth()->id()),
+            Select::make('Status')
+                ->options([
+                    MarketingHelper::STATUS_DRAFT => MarketingHelper::STATUS_DRAFT,
+                    MarketingHelper::STATUS_RESUBMIT => MarketingHelper::STATUS_RESUBMIT,
+                    MarketingHelper::STATUS_SAVED => MarketingHelper::STATUS_SAVED,
+                    MarketingHelper::STATUS_ENDED => MarketingHelper::STATUS_ENDED,
+                    MarketingHelper::STATUS_RUNNING => MarketingHelper::STATUS_RUNNING,
+                ])
                 ->rules(['required']),
-            Boolean::make('Copyright Disclaimer')
-                ->help(nova_get_setting('copyright_disclaimer'))
-                ->rules(['required', (new ShouldChecked)]),
         ];
     }
 

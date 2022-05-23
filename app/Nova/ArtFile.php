@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 class ArtFile extends Media
 {
+
     public static function createButtonLabel()
     {
         return 'Upload Art';

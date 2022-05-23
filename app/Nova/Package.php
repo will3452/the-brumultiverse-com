@@ -25,7 +25,10 @@ class Package extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public function title ()
+    {
+        return "$this->type - $this->number_of_days - $this->cost";
+    }
 
     /**
      * The columns that should be searched.
