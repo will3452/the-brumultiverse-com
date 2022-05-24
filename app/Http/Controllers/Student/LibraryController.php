@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class LibraryController extends Controller
 {
+    public function intro()
+    {
+        return view('student.library.intro');
+    }
 
     public function getBooks()
     {

@@ -37,6 +37,7 @@ Route::get('/closet-tutorial', [ClosetController::class, 'tutorial'])->name('clo
 
 // library
 Route::prefix('library')->name('library.')->group(function () {
+    Route::get('/intro', [LibraryController::class, 'intro'])->name('intro');
     Route::get('/', [LibraryController::class, 'index'])->name('index');
     Route::get('/{work}', [LibraryController::class, 'show'])->name('show');
 });
