@@ -14,60 +14,46 @@
             <img style="width:200px;" src="{{$work->artFile ? optional($work->artFile)->withWatermark() : optional($work->cover)->withFrame()}}" alt="" />
 
             <div class="flex-1 mx-4 p-4 rounded shadow-md">
-                <table class="table w-full">
-                    <tr>
-                        <th class="text-left mr-2 font-bold">
-                            Title
-                        </th>
-                        <td>
-                            {{$work->title}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="text-left mr-2 font-bold">
-                            Category
-                        </th>
-                        <td>
-                            {{$work->category->name}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="text-left mr-2 font-bold">
-                            Author
-                        </th>
-                        <td>
-                            {{$work->account->penname}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="text-left mr-2 font-bold">
-                            Blurb
-                        </th>
-                        <td class="text-sm font-mono max-h-40">
-                            {!!\Str::limit($work->blurb, 200)!!}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="text-left mr-2 font-bold">
-                            Rating
-                        </th>
-                        <td class="text-sm font-mono max-h-40 overflow-y-auto ">
-                            <div class="rating rating-sm">
-                                <input type="radio" name="rating-1" disabled class="mask mask-star-2 bg-orange-400">
-                                <input type="radio" name="rating-1" disabled class="mask mask-star-2 bg-orange-400" checked>
-                                <input type="radio" name="rating-1" disabled class="mask mask-star-2 bg-orange-400">
-                                <input type="radio" name="rating-1" disabled class="mask mask-star-2 bg-orange-400">
-                                <input type="radio" name="rating-1" disabled class="mask mask-star-2 bg-orange-400">
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-
+                <div>
+                    <span class="font-bold">
+                        Title :
+                    </span>
+                    {{$work->title}}
+                </div>
+                <div>
+                    <span class="font-bold">
+                        Category :
+                    </span>
+                    {{$work->category->name}}
+                </div>
+                <div>
+                    <span class="font-bold">
+                        Author:
+                    </span>
+                    {{$work->account->penname}}
+                </div>
+                <div>
+                    <span class="font-bold">
+                        Blurb:
+                    </span>
+                    <div  style="max-height:300px;" class="overflow-y-auto">
+                        {!!\Str::limit($work->blurb, 200)!!}
+                    </div>
+                </div>
+               @if (false)
+                   {{-- show if the rating is able --}}
+                   <div class="rating rating-sm">
+                    <input type="radio" name="rating-1" disabled class="mask mask-star-2 bg-orange-400">
+                    <input type="radio" name="rating-1" disabled class="mask mask-star-2 bg-orange-400" checked>
+                    <input type="radio" name="rating-1" disabled class="mask mask-star-2 bg-orange-400">
+                    <input type="radio" name="rating-1" disabled class="mask mask-star-2 bg-orange-400">
+                    <input type="radio" name="rating-1" disabled class="mask mask-star-2 bg-orange-400">
+                </div>
+               @endif
             </div>
         </div>
         <div class="my-4">
-            <a href="javascript:alert('under dev')" class="btn btn-secondary">PREVIEW</a>
-            <a href="javascript:alert('under dev')" class="btn btn-primary">ADD TO COLLECTION</a>
+            <a href="javascript:alert('bookshelves is under dev :)')" class="btn btn-primary">ADD TO COLLECTION</a>
         </div>
     </div>
 </body>
