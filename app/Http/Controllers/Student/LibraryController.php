@@ -22,7 +22,7 @@ class LibraryController extends Controller
     public function index(Request $request)
     {
         $works = [];
-        if ($request->has('search')) {
+        if ($request->has('search') && $request->search != '') {
             $works = Book::where('title', 'LIKE', '%'.$request->search.'%')->get();
         } else {
             $works = $this->getBooks();

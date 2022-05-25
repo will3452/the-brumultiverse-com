@@ -16,7 +16,7 @@ class MuseumController extends Controller
     public function index(Request $request)
     {
         $works = [];
-        if ($request->has('search')) {
+        if ($request->has('search') && $request->search != '') {
             $works = ArtScene::where('title', 'LIKE', '%'.$request->search.'%')->get();
         } else {
             $works = $this->getArts();

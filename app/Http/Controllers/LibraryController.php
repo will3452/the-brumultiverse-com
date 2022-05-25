@@ -10,7 +10,7 @@ class LibraryController extends Controller
     public function index()
     {
         $books = [];
-        if (request()->has('search')) {
+        if (request()->has('search') && $request->search != '') {
             $keyword = request()->keyword;
             $books = Book::published()->where('title', "LIKE", "%$keyword%")->get();
         } else {
