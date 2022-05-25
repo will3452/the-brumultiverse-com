@@ -53,7 +53,7 @@
             </div>
         </div>
         <div class="my-4">
-            <a href="javascript:alert('bookshelves is under dev :)')" class="btn btn-primary">ADD TO COLLECTION</a>
+            <a href="javascript:alert('bookshelves are under dev :)')" class="btn btn-primary">ADD TO COLLECTION</a>
         </div>
     </div>
 </body>
