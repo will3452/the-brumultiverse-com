@@ -37,7 +37,7 @@
                         Blurb:
                     </span>
                     <div  style="max-height:300px;" class="overflow-y-auto">
-                        {!!\Str::limit($work->blurb)!!}
+                        {!!$work->blurb!!}
                     </div>
                 </div>
                @if (false)
