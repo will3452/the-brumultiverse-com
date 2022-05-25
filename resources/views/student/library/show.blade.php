@@ -28,13 +28,13 @@
                 </div>
                 <div>
                     <span class="font-bold">
-                        Author:
+                        Author :
                     </span>
                     {{$work->account->penname}}
                 </div>
                 <div>
                     <span class="font-bold">
-                        Blurb:
+                        Blurb :
                     </span>
                     <div  style="max-height:300px;" class="overflow-y-auto">
                         {!!$work->blurb!!}
