@@ -21,12 +21,14 @@ use App\Models\Traits\HasViolenceLevel;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Traits\HasReviewQuestion;
 use App\Models\Traits\HasPublishApproval;
+use App\Models\Traits\HasStudentLink;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Book extends Model implements TaggableInterface
 {
     use HasFactory,
         HasTickets,
+        HasStudentLink,
         BelongsToClass,
         HasPrologue,
         HasEpilogue,
@@ -45,6 +47,8 @@ class Book extends Model implements TaggableInterface
         'tags',
         'category',
     ];
+
+    const _TYPE_LINK = 'Book';
 
     protected $casts = [
         'published_at' => 'datetime',

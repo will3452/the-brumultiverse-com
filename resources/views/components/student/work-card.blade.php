@@ -4,7 +4,7 @@
     x-on:click="
         ()=>{
             Modal.open({
-                ajaxContent:'{{route('student.library.show', ['work' => $model->id])}}',
+                ajaxContent:'{{route($model->getStudentLinks('show'), ['work' => $model->id])}}',
                 draggable:true,
                 width:'70%',
                 hideclose: true,

@@ -13,8 +13,25 @@ class MuseumController extends Controller
         return ArtScene::get()->groupBy(fn ($e) =>  $e->genre->name);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return view('student.museum.index', ['works' => $this->getArts()]);
+        $works = [];
+        if ($request->has('search')) {
+            $works = ArtScene::where('title', 'LIKE', '%'.$request->search.'%')->get();
+        } else {
+            $works = $this->getArts();
+        }
+
+        return view('student.museum.index', ['works' => $works]);
+    }
+
+    public function show(ArtScene $work)
+    {
+        return view('student.museum.show', compact('work'));
+    }
+
+    public function intro()
+    {
+        return view('student.museum.intro');
     }
 }

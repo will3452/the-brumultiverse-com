@@ -44,5 +44,7 @@ Route::prefix('library')->name('library.')->group(function () {
 
 // museum
 Route::prefix('museum')->name('museum.')->group(function () {
+    Route::get('/intro', [MuseumController::class, 'intro'])->name('intro');
     Route::get('/', [MuseumController::class, 'index'])->name('index');
+    Route::get('/{work}', [MuseumController::class, 'show'])->name('show');
 });
