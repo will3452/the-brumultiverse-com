@@ -9,15 +9,25 @@ use Illuminate\Http\Request;
 
 class LibraryController extends Controller
 {
+    public function intro()
+    {
+        return view('student.library.intro');
+    }
 
     public function getBooks()
     {
         return Book::get()->groupBy(fn ($e) =>  $e->genre->name);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return view('student.library.index', ['works' => $this->getBooks()]);
+        $works = [];
+        if ($request->has('search') && $request->search != '') {
+            $works = Book::where('title', 'LIKE', '%'.$request->search.'%')->get();
+        } else {
+            $works = $this->getBooks();
+        }
+        return view('student.library.index', ['works' => $works]);
     }
 
     public function show(Book $work)

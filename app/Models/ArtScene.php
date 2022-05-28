@@ -12,18 +12,22 @@ use Cartalyst\Tags\TaggableInterface;
 use App\Models\Traits\BelongsToAccount;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Traits\HasPublishApproval;
+use App\Models\Traits\HasStudentLink;
 use App\Models\Traits\HasTickets;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ArtScene extends Model implements TaggableInterface
 {
     use HasFactory,
+        HasStudentLink,
         HasTickets,
         BelongsToClass,
         BelongsToAccount,
         HasArtFile,
         HasPublishApproval,
         TaggableTrait;
+
+    const _TYPE_LINK = 'Art';
 
     protected $with = [
         'artFile',

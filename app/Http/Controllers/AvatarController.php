@@ -21,9 +21,9 @@ class AvatarController extends Controller
 
     public function update(Request $request)
     {
-        $base = AvatarBase::find($request->get('base'))->path;
-        $hair = AvatarAsset::find($request->get('hair'))->path;
-        $dress = AvatarAsset::find($request->get('dress'))->path;
+        $base = optional(AvatarBase::find($request->get('base')))->path;
+        $hair = optional(AvatarAsset::find($request->get('hair')))->path;
+        $dress = optional(AvatarAsset::find($request->get('dress')))->path;
 
         $avatar = [
             'user_id' => auth()->id(),

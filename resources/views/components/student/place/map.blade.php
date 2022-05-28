@@ -4,7 +4,7 @@
             <x-student.dialog-container>
                 <x-student.typing message="Do you want to enter the Library?" delay="20" clear="0"/>
                 <x-student.dialog-button-container>
-                    <a class="btn-student-active m-2" href="{{route('student.library.index')}}">
+                    <a class="btn-student-active m-2" href="{{route('student.library.intro')}}">
                         Yes
                     </a>
                     <button class="btn-student m-2" x-on:click="step = null;">
@@ -18,7 +18,7 @@
             <x-student.dialog-container>
                 <x-student.typing message="Do you want to enter the Museum?" delay="20" clear="0"/>
                 <x-student.dialog-button-container>
-                    <a class="btn-student-active m-2" href="{{route('student.museum.index')}}">
+                    <a class="btn-student-active m-2" href="{{route('student.museum.intro')}}">
                         Yes
                     </a>
                     <button class="btn-student m-2" x-on:click="step = null;">

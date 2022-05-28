@@ -43549,9 +43549,7 @@ var render = function () {
                 { attrs: { date: _vm.moment(message.created_at) } },
                 [
                   _vm._v(
-                    "\r\n            " +
-                      _vm._s(message.message) +
-                      "\r\n        "
+                    "\n            " + _vm._s(message.message) + "\n        "
                   ),
                 ]
               )
@@ -43563,9 +43561,7 @@ var render = function () {
                 { attrs: { date: _vm.moment(message.created_at) } },
                 [
                   _vm._v(
-                    "\r\n            " +
-                      _vm._s(message.message) +
-                      "\r\n        "
+                    "\n            " + _vm._s(message.message) + "\n        "
                   ),
                 ]
               )

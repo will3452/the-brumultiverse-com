@@ -28,7 +28,7 @@
                             <button class="btn-student mx-2" x-on:click="step = -1;">
                                 Next Time
                             </button>
-                            <a class="btn-student" href="/students/login">
+                            <a class="btn-student" href="{{route('student.map')}}">
                                 I'm already a BRU Student.
                             </a>
                         </x-student.dialog-button-container>
