@@ -64,7 +64,7 @@
                                 @endforeach
                             </x-scholar.form.select>
 
-                            <x-scholar.form.file help="This is the profile photo of your pen name or your scholar persona. This will be shown to the public." name="picture" label="Picture"/>
+                            <x-scholar.form.file help="<p>This is the profile photo of your pen name or your scholar persona. This will be shown to the public.</p> <p>File size up to 2mb or 2000kb only.</p> " name="picture" label="Picture"/>
 
                             <x-scholar.form.submit>
                                 Submit
