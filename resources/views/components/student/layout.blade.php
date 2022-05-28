@@ -25,7 +25,7 @@
         @guest
             @if (url()->current() == route('student.map'))
             <div class="fixed right-2 bottom-2">
-                <x-student.modal button="login">
+                <x-student.modal button="login" id="loginForm">
                     <form action="{{route('student.login')}}" method="POST" class="backdrop-brightness-50">
                         @csrf
                         <h1 class="text-white text-2xl">Login</h1>
@@ -48,5 +48,14 @@
         @endguest
     </div>
     @stack('body-script')
+    <script>
+        @guest
+            window.onload =  () => {
+                setTimeout(() => {
+                    document.getElementById('loginForm').click()
+                }, 500);
+            }
+        @endguest
+    </script>
 </body>
 </html>
