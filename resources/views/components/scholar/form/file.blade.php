@@ -1,4 +1,4 @@
-@props(['accept' => '', 'label' => '', 'name' => '', 'help' => '', 'placeholder' => '', 'required' => true])
+@props(['accept' => '', 'id' => \Str::random(), 'label' => '', 'name' => '', 'help' => '', 'placeholder' => '', 'required' => true])
 <div>
     <div class="form-control w-full">
         <label class="label">
@@ -14,6 +14,7 @@
             </span>
         </label>
         <input
+        id="{{$id}}"
         accept="{{$accept}}"
         name="{{$name}}"
         @if($required)
@@ -33,3 +34,13 @@
     <x-scholar.form.copyright-disclaimer/>
     </div>
 </div>
+
+<script>
+    document.getElementById(`{{$id}}`).addEventListener('change', function(event){
+        let file = event.target.files[0]
+        if (file.size > 2048576) {
+            alert('file must not be greater than 2mb.')
+            document.getElementById(`{{$id}}`).value = ''
+        }
+    })
+</script>
