@@ -67,9 +67,9 @@
                 </div>
                 <x-scholar.form.ckeditor name="notes" label="Author's Note">{{$chapter->notes}}</x-scholar.form.ckeditor>
                 {{-- <x-scholar.form.number name="cost" label="Chapter Cost" :value="$chapter->cost" /> --}}
-                {{-- <x-scholar.form.submit>
+                <x-scholar.form.submit>
                     Update
-                </x-scholar.form.submit> --}}
+                </x-scholar.form.submit>
             </form>
         </div>
         <div class="w-full md:w-4/12 p-4">
