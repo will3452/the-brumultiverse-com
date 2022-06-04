@@ -6,9 +6,3 @@
       </div>
       <h1 class="loader">Loading</h1>
 </div>
-<script>
-    window.onload = function () {
-        console.log('hello world')
-        document.getElementById('loader-container').style.display = 'none';
-    }
-</script>
