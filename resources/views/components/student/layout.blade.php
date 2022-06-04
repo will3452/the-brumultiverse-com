@@ -202,6 +202,11 @@
             @endif
         @endguest
     </div>
+    <script>
+        window.onload = function () {
+            document.getElementById('loader-container').style.display = 'none';
+        }
+    </script>
     @stack('body-script')
     <script>
         @guest
@@ -211,11 +216,6 @@
                 }, 500);
             }
         @endguest
-    </script>
-    <script>
-        window.onload = function () {
-            document.getElementById('loader-container').style.display = 'none';
-        }
     </script>
 </body>
 </html>
