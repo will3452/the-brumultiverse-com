@@ -28,7 +28,7 @@
         position: relative;
         }
 
-        h1:after {
+        h1.loader:after {
         position: absolute;
         content: "";
         -webkit-animation: Dots 2s cubic-bezier(0, .39, 1, .68) infinite;
@@ -47,7 +47,7 @@
             flex-direction: column;
         }
 
-        .loader {
+        div.loader {
         margin: 5% auto 30px;
         top:0px;
         }
@@ -161,7 +161,7 @@
 </head>
 <body class="relative bg-black max-h-screen">
     {{-- <x-student.loader/> --}}
-    <div class="w-full relative mx-auto overflow-hidden max-h-screen">
+    <div class="w-full relative mx-auto overflow-hidden max-h-screen" >
         <x-student.topbar/>
             {{$slot}}
         <x-student.bottombar/>
@@ -195,18 +195,18 @@
             @endif
         @endguest
     </div>
-
-    @stack('body-script')
     <script>
         @guest
-            window.onload =  () => {
-                setTimeout(() => {
-                    document.getElementById('loginForm').click()
-                    document.getElementById('loader-container').style.display = 'none';
-                }, 500);
-
+            window.onload =  function () {
+                document.getElementById('loginForm').click()
+                document.getElementById('loader-container').style.display = 'none';
+            }
+        @else
+            window.onload =  function () {
+                document.getElementById('loader-container').style.display = 'none';
             }
         @endguest
     </script>
+    @stack('body-script')
 </body>
 </html>
