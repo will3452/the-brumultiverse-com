@@ -11,8 +11,12 @@
         </span>
     </label>
     <select
-    x-on:change="{{$change}}"
-    x-model="{{$model}}"
+    @if ($change)
+        x-on:change="{{$change}}"
+    @endif
+    @if ($model)
+        x-model="{{$model}}"
+    @endif
     {{!$readonly ?:'disabled'}}
     class="select select-sm rounded-none select-bordered text-black @error($name) input-error @enderror"
     name="{{$name}}"

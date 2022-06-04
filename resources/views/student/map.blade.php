@@ -1,4 +1,5 @@
 <x-student.layout>
+    <x-student.loader/>
     @auth
         <x-student.place.map/>
     @else

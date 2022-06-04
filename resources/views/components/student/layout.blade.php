@@ -147,14 +147,7 @@
             }
             100% {
                 content: "...";
-            }
-            }
 
-        @keyframes Dots {
-        0% {
-            content: "";
-        }
-        33% {
             content: ".";
         }
         66% {
@@ -167,7 +160,7 @@
     </style>
 </head>
 <body class="relative bg-black max-h-screen">
-    <x-student.loader/>
+    {{-- <x-student.loader/> --}}
     <div class="w-full relative mx-auto overflow-hidden max-h-screen">
         <x-student.topbar/>
             {{$slot}}
@@ -202,11 +195,7 @@
             @endif
         @endguest
     </div>
-    <script>
-        window.onload = function () {
-            document.getElementById('loader-container').style.display = 'none';
-        }
-    </script>
+
     @stack('body-script')
     <script>
         @guest

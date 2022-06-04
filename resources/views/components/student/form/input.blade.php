@@ -1,4 +1,4 @@
-@props(['model' => '', 'id' => \Str::random(8), 'ref' => 'ref', 'label' => '', 'value'=> null, 'readonly' => false, 'name' => '', 'help' => '', 'placeholder' => '', 'required' => true, 'type' => 'text'])
+@props(['model' => null, 'id' => \Str::random(8), 'ref' => null , 'label' => '', 'value'=> null, 'readonly' => false, 'name' => '', 'help' => '', 'placeholder' => '', 'required' => true, 'type' => 'text'])
 <div class="form-control w-full">
     <label class="label -ml-1" for="{{$id}}">
         <span class="label-text text-white">
@@ -14,8 +14,12 @@
     </label>
     <input
     id="{{$id}}"
-    x-ref="{{$ref}}"
-    x-model="{{$model}}"
+    @if ($ref)
+        x-ref="{{$ref}}"
+    @endif
+    @if ($model)
+        x-model="{{$model}}"
+    @endif
     value="{{$value ?? old($name)}}"
     name="{{$name}}"
     @if($required)
