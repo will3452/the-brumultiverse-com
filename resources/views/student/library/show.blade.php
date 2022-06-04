@@ -36,7 +36,13 @@
                     <span class="font-bold">
                         Cost :
                     </span>
-                    {{displayCost($work->cost, $work->cost_type)}}
+                    {{ displayCost($work->cost, $work->cost_type) }}
+                </div>
+                <div>
+                    <span class="font-bold">
+                        No. Of Chapters :
+                    </span>
+                    {{ $work->chapters()->count() }}
                 </div>
                 <div>
                     <span class="font-bold">
@@ -58,8 +64,12 @@
                @endif
             </div>
         </div>
-        <div class="my-4">
-            <a href="javascript:alert('bookshelves are under dev :)')" class="btn btn-primary">ADD TO COLLECTION</a>
+        <div class="my-4" >
+            @if (auth()->user()->canAddToCollection($work))
+                <a  class="btn btn-primary">ADD TO COLLECTION</a>
+            @else
+                <a  class="btn btn-disabled">ADD TO COLLECTION</a>
+            @endif
         </div>
     </div>
 </body>

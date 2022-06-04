@@ -2,11 +2,30 @@
 
 namespace App\Models\Traits;
 
-use App\Models\Subscription;
 use App\Models\User;
+use Illuminate\Support\Str;
+use App\Models\Subscription;
 
 trait StudentTrait
 {
+    public function canAddToCollection($work)
+    {
+        $costType = Str::lower($work->cost_type);
+
+        $typeArr = explode(' ', $costType);
+        $value = $work->cost;
+
+        if ($value == 0) {
+            return true;
+        }
+
+        $type = implode('_', $typeArr);
+
+
+        return $work->cost <= auth()->user()->balance[$type];
+    }
+
+
     public function getAssistant($data = null)
     {
         $assistant = [];
