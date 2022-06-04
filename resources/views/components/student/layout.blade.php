@@ -202,15 +202,11 @@
             window.onload =  () => {
                 setTimeout(() => {
                     document.getElementById('loginForm').click()
+                    document.getElementById('loader-container').style.display = 'none';
                 }, 500);
+
             }
         @endguest
-    </script>
-    <script>
-        window.onload = function () {
-            console.log('hello world')
-            document.getElementById('loader-container').style.display = 'none';
-        }
     </script>
 </body>
 </html>
