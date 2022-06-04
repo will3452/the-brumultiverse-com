@@ -156,8 +156,6 @@
                     this.layer = new Konva.Layer();
 
                     //loader
-                    const loader = new Konva.Text({text:'loading...', fill:'white', x:0,y:0});
-                    this.layer.add(loader);
                     this.loadImages();
                     this.stage.add(this.layer);
                 }

@@ -1,5 +1,5 @@
 <x-student.layout>
-    <div class="h-screen overflow-y-auto w-screen bg-white mt-28">
+    <div class="h-screen overflow-y-auto w-screen bg-white">
         <x-student.announcement />
         <x-student.slider />
 
