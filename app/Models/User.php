@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Traits\BalanceTrait;
 use App\Models\Traits\DormTrait;
 use App\Models\Traits\HasAvatar;
 use App\Models\Traits\HasChat;
@@ -27,6 +28,7 @@ class User extends Authenticatable implements MustVerifyEmail
         HasChat,
         ScholarTrait,
         StudentTrait,
+        BalanceTrait,
         DormTrait,
         HasTutorial,
         HasAvatar,

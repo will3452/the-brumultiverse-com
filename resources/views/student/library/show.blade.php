@@ -34,6 +34,12 @@
                 </div>
                 <div>
                     <span class="font-bold">
+                        Cost :
+                    </span>
+                    {{displayCost($work->cost, $work->cost_type)}}
+                </div>
+                <div>
+                    <span class="font-bold">
                         Blurb :
                     </span>
                     <div  style="max-height:300px;" class="overflow-y-auto">

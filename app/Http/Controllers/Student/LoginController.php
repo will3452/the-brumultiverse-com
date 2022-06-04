@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
+use App\Models\Balance;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -21,8 +22,17 @@ class LoginController extends Controller
         return back()->withError('Incorrect Email or Password!');
     }
 
+    public function createBalance() {
+        return Balance::create(['user_id' => auth()->id()]);
+    }
+
     public function redirectAfterLogin()
     {
+
+        if (! auth()->user()->hasBalance()) {
+            $this->createBalance();
+        }
+
         if (! auth()->user()->isFinishedTutorial()) {
             return route('student.welcome.dorm');
         }
