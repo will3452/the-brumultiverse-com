@@ -71,3 +71,4 @@ Route::get('/payment-result', [PaymentController::class, 'result']);
 //avatars
 Route::get('avatars', [AvatarController::class, 'setup']);
 Route::get('create-avatar', [AvatarController::class, 'create']);
+Route::view('play', 'play');

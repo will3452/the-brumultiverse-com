@@ -9,6 +9,7 @@ use App\Http\Controllers\Student\MapController;
 use App\Http\Controllers\Student\MuseumController;
 use App\Http\Controllers\Student\PaymentController;
 use App\Http\Controllers\Student\RegisterController;
+use App\Http\Controllers\StudentCollectionController;
 
 Route::get('/register', [RegisterController::class, 'showRegister'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
@@ -48,3 +49,7 @@ Route::prefix('museum')->name('museum.')->group(function () {
     Route::get('/', [MuseumController::class, 'index'])->name('index');
     Route::get('/{work}', [MuseumController::class, 'show'])->name('show');
 });
+
+//add to collections
+
+Route::get('/add-to-collections/{type}/{id}', [StudentCollectionController::class, 'addToCollection'])->name('add.to.collection');

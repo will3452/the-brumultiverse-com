@@ -15,7 +15,7 @@
                 <img style="width:200px;" src="{{$work->artFile ? optional($work->artFile)->withWatermark() : optional($work->cover)->withFrame()}}" alt="" />
                 <div class="my-4" >
                     @if (auth()->user()->canAddToCollection($work))
-                        <a  class="btn btn-primary">ADD TO COLLECTION</a>
+                        <a  class="btn btn-primary" href="{{route('student.add.to.collection', ['type' => getBaseModel(get_class($work)), 'id' => $work->id])}}">ADD TO COLLECTION</a>
                     @else
                         <a  class="btn btn-disabled">ADD TO COLLECTION</a>
                     @endif
