@@ -76,7 +76,7 @@
                 pdf:'/demo.pdf',
                 centeredWhenClosed : true
 				,hardcovers : true
-				,toolbar : "lastLeft, left, right, lastRight, toc, zoomin, zoomout, slideshow, flipsound, fullscreen, thumbnails"
+				,toolbar : "left, right,  zoomin, zoomout, slideshow, flipsound, fullscreen"
 				,thumbnailsPosition : 'left'
 				,responsiveHandleWidth : 50
 				,container: window
