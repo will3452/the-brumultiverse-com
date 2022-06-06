@@ -19,7 +19,7 @@ if (! function_exists('getBaseModel')) {
 
 if (! function_exists('getFullModel')) {
     function getFullModel($model) {
-        return "\\App\\Models\\$model";
+        return "App\\Models\\$model";
     }
 }
 

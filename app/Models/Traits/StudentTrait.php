@@ -14,9 +14,8 @@ trait StudentTrait
         return $this->hasMany(StudentCollection::class);
     }
 
-    public function isInStudentCollections($work): bool
+    public function isInStudentCollections($work)
     {
-        return $work;
         return $this->studentCollections()
             ->whereModelType(get_class($work))
             ->whereModelId($work->id)
