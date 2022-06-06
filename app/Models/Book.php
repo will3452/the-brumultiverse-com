@@ -43,10 +43,12 @@ class Book extends Model implements TaggableInterface
 
     protected $with = [
         'cover',
-        'chapters',
+        // 'chapters',
         'tags',
         'category',
     ];
+
+
 
     const _TYPE_LINK = 'Book';
 
@@ -98,6 +100,11 @@ class Book extends Model implements TaggableInterface
         self::TYPE_REGULAR,
         self::TYPE_SPIN,
     ];
+
+    public function bookContent ()
+    {
+        return $this->hasOne(BookContent::class, 'book_id');
+    }
 
 
     const DEFAULT_COST_TYPE = CrystalHelper::PURPLE_CRYSTAL;

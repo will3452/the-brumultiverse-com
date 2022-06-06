@@ -18,11 +18,7 @@
             ]
         "
     />
-    @if (is_null($book->front_matter))
-        <x-scholar.alert proceed-text="upload now" href="{{route('scholar.book.pdf', ['book' => $book->id])}}">
-            Please click "Upload Now" to upload one .PDF file that contains your BOOK TITLE PAGE, COPYRIGHT PAGE, ACKNOWLEDGMENT PAGE AND DEDICATION PAGE. Thank you!
-        </x-scholar.alert>
-    @endif
+    {{-- <x-scholar.front-matter :book="$book"/> --}}
     <div class="flex md:flex-wrap flex-wrap-reverse">
         <div class="w-full md:w-8/12">
             <form action="{{}}" method="POST" >
@@ -104,7 +100,12 @@
                 <x-scholar.request-publish-form :model="$book"/>
             </div>
             <div class="flex justify-center flex-wrap items-center">
-                <a href="{{route('scholar.book.chapters', ['book' => $book->id])}}" class="btn btn-scholar btn-sm m-2">View all chapters.</a>
+                @if ($book->bookContent()->exists())
+                    <a href="javascript:alert('wip')" class="btn btn-scholar btn-sm m-2">View Content</a>
+                @else
+                    <a class="btn btn-scholar btn-sm m-2" href="{{route('scholar.book-content.create', ['book' => $book])}}">Upload Content (PDF)</a>
+                @endif
+                {{-- <a href="{{route('scholar.book.chapters', ['book' => $book->id])}}" class="btn btn-scholar btn-sm m-2">View all chapters.</a> --}}
                 {{-- <x-scholar.modal extra="btn-sm btn-warning" button="Send ticket">
                     Send Ticket
                 </x-scholar.modal> --}}

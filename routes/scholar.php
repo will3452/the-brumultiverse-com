@@ -27,6 +27,7 @@ use App\Http\Controllers\Scholar\PreviewController;
 use App\Http\Controllers\Scholar\PrologueEpilogueController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\Scholar\AlbumController;
+use App\Http\Controllers\Scholar\BookContentController;
 use App\Http\Controllers\Scholar\BookController;
 use App\Http\Controllers\Scholar\FilmController;
 use App\Http\Controllers\Scholar\HomeController;
@@ -79,6 +80,8 @@ Route::middleware(['auth'])->group(function () {
         Route::put('profile-picture-update', [ProfileController::class, 'updatePicture'])->name('update.picture');
     });
 
+    # DEPRECATED
+
     //prologue
     Route::prefix('prologue')->name('prologue.')->group(function () {
         Route::get('/{prologue}', [PrologueEpilogueController::class, 'showPrologue'])->name('show');
@@ -90,6 +93,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{epilogue}', [PrologueEpilogueController::class, 'showEpilogue'])->name('show');
         Route::put('/{epilogue}', [PrologueEpilogueController::class, 'updateEpilogue'])->name('update');
     });
+
+    #END OF DEPRECATED
 
     //books
     Route::prefix('books')->name('book.')->group(function () {
@@ -107,6 +112,11 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/book/pdf/{book}', [BookController::class, 'pdfUploadFormStore']);
         Route::get('/{book}', [BookController::class, 'show'])->name('show');
         Route::put('/{book}', [BookController::class, 'update'])->name('update');
+    });
+
+    Route::prefix('book-content')->name('book-content.')->group(function () {
+        Route::get('{book}/create', [BookContentController::class, 'create'])->name('create');
+        Route::post('store', [BookContentController::class, 'store'])->name('store');
     });
 
     Route::prefix('chapters')->name('chapter.')->group(function () {

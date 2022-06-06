@@ -34,6 +34,10 @@
                     return ['audio/mp3', 'audio/webm', 'audio/ogg', 'audio/wave', 'audio/wav', 'audio/x-wav', 'audio/x-pn-wav', 'audio/mpeg']
                 }
 
+                if (allowed == 'pdf') {
+                    return ['application/pdf', 'pdf', 'application/x-pdf'];
+                }
+
                 return [];
             }
             window.onload = function () {
