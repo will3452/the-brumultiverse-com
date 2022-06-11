@@ -16,14 +16,14 @@ class LibraryController extends Controller
 
     public function getBooks()
     {
-        return Book::get()->groupBy(fn ($e) =>  $e->genre->name);
+        return Book::whereHas('bookContent')->get()->groupBy(fn ($e) =>  $e->genre->name);
     }
 
     public function index(Request $request)
     {
         $works = [];
         if ($request->has('search') && $request->search != '') {
-            $works = Book::where('title', 'LIKE', '%'.$request->search.'%')->get();
+            $works = Book::whereHas('bookContent')->where('title', 'LIKE', '%'.$request->search.'%')->get();
         } else {
             $works = $this->getBooks();
         }
