@@ -1,10 +1,14 @@
-@props(['model' => null])
+@props(['model' => null, 'url' => null])
 @if (! is_null($model))
     <div class="mx-4" x-data="{}"
     x-on:click="
         ()=>{
             Modal.open({
+                @if ($url == null)
                 ajaxContent:'{{route($model->getStudentLinks('show'), ['work' => $model->id])}}',
+                @else
+                ajaxContent:'{{$url}}',
+                @endif
                 draggable:true,
                 width:'70%',
                 hideclose: true,

@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AvatarController;
+use App\Http\Controllers\Student\BookshelvesController;
 use App\Http\Controllers\Student\ClosetController;
 use App\Http\Controllers\Student\DormController;
 use App\Http\Controllers\Student\LibraryController;
@@ -53,3 +54,10 @@ Route::prefix('museum')->name('museum.')->group(function () {
 //add to collections
 
 Route::get('/add-to-collections/{type}/{id}', [StudentCollectionController::class, 'addToCollection'])->name('add.to.collection');
+
+
+Route::prefix('bookshelves')->name('bs.')->group(function () {
+    Route::get('/', [BookshelvesController::class, 'index'])->name('index');
+    Route::get('/read-book/{work}', [BookshelvesController::class, 'read'])->name('read');
+    Route::get('/{work}', [BookshelvesController::class, 'show'])->name('show');
+});

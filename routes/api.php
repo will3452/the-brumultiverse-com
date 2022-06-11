@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\ApiAuthenticationController;
 use App\Http\Controllers\AvatarController;
+use App\Http\Controllers\Scholar\BookContentController;
 use App\Models\Account;
+use App\Models\BookContent;
 use App\Models\PaymentTransaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -44,3 +46,10 @@ Route::post('/account-exists', function (Request $request) {
 
 //avatars api
 Route::get('/avatars', [AvatarController::class, 'apiGet']);
+
+
+# scholar
+//book content chapter
+Route::post('/book-content-chapter/edit/{chapter}', [BookContentController::class, 'editChapter']);
+Route::post('/book-content-chapter', [BookContentController::class, 'addChapter']);
+Route::get('/book-content-chapter/{book}', [BookContentController::class, 'getChapter']);

@@ -101,7 +101,7 @@
             </div>
             <div class="flex justify-center flex-wrap items-center">
                 @if ($book->bookContent()->exists())
-                    <a href="javascript:alert('wip')" class="btn btn-scholar btn-sm m-2">View Content</a>
+                    <a href="{{route('scholar.book-content.setting', ['book' => $book])}}" class="btn btn-scholar btn-sm m-2">View Content</a>
                 @else
                     <a class="btn btn-scholar btn-sm m-2" href="{{route('scholar.book-content.create', ['book' => $book])}}">Upload Content (PDF)</a>
                 @endif

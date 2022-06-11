@@ -1,5 +1,6 @@
 
-@if (\App\Models\SlidingBanner::count())
+{{-- @if (\App\Models\SlidingBanner::count()) --}}
+@if(false)
 <div class="slider ">
     @foreach (\App\Models\SlidingBanner::get() as $item)
     <div style="background:url('/storage/{{optional(optional($item)->media)->path}}')" class="flex justify-center items-center">

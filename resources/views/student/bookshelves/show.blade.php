@@ -14,15 +14,7 @@
            <div>
                 <img style="width:200px;" src="{{$work->artFile ? optional($work->artFile)->withWatermark() : optional($work->cover)->withFrame()}}" alt="" />
                 <div class="my-4" >
-                    @if (auth()->user()->canAddToCollection($work))
-                        <a  class="btn btn-primary" href="{{route('student.add.to.collection', ['type' => getBaseModel(get_class($work)), 'id' => $work->id])}}">ADD TO COLLECTION</a>
-                    @else
-                        @if (auth()->user()->isInStudentCollections($work))
-                            <a href="{{route('student.bs.index')}}" class="btn btn-primary">View to my collection</a>
-                        @else
-                            <a  class="btn btn-disabled">ADD TO COLLECTION</a>
-                        @endif
-                    @endif
+                    <a target="_blank" href="{{route('student.bs.read', ['work' =>$work])}}" class="btn btn-primary">Read book</a>
                 </div>
            </div>
 

@@ -28,6 +28,8 @@
         "daisyui": "^2.6.4",
         "howler": "^2.2.3",
         "moment": "^2.29.1",
-        "vue": "^2.6.14"
+        "vue": "^2.6.14",
+        "vue-toast-notification": "3.0",
+        "vue-toastr": "^2.1.2"
     }
 }

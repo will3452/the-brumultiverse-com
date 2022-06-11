@@ -16,6 +16,7 @@ use App\Models\Traits\HasHeatLevel;
 use App\Models\Traits\BelongsToClass;
 use Cartalyst\Tags\TaggableInterface;
 use App\Models\Traits\BelongsToAccount;
+use App\Models\Traits\HasBookContentChapter;
 use App\Models\Traits\HasFreeArtScenes;
 use App\Models\Traits\HasViolenceLevel;
 use Illuminate\Database\Eloquent\Model;
@@ -37,6 +38,7 @@ class Book extends Model implements TaggableInterface
         TaggableTrait,
         BelongsToAccount,
         HasCover,
+        HasBookContentChapter,
         HasChapters,
         HasPublishApproval,
         BookTrait;

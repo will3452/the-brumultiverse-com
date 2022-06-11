@@ -6,7 +6,7 @@
     <script>
         var data = {
             assetUri:'{{auth()->user()->isGenderMale() ? getAsset("male-dorm/", true) : getAsset("female-dorm/", true)}}',
-            loadClickables({item, path}) {
+            loadClickables({item, path, url}) {
                 const Item = new Image();
 
                 Item.onload = ()=>{
@@ -29,15 +29,20 @@
                         this.opacity(0)
                     })
 
+                    kItem.on('click', function () {
+                        window.location.href = url
+                    })
+
                     kItem.cache();
                     kItem.drawHitFromCache();
                     this.layer.add(kItem)
                 }
 
                 Item.src = `${this.assetUri}/${path}`;
+
             },
             objectClickables : [
-                {item:'book', path:'active-books.png', url:''},
+                {item:'book', path:'active-books.png', url:'{{route('student.bs.index')}}'},
                 {item:'computer', path:'active-computer.png', url:''},
                 {item:'phone', path:'active-phone.png', url:''},
                 {item:'newspaper', path:'active-newspaper.png', url:''},

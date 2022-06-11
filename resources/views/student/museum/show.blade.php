@@ -10,8 +10,20 @@
 <body>
     <div>
         <div class="flex items-start">
-
-            <img style="width:200px;" src="{{$work->artFile ? optional($work->artFile)->withWatermark() : optional($work->cover)->withFrame()}}" alt="" />
+            <div>
+                <img style="width:200px;" src="{{$work->artFile ? optional($work->artFile)->withWatermark() : optional($work->cover)->withFrame()}}" alt="" />
+                <div class="my-4" >
+                    @if (auth()->user()->canAddToCollection($work))
+                        <a  class="btn btn-primary" href="{{route('student.add.to.collection', ['type' => getBaseModel(get_class($work)), 'id' => $work->id])}}">ADD TO COLLECTION</a>
+                    @else
+                        @if (auth()->user()->isInStudentCollections($work))
+                            <a href="#" class="btn btn-primary">View to my collection</a>
+                        @else
+                            <a  class="btn btn-disabled">ADD TO COLLECTION</a>
+                        @endif
+                    @endif
+                </div>
+           </div>
 
             <div class="flex-1 mx-4 p-4 rounded shadow-md">
                 <div>
@@ -34,6 +46,12 @@
                 </div>
                 <div>
                     <span class="font-bold">
+                        Cost :
+                    </span>
+                    {{ displayCost($work->cost, $work->cost_type) }}
+                </div>
+                <div>
+                    <span class="font-bold">
                         Description:
                     </span>
                     <div  style="max-height:300px;" class="overflow-y-auto">
@@ -51,9 +69,6 @@
                 </div>
                @endif
             </div>
-        </div>
-        <div class="my-4">
-            <a href="javascript:alert('phone is under dev :)')" class="btn btn-primary">ADD TO COLLECTION</a>
         </div>
     </div>
 </body>

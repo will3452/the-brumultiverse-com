@@ -115,8 +115,10 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::prefix('book-content')->name('book-content.')->group(function () {
+        Route::get('{book}/preview', [BookContentController::class, 'preview'])->name('preview');
         Route::get('{book}/create', [BookContentController::class, 'create'])->name('create');
         Route::post('store', [BookContentController::class, 'store'])->name('store');
+        Route::get('{book}/content-setting', [BookContentController::class, 'setting'])->name('setting');
     });
 
     Route::prefix('chapters')->name('chapter.')->group(function () {

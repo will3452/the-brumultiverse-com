@@ -44,45 +44,45 @@
 	<script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
 	-->
 
-	<link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="./wow_book/wow_book.css" type="text/css" />
-	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/wow_book/wow_book.css" type="text/css" />
+	<link rel="stylesheet" href="/css/main.css">
 
-	<script src="js/vendor/modernizr-2.7.1.min.js"></script>
+	<script src="/js/vendor/modernizr-2.7.1.min.js"></script>
+    <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
 	<!-- Add your site or application content here -->
 	<div class='book_container'>
 		<div id="book">
-
 		</div>
 	</div>
 
 	<!-- if you don't need support for IE8 use jquery 2.1 -->
-	<!-- <script src="js/vendor/jquery-2.1.0.min.js"></script> -->
-	<script src="js/vendor/jquery-1.11.2.min.js"></script>
+	<!-- <script src="/js/vendor/jquery-2.1.0.min.js"></script> -->
+	<script src="/js/vendor/jquery-1.11.2.min.js"></script>
 
-	<script src="js/helper.js"></script>
-    <script src="./wow_book/pdf.combined.min.js"></script>
+	<script src="/js/helper.js"></script>
+    <script src="/wow_book/pdf.combined.min.js"></script>
 
-	<script src="./wow_book/wow_book.min.js"></script>
-	<!-- <script src="js/main.js"></script> -->
+	<script src="/wow_book/wow_book.min.js"></script>
+	<!-- <script src="/js/main.js"></script> -->
 	<script>
 		var bookOptions = {
 				 height   : 500
 				,width    : 800
 				// ,maxWidth : 800
 				,maxHeight : 600,
-                pdf:'./sample-book.pdf',
+                pdf:'/storage/{{$work->bookContent->pdf}}',
                 centeredWhenClosed : true
 				,hardcovers : true
-				,toolbar : "lastLeft, left, right, lastRight, toc, zoomin, zoomout, slideshow, flipsound, fullscreen, thumbnails, home"
+				,toolbar : "left, right,  zoomin, zoomout, slideshow, flipsound, fullscreen, home"
 				,thumbnailsPosition : 'left'
+                ,homeURL: "{{route('student.bs.index')}}"
 				,responsiveHandleWidth : 50
 				,container: window
 				,containerPadding: "20px",
                 pdfFind:true,
-                homeURL:'/',
                 pdfTextSelectable:true,
                 onShowPage (book, page, index) {
                     console.log(index)

@@ -1,1 +1,9 @@
 Cover dimensions : 512 x 800 (png, jpg)
+
+
+# todo
+- todo content setting
+- continue book upload
+- phone
+- computer
+- bookshelves
