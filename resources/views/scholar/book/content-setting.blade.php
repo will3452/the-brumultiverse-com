@@ -24,6 +24,7 @@
             ]
         "
     />
+
     <div class="flex">
         <iframe src="{{route('scholar.book-content.preview', ['book' => $book])}}" frameborder="0" class="w-1/2 mb-4 border-2" style="height:70vh"></iframe>
         <div class="w-1/2 p-2">
