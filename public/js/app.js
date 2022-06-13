@@ -2707,12 +2707,13 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       chapter: {},
-      viewEdit: false
+      viewEdit: false,
+      listKey: Math.random()
     };
   },
   methods: {
     reloadList: function reloadList() {
-      this.$forceUpdate();
+      this.listKey = Math.random();
     },
     editChapter: function editChapter(chapter) {
       this.chapter = chapter;
@@ -44512,44 +44513,46 @@ var render = function () {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "flex" }, [
-                    _c("div", { staticClass: "form-control mx-1" }, [
-                      _c(
-                        "label",
-                        { staticClass: "label", attrs: { for: "" } },
-                        [
-                          _vm._v(
-                            "\n                    Age restriction\n                "
+                    _vm.payload.type == "Premium"
+                      ? _c("div", { staticClass: "form-control mx-1" }, [
+                          _c(
+                            "label",
+                            { staticClass: "label", attrs: { for: "" } },
+                            [
+                              _vm._v(
+                                "\n                    Age restriction\n                "
+                              ),
+                            ]
                           ),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.payload.age_restriction,
-                            expression: "payload.age_restriction",
-                          },
-                        ],
-                        staticClass:
-                          "input text-black input-bordered input-sm rounded-none",
-                        attrs: { required: "", type: "number" },
-                        domProps: { value: _vm.payload.age_restriction },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.payload,
-                              "age_restriction",
-                              $event.target.value
-                            )
-                          },
-                        },
-                      }),
-                    ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.payload.age_restriction,
+                                expression: "payload.age_restriction",
+                              },
+                            ],
+                            staticClass:
+                              "input text-black input-bordered input-sm rounded-none",
+                            attrs: { required: "", type: "number" },
+                            domProps: { value: _vm.payload.age_restriction },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.payload,
+                                  "age_restriction",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                        ])
+                      : _vm._e(),
                     _vm._v(" "),
                     _vm.payload.type != "Regular" &&
                     _vm.payload.type != "Premium" &&
@@ -44888,40 +44891,46 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "flex" }, [
-                _c("div", { staticClass: "form-control mx-1" }, [
-                  _c("label", { staticClass: "label", attrs: { for: "" } }, [
-                    _vm._v(
-                      "\n                    Age restriction\n                "
-                    ),
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.payload.age_restriction,
-                        expression: "payload.age_restriction",
-                      },
-                    ],
-                    staticClass:
-                      "input text-black input-bordered input-sm rounded-none",
-                    attrs: { required: "", type: "number" },
-                    domProps: { value: _vm.payload.age_restriction },
-                    on: {
-                      input: function ($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.payload,
-                          "age_restriction",
-                          $event.target.value
-                        )
-                      },
-                    },
-                  }),
-                ]),
+                _vm.payload.type == "Premium"
+                  ? _c("div", { staticClass: "form-control mx-1" }, [
+                      _c(
+                        "label",
+                        { staticClass: "label", attrs: { for: "" } },
+                        [
+                          _vm._v(
+                            "\n                    Age restriction\n                "
+                          ),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.payload.age_restriction,
+                            expression: "payload.age_restriction",
+                          },
+                        ],
+                        staticClass:
+                          "input text-black input-bordered input-sm rounded-none",
+                        attrs: { required: "", type: "number" },
+                        domProps: { value: _vm.payload.age_restriction },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.payload,
+                              "age_restriction",
+                              $event.target.value
+                            )
+                          },
+                        },
+                      }),
+                    ])
+                  : _vm._e(),
                 _vm._v(" "),
                 _vm.payload.type != "Regular" &&
                 _vm.payload.type != "Premium" &&
@@ -45121,6 +45130,7 @@ var render = function () {
       ),
       _vm._v(" "),
       _c("List", {
+        key: _vm.listKey,
         attrs: { "book-id": _vm.bookId },
         on: { edit: _vm.editChapter },
       }),
@@ -45180,14 +45190,14 @@ var render = function () {
                 _c(
                   "a",
                   {
-                    staticClass: "underline",
+                    staticClass: "uppercase text-xs",
                     on: {
                       click: function ($event) {
                         return _vm.edit(chapter)
                       },
                     },
                   },
-                  [_vm._v("Edit")]
+                  [_vm._v("[ Edit ]")]
                 ),
               ]),
             ]),

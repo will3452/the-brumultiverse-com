@@ -82,6 +82,11 @@
     top:25vh;
 }
 
+/* input, button, select {
+    border-radius: 0px !important;
+} */
+
+
 a, button, label, .dropdown, .btn, .breadcrumbs a, img:hover, .work-card {
     cursor: url('/img/cursor/pointer.png'), default;
 }

@@ -12,7 +12,7 @@
                         </span>
                     </div>
                     <div>
-                        <a @click="edit(chapter)" class="underline">Edit</a>
+                        <a @click="edit(chapter)" class="uppercase text-xs">[ Edit ]</a>
                     </div>
                 </div>
                 <div>

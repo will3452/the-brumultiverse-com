@@ -24,7 +24,7 @@
             @edit="editChapter"
             />
         </div>
-        <List @edit="editChapter" :book-id="bookId"/>
+        <List @edit="editChapter" :book-id="bookId" :key="listKey"/>
     </div>
 </template>
 
@@ -43,11 +43,12 @@ export default {
         return {
             chapter:{},
             viewEdit:false,
+            listKey: Math.random()
         }
     },
     methods: {
         reloadList () {
-            this.$forceUpdate()
+            this.listKey = Math.random()
         },
         editChapter(chapter) {
             this.chapter = chapter

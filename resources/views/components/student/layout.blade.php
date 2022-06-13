@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> --}}
     <title>BRUMULTIVERSE</title>
     @stack('head-script')
     <link href="/css/app.css" rel="stylesheet"/>
@@ -162,7 +162,7 @@
 <body class="relative bg-black max-h-screen">
     {{-- <x-student.loader/> --}}
     <div class="w-full relative mx-auto overflow-hidden max-h-screen" >
-        <x-student.topbar/>
+        {{-- <x-student.topbar/> --}}
             {{$slot}}
         <x-student.bottombar/>
         @auth

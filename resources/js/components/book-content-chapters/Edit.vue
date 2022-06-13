@@ -34,7 +34,7 @@
                 </select>
             </div>
             <div class="flex">
-                <div class="form-control mx-1">
+                <div class="form-control mx-1" v-if="payload.type == 'Premium'">
                     <label for="" class="label">
                         Age restriction
                     </label>
