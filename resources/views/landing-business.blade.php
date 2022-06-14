@@ -57,7 +57,7 @@
                         <div class="bg-white h-auto  w-full overflow-y-auto mx-auto" data-aos="fade-left">
                             <img src="https://raw.githubusercontent.com/will3452/bru-assets/main/home/map_bg.jpg" class="h-1/2 object-cover w-full" alt="">
                             <div class="p-4 text-center">
-                                <h2 class="font-bold text-2xl text-center">The BRUMULTIVERSE</h2>
+                                <h2 class="font-bold text-2xl text-center">The MULTIVERSE</h2>
                                 <p class="mt-4">
                                     The brainchild of Khiara Laurea and Miel Salva, BRUMULTIVERSE is vast, having multifold dimensions and realms, and parallel realities and universes, characters that come to life in the dead of nig...
                                     <a href="#" class="p-1 bg-gray-400 uppercase my-2 block text-center hover:bg-gray-900 hover:text-white">read more</a>
