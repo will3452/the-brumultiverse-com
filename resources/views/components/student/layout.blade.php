@@ -160,6 +160,7 @@
     </style>
 </head>
 <body class="relative bg-black max-h-screen">
+    @include('sweetalert::alert')
     {{-- <x-student.loader/> --}}
     <div class="w-full relative mx-auto overflow-hidden max-h-screen" >
         {{-- <x-student.topbar/> --}}

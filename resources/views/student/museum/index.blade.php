@@ -5,6 +5,8 @@
 
         <x-student.search/>
 
+        <h1 class="px-4 text-2xl font-bold text-gray-400 mt-4">Museum</h1>
+
         @if (is_null(request()->search))
             @foreach ($works as $key=>$w)
                 <x-student.work-container title="{{$key}}">
@@ -25,6 +27,7 @@
                 @endforelse
             </x-student.work-container>
         @endif
+
 
         <div class="mb-52"></div>
     </div>
