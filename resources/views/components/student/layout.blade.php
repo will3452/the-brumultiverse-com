@@ -167,8 +167,11 @@
             {{$slot}}
         <x-student.bottombar/>
         @auth
-            <a href="/scholars/logout" class="px-2 py-1 text-bold rounded text-white fixed bottom-2 right-2 bg-red-600">
-                Logout
+            <a href="javascript:alert('under develop')" class="px-2 py-1 fixed bottom-3 right-10">
+                <img src="/students/nav/store.png" alt="" class="h-9">
+            </a>
+            <a href="/scholars/logout" class="px-2 py-1 text-bold rounded text-white fixed bottom-4 right-2 bg-red-600">
+                <img class="invert" src="/img/icons/crud/out.svg" alt="">
             </a>
         @endauth
         @guest
