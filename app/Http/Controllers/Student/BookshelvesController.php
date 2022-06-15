@@ -5,23 +5,21 @@ namespace App\Http\Controllers\Student;
 use App\Models\Book;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Traits\StudentCollection;
 
 class BookshelvesController extends Controller
 {
-    public function getBooks()
-    {
-        return Book::whereIn('id', $this->myBookCollectionsId())->get()->groupBy(fn ($e) =>  $e->genre->name);
-    }
+    use StudentCollection;
 
-    public function myBookCollectionsId(): array
+    public function getModel ()
     {
-        return auth()->user()->studentCollections()->whereModelType(Book::class)->pluck('model_id')->toArray();
+        return Book::class;
     }
 
     public function index (Request $request) {
         $works = [];
         if ($request->has('search') && $request->search != '') {
-            $works = Book::whereIn('id', $this->myBookCollectionsId())->where('title', 'LIKE', '%'.$request->search.'%')->get();
+            $works = Book::whereIn('id', $this->myWorkCollection())->where('title', 'LIKE', '%'.$request->search.'%')->get();
         } else {
             $works = $this->getBooks();
         }

@@ -9,6 +9,7 @@ use App\Http\Controllers\Student\LoginController;
 use App\Http\Controllers\Student\MapController;
 use App\Http\Controllers\Student\MuseumController;
 use App\Http\Controllers\Student\PaymentController;
+use App\Http\Controllers\Student\PhoneController;
 use App\Http\Controllers\Student\RegisterController;
 use App\Http\Controllers\StudentCollectionController;
 
@@ -60,4 +61,10 @@ Route::prefix('bookshelves')->name('bs.')->group(function () {
     Route::get('/', [BookshelvesController::class, 'index'])->name('index');
     Route::get('/read-book/{work}', [BookshelvesController::class, 'read'])->name('read');
     Route::get('/{work}', [BookshelvesController::class, 'show'])->name('show');
+});
+
+Route::prefix('phones')->name('phone.')->group(function () {
+    Route::get('/', [PhoneController::class, 'index'])->name('index');
+    Route::get('/images', [PhoneController::class, 'photo'])->name('photo');
+    Route::get('/images/{path}', [PhoneController::class, 'viewPhoto'])->name('photo.view');
 });

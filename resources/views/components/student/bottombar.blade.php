@@ -8,7 +8,7 @@
         <x-student.icon-clickable normal="/students/nav/diary-min.png" active="/students/nav/diary-active-min.png" class="w-12 mx-2" />
         <x-student.icon-clickable href="{{route('student.map')}}" active="/students/nav/home-active-min.png" normal="/students/nav/home-min.png"  class="-top-5 w-20 relative"/>
         <x-student.icon-clickable href="{{route('student.bs.index')}}" normal="/students/nav/collection-min.png" active="/students/nav/collection-active-min.png" class="w-12 mx-2" />
-        <x-student.icon-clickable normal="/students/nav/phone-min.png" active="/students/nav/phone-active-min.png" class="w-12 mx-2" />
+        <x-student.icon-clickable href="{{route('student.phone.index')}}" normal="/students/nav/phone-min.png" active="/students/nav/phone-active-min.png" class="w-12 mx-2" />
         <div  class="w-84 flex items-center">
             <x-student.top-balance label="HP" value="{{auth()->user()->balance->hall_pass}}"/>
             <x-student.top-balance label="ST" value="{{auth()->user()->balance->silver_ticket}}"/>

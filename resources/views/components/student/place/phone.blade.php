@@ -5,7 +5,7 @@
     <x-vendor.konvajs/>
     <script>
         var data = {
-            assetUri:'{{auth()->user()->isGenderMale() ? getAsset("male-dorm/", true) : getAsset("female-dorm/", true)}}',
+            assetUri:'/students/phone/',
             loadClickables({item, path, url}) {
                 const Item = new Image();
 
@@ -42,13 +42,13 @@
 
             },
             objectClickables : [
-                {item:'book', path:'active-books.png', url:'{{route('student.bs.index')}}'},
-                {item:'computer', path:'active-computer.png', url:''},
-                {item:'phone', path:'active-phone.png', url:'{{route('student.phone.index')}}'},
-                {item:'newspaper', path:'active-newspaper.png', url:''},
-                {item:'diary', path:'active-diary.png', url:''},
-                {item:'radio', path:'active-radio.png', url:''},
-                {item:'closet', path:'active-closet.png', url:''}
+                {item:'message', path:'message.png', url:''},
+                {item:'bell', path:'bell.png', url:''},
+                {item:'videos', path:'videos.png', url:''},
+                {item:'photos', path:'photos.png', url:'{{route('student.phone.photo')}}'},
+                {item:'contact', path:'contact.png', url:''},
+                {item:'music', path:'music.png', url:''},
+                // {item:'closet', path:'active-closet.png', url:''}
             ],
             clickableSetter() {
                 this.objectClickables.forEach((item) => this.loadClickables(item))
@@ -96,7 +96,7 @@
             },
             init() {
                 this.initStage();
-                this.stage.content.style.background = '#000';
+                this.stage.content.style.background = '#551D87';
                 this.layer = new Konva.Layer();
 
                 this.loadImages();
