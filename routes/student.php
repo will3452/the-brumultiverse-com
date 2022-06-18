@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AvatarController;
 use App\Http\Controllers\Student\BookshelvesController;
 use App\Http\Controllers\Student\ClosetController;
+use App\Http\Controllers\Student\ComputerController;
 use App\Http\Controllers\Student\DormController;
 use App\Http\Controllers\Student\LibraryController;
 use App\Http\Controllers\Student\LoginController;
@@ -30,6 +31,7 @@ Route::get('/map-overview', [MapController::class, 'viewMap'])->name('map');
 
 //dorm
 Route::get('/dorm-tutorial', [DormController::class, 'tutorial'])->name('dorm.tutorial');
+
 Route::prefix('dorm')->name('dorm.')->group(function () {
     Route::get('/', [DormController::class, 'myDorm'])->name('me');
 });
@@ -68,3 +70,17 @@ Route::prefix('phones')->name('phone.')->group(function () {
     Route::get('/images', [PhoneController::class, 'photo'])->name('photo');
     Route::get('/images/{path}', [PhoneController::class, 'viewPhoto'])->name('photo.view');
 });
+
+
+Route::prefix('computer')->name('computer.')->group(function () {
+    Route::get('/', [ComputerController::class, 'dashboard'])->name('dashboard');
+    Route::get('/settings', [ComputerController::class, 'setting'])->name('setting');
+    Route::get('/homework', [ComputerController::class, 'homework'])->name('homework');
+    Route::get('/write-with-us', [ComputerController::class, 'writeWithUs'])->name('write');
+});
+
+Route::get('/exit', function () {
+    auth()->logout();
+
+    return redirect()->to('/');
+})->name('exit');

@@ -21,7 +21,7 @@ class BookshelvesController extends Controller
         if ($request->has('search') && $request->search != '') {
             $works = Book::whereIn('id', $this->myWorkCollection())->where('title', 'LIKE', '%'.$request->search.'%')->get();
         } else {
-            $works = $this->getBooks();
+            $works = $this->getWorks();
         }
 
         return view('student.bookshelves.index', compact('works'));

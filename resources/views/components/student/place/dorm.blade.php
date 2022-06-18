@@ -43,7 +43,7 @@
             },
             objectClickables : [
                 {item:'book', path:'active-books.png', url:'{{route('student.bs.index')}}'},
-                {item:'computer', path:'active-computer.png', url:''},
+                {item:'computer', path:'active-computer.png', url:'{{route('student.computer.dashboard')}}'},
                 {item:'phone', path:'active-phone.png', url:'{{route('student.phone.index')}}'},
                 {item:'newspaper', path:'active-newspaper.png', url:''},
                 {item:'diary', path:'active-diary.png', url:''},

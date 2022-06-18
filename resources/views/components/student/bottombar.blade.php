@@ -10,10 +10,10 @@
         <x-student.icon-clickable href="{{route('student.bs.index')}}" normal="/students/nav/collection-min.png" active="/students/nav/collection-active-min.png" class="w-12 mx-2" />
         <x-student.icon-clickable href="{{route('student.phone.index')}}" normal="/students/nav/phone-min.png" active="/students/nav/phone-active-min.png" class="w-12 mx-2" />
         <div  class="w-84 flex items-center">
-            <x-student.top-balance label="HP" value="{{auth()->user()->balance->hall_pass}}"/>
-            <x-student.top-balance label="ST" value="{{auth()->user()->balance->silver_ticket}}"/>
-            <x-student.top-balance label="CP" value="{{auth()->user()->balance->purple_crystal}}"/>
-            <x-student.top-balance label="WC" value="{{auth()->user()->balance->white_crystal}}"/>
+            <x-student.top-balance label="HP" normal="/students/nav/purple.png" class="w-16" value="{{auth()->user()->balance->hall_pass}}"/>
+            <x-student.top-balance label="ST" normal="" value="{{auth()->user()->balance->silver_ticket}}"/>
+            <x-student.top-balance label="CP" normal="" value="{{auth()->user()->balance->purple_crystal}}"/>
+            <x-student.top-balance label="WC" normal="" value="{{auth()->user()->balance->white_crystal}}"/>
         </div>
     </div>
 @else
