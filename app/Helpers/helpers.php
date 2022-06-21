@@ -38,3 +38,18 @@ if (! function_exists('displayCost')) {
         return "$value $label";
     }
 }
+
+if ( ! function_exists('compressCurrencyFormat')) {
+    function compressCurrencyFormat ($value) {
+        if ( $value >= 100_000_000) {
+            return ($value / 100_000_000) . 'M';
+        }
+
+        if ( $value >= 1_000)
+        {
+            return ($value / 1_000) . 'K';
+        }
+
+        return $value;
+    }
+}

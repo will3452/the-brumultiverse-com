@@ -69,6 +69,10 @@
       .message-other .message {
           @apply bg-gray-300 p-2 rounded;
       }
+
+      .crystal-card {
+        @apply shadow-lg mx-4 border p-2;
+      }
   }
 
 
@@ -87,8 +91,13 @@
 } */
 
 
-a, button, label, .dropdown, .btn, .breadcrumbs a, img:hover, .work-card {
+a, button, label, .dropdown, .btn, .breadcrumbs a, img:hover, .work-card, .pointer {
     cursor: url('/img/cursor/pointer.png'), default;
+}
+
+.top-balance {
+     width:70px !important;
+     height:30px !important;
 }
 
 /* width */

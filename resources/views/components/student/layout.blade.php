@@ -1,3 +1,4 @@
+@props(['bg' => 'bg-black'])
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
@@ -159,7 +160,7 @@
         }
     </style>
 </head>
-<body class="relative bg-black max-h-screen">
+<body class="relative {{$bg}} max-h-screen">
     @include('sweetalert::alert')
     {{-- <x-student.loader/> --}}
     <div class="w-full relative mx-auto overflow-hidden max-h-screen" >

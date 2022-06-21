@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AvatarController;
 use App\Http\Controllers\Student\BookshelvesController;
+use App\Http\Controllers\Student\BuyController;
 use App\Http\Controllers\Student\ClosetController;
 use App\Http\Controllers\Student\ComputerController;
 use App\Http\Controllers\Student\DormController;
@@ -84,3 +85,9 @@ Route::get('/exit', function () {
 
     return redirect()->to('/');
 })->name('exit');
+
+Route::prefix('purchase')->name('buy.')->group(function () {
+    Route::get('/crystal', [BuyController::class, 'crystals'])->name('crystal');
+    Route::post('/create-payment', [BuyController::class, 'createPayment'])->name('crystal.create.payment');
+    Route::get('/payment-result', [BuyController::class, 'result'])->name('crystal.result.payment');
+});
