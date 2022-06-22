@@ -1,5 +1,5 @@
 @props(['title' => 'Untitled', 'id' => \Str::random(8)])
-<h1 class="text-2xl text-left p-4 uppercase tracking-widest mt-4">{!!$title!!}</h1>
+<h1 class="text-2xl text-left p-4 uppercase tracking-widest mt-4  backdrop-blur-sm">{!!$title!!}</h1>
 <div class="">
     <div class="{{$id}} ml-4 ">
         {{$slot}}

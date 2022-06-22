@@ -53,15 +53,15 @@
                 Item.src = `${this.baseUri}/${path}`;
             },
             objectClickables : [
-                {item:'library', path:'active-library-min.png', url:''},
-                {item:'admin', path:'active-admin-building-min.png', url:''},
-                {item:'berkeley', path:'active-berkeley-hall-min.png', url:''},
-                {item:'hippodrome', path:'active-hippodrome-min.png', url:''},
-                {item:'is', path:'active-integrated-school-min.png', url:''},
-                {item:'museum', path:'active-museum-min.png', url:''},
-                {item:'reagan', path:'active-reagan-hall-min.png', url:''},
-                {item:'teather', path:'active-theater-min.png', url:''},
-                {item:'vacant', path:'active-vacant-slot-min.png', url:''}
+                {item:'library', path:'active-library-min.png', url:'{{route('dev.blank', ['name' => ''])}}'},
+                {item:'admin', path:'active-admin-building-min.png', url:'{{route('dev.blank', ['name' => ''])}}'},
+                {item:'berkeley', path:'active-berkeley-hall-min.png', url:'{{route('dev.blank', ['name' => ''])}}'},
+                {item:'hippodrome', path:'active-hippodrome-min.png', url:'{{route('dev.blank', ['name' => ''])}}'},
+                {item:'is', path:'active-integrated-school-min.png', url:'{{route('dev.blank', ['name' => ''])}}'},
+                {item:'museum', path:'active-museum-min.png', url:'{{route('dev.blank', ['name' => ''])}}'},
+                {item:'reagan', path:'active-reagan-hall-min.png', url:'{{route('dev.blank', ['name' => ''])}}'},
+                {item:'teather', path:'active-theater-min.png', url:'{{route('dev.blank', ['name' => ''])}}'},
+                {item:'vacant', path:'active-vacant-slot-min.png', url:'{{route('dev.blank', ['name' => ''])}}'}
             ],
         init () {
             this.screenWidth = window.innerWidth;

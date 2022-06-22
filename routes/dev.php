@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Aan;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Developer\BugController;
@@ -23,3 +24,7 @@ Route::get('download-avatar', [BugController::class, 'downloadAssets'])->name('a
 Route::get('aan-generate', function () {
     return Aan::generate()->value;
 });
+
+Route::get('blank', function (Request $request) {
+    return "underdevelopment $request->name";
+})->name('blank');

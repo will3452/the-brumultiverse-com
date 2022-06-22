@@ -42,13 +42,13 @@
 
             },
             objectClickables : [
-                {item:'message', path:'message.png', url:''},
-                {item:'bell', path:'bell.png', url:''},
-                {item:'videos', path:'videos.png', url:''},
+                {item:'message', path:'message.png', url:'{{route('dev.blank', ['name' => ''])}}'},
+                {item:'bell', path:'bell.png', url:'{{route('dev.blank', ['name' => ''])}}'},
+                {item:'videos', path:'videos.png', url:'{{route('dev.blank', ['name' => ''])}}'},
                 {item:'photos', path:'photos.png', url:'{{route('student.phone.photo')}}'},
-                {item:'contact', path:'contact.png', url:''},
-                {item:'music', path:'music.png', url:''},
-                // {item:'closet', path:'active-closet.png', url:''}
+                {item:'contact', path:'contact.png', url:'{{route('dev.blank', ['name' => ''])}}'},
+                {item:'music', path:'music.png', url:'{{route('dev.blank', ['name' => ''])}}'},
+                // {item:'closet', path:'active-closet.png', url:'{{route('dev.blank', ['name' => ''])}}'}
             ],
             clickableSetter() {
                 this.objectClickables.forEach((item) => this.loadClickables(item))

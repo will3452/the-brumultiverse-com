@@ -45,10 +45,10 @@
                 {item:'book', path:'active-books.png', url:'{{route('student.bs.index')}}'},
                 {item:'computer', path:'active-computer.png', url:'{{route('student.computer.dashboard')}}'},
                 {item:'phone', path:'active-phone.png', url:'{{route('student.phone.index')}}'},
-                {item:'newspaper', path:'active-newspaper.png', url:''},
-                {item:'diary', path:'active-diary.png', url:''},
-                {item:'radio', path:'active-radio.png', url:''},
-                {item:'closet', path:'active-closet.png', url:''}
+                {item:'newspaper', path:'active-newspaper.png', url:'{{route('dev.blank', ['name' => 'Newspaper'])}}'},
+                {item:'diary', path:'active-diary.png', url:'{{route('dev.blank', ['name' => 'Diary'])}}'},
+                {item:'radio', path:'active-radio.png', url:'{{route('dev.blank', ['name' => 'Radio'])}}'},
+                {item:'closet', path:'active-closet.png', url:'{{route('dev.blank', ['name' => 'Closet'])}}'}
             ],
             clickableSetter() {
                 this.objectClickables.forEach((item) => this.loadClickables(item))
