@@ -35,7 +35,7 @@ class BuyController extends PaymentController
 
         session()->put('redirect', route('student.buy.crystal.result.payment'));
         $balanceId = auth()->user()->balance->id;
-        $this->createTransaction('Balance', $balanceId, $param['txnid'], $amount, "Buy $r->type");
+        $this->createTransaction('Balance', $balanceId, $param['txnid'], $amount, "$r->quantity-$r->type");
 
         $param = PaymentSupport::getDigestString($param);
 

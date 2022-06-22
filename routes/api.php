@@ -17,6 +17,13 @@ Route::post('/dragonpay-postback', function (Request $request) {
             'ref_no' => $request->refno,
             'status' => PaymentTransaction::STATUSES[$request->status],
         ]);
+
+        if ($transaction->model_type === "App\\Models\\Balance" ) {
+            $descriptionArr = explode("-", $transaction->description);
+            $newBal = $transaction->model[$descriptionArr[1]] + $descriptionArr[0];
+            $data[$descriptionArr[1]] = $newBal;
+            $transaction->model()->update($data); // update the balance
+        }
     }
      return 'result=OK';
 });
