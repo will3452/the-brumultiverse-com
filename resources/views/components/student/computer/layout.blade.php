@@ -7,7 +7,7 @@
                 <x-scholar.sidebar-item label="Settings" :href="route('student.computer.setting')" />
                 <x-scholar.sidebar-item label="Homeworks" :href="route('student.computer.homework')" />
                 <x-scholar.sidebar-item label="Write with us" :href="route('student.computer.write')" />
-                <x-scholar.sidebar-item label="Sign off" :href="route('student.dorm.me')" />
+                <x-scholar.sidebar-item label="Shutdown" :href="route('student.dorm.me')" />
             </ul>
         </div>
         <div class="w-9/12 h-full bg-gray-100 p-4 overflow-y-auto pb-20">

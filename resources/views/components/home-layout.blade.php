@@ -1,4 +1,4 @@
-@props(['title' => 'Welcome'])
+@props(['title' => 'Welcome', 'hideNav' => false])
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +22,9 @@
 </head>
 <body class="text-white">
     <div id="app">
+        @if (! $hideNav)
         <x-home-nav></x-home-nav>
+        @endif
         {{$slot}}
         <footer>
             <div class="flex justify-center mt-4">
@@ -37,7 +39,9 @@
             </x-home-text-container>
         </footer>
     </div>
-    <x-dev.tawkto/>
+    @if (! $hideNav)
+        <x-dev.tawkto/>
+    @endif
 <x-vendor.alpinejs/>
 </body>
 </html>

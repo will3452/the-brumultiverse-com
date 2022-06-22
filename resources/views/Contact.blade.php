@@ -1,4 +1,4 @@
-<x-home-layout>
+<x-home-layout :hide-nav="$accessByComputer">
     <div
     style="
         background: url('{{getAsset('home/main_bg.png')}}');
@@ -36,4 +36,11 @@
     <x-home-text-container>
         Please note, however, that while we recognize your awesome works and ideas, we only publish stories set within the BRUMULTIVERSE.
     </x-home-text-container>
+    @if ($accessByComputer)
+    <div class="fixed w-full bottom-20">
+        <a class="btn btn-student-active absolute right-10 animate-bounce" href="mailto:submissions@brumultiverse.com">
+            EMAIL NOW
+        </a>
+    </div>
+    @endif
 </x-home-layout>

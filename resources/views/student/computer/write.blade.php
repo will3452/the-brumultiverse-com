@@ -3,7 +3,7 @@
         Write with us
     </h1>
     <div class="mt-4 h-screen">
-        <iframe src="/contact" frameborder="0" class="w-full h-full"></iframe>
+        <iframe src="/contact?hidenav=true" frameborder="0" class="w-full h-full"></iframe>
     </div>
 
 </x-student.computer.layout>

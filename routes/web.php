@@ -1,6 +1,7 @@
 <?php
 
 use Laravel\Nova\Nova;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\Chat1Controller;
@@ -20,7 +21,10 @@ Route::redirect('/login', '/scholars/login')->name('login');
 Route::redirect('/home', '/scholars/home');
 Route::view('/welcome', 'Home')->name('welcome');
 Route::view('/about', 'About')->name('about');
-Route::view('/contact', 'Contact')->name('contact');
+Route::get('/contact', function (Request $request) {
+    $accessByComputer = $request->hidenav;
+    return view('Contact', compact('accessByComputer'));
+})->name('contact');
 Route::view('/brunity', 'Brunity')->name('brunity');
 
 
