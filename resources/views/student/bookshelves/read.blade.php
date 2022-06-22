@@ -92,7 +92,7 @@
                     let end = chapters.filter(e => e.end_page == index)
 
                     if (end.length) {
-                        let ask = confirm('You\'re about to the next chapter, do you want to continue ?')
+                        let ask = confirm('change chapter')
                         if (! ask) {
                             window.location.href = `{{route('student.bs.index')}}`
                         }
