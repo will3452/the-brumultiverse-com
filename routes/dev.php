@@ -26,5 +26,6 @@ Route::get('aan-generate', function () {
 });
 
 Route::get('blank', function (Request $request) {
-    return "underdevelopment $request->name";
+    $back = url()->previous();
+    return "underdevelopment $request->name <a href='$back'>Back</a>";
 })->name('blank');

@@ -76,7 +76,7 @@
                 pdf:'/storage/{{$work->bookContent->pdf}}',
                 centeredWhenClosed : true
 				,hardcovers : true
-				,toolbar : "left, right,  zoomin, zoomout, slideshow, flipsound, fullscreen, home"
+				,toolbar : "left, right,  zoomin, zoomout, flipsound, fullscreen, home"
 				,thumbnailsPosition : 'left'
                 ,homeURL: "{{route('student.bs.index')}}"
 				,responsiveHandleWidth : 50
