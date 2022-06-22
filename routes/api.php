@@ -53,3 +53,6 @@ Route::get('/avatars', [AvatarController::class, 'apiGet']);
 Route::post('/book-content-chapter/edit/{chapter}', [BookContentController::class, 'editChapter']);
 Route::post('/book-content-chapter', [BookContentController::class, 'addChapter']);
 Route::get('/book-content-chapter/{book}', [BookContentController::class, 'getChapter']);
+
+
+//students

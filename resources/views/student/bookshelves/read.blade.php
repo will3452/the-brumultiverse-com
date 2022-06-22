@@ -17,6 +17,7 @@
 	<link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
 	<link rel="shortcut icon" sizes="196x196" href="img/touch/touch-icon-196x196.png">
 	<link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+    <x-vendor.alpinejs/>
 
 	<!-- Tile icon for Win8 (144x144 + tile color) -->
 	<meta name="msapplication-TileImage" content="img/touch/apple-touch-icon-144x144-precomposed.png">
@@ -67,6 +68,9 @@
 
 	<script src="/wow_book/wow_book.min.js"></script>
 	<!-- <script src="/js/main.js"></script> -->
+    <script>
+        let chapters = @json($work->bookContent->bookContentChapters);
+    </script>
 	<script>
 		var bookOptions = {
 				 height   : 500
@@ -85,7 +89,14 @@
                 pdfFind:true,
                 pdfTextSelectable:true,
                 onShowPage (book, page, index) {
-                    console.log(index)
+                    let end = chapters.filter(e => e.end_page == index)
+
+                    if (end.length) {
+                        let ask = confirm('You\'re about to the next chapter, do you want to continue ?')
+                        if (! ask) {
+                            window.location.href = `{{route('student.bs.index')}}`
+                        }
+                    }
                 },
 				// ,toolbarContainerPosition: "top" // default "bottom"
 
