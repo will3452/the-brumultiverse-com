@@ -168,7 +168,7 @@
             {{$slot}}
         <x-student.bottombar/>
         @auth
-            <a href="javascript:alert('under develop')" class="px-2 py-1 fixed bottom-3 right-10">
+            <a href="{{route('dev.blank', ['name' => 'Shop'])}}" class="px-2 py-1 fixed bottom-3 right-10">
                 <img src="/students/nav/store.png" alt="" class="h-9">
             </a>
             <a href="/scholars/logout" class="px-2 py-1 text-bold rounded text-white fixed bottom-4 right-2 bg-red-600">
