@@ -15,6 +15,9 @@ class RegisterController extends Controller
     public function showRegister()
     {
         $colleges = College::get();
+        if ( auth()->check() ) {
+            return redirect()->to(route('student.map'));
+        }
         return view('student.register', compact('colleges'));
     }
 
