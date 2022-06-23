@@ -27,7 +27,7 @@ class AvatarController extends Controller
         $avatar = Avatar::whereUserId($id)->first();
         $response['base'] = optional(AvatarBase::wherePath($avatar->base)->first())->id;
         $response['hair'] = optional(AvatarAsset::wherePath($avatar->hair)->first())->id;
-        $response['clothes'] = optional(AvatarAsset::wherePath($avatar->clothes)->first())->id;
+        $response['clothes'] = optional(AvatarAsset::wherePath($avatar->dress)->first())->id;
         return $response;
     }
 
