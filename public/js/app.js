@@ -2220,10 +2220,6 @@ __webpack_require__.r(__webpack_exports__);
     currentBaseImage: function currentBaseImage() {
       var _this2 = this;
 
-      if (typeof this.baseActive == 'string') {
-        return this.uri + '/storage/' + this.baseActive;
-      }
-
       var path = this.choices.bases.find(function (e) {
         return e.id == _this2.baseActive;
       });
@@ -2237,10 +2233,6 @@ __webpack_require__.r(__webpack_exports__);
     currentHairImage: function currentHairImage() {
       var _this3 = this;
 
-      if (typeof this.hairActive == 'string') {
-        return this.uri + '/storage/' + this.hairActive;
-      }
-
       var path = this.choices.hairstyles.find(function (e) {
         return e.id == _this3.hairActive;
       });
@@ -2253,10 +2245,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     currentClothesImage: function currentClothesImage() {
       var _this4 = this;
-
-      if (typeof this.clothesActive == 'string') {
-        return this.uri + '/storage/' + this.clothesActive;
-      }
 
       var path = this.choices.clothes.find(function (e) {
         return e.id == _this4.clothesActive;

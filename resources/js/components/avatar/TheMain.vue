@@ -132,9 +132,6 @@ import ThumbnailVue from "./Thumbnail.vue";
         },
         computed: {
             currentBaseImage () {
-                if (typeof this.baseActive == 'string') {
-                    return this.uri + '/storage/' + this.baseActive
-                }
                 let path = this.choices.bases.find((e)=>e.id == this.baseActive);
                 if (path == null) {
                     return '#';
@@ -142,9 +139,6 @@ import ThumbnailVue from "./Thumbnail.vue";
                 return this.uri + "/storage/" + path.path;
             },
             currentHairImage () {
-                if (typeof this.hairActive == 'string') {
-                    return this.uri + '/storage/' + this.hairActive
-                }
                 let path = this.choices.hairstyles.find((e)=>e.id == this.hairActive);
                 if (path == null) {
                     return '#';
@@ -152,9 +146,6 @@ import ThumbnailVue from "./Thumbnail.vue";
                 return this.uri + "/storage/" + path.path;
             },
             currentClothesImage () {
-                if (typeof this.clothesActive == 'string') {
-                    return this.uri + '/storage/' + this.clothesActive
-                }
                 let path = this.choices.clothes.find((e)=>e.id == this.clothesActive);
                 if (path == null) {
                     return '#';
