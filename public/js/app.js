@@ -2169,6 +2169,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     if (this.myAvatar) {
+      alert(1);
       this.step = 2;
       this.defaultStep = 2;
       this.baseActive = this.myAvatar.base;
