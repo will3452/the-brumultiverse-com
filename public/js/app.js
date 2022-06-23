@@ -2197,6 +2197,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   methods: {
     back: function back() {
+      if (this.step != this.defaultStep) {
+        step--;
+        return;
+      }
+
       window.history.back();
     },
     fetchAvatar: function fetchAvatar() {
@@ -44278,14 +44283,7 @@ var render = function () {
           _c("div", { staticClass: "flex justify-between mt-2 w-full" }, [
             _c(
               "button",
-              {
-                staticClass: "btn-student",
-                on: {
-                  click: function ($event) {
-                    _vm.step != _vm.defaultStep ? _vm.step-- : _vm.back
-                  },
-                },
-              },
+              { staticClass: "btn-student", on: { click: _vm.back } },
               [_vm._v("Back")]
             ),
             _vm._v(" "),
