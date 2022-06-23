@@ -2255,6 +2255,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     currentBaseImage: function currentBaseImage() {
       var _this3 = this;
 
+      if (!this.choices) {
+        return '#';
+      }
+
       var path = this.choices.bases.find(function (e) {
         return e.id == _this3.baseActive;
       });
@@ -2268,6 +2272,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     currentHairImage: function currentHairImage() {
       var _this4 = this;
 
+      if (!this.choices) {
+        return '#';
+      }
+
       var path = this.choices.hairstyles.find(function (e) {
         return e.id == _this4.hairActive;
       });
@@ -2280,6 +2288,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     currentClothesImage: function currentClothesImage() {
       var _this5 = this;
+
+      if (!this.choices) {
+        return '#';
+      }
 
       var path = this.choices.clothes.find(function (e) {
         return e.id == _this5.clothesActive;
