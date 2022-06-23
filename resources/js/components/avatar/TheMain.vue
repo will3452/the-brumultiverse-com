@@ -88,6 +88,7 @@ import ThumbnailVue from "./Thumbnail.vue";
         },
         mounted() {
             if ( this.myAvatar) {
+                alert(1)
                 this.step = 2
                 this.defaultStep = 2
                 this.baseActive = this.myAvatar.base
