@@ -93,6 +93,7 @@ import ThumbnailVue from "./Thumbnail.vue";
                 .then(res=>res.json())
                 .then((data) =>{
                     this.choices = data;
+                    console.log(this.choices)
                     this.baseActive = data.bases[0].id;
                     this.hairActive = 0;
                     this.clothesActive = 0;

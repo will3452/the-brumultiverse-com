@@ -2182,6 +2182,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return res.json();
     }).then(function (data) {
       _this.choices = data;
+      console.log(_this.choices);
       _this.baseActive = data.bases[0].id;
       _this.hairActive = 0;
       _this.clothesActive = 0;
