@@ -11,4 +11,8 @@ class ClosetController extends Controller
     {
         return view('student.closet.tutorial');
     }
+
+    public function myCloset () {
+        return view('student.closet.me');
+    }
 }

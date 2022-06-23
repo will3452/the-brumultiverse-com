@@ -2140,10 +2140,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['gender', 'isPremium', 'college'],
+  props: ['gender', 'isPremium', 'college', 'myAvatar'],
   components: {
     ThumbnailVue: _Thumbnail_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
@@ -2155,6 +2156,7 @@ __webpack_require__.r(__webpack_exports__);
       clothesActive: 0,
       uri: 'https://brumultiverse.com/',
       step: 1,
+      defaultStep: 1,
       avatar: {
         base: 1,
         hair: 0,
@@ -2165,6 +2167,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var _this = this;
+
+    if (this.myAvatar) {
+      this.step = 2;
+      this.defaultStep = 2;
+      this.baseActive = this.myAvatar.base;
+      this.hairActive = this.myAvatar.hair;
+      this.clothesActive = this.myAvatar.dress;
+    }
 
     _Bus__WEBPACK_IMPORTED_MODULE_0__["default"].$on('trigger-modal', function () {
       _this.modalIsActive = true;
@@ -2210,6 +2220,10 @@ __webpack_require__.r(__webpack_exports__);
     currentBaseImage: function currentBaseImage() {
       var _this2 = this;
 
+      if (typeof this.baseActive == 'string') {
+        return this.uri + '/storage/' + this.baseActive;
+      }
+
       var path = this.choices.bases.find(function (e) {
         return e.id == _this2.baseActive;
       });
@@ -2223,6 +2237,10 @@ __webpack_require__.r(__webpack_exports__);
     currentHairImage: function currentHairImage() {
       var _this3 = this;
 
+      if (typeof this.hairActive == 'string') {
+        return this.uri + '/storage/' + this.hairActive;
+      }
+
       var path = this.choices.hairstyles.find(function (e) {
         return e.id == _this3.hairActive;
       });
@@ -2235,6 +2253,10 @@ __webpack_require__.r(__webpack_exports__);
     },
     currentClothesImage: function currentClothesImage() {
       var _this4 = this;
+
+      if (typeof this.clothesActive == 'string') {
+        return this.uri + '/storage/' + this.clothesActive;
+      }
 
       var path = this.choices.clothes.find(function (e) {
         return e.id == _this4.clothesActive;
@@ -44222,7 +44244,7 @@ var render = function () {
                 staticClass: "btn-student",
                 on: {
                   click: function ($event) {
-                    _vm.step != 1 ? _vm.step-- : _vm.step
+                    _vm.step != _vm.defaultStep ? _vm.step-- : _vm.step
                   },
                 },
               },
@@ -44247,6 +44269,7 @@ var render = function () {
         ]
       ),
     ]),
+    _vm._v("\r\n    " + _vm._s(_vm.myAvatar) + "\r\n"),
   ])
 }
 var staticRenderFns = []

@@ -40,6 +40,10 @@ Route::prefix('dorm')->name('dorm.')->group(function () {
 //closet
 Route::get('/closet-tutorial', [ClosetController::class, 'tutorial'])->name('closet.tutorial');
 
+Route::prefix('closets')->name('closet.')->group(function () {
+    Route::get('/', [ClosetController::class, 'myCloset'])->name('me');
+});
+
 
 // library
 Route::prefix('library')->name('library.')->group(function () {

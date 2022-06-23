@@ -5,7 +5,7 @@
     <x-vendor.konvajs/>
     <script>
         var data = {
-            assetUri:'{{auth()->user()->isGenderMale() ? getAsset("male-dorm/", true) : getAsset("female-dorm/", true)}}',
+            assetUri:'{{getAsset("closet/", true)}}',
             loadClickables({item, path, url}) {
                 const Item = new Image();
 
@@ -42,13 +42,9 @@
 
             },
             objectClickables : [
-                {item:'book', path:'active-books.png', url:'{{route('student.bs.index')}}'},
-                {item:'computer', path:'active-computer.png', url:'{{route('student.computer.dashboard')}}'},
-                {item:'phone', path:'active-phone.png', url:'{{route('student.phone.index')}}'},
-                {item:'newspaper', path:'active-newspaper.png', url:'{{route('dev.blank', ['name' => 'Newspaper'])}}'},
-                {item:'diary', path:'active-diary.png', url:'{{route('dev.blank', ['name' => 'Diary'])}}'},
-                {item:'radio', path:'active-radio.png', url:'{{route('dev.blank', ['name' => 'Radio'])}}'},
-                {item:'closet', path:'active-closet.png', url:'{{route('student.closet.me')}}'}
+                {item:'bag', path:'active-bag.png', url:'{{route('student.bs.index')}}'},
+                {item:'mirror', path:'active-mirror.png', url:'{{route('student.computer.dashboard')}}'},
+                {item:'closet', path:'active-closet.png', url:'{{route('dev.blank', ['name' => 'Closet'])}}'}
             ],
             clickableSetter() {
                 this.objectClickables.forEach((item) => this.loadClickables(item))

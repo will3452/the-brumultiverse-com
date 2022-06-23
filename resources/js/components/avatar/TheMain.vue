@@ -50,13 +50,14 @@
                 <img :src="currentClothesImage" alt="" class="absolute animate-pulse">
             </div>
             <div class="flex justify-between mt-2 w-full">
-                <button class="btn-student" @click="step != 1 ? step-- : step">Back</button>
+                <button class="btn-student" @click="step != defaultStep ? step-- : step">Back</button>
                 <button class="btn-student-active" @click="stepForward">
                     <span v-text="step == 3 ? 'Finish' : 'Next'"></span>
                 </button>
             </div>
         </div>
     </div>
+    {{myAvatar}}
 </div>
 </template>
 
@@ -64,7 +65,7 @@
 import Bus from './Bus';
 import ThumbnailVue from "./Thumbnail.vue";
     export default {
-        props: ['gender', 'isPremium', 'college'],
+        props: ['gender', 'isPremium', 'college', 'myAvatar'],
         components: {
             ThumbnailVue,
         },
@@ -76,6 +77,7 @@ import ThumbnailVue from "./Thumbnail.vue";
                 clothesActive:0,
                 uri: 'https://brumultiverse.com/',
                 step: 1,
+                defaultStep: 1,
                 avatar:{
                     base:1,
                     hair:0,
@@ -85,6 +87,13 @@ import ThumbnailVue from "./Thumbnail.vue";
             }
         },
         mounted() {
+            if ( this.myAvatar) {
+                this.step = 2
+                this.defaultStep = 2
+                this.baseActive = this.myAvatar.base
+                this.hairActive = this.myAvatar.hair
+                this.clothesActive = this.myAvatar.dress
+            }
             Bus.$on('trigger-modal',() => {
                 this.modalIsActive = true;
             })
@@ -123,6 +132,9 @@ import ThumbnailVue from "./Thumbnail.vue";
         },
         computed: {
             currentBaseImage () {
+                if (typeof this.baseActive == 'string') {
+                    return this.uri + '/storage/' + this.baseActive
+                }
                 let path = this.choices.bases.find((e)=>e.id == this.baseActive);
                 if (path == null) {
                     return '#';
@@ -130,6 +142,9 @@ import ThumbnailVue from "./Thumbnail.vue";
                 return this.uri + "/storage/" + path.path;
             },
             currentHairImage () {
+                if (typeof this.hairActive == 'string') {
+                    return this.uri + '/storage/' + this.hairActive
+                }
                 let path = this.choices.hairstyles.find((e)=>e.id == this.hairActive);
                 if (path == null) {
                     return '#';
@@ -137,6 +152,9 @@ import ThumbnailVue from "./Thumbnail.vue";
                 return this.uri + "/storage/" + path.path;
             },
             currentClothesImage () {
+                if (typeof this.clothesActive == 'string') {
+                    return this.uri + '/storage/' + this.clothesActive
+                }
                 let path = this.choices.clothes.find((e)=>e.id == this.clothesActive);
                 if (path == null) {
                     return '#';
