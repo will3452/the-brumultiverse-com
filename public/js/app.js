@@ -2076,9 +2076,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Bus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Bus */ "./resources/js/components/avatar/Bus.js");
-/* harmony import */ var _Thumbnail_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Thumbnail.vue */ "./resources/js/components/avatar/Thumbnail.vue");
-//
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Bus__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Bus */ "./resources/js/components/avatar/Bus.js");
+/* harmony import */ var _Thumbnail_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Thumbnail.vue */ "./resources/js/components/avatar/Thumbnail.vue");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -2144,9 +2151,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['gender', 'isPremium', 'college', 'myAvatar'],
+  props: ['gender', 'isPremium', 'college', 'hasAvatar', 'userId'],
   components: {
-    ThumbnailVue: _Thumbnail_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    ThumbnailVue: _Thumbnail_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -2168,16 +2175,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    if (this.myAvatar) {
-      alert(1);
-      this.step = 2;
-      this.defaultStep = 2;
-      this.baseActive = this.myAvatar.base;
-      this.hairActive = this.myAvatar.hair;
-      this.clothesActive = this.myAvatar.dress;
-    }
-
-    _Bus__WEBPACK_IMPORTED_MODULE_0__["default"].$on('trigger-modal', function () {
+    _Bus__WEBPACK_IMPORTED_MODULE_1__["default"].$on('trigger-modal', function () {
       _this.modalIsActive = true;
     });
     fetch("".concat(this.uri, "api/avatars?gender=").concat(this.gender, "&college=").concat(this.college, "&is_premium=").concat(this.isPremium)).then(function (res) {
@@ -2189,8 +2187,43 @@ __webpack_require__.r(__webpack_exports__);
       _this.clothesActive = 0;
       console.log(_this.baseActive, _this.hairActive, _this.clothesActive);
     });
+
+    if (this.hasAvatar) {
+      this.step = 2;
+      this.defaultStep = 2;
+      this.fetchAvatar();
+    }
   },
   methods: {
+    fetchAvatar: function fetchAvatar() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var _yield$axios$get, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios.get("/api/user/".concat(_this2.userId, "/avatar-get"));
+
+              case 2:
+                _yield$axios$get = _context.sent;
+                data = _yield$axios$get.data;
+                _this2.avatar = data;
+                _this2.baseActive = data.base;
+                _this2.hairActive = data.hair;
+                _this2.clothesActive = data.clothes;
+
+              case 8:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
     stepForward: function stepForward() {
       this.step++;
 
@@ -2219,10 +2252,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     currentBaseImage: function currentBaseImage() {
-      var _this2 = this;
+      var _this3 = this;
 
       var path = this.choices.bases.find(function (e) {
-        return e.id == _this2.baseActive;
+        return e.id == _this3.baseActive;
       });
 
       if (path == null) {
@@ -2232,10 +2265,10 @@ __webpack_require__.r(__webpack_exports__);
       return this.uri + "/storage/" + path.path;
     },
     currentHairImage: function currentHairImage() {
-      var _this3 = this;
+      var _this4 = this;
 
       var path = this.choices.hairstyles.find(function (e) {
-        return e.id == _this3.hairActive;
+        return e.id == _this4.hairActive;
       });
 
       if (path == null) {
@@ -2245,10 +2278,10 @@ __webpack_require__.r(__webpack_exports__);
       return this.uri + "/storage/" + path.path;
     },
     currentClothesImage: function currentClothesImage() {
-      var _this4 = this;
+      var _this5 = this;
 
       var path = this.choices.clothes.find(function (e) {
-        return e.id == _this4.clothesActive;
+        return e.id == _this5.clothesActive;
       });
 
       if (path == null) {
@@ -44258,7 +44291,6 @@ var render = function () {
         ]
       ),
     ]),
-    _vm._v("\r\n    " + _vm._s(_vm.myAvatar) + "\r\n"),
   ])
 }
 var staticRenderFns = []

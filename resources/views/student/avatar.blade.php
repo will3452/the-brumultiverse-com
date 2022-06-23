@@ -9,8 +9,7 @@
 </head>
 <body>
     <div id="app">
-        {{auth()->user()->avatar->base}} {{auth()->user()->avatar->hair}} {{auth()->user()->avatar->dress}}
-        <avatar-main my-avatar="{{true ? auth()->user()->avatar : null}}" college="{{request()->college ?? request()->user()->interest->college->name}}" gender="{{request()->gender ?? auth()->user()->gender}}" is-premium="{{is_null(request()->premium) ? auth()->user()->isPremium(): request()->premium}}"></avatar-main>
+        <avatar-main user-id="{{auth()->id()}}" v-bind:has-avatar="true" gender="{{request()->gender ?? auth()->user()->gender}}" is-premium="{{is_null(request()->premium) ? auth()->user()->isPremium(): request()->premium}}"></avatar-main>
     </div>
     <script src="/js/app.js" defer></script>
 </body>

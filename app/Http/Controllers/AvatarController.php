@@ -19,6 +19,18 @@ class AvatarController extends Controller
         return view('avatar_create');
     }
 
+    public function getMyAvatar($id) {
+        $isExists = Avatar::whereUserId($id)->exists();
+        if (! $isExists) {
+            return ['base' => 0, 'clothes' => 0, 'hair' => 0];
+        }
+        $avatar = Avatar::whereUserId($id)->first();
+        $response['base'] = optional(AvatarBase::wherePath($avatar->base)->first())->id;
+        $response['hair'] = optional(AvatarAsset::wherePath($avatar->hair)->first())->id;
+        $response['clothes'] = optional(AvatarAsset::wherePath($avatar->clothes)->first())->id;
+        return $response;
+    }
+
     public function update(Request $request)
     {
         $base = optional(AvatarBase::find($request->get('base')))->path;

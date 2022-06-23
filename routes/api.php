@@ -53,6 +53,7 @@ Route::post('/account-exists', function (Request $request) {
 
 //avatars api
 Route::get('/avatars', [AvatarController::class, 'apiGet']);
+Route::get('/user/{id}/avatar-get', [AvatarController::class, 'getMyAvatar']);
 
 
 # scholar

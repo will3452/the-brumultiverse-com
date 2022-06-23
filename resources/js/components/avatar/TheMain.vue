@@ -57,7 +57,6 @@
             </div>
         </div>
     </div>
-    {{myAvatar}}
 </div>
 </template>
 
@@ -65,7 +64,7 @@
 import Bus from './Bus';
 import ThumbnailVue from "./Thumbnail.vue";
     export default {
-        props: ['gender', 'isPremium', 'college', 'myAvatar'],
+        props: ['gender', 'isPremium', 'college', 'hasAvatar', 'userId'],
         components: {
             ThumbnailVue,
         },
@@ -87,14 +86,6 @@ import ThumbnailVue from "./Thumbnail.vue";
             }
         },
         mounted() {
-            if ( this.myAvatar) {
-                alert(1)
-                this.step = 2
-                this.defaultStep = 2
-                this.baseActive = this.myAvatar.base
-                this.hairActive = this.myAvatar.hair
-                this.clothesActive = this.myAvatar.dress
-            }
             Bus.$on('trigger-modal',() => {
                 this.modalIsActive = true;
             })
@@ -107,8 +98,21 @@ import ThumbnailVue from "./Thumbnail.vue";
                     this.clothesActive = 0;
                     console.log(this.baseActive, this.hairActive, this.clothesActive);
                 });
+
+                if ( this.hasAvatar) {
+                    this.step = 2
+                    this.defaultStep = 2
+                    this.fetchAvatar()
+                }
         },
         methods: {
+            async fetchAvatar () {
+                let { data } = await axios.get(`/api/user/${this.userId}/avatar-get`)
+                this.avatar = data
+                this.baseActive = data.base
+                this.hairActive = data.hair
+                this.clothesActive = data.clothes
+            },
             stepForward() {
                 this.step++;
                 if (this.step >= 4) {
