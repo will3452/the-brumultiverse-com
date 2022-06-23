@@ -138,7 +138,7 @@ import ThumbnailVue from "./Thumbnail.vue";
         },
         computed: {
             currentBaseImage () {
-                if (! this.choices) {
+                if (! this.choices.bases) {
                     return '#'
                 }
                 let path = this.choices.bases.find((e)=>e.id == this.baseActive);
@@ -148,7 +148,7 @@ import ThumbnailVue from "./Thumbnail.vue";
                 return this.uri + "/storage/" + path.path;
             },
             currentHairImage () {
-                if (! this.choices) {
+                if (! this.choices.hairstyles) {
                     return '#'
                 }
                 let path = this.choices.hairstyles.find((e)=>e.id == this.hairActive);
@@ -158,7 +158,7 @@ import ThumbnailVue from "./Thumbnail.vue";
                 return this.uri + "/storage/" + path.path;
             },
             currentClothesImage () {
-                if (! this.choices) {
+                if (! this.choices.clothes) {
                     return '#'
                 }
                 let path = this.choices.clothes.find((e)=>e.id == this.clothesActive);

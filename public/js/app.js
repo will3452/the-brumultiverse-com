@@ -2255,7 +2255,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     currentBaseImage: function currentBaseImage() {
       var _this3 = this;
 
-      if (!this.choices) {
+      if (!this.choices.bases) {
         return '#';
       }
 
@@ -2272,7 +2272,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     currentHairImage: function currentHairImage() {
       var _this4 = this;
 
-      if (!this.choices) {
+      if (!this.choices.hairstyles) {
         return '#';
       }
 
@@ -2289,7 +2289,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     currentClothesImage: function currentClothesImage() {
       var _this5 = this;
 
-      if (!this.choices) {
+      if (!this.choices.clothes) {
         return '#';
       }
 
