@@ -2196,6 +2196,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   methods: {
+    back: function back() {
+      window.history.back();
+    },
     fetchAvatar: function fetchAvatar() {
       var _this2 = this;
 
@@ -44279,7 +44282,7 @@ var render = function () {
                 staticClass: "btn-student",
                 on: {
                   click: function ($event) {
-                    _vm.step != _vm.defaultStep ? _vm.step-- : _vm.step
+                    _vm.step != _vm.defaultStep ? _vm.step-- : _vm.back
                   },
                 },
               },

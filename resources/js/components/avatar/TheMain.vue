@@ -50,7 +50,7 @@
                 <img :src="currentClothesImage" alt="" class="absolute animate-pulse">
             </div>
             <div class="flex justify-between mt-2 w-full">
-                <button class="btn-student" @click="step != defaultStep ? step-- : step">Back</button>
+                <button class="btn-student" @click="step != defaultStep ? step-- : back">Back</button>
                 <button class="btn-student-active" @click="stepForward">
                     <span v-text="step == 3 ? 'Finish' : 'Next'"></span>
                 </button>
@@ -107,6 +107,9 @@ import ThumbnailVue from "./Thumbnail.vue";
                 }
         },
         methods: {
+            back () {
+                window.history.back()
+            },
             async fetchAvatar () {
                 let { data } = await axios.get(`/api/user/${this.userId}/avatar-get`)
                 this.avatar = data
