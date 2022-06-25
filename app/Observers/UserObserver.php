@@ -14,5 +14,8 @@ class UserObserver
         $user->assignRole($role);
 
         Avatar::create(['user_id' => $user->id]);
+        if (! $user->hasBalance()) {
+            $user->balance()->create(['hall_pass' => 0, 'purple_crystal' => 0, 'white_crystal' => 0, 'silver_ticket' => 0]);
+        }
     }
 }
