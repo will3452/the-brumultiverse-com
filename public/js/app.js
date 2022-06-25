@@ -44132,15 +44132,6 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "relative" }, [
-    _vm._v(
-      "\r\n    " +
-        _vm._s(_vm.currentBaseImage) +
-        " | " +
-        _vm._s(_vm.currentClothesImage) +
-        " | " +
-        _vm._s(_vm.currentHairImage) +
-        "\r\n    "
-    ),
     _vm.modalIsActive
       ? _c(
           "div",
