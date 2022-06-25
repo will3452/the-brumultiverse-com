@@ -1,6 +1,6 @@
 <template>
 <div class="relative">
-    {{currentBaseImage}} | {{currentClothesImage}} | {{currentHairImage}}
+    <!-- {{currentBaseImage}} | {{currentClothesImage}} | {{currentHairImage}} -->
     <div v-if="modalIsActive" class="backdrop-blur backdrop-brightness-50 w-screen h-screen absolute z-50 flex justify-center items-start pt-10">
         <div class="bg-white p-4 rounded-md w-full max-w-sm">
             Hi! This option is for VIP students (premium account holders). Would you like to change your account type?
