@@ -121,7 +121,7 @@ import ThumbnailVue from "./Thumbnail.vue";
                 this.baseActive = data.base
                 this.hairActive = data.hair
                 this.clothesActive = data.clothes
-                console.log('avatar >> ', avatar)
+                console.log('avatar >> ', this.avatar)
             },
             stepForward() {
                 this.step++;
