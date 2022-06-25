@@ -2225,7 +2225,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _this2.baseActive = data.base;
                 _this2.hairActive = data.hair;
                 _this2.clothesActive = data.clothes;
-                console.log('avatar >> ', avatar);
+                console.log('avatar >> ', _this2.avatar);
 
               case 10:
               case "end":
