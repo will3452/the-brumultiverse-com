@@ -116,6 +116,7 @@ import ThumbnailVue from "./Thumbnail.vue";
             },
             async fetchAvatar () {
                 let { data } = await axios.get(`/api/user/${this.userId}/avatar-get`)
+                console.log('response >> ', data)
                 this.avatar = data
                 this.baseActive = data.base
                 this.hairActive = data.hair

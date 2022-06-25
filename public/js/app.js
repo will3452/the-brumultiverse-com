@@ -2220,13 +2220,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 2:
                 _yield$axios$get = _context.sent;
                 data = _yield$axios$get.data;
+                console.log('response >> ', data);
                 _this2.avatar = data;
                 _this2.baseActive = data.base;
                 _this2.hairActive = data.hair;
                 _this2.clothesActive = data.clothes;
                 console.log('avatar >> ', avatar);
 
-              case 9:
+              case 10:
               case "end":
                 return _context.stop();
             }
