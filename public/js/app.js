@@ -2263,7 +2263,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     currentBaseImage: function currentBaseImage() {
       var _this3 = this;
 
-      if (!this.choices) {
+      if (!this.choices.bases || !this.choices.bases.length) {
         return '#';
       }
 
@@ -2280,7 +2280,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     currentHairImage: function currentHairImage() {
       var _this4 = this;
 
-      if (!this.choices) {
+      if (!this.choices.hairstyles || !this.choices.hairstyles.length) {
         return '#';
       }
 
@@ -2297,7 +2297,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     currentClothesImage: function currentClothesImage() {
       var _this5 = this;
 
-      if (!this.choices) {
+      if (!this.choices.clothes || !this.choices.clothes.length) {
         return '#';
       }
 
