@@ -44791,7 +44791,7 @@ var render = function () {
         ? _c(
             "button",
             {
-              staticClass: "btn-student-active fixed top-10 right-10",
+              staticClass: "btn-student-active fixed top-10 right-10 z-50",
               on: { click: _vm.submit },
             },
             [_vm._v("Save")]
@@ -44892,7 +44892,7 @@ var render = function () {
         ? _c(
             "button",
             {
-              staticClass: "btn-student-active  fixed top-10 right-10",
+              staticClass: "btn-student-active  fixed top-10 right-10 z-50",
               on: { click: _vm.submit },
             },
             [_vm._v("Save")]
