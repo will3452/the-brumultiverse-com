@@ -2444,7 +2444,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       if (this.currentAvatar.dress && !this.dressActive) {
-        return this.uri + '/storage/' + this.currentAvatar.hair;
+        return this.uri + '/storage/' + this.currentAvatar.dress;
       }
 
       var path = this.choices.clothes.find(function (e) {

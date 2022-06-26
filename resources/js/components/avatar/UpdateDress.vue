@@ -47,7 +47,7 @@ export default {
                 return '#'
             }
             if (this.currentAvatar.dress && ! this.dressActive) {
-                return this.uri + '/storage/' + this.currentAvatar.hair
+                return this.uri + '/storage/' + this.currentAvatar.dress
             }
             let path = this.choices.clothes.find((e)=>e.id == this.dressActive);
             if (path == null) {
