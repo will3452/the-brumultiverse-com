@@ -1,5 +1,5 @@
 <x-student.layout>
-    <div class="h-screen overflow-y-auto w-screen bg-white backdrop-blur-sm" style="background: url('/students/bg-wood.jpg'); background-size: cover; background-position:center; ">
+    <div class="h-screen overflow-y-auto w-screen bg-white backdrop-blur-sm" style="background: url('/students/bs-bg.png'); background-size: cover; background-position:center; ">
         <x-student.announcement />
         <x-student.slider />
 
