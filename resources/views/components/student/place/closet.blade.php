@@ -44,7 +44,7 @@
             objectClickables : [
                 {item:'bag', path:'active-bag.png', url:'{{route('dev.blank', ['name' => 'bag'])}}'},
                 {item:'mirror', path:'active-mirror.png', url:'{{route('student.closet.mirror')}}'},
-                {item:'closet', path:'active-closet.png', url:'/avatars'}
+                {item:'closet', path:'active-closet.png', url:'{{route('student.closet.drawer')}}'}
             ],
             clickableSetter() {
                 this.objectClickables.forEach((item) => this.loadClickables(item))

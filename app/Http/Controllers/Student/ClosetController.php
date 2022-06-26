@@ -21,12 +21,21 @@ class ClosetController extends Controller
         return view('student.closet.mirror');
     }
 
+    public function drawer () {
+        return view('student.closet.drawer');
+    }
+
     public function saveAvatar (Request $request) {
         if ( $request->has('hair')) {
             $as = AvatarAsset::find($request->hair);
             auth()->user()->avatar()->update(['hair' => $as->path]);
-            toast('Avatar saved!');
-            return redirect()->to(route('student.closet.me'));
         }
+
+        if ( $request->has('dress')) {
+            $as = AvatarAsset::find($request->dress);
+            auth()->user()->avatar()->update(['dress' => $as->path]);
+        }
+        toast('Avatar saved!');
+        return redirect()->to(route('student.closet.me'));
     }
 }

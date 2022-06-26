@@ -43,6 +43,7 @@ Route::get('/closet-tutorial', [ClosetController::class, 'tutorial'])->name('clo
 Route::prefix('closets')->name('closet.')->group(function () {
     Route::get('/', [ClosetController::class, 'myCloset'])->name('me');
     Route::get('/mirror', [ClosetController::class, 'mirror'])->name('mirror');
+    Route::get('/drawer', [ClosetController::class, 'drawer'])->name('drawer');
     Route::get('/save-avatar', [ClosetController::class, 'saveAvatar'])->name('save.avatar');
 });
 

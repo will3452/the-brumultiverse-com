@@ -19,8 +19,10 @@ import ChatPanel from './components/chat/Panel.vue';
 import AvatarMain from './components/avatar/TheMain.vue';
 import BookContentSetting from './components/book-content-chapters/Index.vue';
 import UpdateHair from './components/avatar/UpdateHair.vue';
+import UpdateDress from './components/avatar/UpdateDress.vue';
 Vue.component('chat-panel', ChatPanel);
 Vue.component('update-hair', UpdateHair)
+Vue.component('update-dress', UpdateDress)
 Vue.component('avatar-main', AvatarMain);
 Vue.component('book-content-setting', BookContentSetting);
 const app = new Vue({
