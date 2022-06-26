@@ -2,6 +2,7 @@
     <div class="flex h-screen">
         <div class="w-6/12 h-full flex overflow-hidden flex-wrap overflow-y-auto items-center">
             <thumbnail-vue
+            v-if="! hair.for_premium"
             :is-user-premium="isPremium"
             :is-premium="hair.for_premium"
             :is-active="false"
