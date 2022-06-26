@@ -15,7 +15,7 @@
                 type="hair"
                 />
             </div>
-            <button class="btn-student-active mt-4" @click="submit" v-if="hairActive">Save</button>
+            <button class="btn-student-active  fixed top-10 right-10" @click="submit" v-if="hairActive">Save</button>
         </div>
         <div class="flex-col w-6/12 bg-blue-900 h-full flex items-center justify-center"  style="background:url('https://raw.githubusercontent.com/will3452/bru-assets/main/closet/base.png'); background-size:cover;background-position:center;">
             <div style="width:420px;height:594px;" class="border-2 backdrop-blur-sm">

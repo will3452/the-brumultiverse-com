@@ -3199,6 +3199,9 @@ body[dir="rtl"] .checkbox:checked,
 .-right-7 {
   right: -1.75rem;
 }
+.top-10 {
+  top: 2.5rem;
+}
 .-right-2 {
   right: -0.5rem;
 }
