@@ -44754,10 +44754,7 @@ var render = function () {
   return _c("div", { staticClass: "flex h-screen" }, [
     _c(
       "div",
-      {
-        staticClass:
-          "w-6/12 h-full flex overflow-hidden flex-wrap overflow-y-auto",
-      },
+      { staticClass: "w-6/12 h-full flex flex-wrap overflow-y-auto" },
       _vm._l(_vm.choices.clothes, function (dress) {
         return _c("thumbnail-vue", {
           key: dress.id,
@@ -44854,7 +44851,7 @@ var render = function () {
       "div",
       {
         staticClass:
-          "w-6/12 h-full flex overflow-hidden flex-wrap overflow-y-auto",
+          "w-6/12 h-full flex overflow-hidden flex-wrap overflow-y-auto items-center",
       },
       _vm._l(_vm.choices.hairstyles, function (hair) {
         return _c("thumbnail-vue", {

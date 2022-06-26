@@ -1,6 +1,6 @@
 <template>
     <div class="flex h-screen">
-        <div class="w-6/12 h-full flex overflow-hidden flex-wrap overflow-y-auto">
+        <div class="w-6/12 h-full flex flex-wrap overflow-y-auto">
             <thumbnail-vue
             :is-user-premium="isPremium"
             :is-premium="dress.for_premium"
