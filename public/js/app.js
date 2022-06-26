@@ -2420,6 +2420,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -2503,6 +2505,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Thumbnail_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Thumbnail.vue */ "./resources/js/components/avatar/Thumbnail.vue");
+//
+//
 //
 //
 //
@@ -44813,16 +44817,18 @@ var render = function () {
           ]
         ),
         _vm._v(" "),
-        _vm.dressActive
-          ? _c(
-              "button",
-              {
-                staticClass: "btn-student-active mt-4",
-                on: { click: _vm.submit },
-              },
-              [_vm._v("Save")]
-            )
-          : _vm._e(),
+        _c("div", { staticClass: "flex justify-start" }, [
+          _vm.dressActive
+            ? _c(
+                "button",
+                {
+                  staticClass: "btn-student-active mt-4",
+                  on: { click: _vm.submit },
+                },
+                [_vm._v("Save")]
+              )
+            : _vm._e(),
+        ]),
       ]
     ),
   ])
@@ -44913,16 +44919,18 @@ var render = function () {
           ]
         ),
         _vm._v(" "),
-        _vm.hairActive
-          ? _c(
-              "button",
-              {
-                staticClass: "btn-student-active mt-4",
-                on: { click: _vm.submit },
-              },
-              [_vm._v("Save")]
-            )
-          : _vm._e(),
+        _c("div", { staticClass: "flex justify-start" }, [
+          _vm.hairActive
+            ? _c(
+                "button",
+                {
+                  staticClass: "btn-student-active mt-4",
+                  on: { click: _vm.submit },
+                },
+                [_vm._v("Save")]
+              )
+            : _vm._e(),
+        ]),
       ]
     ),
   ])

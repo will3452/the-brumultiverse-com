@@ -20,7 +20,9 @@
                 <img :src="currentHairImage" alt="" class="absolute animate-pulse">
                 <img :src="currentClothesImage" alt="" class="absolute animate-pulse">
             </div>
-            <button class="btn-student-active mt-4" @click="submit" v-if="dressActive">Save</button>
+            <div  class="flex justify-start mt-4">
+                <button class="btn-student-active mt-4" @click="submit" v-if="dressActive">Save</button>
+            </div>
         </div>
     </div>
 </template>
