@@ -1,6 +1,6 @@
-@props(['small' => false])
+@props(['small' => false, 'backdrop' => true])
 @if ($small)
-    <div class="backdrop-brightness-50 backdrop-blur-sm p-5 z-30 absolute w-full">
+    <div class="@if($backdrop) backdrop-brightness-50 backdrop-blur-sm @endif p-5 z-30 absolute w-full">
         {{$slot}}
     </div>
 @else
