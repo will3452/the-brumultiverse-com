@@ -2422,6 +2422,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -2505,6 +2508,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Thumbnail_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Thumbnail.vue */ "./resources/js/components/avatar/Thumbnail.vue");
+//
+//
 //
 //
 //
@@ -44758,27 +44763,29 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "flex h-screen" }, [
-    _c(
-      "div",
-      { staticClass: "w-6/12 h-full flex flex-wrap overflow-y-auto" },
-      _vm._l(_vm.choices.clothes, function (dress) {
-        return !dress.for_premium
-          ? _c("thumbnail-vue", {
-              key: dress.id,
-              attrs: {
-                "is-user-premium": _vm.isPremium,
-                "is-premium": dress.for_premium,
-                "is-active": false,
-                src: _vm.uri + dress.thumbnail,
-                id: dress.id,
-                type: "dress",
-              },
-              on: { "was-clicked": _vm.thumbnailHandler },
-            })
-          : _vm._e()
-      }),
-      1
-    ),
+    _c("div", { staticClass: "w-6/12 h-full flex flex-wrap overflow-y-auto" }, [
+      _c(
+        "div",
+        { staticClass: "flex flex-wrap" },
+        _vm._l(_vm.choices.clothes, function (dress) {
+          return !dress.for_premium
+            ? _c("thumbnail-vue", {
+                key: dress.id,
+                attrs: {
+                  "is-user-premium": _vm.isPremium,
+                  "is-premium": dress.for_premium,
+                  "is-active": false,
+                  src: _vm.uri + dress.thumbnail,
+                  id: dress.id,
+                  type: "dress",
+                },
+                on: { "was-clicked": _vm.thumbnailHandler },
+              })
+            : _vm._e()
+        }),
+        1
+      ),
+    ]),
     _vm._v(" "),
     _c(
       "div",
@@ -44817,7 +44824,7 @@ var render = function () {
           ]
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "flex justify-start" }, [
+        _c("div", { staticClass: "flex justify-start mt-4" }, [
           _vm.dressActive
             ? _c(
                 "button",
@@ -44857,30 +44864,29 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "flex h-screen" }, [
-    _c(
-      "div",
-      {
-        staticClass:
-          "w-6/12 h-full flex overflow-hidden flex-wrap overflow-y-auto items-center",
-      },
-      _vm._l(_vm.choices.hairstyles, function (hair) {
-        return !hair.for_premium
-          ? _c("thumbnail-vue", {
-              key: hair.id,
-              attrs: {
-                "is-user-premium": _vm.isPremium,
-                "is-premium": hair.for_premium,
-                "is-active": false,
-                src: _vm.uri + hair.thumbnail,
-                id: hair.id,
-                type: "hair",
-              },
-              on: { "was-clicked": _vm.thumbnailHandler },
-            })
-          : _vm._e()
-      }),
-      1
-    ),
+    _c("div", { staticClass: "w-6/12 h-full overflow-y-auto items-center" }, [
+      _c(
+        "div",
+        { staticClass: "flex flex-wrap" },
+        _vm._l(_vm.choices.hairstyles, function (hair) {
+          return !hair.for_premium
+            ? _c("thumbnail-vue", {
+                key: hair.id,
+                attrs: {
+                  "is-user-premium": _vm.isPremium,
+                  "is-premium": hair.for_premium,
+                  "is-active": false,
+                  src: _vm.uri + hair.thumbnail,
+                  id: hair.id,
+                  type: "hair",
+                },
+                on: { "was-clicked": _vm.thumbnailHandler },
+              })
+            : _vm._e()
+        }),
+        1
+      ),
+    ]),
     _vm._v(" "),
     _c(
       "div",
@@ -44919,7 +44925,7 @@ var render = function () {
           ]
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "flex justify-start" }, [
+        _c("div", { staticClass: "flex justify-start mt-4" }, [
           _vm.hairActive
             ? _c(
                 "button",

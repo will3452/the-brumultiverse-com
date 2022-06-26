@@ -1,18 +1,20 @@
 <template>
     <div class="flex h-screen">
-        <div class="w-6/12 h-full flex overflow-hidden flex-wrap overflow-y-auto items-center">
+        <div class="w-6/12 h-full overflow-y-auto items-center">
+            <div class="flex flex-wrap">
             <thumbnail-vue
-            v-if="! hair.for_premium"
-            :is-user-premium="isPremium"
-            :is-premium="hair.for_premium"
-            :is-active="false"
-            :src="uri + hair.thumbnail"
-            :id="hair.id"
-            v-for="hair in choices.hairstyles"
-            :key="hair.id"
-            @was-clicked="thumbnailHandler"
-            type="hair"
-            />
+                v-if="! hair.for_premium"
+                :is-user-premium="isPremium"
+                :is-premium="hair.for_premium"
+                :is-active="false"
+                :src="uri + hair.thumbnail"
+                :id="hair.id"
+                v-for="hair in choices.hairstyles"
+                :key="hair.id"
+                @was-clicked="thumbnailHandler"
+                type="hair"
+                />
+            </div>
         </div>
         <div class="flex-col w-6/12 bg-blue-900 h-full flex items-center justify-center"  style="background:url('https://raw.githubusercontent.com/will3452/bru-assets/main/closet/base.png'); background-size:cover;background-position:center;">
             <div style="width:420px;height:594px;" class="border-2 backdrop-blur-sm">
