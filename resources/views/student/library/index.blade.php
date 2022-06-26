@@ -4,6 +4,7 @@
         <x-student.slider />
 
         <x-student.search/>
+        <div class="w-full h-full backdrop-blur-sm">
         <h1 class="px-4 text-2xl font-bold text-gray-400 mt-4">Library</h1>
         @if (is_null(request()->search))
             @foreach ($works as $key=>$w)
@@ -25,8 +26,8 @@
                 @endforelse
             </x-student.work-container>
         @endif
-
         <div class="mb-52"></div>
+        </div>
     </div>
     @push('head-script')
         <x-vendor.slickcss/>
