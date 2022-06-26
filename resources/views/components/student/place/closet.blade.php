@@ -43,7 +43,7 @@
             },
             objectClickables : [
                 {item:'bag', path:'active-bag.png', url:'{{route('dev.blank', ['name' => 'bag'])}}'},
-                {item:'mirror', path:'active-mirror.png', url:'/avatars'},
+                {item:'mirror', path:'active-mirror.png', url:'{{route('student.closet.mirror')}}'},
                 {item:'closet', path:'active-closet.png', url:'/avatars'}
             ],
             clickableSetter() {

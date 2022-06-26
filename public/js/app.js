@@ -2381,6 +2381,115 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/avatar/UpdateHair.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/avatar/UpdateHair.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Thumbnail_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Thumbnail.vue */ "./resources/js/components/avatar/Thumbnail.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    ThumbnailVue: _Thumbnail_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  props: ['currentAvatar', 'gender', 'college', 'isPremium'],
+  data: function data() {
+    return {
+      choices: [],
+      uri: 'https://brumultiverse.com/',
+      hairActive: false
+    };
+  },
+  computed: {
+    currentBaseImage: function currentBaseImage() {
+      return this.uri + '/storage/' + this.currentAvatar.base;
+    },
+    currentClothesImage: function currentClothesImage() {
+      return this.uri + '/storage/' + this.currentAvatar.dress;
+    },
+    currentHairImage: function currentHairImage() {
+      var _this = this;
+
+      if (!this.choices.hairstyles || !this.choices.hairstyles.length) {
+        return '#';
+      }
+
+      if (this.currentAvatar.hair && !this.hairActive) {
+        return this.uri + '/storage/' + this.currentAvatar.hair;
+      }
+
+      var path = this.choices.hairstyles.find(function (e) {
+        return e.id == _this.hairActive;
+      });
+
+      if (path == null) {
+        return '#';
+      }
+
+      return this.uri + "/storage/" + path.path;
+    }
+  },
+  methods: {
+    thumbnailHandler: function thumbnailHandler(_ref) {
+      var type = _ref.type,
+          id = _ref.id;
+
+      if (type == 'hair') {
+        this.hairActive = id;
+      }
+    },
+    submit: function submit() {
+      if (this.hairActive) {
+        window.location.href = "/students/closets/save-avatar?hair=".concat(this.hairActive);
+      }
+    }
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    fetch("".concat(this.uri, "api/avatars?gender=").concat(this.gender, "&college=").concat(this.college, "&is_premium=").concat(this.isPremium)).then(function (res) {
+      return res.json();
+    }).then(function (data) {
+      _this2.choices = data;
+      console.log(_this2.choices);
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/book-content-chapters/Adder.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/book-content-chapters/Adder.vue?vue&type=script&lang=js& ***!
@@ -3155,6 +3264,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_chat_Panel_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/chat/Panel.vue */ "./resources/js/components/chat/Panel.vue");
 /* harmony import */ var _components_avatar_TheMain_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/avatar/TheMain.vue */ "./resources/js/components/avatar/TheMain.vue");
 /* harmony import */ var _components_book_content_chapters_Index_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/book-content-chapters/Index.vue */ "./resources/js/components/book-content-chapters/Index.vue");
+/* harmony import */ var _components_avatar_UpdateHair_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/avatar/UpdateHair.vue */ "./resources/js/components/avatar/UpdateHair.vue");
 __webpack_require__(/*! ./bootstrap.js */ "./resources/js/bootstrap.js");
 
  // import {Howl, Howler} from 'howler';
@@ -3171,7 +3281,9 @@ vue__WEBPACK_IMPORTED_MODULE_2__["default"].config.productionTip = false;
 
 
 
+
 vue__WEBPACK_IMPORTED_MODULE_2__["default"].component('chat-panel', _components_chat_Panel_vue__WEBPACK_IMPORTED_MODULE_3__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_2__["default"].component('update-hair', _components_avatar_UpdateHair_vue__WEBPACK_IMPORTED_MODULE_6__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_2__["default"].component('avatar-main', _components_avatar_TheMain_vue__WEBPACK_IMPORTED_MODULE_4__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_2__["default"].component('book-content-setting', _components_book_content_chapters_Index_vue__WEBPACK_IMPORTED_MODULE_5__["default"]);
 var app = new vue__WEBPACK_IMPORTED_MODULE_2__["default"]({}).$mount('#app');
@@ -43386,6 +43498,45 @@ component.options.__file = "resources/js/components/avatar/Thumbnail.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/avatar/UpdateHair.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/avatar/UpdateHair.vue ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _UpdateHair_vue_vue_type_template_id_73ebcfa6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UpdateHair.vue?vue&type=template&id=73ebcfa6& */ "./resources/js/components/avatar/UpdateHair.vue?vue&type=template&id=73ebcfa6&");
+/* harmony import */ var _UpdateHair_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UpdateHair.vue?vue&type=script&lang=js& */ "./resources/js/components/avatar/UpdateHair.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _UpdateHair_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _UpdateHair_vue_vue_type_template_id_73ebcfa6___WEBPACK_IMPORTED_MODULE_0__.render,
+  _UpdateHair_vue_vue_type_template_id_73ebcfa6___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/avatar/UpdateHair.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/book-content-chapters/Adder.vue":
 /*!*****************************************************************!*\
   !*** ./resources/js/components/book-content-chapters/Adder.vue ***!
@@ -43771,6 +43922,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/avatar/UpdateHair.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/avatar/UpdateHair.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UpdateHair_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./UpdateHair.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/avatar/UpdateHair.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UpdateHair_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/book-content-chapters/Adder.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************!*\
   !*** ./resources/js/components/book-content-chapters/Adder.vue?vue&type=script&lang=js& ***!
@@ -43958,6 +44125,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Thumbnail_vue_vue_type_template_id_5e877ee1___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Thumbnail_vue_vue_type_template_id_5e877ee1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Thumbnail.vue?vue&type=template&id=5e877ee1& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/avatar/Thumbnail.vue?vue&type=template&id=5e877ee1&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/avatar/UpdateHair.vue?vue&type=template&id=73ebcfa6&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/avatar/UpdateHair.vue?vue&type=template&id=73ebcfa6& ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UpdateHair_vue_vue_type_template_id_73ebcfa6___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UpdateHair_vue_vue_type_template_id_73ebcfa6___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UpdateHair_vue_vue_type_template_id_73ebcfa6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./UpdateHair.vue?vue&type=template&id=73ebcfa6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/avatar/UpdateHair.vue?vue&type=template&id=73ebcfa6&");
 
 
 /***/ }),
@@ -44359,6 +44543,104 @@ var render = function () {
         : _vm._e(),
     ]
   )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/avatar/UpdateHair.vue?vue&type=template&id=73ebcfa6&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/avatar/UpdateHair.vue?vue&type=template&id=73ebcfa6& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "flex h-screen" }, [
+    _c(
+      "div",
+      {
+        staticClass:
+          "w-6/12 h-full flex overflow-hidden flex-wrap overflow-y-auto",
+      },
+      _vm._l(_vm.choices.hairstyles, function (hair) {
+        return _c("thumbnail-vue", {
+          key: hair.id,
+          attrs: {
+            "is-user-premium": _vm.isPremium,
+            "is-premium": hair.for_premium,
+            "is-active": false,
+            src: _vm.uri + hair.thumbnail,
+            id: hair.id,
+            type: "hair",
+          },
+          on: { "was-clicked": _vm.thumbnailHandler },
+        })
+      }),
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass:
+          "flex-col w-6/12 bg-blue-900 h-full flex items-center justify-center",
+        staticStyle: {
+          background:
+            "url('https://raw.githubusercontent.com/will3452/bru-assets/main/closet/base.png')",
+          "background-size": "cover",
+          "background-position": "center",
+        },
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "border-2 backdrop-blur-sm",
+            staticStyle: { width: "420px", height: "594px" },
+          },
+          [
+            _c("img", {
+              staticClass: "absolute animate-pulse",
+              attrs: { src: _vm.currentBaseImage, alt: "" },
+            }),
+            _vm._v(" "),
+            _c("img", {
+              staticClass: "absolute animate-pulse",
+              attrs: { src: _vm.currentHairImage, alt: "" },
+            }),
+            _vm._v(" "),
+            _c("img", {
+              staticClass: "absolute animate-pulse",
+              attrs: { src: _vm.currentClothesImage, alt: "" },
+            }),
+          ]
+        ),
+        _vm._v(" "),
+        _vm.hairActive
+          ? _c(
+              "button",
+              {
+                staticClass: "btn-student-active mt-4",
+                on: { click: _vm.submit },
+              },
+              [_vm._v("Save")]
+            )
+          : _vm._e(),
+      ]
+    ),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
