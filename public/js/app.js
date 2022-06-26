@@ -2539,6 +2539,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -44763,7 +44764,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "flex h-screen" }, [
-    _c("div", { staticClass: "w-6/12 h-full flex flex-wrap overflow-y-auto" }, [
+    _c("div", { staticClass: "w-6/12 h-full overflow-y-auto" }, [
       _c(
         "div",
         { staticClass: "flex flex-wrap" },
@@ -44785,6 +44786,17 @@ var render = function () {
         }),
         1
       ),
+      _vm._v(" "),
+      _vm.dressActive
+        ? _c(
+            "button",
+            {
+              staticClass: "btn-student-active mt-4",
+              on: { click: _vm.submit },
+            },
+            [_vm._v("Save")]
+          )
+        : _vm._e(),
     ]),
     _vm._v(" "),
     _c(
@@ -44824,18 +44836,7 @@ var render = function () {
           ]
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "flex justify-start mt-4" }, [
-          _vm.dressActive
-            ? _c(
-                "button",
-                {
-                  staticClass: "btn-student-active mt-4",
-                  on: { click: _vm.submit },
-                },
-                [_vm._v("Save")]
-              )
-            : _vm._e(),
-        ]),
+        _c("div", { staticClass: "flex justify-start mt-4" }),
       ]
     ),
   ])
@@ -44886,6 +44887,17 @@ var render = function () {
         }),
         1
       ),
+      _vm._v(" "),
+      _vm.hairActive
+        ? _c(
+            "button",
+            {
+              staticClass: "btn-student-active mt-4",
+              on: { click: _vm.submit },
+            },
+            [_vm._v("Save")]
+          )
+        : _vm._e(),
     ]),
     _vm._v(" "),
     _c(
@@ -44925,18 +44937,7 @@ var render = function () {
           ]
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "flex justify-start mt-4" }, [
-          _vm.hairActive
-            ? _c(
-                "button",
-                {
-                  staticClass: "btn-student-active mt-4",
-                  on: { click: _vm.submit },
-                },
-                [_vm._v("Save")]
-              )
-            : _vm._e(),
-        ]),
+        _c("div", { staticClass: "flex justify-start mt-4" }),
       ]
     ),
   ])

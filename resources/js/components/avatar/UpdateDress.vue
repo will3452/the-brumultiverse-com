@@ -2,7 +2,6 @@
     <div class="flex h-screen">
         <div class="w-6/12 h-full overflow-y-auto">
             <div class="flex flex-wrap">
-
             <thumbnail-vue
             v-if="! dress.for_premium"
             :is-user-premium="isPremium"
