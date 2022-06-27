@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AvatarController;
+use App\Http\Controllers\ReadingLogController;
 use App\Http\Controllers\Student\BookshelvesController;
 use App\Http\Controllers\Student\BuyController;
 use App\Http\Controllers\Student\ClosetController;
@@ -97,4 +98,10 @@ Route::prefix('purchase')->name('buy.')->group(function () {
     Route::get('/crystal', [BuyController::class, 'crystals'])->name('crystal');
     Route::post('/create-payment', [BuyController::class, 'createPayment'])->name('crystal.create.payment');
     Route::get('/payment-result', [BuyController::class, 'result'])->name('crystal.result.payment');
+});
+
+//reading logs
+Route::prefix('/reading-logs')->name('readinglog.')->group(function () {
+    Route::get('/save-log', [ReadingLogController::class, 'saveLog'])->name('save');
+    Route::get('/check-log', [ReadingLogController::class, 'hasLog'])->name('check');
 });

@@ -2,6 +2,7 @@
 
 namespace App\Models\Traits;
 
+use App\Models\ReadingLog;
 use App\Models\StudentCollection;
 use App\Models\User;
 use Illuminate\Support\Str;
@@ -9,6 +10,12 @@ use App\Models\Subscription;
 
 trait StudentTrait
 {
+    //reading logs
+    public function readingLogs()
+    {
+        return $this->hasMany(ReadingLog::class, 'user_id');
+    }
+    // collections
     public function studentCollections()
     {
         return $this->hasMany(StudentCollection::class);

@@ -12,12 +12,14 @@ use App\Models\Group;
 use App\Models\GroupMember;
 use App\Models\PaymentTransaction;
 use App\Models\PublishApproval;
+use App\Models\ReadingLog;
 use App\Models\User;
 use App\Observers\AvatarBaseObserver;
 use App\Observers\GroupMemberObserver;
 use App\Observers\GroupObserver;
 use App\Observers\PaymentTransactionObserver;
 use App\Observers\PublishApprovalObserver;
+use App\Observers\ReadingLogObserver;
 use App\Observers\UserObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -54,5 +56,6 @@ class EventServiceProvider extends ServiceProvider
         GroupMember::observe(GroupMemberObserver::class);
         PaymentTransaction::observe(PaymentTransactionObserver::class);
         PublishApproval::observe(PublishApprovalObserver::class);
+        ReadingLog::observe(ReadingLogObserver::class);
     }
 }

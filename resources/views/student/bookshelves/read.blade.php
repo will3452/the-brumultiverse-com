@@ -18,7 +18,7 @@
 	<link rel="shortcut icon" sizes="196x196" href="img/touch/touch-icon-196x196.png">
 	<link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
     <x-vendor.alpinejs/>
-
+    <x-vendor.sweetalertjs/>
 	<!-- Tile icon for Win8 (144x144 + tile color) -->
 	<meta name="msapplication-TileImage" content="img/touch/apple-touch-icon-144x144-precomposed.png">
 	<meta name="msapplication-TileColor" content="#222222">
@@ -92,10 +92,33 @@
                     let end = chapters.filter(e => e.end_page == index)
 
                     if (end.length) {
-                        let ask = confirm('change chapter')
-                        if (! ask) {
-                            window.location.href = `{{route('student.bs.index')}}`
-                        }
+                        fetch(`{{route('student.readinglog.check')}}?page_number=${index}`)
+                            .then(res => res.json())
+                            .then(({existing}) => {
+                                if (! existing ) {
+                                    swal('You\'re aboout change to another chapter, do you want to continue?', {
+                                        buttons: ['No', 'Yes']
+                                    }).then( (val) => {
+                                        if (! val) {
+                                            swal('Are you sure ? ', {buttons:['No', 'Yes']})
+                                                .then((val) => {
+                                                    if (val) {
+                                                        window.location.href = "{{route('student.bs.index')}}";
+                                                    } else {
+                                                        fetch(`{{route('student.readinglog.save')}}?chapter_id=${end[0].id}&book_id={{$work->id}}&page_number=${index}`)
+                                                            .then(res => res.json())
+                                                            .then(res => console.log(res))
+                                                    }
+                                                })
+                                        } else {
+                                            console.log('saving...')
+                                            fetch(`{{route('student.readinglog.save')}}?chapter_id=${end[0].id}&book_id={{$work->id}}&page_number=${index}`)
+                                                            .then(res => res.json())
+                                                            .then(res => console.log(res))
+                                        }
+                                    })
+                                }
+                            })
                     }
                 },
 				// ,toolbarContainerPosition: "top" // default "bottom"
@@ -111,6 +134,12 @@
 			$('#book').wowBook( bookOptions ); // create the book
             let book = $.wowBook('#book');
 	</script>
+
+
+<script>
+    let tips = ['tips 1', 'tips 2', 'tips 3']
+    swal(`Random tips: ${tips[Math.floor(Math.random() * tips.length)]}`);
+</script>
 
 </body>
 </html>
