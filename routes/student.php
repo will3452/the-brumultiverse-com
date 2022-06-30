@@ -70,6 +70,7 @@ Route::get('/add-to-collections/{type}/{id}', [StudentCollectionController::clas
 
 Route::prefix('bookshelves')->name('bs.')->group(function () {
     Route::get('/', [BookshelvesController::class, 'index'])->name('index');
+    Route::get('/block/{book}', [BookshelvesController::class, 'stopOver'])->name('block');
     Route::get('/read-book/{work}', [BookshelvesController::class, 'read'])->name('read');
     Route::get('/{work}', [BookshelvesController::class, 'show'])->name('show');
 });

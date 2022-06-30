@@ -96,27 +96,28 @@
                             .then(res => res.json())
                             .then(({existing}) => {
                                 if (! existing ) {
-                                    swal('You\'re aboout change to another chapter, do you want to continue?', {
-                                        buttons: ['No', 'Yes']
-                                    }).then( (val) => {
-                                        if (! val) {
-                                            swal('Are you sure ? ', {buttons:['No', 'Yes']})
-                                                .then((val) => {
-                                                    if (val) {
-                                                        window.location.href = "{{route('student.bs.index')}}";
-                                                    } else {
-                                                        fetch(`{{route('student.readinglog.save')}}?chapter_id=${end[0].id}&book_id={{$work->id}}&page_number=${index}`)
-                                                            .then(res => res.json())
-                                                            .then(res => console.log(res))
-                                                    }
-                                                })
-                                        } else {
-                                            console.log('saving...')
-                                            fetch(`{{route('student.readinglog.save')}}?chapter_id=${end[0].id}&book_id={{$work->id}}&page_number=${index}`)
-                                                            .then(res => res.json())
-                                                            .then(res => console.log(res))
-                                        }
-                                    })
+                                    window.location.href = `{{route('student.bs.block', ['book' => $work->id])}}?chapter=${end[0].id}&page=${index}`;
+                                    // swal('You\'re aboout change to another chapter, do you want to continue?', {
+                                    //     buttons: ['No', 'Yes']
+                                    // }).then( (val) => {
+                                    //     if (! val) {
+                                    //         swal('Are you sure ? ', {buttons:['No', 'Yes']})
+                                    //             .then((val) => {
+                                    //                 if (val) {
+                                    //                     window.location.href = "{{route('student.bs.index')}}";
+                                    //                 } else {
+                                    //                     fetch(`{{route('student.readinglog.save')}}?chapter_id=${end[0].id}&book_id={{$work->id}}&page_number=${index}`)
+                                    //                         .then(res => res.json())
+                                    //                         .then(res => console.log(res))
+                                    //                 }
+                                    //             })
+                                    //     } else {
+                                    //         console.log('saving...')
+                                    //         fetch(`{{route('student.readinglog.save')}}?chapter_id=${end[0].id}&book_id={{$work->id}}&page_number=${index}`)
+                                    //                         .then(res => res.json())
+                                    //                         .then(res => console.log(res))
+                                    //     }
+                                    // })
                                 }
                             })
                     }

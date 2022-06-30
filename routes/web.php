@@ -7,6 +7,7 @@ use App\Http\Controllers\ChatController;
 use App\Http\Controllers\Chat1Controller;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AvatarController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\FileUploaderController;
@@ -76,3 +77,6 @@ Route::get('/payment-result', [PaymentController::class, 'result']);
 Route::get('avatars', [AvatarController::class, 'setup']);
 Route::get('create-avatar', [AvatarController::class, 'create']);
 Route::view('play', 'play');
+
+//comments
+Route::post('comments', [CommentController::class, 'submitComment'])->name('comment');

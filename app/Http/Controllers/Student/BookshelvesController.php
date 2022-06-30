@@ -6,6 +6,7 @@ use App\Models\Book;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\StudentCollection;
+use App\Models\BookContentChapter;
 
 class BookshelvesController extends Controller
 {
@@ -35,5 +36,11 @@ class BookshelvesController extends Controller
     public function read(Book $work)
     {
         return view('student.bookshelves.read', compact('work'));
+    }
+
+    public function stopOver (Request $request, Book $book) {
+        $page = $request->page;
+        $chapter = BookContentChapter::findOrFail($request->chapter);
+        return view('student.bookshelves.stop-over', compact('book', 'page', 'chapter'));
     }
 }

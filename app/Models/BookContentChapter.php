@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Traits\CommentTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class BookContentChapter extends Model
 {
-    use HasFactory;
+    use HasFactory, CommentTrait;
 
     protected $fillable = [
         'book_id',
