@@ -9,11 +9,19 @@
                     <h1 class="text-center text-2xl m-4">{{$book->title}}</h1>
                     <small>by {{$book->account->penname}}</small>
                 </div>
+                {{-- if the users has enough balance to proceed --}}
+                @if (auth()->user()->canProceedToRead($book, $chapter))
                 <h1 class="text-center text-2xl mt-4">You're about to the next page, do you want to continue?</h1>
                 <div class="text-center mt-4">
-                    <a class="btn btn-student-active">yes</a>
-                    <a class="btn btn-student">no</a>
+                    <a class="btn btn-student-active" href="{{route('student.readinglog.save')}}?chapter_id={{$chapter->id}}&book_id={{$book->id}}&page_number={{$page}}">yes</a>
+                    <a class="btn btn-student" href="{{route('student.dorm.me')}}">no</a>
                 </div>
+                @else
+                <h1 class="text-center text-2xl mt-4">You don't have balance to keep reading.</h1>
+                <div class="text-center mt-4">
+                    <a class="btn btn-student-active" href="{{route('student.dorm.me')}}">Back to dorm</a>
+                </div>
+                @endif
             </div>
             <div class="">
                 <h3 class="text-center text-xl font-bold uppercase mt-10">

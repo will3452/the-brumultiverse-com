@@ -136,11 +136,11 @@
             let book = $.wowBook('#book');
 	</script>
 
-
+{{--
 <script>
     let tips = ['tips 1', 'tips 2', 'tips 3']
     swal(`Random tips: ${tips[Math.floor(Math.random() * tips.length)]}`);
-</script>
+</script> --}}
 
 </body>
 </html>

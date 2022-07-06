@@ -14,4 +14,11 @@ trait BalanceTrait
     {
         return $this->balance()->exists();
     }
+
+    public function hasEnoughBalanceOf($type, $minValue = 1) {
+        if (! $this->hasBalance()) return false;
+
+        return $this->balance->validType($type) &&
+            $this->balance[$type] >= $minValue;
+    }
 }

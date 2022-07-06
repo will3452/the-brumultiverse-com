@@ -19,6 +19,15 @@ class Balance extends Model
         'silver_ticket',
     ];
 
+    public function validType($type) {
+        return in_array($type,[
+            'white_crystal',
+            'purple_crystal',
+            'hall_pass',
+            'silver_ticket'
+        ]);
+    }
+
     // const WHITE_CRYSTAL = 'White Crystal';
     // const PURPLE_CRYSTAL = 'Purple Crystal';
     // const HALL_PASS = 'Hall Pass';

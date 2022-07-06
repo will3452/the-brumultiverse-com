@@ -17,7 +17,7 @@
                         <a  class="btn btn-primary" href="{{route('student.add.to.collection', ['type' => getBaseModel(get_class($work)), 'id' => $work->id])}}">ADD TO COLLECTION</a>
                     @else
                         @if (auth()->user()->isInStudentCollections($work))
-                            <a href="#" class="btn btn-primary">View to my collection</a>
+                            <a href="#" class="btn btn-primary">View in my collection</a>
                         @else
                             <a  class="btn btn-disabled">ADD TO COLLECTION</a>
                         @endif

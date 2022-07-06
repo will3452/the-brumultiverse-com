@@ -24,6 +24,10 @@ class BookContentChapter extends Model
         'sq', // seq
     ];
 
+    public function isType($type) {
+        return $this->type == $type;
+    }
+
     const TYPE_PREMIUM = 'Premium';
     const TYPE_REGULAR = 'Regular';
     const TYPE_SPECIAL = 'Special';

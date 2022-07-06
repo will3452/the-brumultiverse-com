@@ -2,6 +2,8 @@
 
 namespace App\Models\Traits;
 
+use App\Models\Book;
+use App\Models\BookContentChapter;
 use App\Models\ReadingLog;
 use App\Models\StudentCollection;
 use App\Models\User;
@@ -10,6 +12,20 @@ use App\Models\Subscription;
 
 trait StudentTrait
 {
+    public function canProceedToRead(Book $book, BookContentChapter $chapter) {
+        if ($chapter->isType(BookContentChapter::TYPE_REGULAR)) {
+            return $this->hasEnoughBalanceOf('hall_pass');
+        }
+
+        if ($chapter->isType(BookContentChapter::TYPE_PREMIUM)) {
+            return $this->hasEnoughBalanceOf('purple_crystal');
+        }
+
+        if ($chapter->isType(BookContentChapter::TYPE_SPECIAL)) {
+            return $this->hasEnoughBalanceOf('hall_pass');
+        }
+    }
+
     //reading logs
     public function readingLogs()
     {
