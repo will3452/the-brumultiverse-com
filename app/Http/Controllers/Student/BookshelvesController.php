@@ -35,7 +35,7 @@ class BookshelvesController extends Controller
 
     public function read(Book $work)
     {
-        return 'under maintenance...'; // TODO
+        return 'under maintenance...'; // TODO, we must check if the can read the first chapter of the book
         return view('student.bookshelves.read', compact('work'));
     }
 
