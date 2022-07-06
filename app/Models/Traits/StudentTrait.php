@@ -13,6 +13,7 @@ use App\Models\Subscription;
 trait StudentTrait
 {
     public function canProceedToRead(Book $book, BookContentChapter $chapter) {
+        error_log("CHAPTER TYPE >> " . $chapter->type);
         if ($chapter->isType(BookContentChapter::TYPE_REGULAR)) {
             return $this->hasEnoughBalanceOf('hall_pass');
         }
@@ -24,6 +25,8 @@ trait StudentTrait
         if ($chapter->isType(BookContentChapter::TYPE_SPECIAL)) {
             return $this->hasEnoughBalanceOf('hall_pass');
         }
+
+        return false;
     }
 
     //reading logs

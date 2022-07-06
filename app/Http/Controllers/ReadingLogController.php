@@ -19,6 +19,7 @@ class ReadingLogController extends Controller
                 return redirect()->to(route('student.bs.read',['work' => $request->book_id]) . '#book/' . $request->page_number);
             }
         }catch(Exception $e) {
+            return $e;
             toast('Something went wrong');
             return back();
         }

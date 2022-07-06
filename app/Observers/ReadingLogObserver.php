@@ -21,5 +21,6 @@ class ReadingLogObserver
             $newBalance = auth()->user()->balance['hall_pass'] - $bc->cost;
             auth()->user()->balance()->update(['hall_pass' => $newBalance]);
         }
+        error_log("COST >>>>>> $bc->cost COST TYPE >>> $bc->cost_type");
     }
 }

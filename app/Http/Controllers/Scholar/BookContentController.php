@@ -56,7 +56,7 @@ class BookContentController extends Controller
             $data['cost_type'] = CrystalHelper::PURPLE_CRYSTAL;
             $data['cost'] = 1;
         } else if ( $request->type == "Special") {
-            $data['cost_type'] = CrystalHelper::PURPLE_CRYSTAL;
+            $data['cost_type'] = CrystalHelper::HALL_PASS;
             $data['cost'] = 2;
         }
 
