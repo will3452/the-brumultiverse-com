@@ -147,6 +147,9 @@
     window.oncontextmenu = function (e) {
         e.preventDefault()
         selectedText = window.getSelection().toString()
+        if (selecedText.length == 0) {
+            return
+        }
         if (selectedText.length <= 100) {
             swal('Do you want to extract the selected text into images? ', {
                 buttons: {
