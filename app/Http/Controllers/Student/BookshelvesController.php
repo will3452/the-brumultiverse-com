@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\StudentCollection;
 use App\Models\BookContentChapter;
+use App\Models\ReadingLog;
 
 class BookshelvesController extends Controller
 {
@@ -35,8 +36,26 @@ class BookshelvesController extends Controller
 
     public function read(Book $work)
     {
-        return 'under maintenance...'; // TODO, we must check if the can read the first chapter of the book
-        return view('student.bookshelves.read', compact('work'));
+        try {
+            if (! auth()->user()->readingLogs()->whereBookId($work->id)->exists()) {
+                $firstChapter = $work->bookContentChapters()->first();
+
+                if (! auth()->user()->canProceedToRead($work, $firstChapter)) {
+                    toast("You don't have enough balance to read this book!");
+                    return back();
+                }
+                //create first log
+                ReadingLog::create([
+                    'user_id' => auth()->id(),
+                    'book_id' => $work->id,
+                    'chapter_id' => $firstChapter->id,
+                    'page_number' => $firstChapter->start_page
+                ]);
+            }
+            return view('student.bookshelves.read', compact('work'));
+        } catch (\Exception $err) {
+            toast('Something went wrong, please contact the administrator to resolve the issue.');
+        }
     }
 
     public function stopOver (Request $request, Book $book) {

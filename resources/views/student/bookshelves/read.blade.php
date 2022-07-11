@@ -89,7 +89,7 @@
                 pdfFind:true,
                 pdfTextSelectable:true,
                 onShowPage (book, page, index) {
-                    let end = chapters.filter(e => e.end_page == index)
+                    let end = chapters.filter(e => e.start_page == index)
 
                     if (end.length) {
                         fetch(`{{route('student.readinglog.check')}}?page_number=${index}`)

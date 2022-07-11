@@ -3464,15 +3464,6 @@ body[dir="rtl"] .checkbox:checked,
 .h-7 {
   height: 1.75rem;
 }
-.h-4\/6 {
-  height: 66.666667%;
-}
-.h-2\/3 {
-  height: 66.666667%;
-}
-.h-4\/5 {
-  height: 80%;
-}
 .max-h-fit {
   max-height: -webkit-fit-content;
   max-height: -moz-fit-content;
@@ -4032,6 +4023,9 @@ body[dir="rtl"] .checkbox:checked,
 .pt-8 {
   padding-top: 2rem;
 }
+.pb-32 {
+  padding-bottom: 8rem;
+}
 .pl-4 {
   padding-left: 1rem;
 }
@@ -4040,9 +4034,6 @@ body[dir="rtl"] .checkbox:checked,
 }
 .pb-20 {
   padding-bottom: 5rem;
-}
-.pb-32 {
-  padding-bottom: 8rem;
 }
 .text-left {
   text-align: left;
@@ -4565,10 +4556,6 @@ button:disabled:hover {
     display: none;
   }
 
-  .md\:h-full {
-    height: 100%;
-  }
-
   .md\:w-6\/12 {
     width: 50%;
   }
@@ -4619,14 +4606,6 @@ button:disabled:hover {
 
   .md\:justify-self-end {
     justify-self: end;
-  }
-
-  .md\:overflow-y-auto {
-    overflow-y: auto;
-  }
-
-  .md\:overflow-y-scroll {
-    overflow-y: scroll;
   }
 
   .md\:px-10 {
