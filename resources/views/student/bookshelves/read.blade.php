@@ -148,7 +148,7 @@
         e.preventDefault()
         selectedText = window.getSelection().toString()
         if (selectedText.length == 0) {
-            return
+            return null
         }
         if (selectedText.length <= 100) {
             swal('Do you want to extract the selected text into images? ', {
