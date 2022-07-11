@@ -147,7 +147,7 @@
     window.oncontextmenu = function (e) {
         e.preventDefault()
         selectedText = window.getSelection().toString()
-        if (selecedText.length == 0) {
+        if (selectedText.length == 0) {
             return
         }
         if (selectedText.length <= 100) {
