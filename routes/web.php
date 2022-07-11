@@ -13,7 +13,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\FileUploaderController;
 use App\Http\Controllers\Scholar\AnnexController;
 use App\Http\Controllers\EmailVerificationController;
-
+use App\Http\Controllers\QuoteMakerController;
 
 //home & static
 Route::view('/landing-business', 'landing-business'); // new
@@ -80,3 +80,6 @@ Route::view('play', 'play');
 
 //comments
 Route::post('comments', [CommentController::class, 'submitComment'])->name('comment');
+
+// quotes
+Route::get('quotes-maker', [QuoteMakerController::class, 'makeQuote'])->name('make.quote');

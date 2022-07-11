@@ -83,7 +83,7 @@
 				,toolbar : "left, right,  zoomin, zoomout, flipsound, fullscreen, home"
 				,thumbnailsPosition : 'left'
                 ,homeURL: "{{route('student.bs.index')}}"
-				,responsiveHandleWidth : 50
+				,responsiveHandleWidth : 10
 				,container: window
 				,containerPadding: "20px",
                 pdfFind:true,
@@ -142,5 +142,33 @@
     swal(`Random tips: ${tips[Math.floor(Math.random() * tips.length)]}`);
 </script> --}}
 
+<script>
+    var selectedText = ''
+    window.oncontextmenu = function (e) {
+        e.preventDefault()
+        selectedText = window.getSelection().toString()
+        if (selectedText.length <= 100) {
+            swal('Do you want to extract the selected text into images? ', {
+                buttons: {
+                    no: {
+                        text: 'No',
+                        value: false,
+                    },
+                    ok: {
+                        text: 'Yes',
+                        value: true
+                    }
+                }
+            }).then((value) => {
+                if (value) {
+                    window.open(`{{route('make.quote')}}?book_id={{$work->id}}&text=${selectedText}`, '_blank');
+                }
+            })
+        } else {
+            swal("I'm sorry the selected text can't be converted into a quote, only 100 or less characters are allowed.")
+        }
+
+    }
+</script>
 </body>
 </html>

@@ -3238,6 +3238,12 @@ body[dir="rtl"] .checkbox:checked,
 .bottom-8 {
   bottom: 2rem;
 }
+.bottom-9 {
+  bottom: 2.25rem;
+}
+.bottom-5 {
+  bottom: 1.25rem;
+}
 .z-50 {
   z-index: 50;
 }
