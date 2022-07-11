@@ -1,6 +1,6 @@
 <x-student.layout bg="bg-white">
     <div class="flex justify-center p-10">
-        <div style="width: 600px !important; height: 200px !important;" class="p-5 relative">
+        <div style="width: 600px !important; height: 200px !important;" class="p-5 relative border-l-4">
             <div class="text-center text-2xl italic">
                 {{$text}}
             </div>
