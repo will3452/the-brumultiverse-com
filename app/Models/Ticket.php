@@ -72,12 +72,25 @@ class Ticket extends Model
 
         if ($this->action === self::ACTION_UPDATE) {
             $this->applyTicket();
+            return;
         }
+
+        if ($this->action === self::ACTION_DELETE) {
+            $this->model->delete();
+        }
+
     }
 
     public function revertChanges()
     {
-        $oldState = json_decode($this->old_state, true);
-        $this->model->update($oldState);
+        if ($this->action === self::ACTION_UPDATE) {
+            $oldState = json_decode($this->old_state, true);
+            $this->model->update($oldState);
+            return;
+        }
+        // if delete update
+        if ($this->action === self::ACTION_DELETE) {
+            $this->model->restore(); // make sure that the model uses softdelete features of laravel
+        }
     }
 }

@@ -87,6 +87,9 @@ class Ticket extends Resource
                     ModelsTicket::STATUS_APPROVED => 'success',
                 ]),
             Text::make('Original Details', function () {
+                if ($this->action == \App\Models\Ticket::ACTION_DELETE) {
+                    return;
+                }
                 $data = json_decode($this->old_state, true);
                 $str = "<table class='table p-2'>";
                 foreach ($data as $key=>$val) {
@@ -98,6 +101,9 @@ class Ticket extends Resource
             })->onlyOnDetail()
                 ->asHtml(),
             Text::make('New Details', function () {
+                if ($this->action == \App\Models\Ticket::ACTION_DELETE) {
+                    return;
+                }
                 $data = json_decode($this->new_state, true);
                 $str = "<table class='table p-2'>";
                 foreach ($data as $key=>$val) {

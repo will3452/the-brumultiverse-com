@@ -6,6 +6,7 @@ use App\Events\NewTicketHasBeenCreated;
 use App\Helpers\FormHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Chapter;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 
 class TicketController extends Controller
@@ -65,12 +66,18 @@ class TicketController extends Controller
         $raw = FormHelper::removeDataWithKeys(['id', '_type', '_token'], $r->all());
 
         $model = $this->getModel($r->_type, $r->id);
+        $withNotes = $this->addNotes([], $r->requestor_notes);
 
-        $oldAndNew = $this->getOldAndNewState($model, $raw);
-
-        $withNotes = $this->addNotes($oldAndNew, $r->requestor_notes);
+        if (! $r->has('action')) { // default
+            $oldAndNew = $this->getOldAndNewState($model, $raw);
+            $withNotes = $this->addNotes($oldAndNew, $r->requestor_notes);
+        }
 
         $data = $this->attachAccount($model, $withNotes);
+
+        if ($r->has('action') && $r->action == Ticket::ACTION_DELETE) {
+            $data['action'] = Ticket::ACTION_DELETE;
+        }
 
         $ticket = $model->tickets()->create($data);
 

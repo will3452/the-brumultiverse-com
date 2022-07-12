@@ -24,6 +24,7 @@ use App\Models\Traits\HasReviewQuestion;
 use App\Models\Traits\HasPublishApproval;
 use App\Models\Traits\HasStudentLink;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Book extends Model implements TaggableInterface
 {
@@ -41,6 +42,7 @@ class Book extends Model implements TaggableInterface
         HasBookContentChapter,
         HasChapters,
         HasPublishApproval,
+        SoftDeletes,
         BookTrait;
 
     protected $with = [
@@ -87,6 +89,7 @@ class Book extends Model implements TaggableInterface
         'published_at',
         'back_matter',
         'front_matter',
+        'deleted_at',
     ];
 
     const TYPE_REGULAR = 'Regular';
