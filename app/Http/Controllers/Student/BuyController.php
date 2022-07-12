@@ -11,6 +11,7 @@ use App\Models\Balance;
 class BuyController extends PaymentController
 {
     public function crystals () {
+        return 'under maintenance...'; //:TODO
         return view('student.buy.crystal');
     }
 
