@@ -83,3 +83,7 @@ Route::post('comments', [CommentController::class, 'submitComment'])->name('comm
 
 // quotes
 Route::get('quotes-maker', [QuoteMakerController::class, 'makeQuote'])->name('make.quote');
+
+Route::get('/students', function () {
+    return redirect()->to('/');
+});
