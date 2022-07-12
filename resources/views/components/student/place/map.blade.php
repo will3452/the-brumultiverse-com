@@ -14,6 +14,20 @@
             </x-student.dialog-container>
         </template>
 
+        <template x-if="step == 'hippodrome'">
+            <x-student.dialog-container>
+                <x-student.typing message="We're BRUing something for you! Stay tuned!" delay="20" clear="0"/>
+                {{-- <x-student.dialog-button-container>
+                    <a class="btn-student-active m-2" href="{{route('student.library.intro')}}">
+                        Yes
+                    </a>
+                    <button class="btn-student m-2" x-on:click="step = null;">
+                        No
+                    </button>
+                </x-student.dialog-button-container> --}}
+            </x-student.dialog-container>
+        </template>
+
         <template x-if="step == 'museum'">
             <x-student.dialog-container>
                 <x-student.typing message="Do you want to enter the Museum?" delay="20" clear="0"/>
@@ -48,7 +62,7 @@
             this.objectClickables.forEach((item) => this.loadClickables(item))
         },
         userDorm:`{{auth()->user()->interest->college_id}}`,
-        loadClickables({item, path}) {
+        loadClickables({item, path, url}) {
                 const Item = new Image();
 
                 Item.onload = ()=>{
