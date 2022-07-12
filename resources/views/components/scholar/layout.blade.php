@@ -6,6 +6,7 @@
 {{-- <html lang="en"  data-theme="winter"> --}}
 {{-- <html lang="en"  data-theme="pastel"> --}}
 <head>
+    <x-ads></x-ads>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     {{-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> --}}

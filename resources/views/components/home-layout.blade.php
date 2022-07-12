@@ -9,6 +9,7 @@
     <link href="{{getAsset('home/circle_logo.png')}}" rel="icon"/>
     <link rel="stylesheet" href="/css/app.css" defer>
     <script src="/js/app.js" defer></script>
+    <x-ads></x-ads>
     <style>
         html, body {
             background: #0F021B !important;
