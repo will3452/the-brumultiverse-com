@@ -28,7 +28,7 @@ class BuyController extends PaymentController
         return redirect()->to(route('student.buy.crystal'));
     }
 
-    public function createPayment(Request $r)
+    public function createPayment(Request $r) // TODOS
     {
         $prizes = [
             "hall_pass" =>12,
