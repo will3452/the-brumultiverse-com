@@ -7,12 +7,18 @@ use App\Supports\PaymentSupport;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\PaymentController;
 use App\Models\Balance;
+use App\Models\StudentPackage;
 
 class BuyController extends PaymentController
 {
     public function crystals () {
-        return 'under maintenance...'; //:TODO
-        return view('student.buy.crystal');
+        return send404();
+        // return view('student.buy.crystal'); // old
+    }
+
+    public function purchaseCrystal () {
+        $packages = StudentPackage::get();
+        return view('student.buy.crystal-new', compact('packages'));
     }
 
     public function result(Request $r)

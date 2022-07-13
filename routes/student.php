@@ -96,7 +96,8 @@ Route::get('/exit', function () {
 })->name('exit');
 
 Route::prefix('purchase')->name('buy.')->group(function () {
-    Route::get('/crystal', [BuyController::class, 'crystals'])->name('crystal');
+    Route::get('/crystal', [BuyController::class, 'crystals'])->name('crystal-old');
+    Route::get('/purchase-crystal', [BuyController::class, 'purchaseCrystal'])->name('crystal');
     Route::post('/create-payment', [BuyController::class, 'createPayment'])->name('crystal.create.payment');
     Route::get('/payment-result', [BuyController::class, 'result'])->name('crystal.result.payment');
 });

@@ -8,6 +8,33 @@ if (! function_exists('getAsset')) {
     }
 }
 
+if (! function_exists('moneyFormat')) {
+    function moneyFormat($amount, $point = 2, $prefix = '₱') {
+        // return $amount;
+        $result = number_format($amount, $point);
+        return "$prefix $result";
+    }
+}
+
+if (! function_exists('plural')) {
+    function plural($str) {
+        return Str::plural($str);
+    }
+}
+
+if (! function_exists('extractPackageContent')) {
+    function extractPackageContent($content) {
+        $result = [];
+        $arr = explode(',', $content);
+        foreach ($arr as $value) {
+            [$name, $value] = explode('=', $value);
+            $result[$name] = $value;
+        }
+
+        return $result;
+    }
+}
+
 if (! function_exists('getBaseModel')) {
     function getBaseModel($modelPath): string
     {

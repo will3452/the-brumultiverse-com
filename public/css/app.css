@@ -3654,9 +3654,6 @@ body[dir="rtl"] .checkbox:checked,
 .grid-flow-col {
   grid-auto-flow: column;
 }
-.flex-row {
-  flex-direction: row;
-}
 .flex-col {
   flex-direction: column;
 }
@@ -3724,6 +3721,12 @@ body[dir="rtl"] .checkbox:checked,
 }
 .rounded-lg {
   border-radius: 0.5rem;
+}
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+.rounded-2xl {
+  border-radius: 1rem;
 }
 .border-4 {
   border-width: 4px;
@@ -4004,6 +4007,14 @@ body[dir="rtl"] .checkbox:checked,
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+.py-0 {
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 .pb-4 {
   padding-bottom: 1rem;
@@ -4583,6 +4594,14 @@ button:disabled:hover {
 
   .md\:w-1\/2 {
     width: 50%;
+  }
+
+  .md\:w-3\/12 {
+    width: 25%;
+  }
+
+  .md\:w-2\/12 {
+    width: 16.666667%;
   }
 
   .md\:flex-row {
