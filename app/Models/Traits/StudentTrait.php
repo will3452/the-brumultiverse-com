@@ -53,19 +53,26 @@ trait StudentTrait
         if ($this->isInStudentCollections($work)) {
             return false;
         }
-        $costType = Str::lower($work->cost_type);
+        return true;
+        // $costType = Str::lower($work->cost_type);
 
-        $typeArr = explode(' ', $costType);
-        $value = $work->cost;
+        // $typeArr = explode(' ', $costType);
+        // $value = $work->cost;
 
-        if ($value == 0) {
-            return true;
-        }
+        // if ($value == 0) {
+        //     return true;
+        // }
 
-        $type = implode('_', $typeArr);
+        // $type = implode('_', $typeArr);
 
 
-        return $work->cost <= auth()->user()->balance[$type];
+        // return $work->cost <= auth()->user()->balance[$type];
+    }
+
+    public function canPurchaseWork($work) {
+        $costType = Str::studly($work->cost_type);
+        $cost = $work->cost;
+        return $this->balance[$costType] >= $cost;
     }
 
 

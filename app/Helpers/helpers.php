@@ -65,6 +65,22 @@ if (! function_exists('getFullModel')) {
     }
 }
 
+if (! function_exists('costTypeEncode')) {
+    function costTypeEncode($str): string // Demo String --> demo_string
+    {
+        return Str::snake($str);
+    }
+}
+
+if (! function_exists('costTypeDecode')) {
+    function costTypeDecode($str): string // demo_string --> Demo String
+    {
+        $arr = explode("_", $str);
+        $newStr = implode(' ', $arr);
+        return Str::ucfirst($newStr);
+    }
+}
+
 if (! function_exists('displayCost')) {
     function displayCost($value, $label) {
         if ($value == 0) {

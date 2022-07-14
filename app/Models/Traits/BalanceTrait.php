@@ -15,6 +15,16 @@ trait BalanceTrait
         return $this->balance()->exists();
     }
 
+    public function deductBalance($type, $value): bool
+    {
+        if (! $this->balance->validType($type)) {
+            return false;
+        }
+        $newBal = $this->balance[$type] - $value;
+        $this->balance()->update([$type => $newBal]); // update balance
+        return true;
+    }
+
     public function hasEnoughBalanceOf($type, $minValue = 1) {
         if (! $this->hasBalance()) return false;
 
