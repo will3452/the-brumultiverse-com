@@ -54,19 +54,6 @@ trait StudentTrait
             return false;
         }
         return true;
-        // $costType = Str::lower($work->cost_type);
-
-        // $typeArr = explode(' ', $costType);
-        // $value = $work->cost;
-
-        // if ($value == 0) {
-        //     return true;
-        // }
-
-        // $type = implode('_', $typeArr);
-
-
-        // return $work->cost <= auth()->user()->balance[$type];
     }
 
     public function canPurchaseWork($work) {
