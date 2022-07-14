@@ -1,13 +1,14 @@
 <?php
 
-use App\Http\Controllers\ApiAuthenticationController;
-use App\Http\Controllers\AvatarController;
-use App\Http\Controllers\Scholar\BookContentController;
 use App\Models\Account;
 use App\Models\BookContent;
-use App\Models\PaymentTransaction;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\PaymentTransaction;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AvatarController;
+use App\Http\Controllers\ApiAuthenticationController;
+use App\Http\Controllers\Scholar\BookContentController;
 
 Route::post('/dragonpay-postback', function (Request $request) {
      $transaction = PaymentTransaction::whereTxnid($request->txnid)->first();
@@ -19,10 +20,18 @@ Route::post('/dragonpay-postback', function (Request $request) {
         ]);
 
         if ($transaction->model_type === "App\\Models\\Balance" ) {
-            $descriptionArr = explode("-", $transaction->description);
-            $newBal = $transaction->model[$descriptionArr[1]] + $descriptionArr[0];
-            $data[$descriptionArr[1]] = $newBal;
-            $transaction->model()->update($data); // update the balance
+            if (Str::contains($transaction->description, 'package')) {
+                $payloads = payloadDecode($transaction->payload);
+                foreach ($payloads as $key => $value) {
+                    $newVal = $transaction->model[$key] + $value;
+                    $transaction->model()->update([$key => $newVal]); // update balance here
+                }
+            } else {
+                $descriptionArr = explode("-", $transaction->description);
+                $newBal = $transaction->model[$descriptionArr[1]] + $descriptionArr[0];
+                $data[$descriptionArr[1]] = $newBal;
+                $transaction->model()->update($data); // update the balance
+            }
         }
     }
      return 'result=OK';

@@ -18,13 +18,14 @@ class PaymentController extends Controller
         ]);
     }
 
-    public function createTransaction($type, $id, $txnid, $amount, $description)
+    public function createTransaction($type, $id, $txnid, $amount, $description, $payload= null)
     {
         ("\\App\\Models\\$type")::findOrFail($id)->transactions()->create([
             'user_id' => auth()->id(),
             'amount' => $amount,
             'txnid' => $txnid,
             'description' => $description,
+            'payload' => $payload,
         ]);
     }
 

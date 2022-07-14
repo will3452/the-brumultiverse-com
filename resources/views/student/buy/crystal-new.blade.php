@@ -19,7 +19,8 @@
                                 </li>
                             @endforeach
                             <form action="{{route('student.buy.crystal.create.payment')}}" method="POST" class="p-4">
-                                <input type="hidden" name="package_id" value="{{$p->id}}">
+                                @csrf
+                                <input type="hidden" name="package" value="{{$p->id}}">
                                 <button href="#" class="btn bg-active px-4 rounded-2xl btn-sm mt-4">Purchase</button>
                             </form>
                         </div>

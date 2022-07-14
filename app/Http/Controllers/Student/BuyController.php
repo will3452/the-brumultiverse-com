@@ -30,19 +30,32 @@ class BuyController extends PaymentController
 
     public function createPayment(Request $r) // TODOS
     {
-        $prizes = [
-            "hall_pass" =>12,
-            "silver_ticket" => 15,
-            "white_crystal" => 32,
-            "purple_crystal" => 30,
-        ];
+        $amount = 0;
+        $description = "";
+        $payload = null;
+        if ($r->has('package')) {
+            $package = StudentPackage::findOrFail($r->package);
+            $amount = $package->cost;
+            $description = "Purchase package: $package->name,details:$package->content";
+            $payload = payloadEncode(extractPackageContent($package->content));
+        } else {
+            $prizes = [
+                "hall_pass" =>12,
+                "silver_ticket" => 15,
+                "white_crystal" => 32,
+                "purple_crystal" => 30,
+            ];
 
-        $amount = $r->quantity * $prizes[$r->type];
-        $param = $this->createParam($amount, "Buy $r->type");
+            $amount = $r->quantity * $prizes[$r->type];
+        }
+
+        $param = $this->createParam($amount, $description);
 
         session()->put('redirect', route('student.buy.crystal.result.payment'));
+
         $balanceId = auth()->user()->balance->id;
-        $this->createTransaction('Balance', $balanceId, $param['txnid'], $amount, "$r->quantity-$r->type");
+
+        $this->createTransaction('Balance', $balanceId, $param['txnid'], $amount, $description, $payload); // word package is important in payment
 
         $param = PaymentSupport::getDigestString($param);
 

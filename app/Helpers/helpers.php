@@ -8,6 +8,21 @@ if (! function_exists('getAsset')) {
     }
 }
 
+if (! function_exists('payloadEncode')) {
+    function payloadEncode(array $arr): string
+    {
+        $result = json_encode($arr);
+        return $result;
+    }
+}
+
+if (! function_exists('payloadDecode')) {
+    function payloadDecode(string $str): array
+    {
+        return json_decode($str);
+    }
+}
+
 if (! function_exists('moneyFormat')) {
     function moneyFormat($amount, $point = 2, $prefix = '₱') {
         // return $amount;
