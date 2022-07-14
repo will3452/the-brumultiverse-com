@@ -3722,9 +3722,6 @@ body[dir="rtl"] .checkbox:checked,
 .rounded-lg {
   border-radius: 0.5rem;
 }
-.rounded-xl {
-  border-radius: 0.75rem;
-}
 .rounded-2xl {
   border-radius: 1rem;
 }
@@ -3996,6 +3993,10 @@ body[dir="rtl"] .checkbox:checked,
   padding-left: 0.25rem;
   padding-right: 0.25rem;
 }
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -4007,14 +4008,6 @@ body[dir="rtl"] .checkbox:checked,
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-.py-5 {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-}
-.py-0 {
-  padding-top: 0px;
-  padding-bottom: 0px;
 }
 .pb-4 {
   padding-bottom: 1rem;
@@ -4594,10 +4587,6 @@ button:disabled:hover {
 
   .md\:w-1\/2 {
     width: 50%;
-  }
-
-  .md\:w-3\/12 {
-    width: 25%;
   }
 
   .md\:w-2\/12 {

@@ -1,5 +1,5 @@
 <x-student.layout bg='bg-white'>
-    <div>
+    <div class="h-screen overflow-y-auto">
         <h1 class="text-center text-2xl uppercase bg-active py-5 mb-5">Packages available</h1>
         <div class="flex p-4 justify-center flex-wrap">
             @foreach ($packages as $p)
