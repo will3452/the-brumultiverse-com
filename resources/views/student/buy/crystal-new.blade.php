@@ -1,7 +1,7 @@
 <x-student.layout bg='bg-white'>
     <div>
         <h1 class="text-center text-2xl uppercase bg-active py-5 mb-5">Packages available</h1>
-        <div class="flex p-4 justify-center">
+        <div class="flex p-4 justify-center flex-wrap">
             @foreach ($packages as $p)
                 <div class="w-full md:w-2/12 mx-2">
                     <div class="border-2 p-5 rounded-2xl bg-gray-200 text-center">
