@@ -18,6 +18,7 @@ class PaymentTransaction extends Model
         'ref_no',
         'message',
         'status',
+        'payload',
     ];
     const STATUS_SUCCESS = 'Success';
     const STATUS_PENDING = 'Pending';
