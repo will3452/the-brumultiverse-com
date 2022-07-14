@@ -36,7 +36,7 @@ class BuyController extends PaymentController
         if ($r->has('package')) {
             $package = StudentPackage::findOrFail($r->package);
             $amount = $package->cost;
-            $description = "Purchase package: $package->name,details:$package->content";
+            $description = "Purchase package: $package->name";
             $payload = payloadEncode(extractPackageContent($package->content));
         } else {
             $prizes = [
@@ -55,7 +55,7 @@ class BuyController extends PaymentController
 
         $balanceId = auth()->user()->balance->id;
 
-        $this->createTransaction('Balance', $balanceId, $param['txnid'], $amount, $description, $payload); // word package is important in payment
+        $this->createTransaction('Balance', $balanceId, $param['txnid'], $amount, $description, $payload); // word `package` is important in payment
 
         $param = PaymentSupport::getDigestString($param);
 

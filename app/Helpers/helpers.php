@@ -19,7 +19,7 @@ if (! function_exists('payloadEncode')) {
 if (! function_exists('payloadDecode')) {
     function payloadDecode(string $str): array
     {
-        return json_decode($str);
+        return json_decode($str, true);
     }
 }
 
