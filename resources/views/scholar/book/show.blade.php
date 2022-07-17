@@ -21,7 +21,7 @@
     {{-- <x-scholar.front-matter :book="$book"/> --}}
     <div class="flex md:flex-wrap flex-wrap-reverse">
         <div class="w-full md:w-8/12">
-            <form action="{{}}" method="POST" >
+            <form action="" method="POST" >
                 @method('PUT')
                 @csrf
 

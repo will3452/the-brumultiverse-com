@@ -1,3 +1,4 @@
+@props(['inApp' => true])
 <!DOCTYPE html>
 {{-- <html lang="en"  data-theme="night"> --}}
 <html lang="en"  data-theme="fantasy">
@@ -38,7 +39,7 @@
             </x-scholar.alert-success>
         @endif
     @endauth
-    <div id="app" class="dark:bg-gray-800 dark:text-white">
+    <div @if($inApp) id="app" @endif class="dark:bg-gray-800 dark:text-white">
         <x-scholar.container>
             <x-slot name="alert">{{$alert ?? ''}}</x-slot>
             {{$slot}}

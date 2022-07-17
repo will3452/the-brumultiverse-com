@@ -1,5 +1,4 @@
-<x-scholar.layout>
-
+<x-scholar.layout in-app="{{false}}">
     <x-chat.breadcrumbs
         :links="
             [
@@ -80,6 +79,6 @@
     </div>
     @push('head-script')
         <x-vendor.ckeditor/>
-        <x-vendor.alpinejs/>
+        {{-- <x-vendor.alpinejs/> --}}
     @endpush
 </x-scholar.layout>
