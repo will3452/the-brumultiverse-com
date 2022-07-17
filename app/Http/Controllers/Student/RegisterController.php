@@ -48,8 +48,11 @@ class RegisterController extends Controller
         return redirect(route('student.after.register'));
     }
 
-    public function registerAfter()
+    public function registerAfter(Request $request)
     {
+        if ($request->has('redirect')) {
+            session('redirect', $request->redirect);
+        }
         return view('student.after-register');
     }
 
@@ -65,11 +68,18 @@ class RegisterController extends Controller
             auth()->user()->changeSubscription(User::ACCOUNT_FREE);
         }
 
+        if (session()->has('redirect')) {
+            return redirect()->to(session()->get('redirect'));
+        }
+
         return redirect(route('student.welcome.dorm'));
     }
 
     public function welcomeToDorm()
     {
+        if (auth()->user()->tutorial_finished == 1 && auth()->user()->avatar_updated == 1) {
+            return redirect(route('student.closet.me'));
+        }
         return view('student.welcome-dorm');
     }
 

@@ -319,6 +319,7 @@
              </template>
              <form action="{{route('student.save.account')}}" x-ref="saveForm" method="POST">
                 @csrf
+                <input type="hidden" name="redirect" value="{{request()->redirect ?? null}}">
                  <input type="hidden" name="account" x-model="account">
              </form>
         </div>

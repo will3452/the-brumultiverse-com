@@ -3,7 +3,6 @@
         <div class="w-6/12 h-full overflow-y-auto items-center">
             <div class="flex flex-wrap">
             <thumbnail-vue
-                v-if="! hair.for_premium"
                 :is-user-premium="isPremium"
                 :is-premium="hair.for_premium"
                 :is-active="false"

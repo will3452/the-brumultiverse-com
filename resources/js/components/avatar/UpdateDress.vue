@@ -3,7 +3,6 @@
         <div class="w-6/12 h-full overflow-y-auto">
             <div class="flex flex-wrap">
             <thumbnail-vue
-            v-if="! dress.for_premium"
             :is-user-premium="isPremium"
             :is-premium="dress.for_premium"
             :is-active="false"
@@ -17,6 +16,15 @@
             </div>
             <button class="btn-student-active fixed top-10 right-10 z-50" @click="submit" v-if="dressActive">Save</button>
         </div>
+        <div v-if="modalIsActive" class="backdrop-blur backdrop-brightness-50 w-screen h-screen absolute z-50 flex justify-center items-start pt-10">
+        <div class="bg-white p-4 rounded-md w-full max-w-sm">
+            Hi! This option is for VIP students (premium account holders). Would you like to change your account type?
+            <div class="mt-4">
+                <a href="/students/register-after?step=5&redirect=closets" class="btn-student-active">Yes</a>
+                <button class="btn-student" @click="modalIsActive = false">Next Time</button>
+            </div>
+        </div>
+        </div>
         <div class="flex-col w-6/12 bg-blue-900 h-full flex items-center justify-center"  style="background:url('https://raw.githubusercontent.com/will3452/bru-assets/main/closet/base.png'); background-size:cover;background-position:center;">
             <div style="width:420px;height:594px;" class="border-2 backdrop-blur-sm">
                 <img :src="currentBaseImage" alt="" class="absolute animate-pulse">
@@ -26,11 +34,13 @@
             <div  class="flex justify-start mt-4">
 
             </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+import Bus from './Bus.js'
 import ThumbnailVue from './Thumbnail.vue'
 export default {
     components: {
@@ -39,6 +49,7 @@ export default {
     props: ['currentAvatar', 'gender', 'college', 'isPremium'],
     data () {
         return {
+            modalIsActive: false,
             choices: [],
             uri: 'https://brumultiverse.com/',
             dressActive:false,
@@ -78,6 +89,9 @@ export default {
         }
     },
     mounted (){
+        Bus.$on('trigger-modal', () => {
+            this.modalIsActive = true
+        })
         fetch(`${this.uri}api/avatars?gender=${this.gender}&college=${this.college}&is_premium=${this.isPremium}`)
             .then(res => res.json())
             .then(data => {

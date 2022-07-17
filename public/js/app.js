@@ -2392,7 +2392,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Thumbnail_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Thumbnail.vue */ "./resources/js/components/avatar/Thumbnail.vue");
+/* harmony import */ var _Bus_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Bus.js */ "./resources/js/components/avatar/Bus.js");
+/* harmony import */ var _Thumbnail_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Thumbnail.vue */ "./resources/js/components/avatar/Thumbnail.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2426,13 +2436,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    ThumbnailVue: _Thumbnail_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    ThumbnailVue: _Thumbnail_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   props: ['currentAvatar', 'gender', 'college', 'isPremium'],
   data: function data() {
     return {
+      modalIsActive: false,
       choices: [],
       uri: 'https://brumultiverse.com/',
       dressActive: false
@@ -2485,6 +2497,9 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this2 = this;
 
+    _Bus_js__WEBPACK_IMPORTED_MODULE_0__["default"].$on('trigger-modal', function () {
+      _this2.modalIsActive = true;
+    });
     fetch("".concat(this.uri, "api/avatars?gender=").concat(this.gender, "&college=").concat(this.college, "&is_premium=").concat(this.isPremium)).then(function (res) {
       return res.json();
     }).then(function (data) {
@@ -2508,7 +2523,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Thumbnail_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Thumbnail.vue */ "./resources/js/components/avatar/Thumbnail.vue");
-//
 //
 //
 //
@@ -44769,20 +44783,18 @@ var render = function () {
         "div",
         { staticClass: "flex flex-wrap" },
         _vm._l(_vm.choices.clothes, function (dress) {
-          return !dress.for_premium
-            ? _c("thumbnail-vue", {
-                key: dress.id,
-                attrs: {
-                  "is-user-premium": _vm.isPremium,
-                  "is-premium": dress.for_premium,
-                  "is-active": false,
-                  src: _vm.uri + dress.thumbnail,
-                  id: dress.id,
-                  type: "dress",
-                },
-                on: { "was-clicked": _vm.thumbnailHandler },
-              })
-            : _vm._e()
+          return _c("thumbnail-vue", {
+            key: dress.id,
+            attrs: {
+              "is-user-premium": _vm.isPremium,
+              "is-premium": dress.for_premium,
+              "is-active": false,
+              src: _vm.uri + dress.thumbnail,
+              id: dress.id,
+              type: "dress",
+            },
+            on: { "was-clicked": _vm.thumbnailHandler },
+          })
         }),
         1
       ),
@@ -44798,6 +44810,52 @@ var render = function () {
           )
         : _vm._e(),
     ]),
+    _vm._v(" "),
+    _vm.modalIsActive
+      ? _c(
+          "div",
+          {
+            staticClass:
+              "backdrop-blur backdrop-brightness-50 w-screen h-screen absolute z-50 flex justify-center items-start pt-10",
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "bg-white p-4 rounded-md w-full max-w-sm" },
+              [
+                _vm._v(
+                  "\n        Hi! This option is for VIP students (premium account holders). Would you like to change your account type?\n        "
+                ),
+                _c("div", { staticClass: "mt-4" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn-student-active",
+                      attrs: {
+                        href: "/students/register-after?step=5&redirect=closets",
+                      },
+                    },
+                    [_vm._v("Yes")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn-student",
+                      on: {
+                        click: function ($event) {
+                          _vm.modalIsActive = false
+                        },
+                      },
+                    },
+                    [_vm._v("Next Time")]
+                  ),
+                ]),
+              ]
+            ),
+          ]
+        )
+      : _vm._e(),
     _vm._v(" "),
     _c(
       "div",
@@ -44870,20 +44928,18 @@ var render = function () {
         "div",
         { staticClass: "flex flex-wrap" },
         _vm._l(_vm.choices.hairstyles, function (hair) {
-          return !hair.for_premium
-            ? _c("thumbnail-vue", {
-                key: hair.id,
-                attrs: {
-                  "is-user-premium": _vm.isPremium,
-                  "is-premium": hair.for_premium,
-                  "is-active": false,
-                  src: _vm.uri + hair.thumbnail,
-                  id: hair.id,
-                  type: "hair",
-                },
-                on: { "was-clicked": _vm.thumbnailHandler },
-              })
-            : _vm._e()
+          return _c("thumbnail-vue", {
+            key: hair.id,
+            attrs: {
+              "is-user-premium": _vm.isPremium,
+              "is-premium": hair.for_premium,
+              "is-active": false,
+              src: _vm.uri + hair.thumbnail,
+              id: hair.id,
+              type: "hair",
+            },
+            on: { "was-clicked": _vm.thumbnailHandler },
+          })
         }),
         1
       ),
