@@ -104,6 +104,6 @@ class BookContentController extends Controller
 
     public function getChapter (Request $request, Book $book)
     {
-        return $book->bookContentChapters()->orderBy('sq')->get();
+        return $book->bookContentChapters()->orderBy('created_at')->get();
     }
 }
