@@ -1,28 +1,28 @@
 <template>
     <div>
         <form action = "#" @submit.prevent="submit">
-            <h2 class="text-center mb-5 text-xl">Edit Chapter {{payload.sq}}</h2>
+            <h2 class="text-center mb-5 text-xl">Edit {{title}}</h2>
             <div class="flex" >
                 <div class="form-control">
                     <label for="" class="label">
-                        Chapter initial page
+                         Initial page
                     </label>
                     <input required v-model="payload.start_page" type="number" class="input text-black input-bordered input-sm rounded-none w-full">
                 </div>
                 <div class="form-control mx-2">
                     <label for="" class="label">
-                        Chapter last page
+                        Last page
                     </label>
                     <input required v-model="payload.end_page" type="number" class="input text-black input-bordered input-sm rounded-none w-full">
                 </div>
-                <div class="form-control mx-2">
+                <div class="form-control mx-2" v-if="isChapter">
                     <label for="" class="label">
                         Chapter No.
                     </label>
                     <input required v-model="payload.sq" type="number" class="input text-black input-bordered input-sm rounded-none w-full">
                 </div>
             </div>
-            <div v-if="bookType != 'Platinum'">
+            <div v-if="bookType != 'Platinum' && isChapter">
                 <div class="form-control">
                 <label for="" class="label">
                     Chapter types
@@ -33,7 +33,7 @@
                     </option>
                 </select>
             </div>
-            <div class="flex">
+            <div class="flex" v-if="isChapter">
                 <div class="form-control mx-1" v-if="payload.type == 'Premium'">
                     <label for="" class="label">
                         Age restriction
@@ -47,7 +47,7 @@
                     <input required type="number" v-model="payload.cost" class="input text-black input-bordered input-sm rounded-none"/>
                 </div>
             </div>
-            <div class="form-control mx-1" v-if="payload.type == 'Premium'">
+            <div class="form-control mx-1" v-if="payload.type == 'Premium' && isChapter">
                 <label for="" class="label">
                     Description
                 </label>
@@ -57,7 +57,7 @@
                 </small>
             </div>
             </div>
-            <div class="form-control mx-1">
+            <div class="form-control mx-1" v-if="isChapter">
                 <label for="" class="label">
                     Author's note
                 </label>
@@ -76,6 +76,21 @@
             return {
                 payload: {},
                 add:false,
+            }
+        },
+        computed: {
+            title () {
+                if (this.payload.sq == -1) {
+                    return "Prologue"
+                }
+
+                if (this.payload.sq == 9999) {
+                    return "Epilogue"
+                }
+                return this.payload.sq
+            },
+            isChapter() {
+                return this.title == this.payload.sq
             }
         },
         mounted () {

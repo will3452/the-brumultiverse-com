@@ -2718,15 +2718,61 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['bookId', 'bookType', 'bookContentId', 'types', 'costTypes', 'lastChapterId'],
   data: function data() {
     return {
+      type: 'chapter',
       payload: {},
+      chapters: [],
       add: false
     };
   },
+  watch: {
+    type: function type(newVal, oldVal) {
+      if (newVal != 'chapter') {
+        this.payload.type = 'Regular'; // default
+
+        this.payload.cost = 0;
+        this.payload.description = "".concat(newVal, " of book");
+        this.payload.sq = newVal == 'prologue' ? -1 : 9999;
+      }
+    }
+  },
+  computed: {
+    typeOptions: function typeOptions() {
+      var def = ['chapter', 'prologue', 'epilogue'];
+      var remove = [];
+      this.chapters.forEach(function (e) {
+        if (e.sq == -1) {
+          remove.push('prologue');
+        }
+
+        if (e.sq == 9999) {
+          remove.push('epilogue');
+        }
+      });
+      return def.filter(function (e) {
+        return !remove.includes(e);
+      });
+    }
+  },
   mounted: function mounted() {
+    var _this = this;
+
+    axios.get('/api/book-content-chapter/' + this.bookId).then(function (res) {
+      return _this.chapters = res.data;
+    });
     this.payload.book_id = this.bookId;
     this.payload.book_content_id = this.bookContentId;
 
@@ -2741,6 +2787,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     cancel: function cancel() {
       this.add = false;
       this.payload = {};
+      this.$mounted(); // reload
     },
     validate: function validate(payload) {
       if (Object.keys(payload).length == 0) {
@@ -2757,7 +2804,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return true;
     },
     submit: function submit() {
-      var _this = this;
+      var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
         var response;
@@ -2765,29 +2812,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                if (_this.validate(_this.payload)) {
+                if (_this2.validate(_this2.payload)) {
                   _context.next = 3;
                   break;
                 }
 
-                _this.$toastr.e("Please fill all inputs", "Error");
+                _this2.$toastr.e("Please fill all inputs", "Error");
 
                 return _context.abrupt("return");
 
               case 3:
                 _context.next = 5;
-                return axios.post('/api/book-content-chapter', _this.payload);
+                return axios.post('/api/book-content-chapter', _this2.payload);
 
               case 5:
                 response = _context.sent;
 
-                _this.$toastr.s("New chapter hsa been added", "Success!");
+                _this2.$toastr.s("New chapter hsa been added", "Success!");
 
-                _this.$emit('update-list');
+                setTimeout(function () {
+                  window.location.reload();
+                }, 1000);
 
-                _this.cancel();
+                _this2.$emit('update-list');
 
-              case 9:
+                _this2.cancel();
+
+              case 10:
               case "end":
                 return _context.stop();
             }
@@ -2897,6 +2948,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       payload: {},
       add: false
     };
+  },
+  computed: {
+    title: function title() {
+      if (this.payload.sq == -1) {
+        return "Prologue";
+      }
+
+      if (this.payload.sq == 9999) {
+        return "Epilogue";
+      }
+
+      return this.payload.sq;
+    },
+    isChapter: function isChapter() {
+      return this.title == this.payload.sq;
+    }
   },
   mounted: function mounted() {
     this.payload = this.chapter;
@@ -3052,6 +3119,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -45056,15 +45134,64 @@ var render = function () {
             },
           },
           [
-            _c("h2", { staticClass: "text-center mb-5 text-xl" }, [
-              _vm._v("Set Chapter "),
+            _c("h2", { staticClass: "text-center mb-5 text-xl uppercase" }, [
+              _vm._v("Add new "),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex" }, [
+              _c("div", { staticClass: "form-control" }, [
+                _c("label", { staticClass: "label", attrs: { for: "" } }, [
+                  _vm._v("Type"),
+                ]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.type,
+                        expression: "type",
+                      },
+                    ],
+                    staticClass: "select select-bordered select-sm text-black",
+                    attrs: { required: "", name: "", id: "" },
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.type = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      },
+                    },
+                  },
+                  _vm._l(_vm.typeOptions, function (t) {
+                    return _c("option", { key: t, domProps: { value: t } }, [
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(t) +
+                          "\n                "
+                      ),
+                    ])
+                  }),
+                  0
+                ),
+              ]),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "flex" }, [
               _c("div", { staticClass: "form-control" }, [
                 _c("label", { staticClass: "label", attrs: { for: "" } }, [
                   _vm._v(
-                    "\n                    Chapter initial page\n                "
+                    "\n                    Initial page\n                "
                   ),
                 ]),
                 _vm._v(" "),
@@ -45094,9 +45221,7 @@ var render = function () {
               _vm._v(" "),
               _c("div", { staticClass: "form-control mx-2" }, [
                 _c("label", { staticClass: "label", attrs: { for: "" } }, [
-                  _vm._v(
-                    "\n                    Chapter last page\n                "
-                  ),
+                  _vm._v("\n                    Last page\n                "),
                 ]),
                 _vm._v(" "),
                 _c("input", {
@@ -45123,96 +45248,102 @@ var render = function () {
                 }),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-control mx-2" }, [
-                _c("label", { staticClass: "label", attrs: { for: "" } }, [
-                  _vm._v("\n                    Chapter No.\n                "),
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.payload.sq,
-                      expression: "payload.sq",
-                    },
-                  ],
-                  staticClass:
-                    "input text-black input-bordered input-sm rounded-none w-full",
-                  attrs: { required: "", type: "number" },
-                  domProps: { value: _vm.payload.sq },
-                  on: {
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.payload, "sq", $event.target.value)
-                    },
-                  },
-                }),
-              ]),
+              _vm.type == "chapter"
+                ? _c("div", { staticClass: "form-control mx-2" }, [
+                    _c("label", { staticClass: "label", attrs: { for: "" } }, [
+                      _vm._v(
+                        "\n                    Chapter No.\n                "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.payload.sq,
+                          expression: "payload.sq",
+                        },
+                      ],
+                      staticClass:
+                        "input text-black input-bordered input-sm rounded-none w-full",
+                      attrs: { required: "", type: "number" },
+                      domProps: { value: _vm.payload.sq },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.payload, "sq", $event.target.value)
+                        },
+                      },
+                    }),
+                  ])
+                : _vm._e(),
             ]),
             _vm._v(" "),
-            _vm.bookType != "Platinum"
+            _vm.bookType != "Platinum" && _vm.type == "chapter"
               ? _c("div", [
                   _c("div", { staticClass: "form-control" }, [
                     _c("label", { staticClass: "label", attrs: { for: "" } }, [
                       _vm._v("\n                Chapter types\n            "),
                     ]),
                     _vm._v(" "),
-                    _c(
-                      "select",
-                      {
-                        directives: [
+                    _vm.type == "chapter"
+                      ? _c(
+                          "select",
                           {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.payload.type,
-                            expression: "payload.type",
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.payload.type,
+                                expression: "payload.type",
+                              },
+                            ],
+                            staticClass:
+                              "select select-bordered select-sm text-black",
+                            attrs: { required: "", name: "", id: "" },
+                            on: {
+                              change: function ($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function (o) {
+                                    return o.selected
+                                  })
+                                  .map(function (o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.payload,
+                                  "type",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              },
+                            },
                           },
-                        ],
-                        staticClass:
-                          "select select-bordered select-sm text-black",
-                        attrs: { required: "", name: "", id: "" },
-                        on: {
-                          change: function ($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function (o) {
-                                return o.selected
-                              })
-                              .map(function (o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.$set(
-                              _vm.payload,
-                              "type",
-                              $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
+                          _vm._l(_vm.types, function (t) {
+                            return _c(
+                              "option",
+                              { key: t, domProps: { value: t } },
+                              [
+                                _vm._v(
+                                  "\n                    " +
+                                    _vm._s(t) +
+                                    "\n                "
+                                ),
+                              ]
                             )
-                          },
-                        },
-                      },
-                      _vm._l(_vm.types, function (t) {
-                        return _c(
-                          "option",
-                          { key: t, domProps: { value: t } },
-                          [
-                            _vm._v(
-                              "\n                    " +
-                                _vm._s(t) +
-                                "\n                "
-                            ),
-                          ]
+                          }),
+                          0
                         )
-                      }),
-                      0
-                    ),
+                      : _vm._e(),
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "flex" }, [
-                    _vm.payload.type == "Premium"
+                    _vm.payload.type == "Premium" && _vm.type == "chapter"
                       ? _c("div", { staticClass: "form-control mx-1" }, [
                           _c(
                             "label",
@@ -45297,7 +45428,7 @@ var render = function () {
                       : _vm._e(),
                   ]),
                   _vm._v(" "),
-                  _vm.payload.type == "Premium"
+                  _vm.payload.type == "Premium" && _vm.type == "chapter"
                     ? _c("div", { staticClass: "form-control mx-1" }, [
                         _c(
                           "label",
@@ -45351,39 +45482,45 @@ var render = function () {
                 ])
               : _vm._e(),
             _vm._v(" "),
-            _c("div", { staticClass: "form-control mx-1" }, [
-              _c("label", { staticClass: "label", attrs: { for: "" } }, [
-                _vm._v("\n                Author's note\n            "),
-              ]),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.payload.authors_note,
-                    expression: "payload.authors_note",
-                  },
-                ],
-                staticClass: "rounded-0 border p-2",
-                attrs: {
-                  required: "",
-                  name: "",
-                  id: "",
-                  cols: "30",
-                  rows: "5",
-                },
-                domProps: { value: _vm.payload.authors_note },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.payload, "authors_note", $event.target.value)
-                  },
-                },
-              }),
-            ]),
+            _vm.type == "chapter"
+              ? _c("div", { staticClass: "form-control mx-1" }, [
+                  _c("label", { staticClass: "label", attrs: { for: "" } }, [
+                    _vm._v("\n                Author's note\n            "),
+                  ]),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.payload.authors_note,
+                        expression: "payload.authors_note",
+                      },
+                    ],
+                    staticClass: "rounded-0 border p-2",
+                    attrs: {
+                      required: "",
+                      name: "",
+                      id: "",
+                      cols: "30",
+                      rows: "5",
+                    },
+                    domProps: { value: _vm.payload.authors_note },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.payload,
+                          "authors_note",
+                          $event.target.value
+                        )
+                      },
+                    },
+                  }),
+                ])
+              : _vm._e(),
             _vm._v(" "),
             _c(
               "button",
@@ -45440,15 +45577,13 @@ var render = function () {
       },
       [
         _c("h2", { staticClass: "text-center mb-5 text-xl" }, [
-          _vm._v("Edit Chapter " + _vm._s(_vm.payload.sq)),
+          _vm._v("Edit " + _vm._s(_vm.title)),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "flex" }, [
           _c("div", { staticClass: "form-control" }, [
             _c("label", { staticClass: "label", attrs: { for: "" } }, [
-              _vm._v(
-                "\n                    Chapter initial page\n                "
-              ),
+              _vm._v("\n                     Initial page\n                "),
             ]),
             _vm._v(" "),
             _c("input", {
@@ -45477,9 +45612,7 @@ var render = function () {
           _vm._v(" "),
           _c("div", { staticClass: "form-control mx-2" }, [
             _c("label", { staticClass: "label", attrs: { for: "" } }, [
-              _vm._v(
-                "\n                    Chapter last page\n                "
-              ),
+              _vm._v("\n                    Last page\n                "),
             ]),
             _vm._v(" "),
             _c("input", {
@@ -45506,37 +45639,39 @@ var render = function () {
             }),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "form-control mx-2" }, [
-            _c("label", { staticClass: "label", attrs: { for: "" } }, [
-              _vm._v("\n                    Chapter No.\n                "),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.payload.sq,
-                  expression: "payload.sq",
-                },
-              ],
-              staticClass:
-                "input text-black input-bordered input-sm rounded-none w-full",
-              attrs: { required: "", type: "number" },
-              domProps: { value: _vm.payload.sq },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.payload, "sq", $event.target.value)
-                },
-              },
-            }),
-          ]),
+          _vm.isChapter
+            ? _c("div", { staticClass: "form-control mx-2" }, [
+                _c("label", { staticClass: "label", attrs: { for: "" } }, [
+                  _vm._v("\n                    Chapter No.\n                "),
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.payload.sq,
+                      expression: "payload.sq",
+                    },
+                  ],
+                  staticClass:
+                    "input text-black input-bordered input-sm rounded-none w-full",
+                  attrs: { required: "", type: "number" },
+                  domProps: { value: _vm.payload.sq },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.payload, "sq", $event.target.value)
+                    },
+                  },
+                }),
+              ])
+            : _vm._e(),
         ]),
         _vm._v(" "),
-        _vm.bookType != "Platinum"
+        _vm.bookType != "Platinum" && _vm.isChapter
           ? _c("div", [
               _c("div", { staticClass: "form-control" }, [
                 _c("label", { staticClass: "label", attrs: { for: "" } }, [
@@ -45589,85 +45724,95 @@ var render = function () {
                 ),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "flex" }, [
-                _vm.payload.type == "Premium"
-                  ? _c("div", { staticClass: "form-control mx-1" }, [
-                      _c(
-                        "label",
-                        { staticClass: "label", attrs: { for: "" } },
-                        [
-                          _vm._v(
-                            "\n                    Age restriction\n                "
+              _vm.isChapter
+                ? _c("div", { staticClass: "flex" }, [
+                    _vm.payload.type == "Premium"
+                      ? _c("div", { staticClass: "form-control mx-1" }, [
+                          _c(
+                            "label",
+                            { staticClass: "label", attrs: { for: "" } },
+                            [
+                              _vm._v(
+                                "\n                    Age restriction\n                "
+                              ),
+                            ]
                           ),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.payload.age_restriction,
-                            expression: "payload.age_restriction",
-                          },
-                        ],
-                        staticClass:
-                          "input text-black input-bordered input-sm rounded-none",
-                        attrs: { required: "", type: "number" },
-                        domProps: { value: _vm.payload.age_restriction },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.payload,
-                              "age_restriction",
-                              $event.target.value
-                            )
-                          },
-                        },
-                      }),
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.payload.type != "Regular" &&
-                _vm.payload.type != "Premium" &&
-                _vm.payload.type != "Special"
-                  ? _c("div", { staticClass: "form-control mx-1" }, [
-                      _c(
-                        "label",
-                        { staticClass: "label", attrs: { for: "" } },
-                        [_vm._v("\n                    Cost\n                ")]
-                      ),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.payload.cost,
-                            expression: "payload.cost",
-                          },
-                        ],
-                        staticClass:
-                          "input text-black input-bordered input-sm rounded-none",
-                        attrs: { required: "", type: "number" },
-                        domProps: { value: _vm.payload.cost },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.payload, "cost", $event.target.value)
-                          },
-                        },
-                      }),
-                    ])
-                  : _vm._e(),
-              ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.payload.age_restriction,
+                                expression: "payload.age_restriction",
+                              },
+                            ],
+                            staticClass:
+                              "input text-black input-bordered input-sm rounded-none",
+                            attrs: { required: "", type: "number" },
+                            domProps: { value: _vm.payload.age_restriction },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.payload,
+                                  "age_restriction",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.payload.type != "Regular" &&
+                    _vm.payload.type != "Premium" &&
+                    _vm.payload.type != "Special"
+                      ? _c("div", { staticClass: "form-control mx-1" }, [
+                          _c(
+                            "label",
+                            { staticClass: "label", attrs: { for: "" } },
+                            [
+                              _vm._v(
+                                "\n                    Cost\n                "
+                              ),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.payload.cost,
+                                expression: "payload.cost",
+                              },
+                            ],
+                            staticClass:
+                              "input text-black input-bordered input-sm rounded-none",
+                            attrs: { required: "", type: "number" },
+                            domProps: { value: _vm.payload.cost },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.payload,
+                                  "cost",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                        ])
+                      : _vm._e(),
+                  ])
+                : _vm._e(),
               _vm._v(" "),
-              _vm.payload.type == "Premium"
+              _vm.payload.type == "Premium" && _vm.isChapter
                 ? _c("div", { staticClass: "form-control mx-1" }, [
                     _c("label", { staticClass: "label", attrs: { for: "" } }, [
                       _vm._v("\n                Description\n            "),
@@ -45715,33 +45860,41 @@ var render = function () {
             ])
           : _vm._e(),
         _vm._v(" "),
-        _c("div", { staticClass: "form-control mx-1" }, [
-          _c("label", { staticClass: "label", attrs: { for: "" } }, [
-            _vm._v("\n                Author's note\n            "),
-          ]),
-          _vm._v(" "),
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.payload.authors_note,
-                expression: "payload.authors_note",
-              },
-            ],
-            staticClass: "rounded-0 border p-2",
-            attrs: { required: "", name: "", id: "", cols: "30", rows: "5" },
-            domProps: { value: _vm.payload.authors_note },
-            on: {
-              input: function ($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.payload, "authors_note", $event.target.value)
-              },
-            },
-          }),
-        ]),
+        _vm.isChapter
+          ? _c("div", { staticClass: "form-control mx-1" }, [
+              _c("label", { staticClass: "label", attrs: { for: "" } }, [
+                _vm._v("\n                Author's note\n            "),
+              ]),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.payload.authors_note,
+                    expression: "payload.authors_note",
+                  },
+                ],
+                staticClass: "rounded-0 border p-2",
+                attrs: {
+                  required: "",
+                  name: "",
+                  id: "",
+                  cols: "30",
+                  rows: "5",
+                },
+                domProps: { value: _vm.payload.authors_note },
+                on: {
+                  input: function ($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.payload, "authors_note", $event.target.value)
+                  },
+                },
+              }),
+            ])
+          : _vm._e(),
         _vm._v(" "),
         _c(
           "button",
@@ -45868,24 +46021,20 @@ var render = function () {
           "li",
           { key: chapter.id, staticClass: "border rounded shadow-sm p-2 my-2" },
           [
-            _c("div", { staticClass: "flex justify-between" }, [
-              _c("div", [
-                _c("span", { staticClass: "font-bold" }, [
-                  _vm._v(
-                    "\n                        Chapter No.\n                    "
-                  ),
-                ]),
-                _vm._v(" "),
-                _c("span", [
-                  _vm._v(
-                    "\n                        " +
-                      _vm._s(chapter.sq) +
-                      "\n                    "
-                  ),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", [
+            chapter.sq == 9999
+              ? _c("div", { staticClass: "font-bold" }, [
+                  _vm._v("\n            Epilogue\n         "),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            chapter.sq == -1
+              ? _c("div", { staticClass: "font-bold" }, [
+                  _vm._v("\n            Prologue\n         "),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: "relative" }, [
+              _c("div", { staticClass: "absolute right-2" }, [
                 _c(
                   "a",
                   {
@@ -45901,35 +46050,59 @@ var render = function () {
               ]),
             ]),
             _vm._v(" "),
-            _c("div", [
-              _c("span", { staticClass: "font-bold" }, [
-                _vm._v("\n                   Chapter Type\n                "),
-              ]),
-              _vm._v(" "),
-              _c("span", [
-                _vm._v(
-                  "\n                    " +
-                    _vm._s(chapter.type) +
-                    "\n                "
-                ),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("div", [
-              _c("span", { staticClass: "font-bold" }, [
-                _vm._v(
-                  "\n                   Age Restriction\n                "
-                ),
-              ]),
-              _vm._v(" "),
-              _c("span", [
-                _vm._v(
-                  "\n                    " +
-                    _vm._s(chapter.age_restriction || "--") +
-                    "\n                "
-                ),
-              ]),
-            ]),
+            chapter.sq != 9999 && chapter.sq != -1
+              ? _c("div", [
+                  _c("div", { staticClass: "flex justify-between" }, [
+                    _c("div", [
+                      _c("span", { staticClass: "font-bold" }, [
+                        _vm._v(
+                          "\n                        Chapter No.\n                    "
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("span", [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(chapter.sq) +
+                            "\n                    "
+                        ),
+                      ]),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c("span", { staticClass: "font-bold" }, [
+                      _vm._v(
+                        "\n                   Chapter Type\n                "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(chapter.type) +
+                          "\n                "
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c("span", { staticClass: "font-bold" }, [
+                      _vm._v(
+                        "\n                   Age Restriction\n                "
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("span", [
+                      _vm._v(
+                        "\n                    " +
+                          _vm._s(chapter.age_restriction || "--") +
+                          "\n                "
+                      ),
+                    ]),
+                  ]),
+                ])
+              : _vm._e(),
             _vm._v(" "),
             _c("div", [
               _c("span", { staticClass: "font-bold" }, [
