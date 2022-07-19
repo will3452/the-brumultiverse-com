@@ -29,6 +29,7 @@
             <x-scholar.page.update :editable="! $book->hasPublishedDate()" :update-link="route('scholar.book.update', ['book' => $book->id])">
                 <x-scholar.form.select name="type" label="Book Type" readonly="true">
                     <option {{$book->type === \App\Models\Book::TYPE_REGULAR ? 'selected':''}} value="{{\App\Models\Book::TYPE_REGULAR}}">{{\App\Models\Book::TYPE_REGULAR}}</option>
+                    <option {{$book->type === \App\Models\Book::TYPE_PLATINUM ? 'selected':''}} value="{{\App\Models\Book::TYPE_PLATINUM}}">{{\App\Models\Book::TYPE_PLATINUM}}</option>
                     <option {{$book->type === \App\Models\Book::TYPE_PREMIUM ? 'selected':''}} value="{{\App\Models\Book::TYPE_PREMIUM}}">{{\App\Models\Book::TYPE_PREMIUM}}</option>
                     <option {{$book->type === \App\Models\Book::TYPE_SPIN ? 'selected':''}} value="{{\App\Models\Book::TYPE_SPIN}}">{{\App\Models\Book::TYPE_SPIN}}</option>
                     <option {{$book->type === \App\Models\Book::TYPE_EVENT ? 'selected':''}} value="{{\App\Models\Book::TYPE_EVENT}}">{{\App\Models\Book::TYPE_EVENT}}</option>
@@ -76,6 +77,7 @@
                     @foreach ($colleges as $name)
                         <option value="{{$name}}" {{$book->lead_college === $name ? 'selected':''}}>{{$name}}</option>
                     @endforeach
+                    <option value="NON-BRU" {{$book->lead_college === 'NON-BRU' ? 'selected':''}}>NON-BRU</option>
                 </x-scholar.form.select>
 
                 <x-scholar.form.ckeditor name="blurb" label="Blurb">

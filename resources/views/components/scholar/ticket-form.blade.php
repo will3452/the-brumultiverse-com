@@ -19,7 +19,7 @@
                     @elseif (in_array($item, ['type']))
                         <x-scholar.form.select name="{{$item}}" label="{{\Str::headline($item)}}" :value="$model[$item]">
                             @foreach (get_class($model)::TYPES as $t)
-                                <option value="{{$t}}">
+                                <option value="{{$t}}" {{$model[$item] == $t ? 'selected': ''}}>
                                     {{$t}}
                                 </option>
                             @endforeach
