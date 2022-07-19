@@ -38,7 +38,12 @@ class BookshelvesController extends Controller
     {
         try {
             if (! auth()->user()->readingLogs()->whereBookId($work->id)->exists()) {
+
                 $firstChapter = $work->bookContentChapters()->first();
+
+                if(is_null($firstChapter)) {
+                    return 'no chapter found!';
+                }
 
                 if (! auth()->user()->canProceedToRead($work, $firstChapter)) {
                     toast("You don't have enough balance to read this book!");
@@ -54,7 +59,7 @@ class BookshelvesController extends Controller
             }
             return view('student.bookshelves.read', compact('work'));
         } catch (\Exception $err) {
-            toast('Something went wrong, please contact the administrator to resolve the issue.');
+            toast('Something went wrong, please contact the author or administrator to resolve the issue.');
         }
     }
 

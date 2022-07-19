@@ -56,6 +56,6 @@
 </div>
 @else
     <div class="bg-yellow-200 p-2 mt-4 text-sm text-yellow-900">
-        Your ticket has been sent, please wait for administrator approval.
+        Your ticket has been sent. Please wait for Admin's approval.
     </div>
 @endif
