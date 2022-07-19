@@ -9,24 +9,29 @@ use App\Models\StudentCollection;
 use App\Models\User;
 use Illuminate\Support\Str;
 use App\Models\Subscription;
+use Exception;
 
 trait StudentTrait
 {
     public function canProceedToRead(Book $book, BookContentChapter $chapter) {
-        error_log("CHAPTER TYPE >> " . $chapter->type);
-        if ($chapter->isType(BookContentChapter::TYPE_REGULAR)) {
-            return $this->hasEnoughBalanceOf('hall_pass');
-        }
+        try {
+            error_log("CHAPTER TYPE >> " . $chapter->type);
+            if ($chapter->isType(BookContentChapter::TYPE_REGULAR)) {
+                return $this->hasEnoughBalanceOf('hall_pass');
+            }
 
-        if ($chapter->isType(BookContentChapter::TYPE_PREMIUM)) {
-            return $this->hasEnoughBalanceOf('purple_crystal');
-        }
+            if ($chapter->isType(BookContentChapter::TYPE_PREMIUM)) {
+                return $this->hasEnoughBalanceOf('purple_crystal');
+            }
 
-        if ($chapter->isType(BookContentChapter::TYPE_SPECIAL)) {
-            return $this->hasEnoughBalanceOf('hall_pass');
-        }
+            if ($chapter->isType(BookContentChapter::TYPE_SPECIAL)) {
+                return $this->hasEnoughBalanceOf('hall_pass');
+            }
 
-        return false;
+            return false;
+        } catch (Exception $err) {
+            return false;
+        }
     }
 
     //reading logs
