@@ -8,7 +8,7 @@
     <title>BRUMULTIVERSE</title>
     @stack('head-script')
     <link href="/css/app.css" rel="stylesheet"/>
-    <script src="/js/app.js" defer></script>
+    <script src="/js/app.js?v={{now()->today()->format('mdy')}}" defer></script>
     <x-vendor.alpinejs/>
     <x-vendor.typewriterjs/>
 </head>
