@@ -1,7 +1,7 @@
 <div class="navbar border-b dark:bg-gray-900">
     <div class="flex-1 items-center flex">
       <img src="{{getAsset('home/textlogo.png')}}" class="w-48" alt="">
-       <form action="javascript:alert('under developmemt')" class="flex items-center hidden md:flex">
+       {{-- <form action="javascript:alert('under developmemt')" class="flex items-center hidden md:flex">
            <div>
             <input type="text" class="input input-bordered input-sm" placeholder="Search here">
            </div>
@@ -11,7 +11,7 @@
                 Search
             </button>
            </div>
-       </form>
+       </form> --}}
     </div>
     <div class="flex-none">
         <div class="dropdown dropdown-end">
