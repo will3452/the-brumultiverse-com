@@ -15,7 +15,10 @@ trait StudentTrait
 {
     public function canProceedToRead(Book $book, BookContentChapter $chapter) {
         try {
-            error_log("CHAPTER TYPE >> " . $chapter->type);
+            if ($book->type == Book::TYPE_PLATINUM) {
+                return true;
+            }
+
             if ($chapter->isType(BookContentChapter::TYPE_REGULAR)) {
                 return $this->hasEnoughBalanceOf('hall_pass');
             }

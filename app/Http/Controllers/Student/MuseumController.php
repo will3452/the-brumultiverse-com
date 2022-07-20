@@ -10,14 +10,14 @@ class MuseumController extends Controller
 {
     public function getArts()
     {
-        return ArtScene::get()->groupBy(fn ($e) =>  $e->genre->name);
+        return ArtScene::published()->get()->groupBy(fn ($e) =>  $e->genre->name);
     }
 
     public function index(Request $request)
     {
         $works = [];
         if ($request->has('search') && $request->search != '') {
-            $works = ArtScene::where('title', 'LIKE', '%'.$request->search.'%')->get();
+            $works = ArtScene::published()->where('title', 'LIKE', '%'.$request->search.'%')->get();
         } else {
             $works = $this->getArts();
         }

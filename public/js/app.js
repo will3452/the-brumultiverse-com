@@ -2794,9 +2794,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return false;
       }
 
-      for (var pl in payload) {
-        // if the payload has defeult value
-        if (pl == '' || pl == undefined || pl == null) {
+      var keys = ['start_page', 'end_page', 'type'];
+
+      for (var _i = 0, _keys = keys; _i < _keys.length; _i++) {
+        var i = _keys[_i];
+
+        if (payload[i] == null || payload[i] == undefined || payload[i] == '') {
           return false;
         }
       }
@@ -2817,7 +2820,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   break;
                 }
 
-                _this2.$toastr.e("Please fill all inputs", "Error");
+                _this2.$toastr.e("Please fill inputs", "Error");
 
                 return _context.abrupt("return");
 
