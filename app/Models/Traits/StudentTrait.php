@@ -15,6 +15,9 @@ trait StudentTrait
 {
     public function canProceedToRead(Book $book, BookContentChapter $chapter) {
         try {
+            if ($this->isPurchaseBook($book->id)) {
+                return true;
+            }
             if ($book->type == Book::TYPE_PLATINUM) {
                 return true;
             }
@@ -46,6 +49,10 @@ trait StudentTrait
     public function studentCollections()
     {
         return $this->hasMany(StudentCollection::class);
+    }
+
+    public function isPurchaseBook($bookId) {
+        return $this->studentCollections()->whereNotNull('purchased_at')->whereModelType("App\\Models\\Book")->whereModelId($bookId)->exists();
     }
 
     public function isInStudentCollections($work)

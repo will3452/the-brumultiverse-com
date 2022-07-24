@@ -66,6 +66,7 @@ Route::prefix('museum')->name('museum.')->group(function () {
 //add to collections
 
 Route::get('/add-to-collections/{type}/{id}', [StudentCollectionController::class, 'addToCollection'])->name('add.to.collection');
+Route::get('/purchase-collections/{type}/{id}', [StudentCollectionController::class, 'purchaseCollection'])->name('purchase.collection');
 
 
 Route::prefix('bookshelves')->name('bs.')->group(function () {

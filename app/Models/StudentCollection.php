@@ -13,6 +13,7 @@ class StudentCollection extends Model
         'user_id',
         'model_type',
         'model_id',
+        'purchased_at',
     ];
 
     public function model()

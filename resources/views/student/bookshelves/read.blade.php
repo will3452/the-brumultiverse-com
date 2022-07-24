@@ -91,8 +91,9 @@
                 onShowPage (book, page, index) {
                     let end = chapters.filter(e => e.start_page == index)
 
+                    @if(! auth()->user()->isPurchaseBook($work->id))
                     if (end.length) {
-                        fetch(`{{route('student.readinglog.check')}}?page_number=${index}`)
+                        fetch(`{{route('student.readinglog.check')}}?page_number=${index},book_id={{$work->id}}`)
                             .then(res => res.json())
                             .then(({existing}) => {
                                 if (! existing ) {
@@ -121,6 +122,7 @@
                                 }
                             })
                     }
+                    @endif
                 },
 				// ,toolbarContainerPosition: "top" // default "bottom"
 

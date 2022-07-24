@@ -26,7 +26,7 @@ class ReadingLogController extends Controller
     }
 
     public function hasLog (Request $request) {
-        if (auth()->user()->readingLogs()->wherePageNumber($request->page_number)->exists()) {
+        if (auth()->user()->readingLogs()->wherePageNumber($request->page_number)->whereBookId($request->book_id)->exists()) {
             return ['existing' => true];
         }
         return ['existing' => false];
