@@ -46045,7 +46045,7 @@ var render = function () {
                 ])
               : _vm._e(),
             _vm._v(" "),
-            chapter.sq == -1
+            chapter.sq == -9999
               ? _c("div", { staticClass: "font-bold" }, [
                   _vm._v("\n            Prologue\n         "),
                 ])
@@ -46068,7 +46068,7 @@ var render = function () {
               ]),
             ]),
             _vm._v(" "),
-            chapter.sq != 9999 && chapter.sq != -1
+            chapter.sq != 9999 && chapter.sq != -9999
               ? _c("div", [
                   _c("div", { staticClass: "flex justify-between" }, [
                     _c("div", [

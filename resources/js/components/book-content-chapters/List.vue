@@ -5,7 +5,7 @@
              <div v-if="chapter.sq == 9999" class="font-bold">
                 Epilogue
              </div>
-             <div v-if="chapter.sq == -1" class="font-bold">
+             <div v-if="chapter.sq == -9999" class="font-bold">
                 Prologue
              </div>
              <div class="relative">
@@ -13,7 +13,7 @@
                     <a @click="edit(chapter)" class="uppercase text-xs">[ Edit ]</a>
                 </div>
              </div>
-               <div  v-if="chapter.sq != 9999 && chapter.sq != -1">
+               <div  v-if="chapter.sq != 9999 && chapter.sq != -9999">
                 <div class="flex justify-between">
                     <div>
                         <span class="font-bold">
