@@ -2754,7 +2754,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var def = ['chapter', 'prologue', 'epilogue'];
       var remove = [];
       this.chapters.forEach(function (e) {
-        if (e.sq == -1) {
+        if (e.sq == -9999) {
           remove.push('prologue');
         }
 
@@ -2790,10 +2790,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.$mounted(); // reload
     },
     validate: function validate(payload) {
-      if (Object.keys(payload).length == 0) {
-        return false;
-      }
-
       var keys = ['start_page', 'end_page', 'type'];
 
       for (var _i = 0, _keys = keys; _i < _keys.length; _i++) {
@@ -2825,10 +2821,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context.abrupt("return");
 
               case 3:
-                _context.next = 5;
+                if (!(_this2.payload.sq <= 0 && _this2.payload.sq != -9999)) {
+                  _context.next = 6;
+                  break;
+                }
+
+                _this2.$toastr.e("Invalid inputs!", 'Error');
+
+                return _context.abrupt("return");
+
+              case 6:
+                _context.next = 8;
                 return axios.post('/api/book-content-chapter', _this2.payload);
 
-              case 5:
+              case 8:
                 response = _context.sent;
 
                 _this2.$toastr.s("New chapter hsa been added", "Success!");
@@ -2841,7 +2847,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this2.cancel();
 
-              case 10:
+              case 13:
               case "end":
                 return _context.stop();
             }
@@ -2954,7 +2960,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   computed: {
     title: function title() {
-      if (this.payload.sq == -1) {
+      if (this.payload.sq == -9999) {
         return "Prologue";
       }
 
@@ -2976,13 +2982,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.$emit('close');
     },
     validate: function validate(payload) {
-      if (Object.keys(payload).length == 0) {
-        return false;
-      }
+      var keys = ['start_page', 'end_page', 'type'];
 
-      for (var pl in payload) {
-        // if the payload has defeult value
-        if (pl == '' || pl == undefined || pl == null) {
+      for (var _i = 0, _keys = keys; _i < _keys.length; _i++) {
+        var i = _keys[_i];
+
+        if (payload[i] == null || payload[i] == undefined || payload[i] == '') {
           return false;
         }
       }
@@ -3008,10 +3013,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context.abrupt("return");
 
               case 3:
-                _context.next = 5;
+                if (!(_this.payload.sq <= 0 && _this.payload.sq != -9999)) {
+                  _context.next = 6;
+                  break;
+                }
+
+                _this.$toastr.e("Invalid inputs", 'Error');
+
+                return _context.abrupt("return");
+
+              case 6:
+                _context.next = 8;
                 return axios.post('/api/book-content-chapter/edit/' + _this.chapter.id, _this.payload);
 
-              case 5:
+              case 8:
                 response = _context.sent;
 
                 _this.$toastr.s("Chapter has been updated!", "Success!");
@@ -3020,7 +3035,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this.cancel();
 
-              case 9:
+              case 12:
               case "end":
                 return _context.stop();
             }
@@ -44620,7 +44635,7 @@ var render = function () {
               { staticClass: "bg-white p-4 rounded-md w-full max-w-sm" },
               [
                 _vm._v(
-                  "\r\n            Hi! This option is for VIP students (premium account holders). Would you like to change your account type?\r\n            "
+                  "\n            Hi! This option is for VIP students (premium account holders). Would you like to change your account type?\n            "
                 ),
                 _c("div", { staticClass: "mt-4" }, [
                   _c(
@@ -46239,9 +46254,7 @@ var render = function () {
                 { attrs: { date: _vm.moment(message.created_at) } },
                 [
                   _vm._v(
-                    "\r\n            " +
-                      _vm._s(message.message) +
-                      "\r\n        "
+                    "\n            " + _vm._s(message.message) + "\n        "
                   ),
                 ]
               )
@@ -46253,9 +46266,7 @@ var render = function () {
                 { attrs: { date: _vm.moment(message.created_at) } },
                 [
                   _vm._v(
-                    "\r\n            " +
-                      _vm._s(message.message) +
-                      "\r\n        "
+                    "\n            " + _vm._s(message.message) + "\n        "
                   ),
                 ]
               )

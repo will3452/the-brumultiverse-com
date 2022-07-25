@@ -80,7 +80,7 @@
         },
         computed: {
             title () {
-                if (this.payload.sq == -1) {
+                if (this.payload.sq == -9999) {
                     return "Prologue"
                 }
 
@@ -101,12 +101,10 @@
                 this.$emit('close')
             },
             validate (payload) {
-                if ( Object.keys(payload).length == 0) {
-                    return false
-                }
+                let keys = ['start_page', 'end_page', 'type']
 
-                for ( let pl in payload ) { // if the payload has defeult value
-                    if ( pl == '' || pl == undefined || pl == null) {
+                for(let i of keys) {
+                    if (payload[i] == null || payload[i] == undefined || payload[i] == '') {
                         return false
                     }
                 }
@@ -116,6 +114,11 @@
              async submit () {
                 if (! this.validate(this.payload)) {
                     this.$toastr.e("Please fill all inputs", "Error")
+                    return
+                }
+
+                if (this.payload.sq <= 0 && this.payload.sq != -9999) {
+                    this.$toastr.e("Invalid inputs", 'Error')
                     return
                 }
                 let response = await axios.post('/api/book-content-chapter/edit/' + this.chapter.id, this.payload)

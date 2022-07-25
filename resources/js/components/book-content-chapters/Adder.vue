@@ -108,7 +108,7 @@
                 let def = ['chapter', 'prologue', 'epilogue'];
                 let remove = []
                 this.chapters.forEach(e => {
-                    if (e.sq == -1) {
+                    if (e.sq == -9999) {
                         remove.push('prologue')
                     }
 
@@ -140,9 +140,6 @@
                 this.$mounted() // reload
             },
             validate (payload) {
-                if ( Object.keys(payload).length == 0) {
-                    return false
-                }
                 let keys = ['start_page', 'end_page', 'type']
 
                 for(let i of keys) {
@@ -156,6 +153,11 @@
              async submit () {
                 if (! this.validate(this.payload)) {
                     this.$toastr.e("Please fill inputs", "Error")
+                    return
+                }
+
+                if (this.payload.sq <= 0 && this.payload.sq != -9999) {
+                    this.$toastr.e("Invalid inputs!", 'Error')
                     return
                 }
                 let response = await axios.post('/api/book-content-chapter', this.payload)
