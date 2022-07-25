@@ -99,7 +99,7 @@
                     this.payload.type = 'Regular' // default
                     this.payload.cost = 0
                     this.payload.description = `${newVal} of book`
-                    this.payload.sq = newVal == 'prologue' ? -1 : 9999;
+                    this.payload.sq = newVal == 'prologue' ? -9999 : 9999;
                 }
             }
         },

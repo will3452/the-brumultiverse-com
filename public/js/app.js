@@ -2745,7 +2745,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
         this.payload.cost = 0;
         this.payload.description = "".concat(newVal, " of book");
-        this.payload.sq = newVal == 'prologue' ? -1 : 9999;
+        this.payload.sq = newVal == 'prologue' ? -9999 : 9999;
       }
     }
   },
