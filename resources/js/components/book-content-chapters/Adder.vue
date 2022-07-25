@@ -4,7 +4,7 @@
             Set New Chapter
         </button>
         <form action = "#"  v-if="add" @submit.prevent="submit">
-            <h2 class="text-center mb-5 text-xl uppercase">Add new </h2>
+            <h2 class="text-center mb-5 text-xl uppercase">Add New </h2>
             <div class="flex">
                 <div class="form-control">
                     <label for="" class="label">Type</label>

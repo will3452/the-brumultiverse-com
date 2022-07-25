@@ -45153,7 +45153,7 @@ var render = function () {
           },
           [
             _c("h2", { staticClass: "text-center mb-5 text-xl uppercase" }, [
-              _vm._v("Add new "),
+              _vm._v("Add New "),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "flex" }, [
