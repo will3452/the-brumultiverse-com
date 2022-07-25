@@ -1,7 +1,7 @@
 <template>
     <div>
         <button class="btn btn-primary btn-sm" v-show="! add" @click="add = ! add">
-            Set new chapter
+            Set New Chapter
         </button>
         <form action = "#"  v-if="add" @submit.prevent="submit">
             <h2 class="text-center mb-5 text-xl uppercase">Add new </h2>
@@ -157,7 +157,7 @@
                 }
 
                 if (this.payload.sq <= 0 && this.payload.sq != -9999) {
-                    this.$toastr.e("Invalid inputs!", 'Error')
+                    this.$toastr.e("Invalid inputs.", 'Error')
                     return
                 }
                 let response = await axios.post('/api/book-content-chapter', this.payload)

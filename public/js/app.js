@@ -2826,7 +2826,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   break;
                 }
 
-                _this2.$toastr.e("Invalid inputs!", 'Error');
+                _this2.$toastr.e("Invalid inputs.", 'Error');
 
                 return _context.abrupt("return");
 
@@ -45136,7 +45136,7 @@ var render = function () {
           },
         },
       },
-      [_vm._v("\n        Set new chapter\n    ")]
+      [_vm._v("\n        Set New Chapter\n    ")]
     ),
     _vm._v(" "),
     _vm.add
