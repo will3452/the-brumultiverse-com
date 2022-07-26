@@ -44,7 +44,7 @@
                </div>
                 <div>
                     <span class="font-bold">
-                        Page cover:
+                        Pages covered:
                     </span>
                     <span>
                         {{chapter.start_page}} - {{chapter.end_page}}

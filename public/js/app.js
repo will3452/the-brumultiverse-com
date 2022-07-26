@@ -45516,13 +45516,7 @@ var render = function () {
                       },
                     ],
                     staticClass: "rounded-0 border p-2",
-                    attrs: {
-                      required: "",
-                      name: "",
-                      id: "",
-                      cols: "30",
-                      rows: "5",
-                    },
+                    attrs: { name: "", id: "", cols: "30", rows: "5" },
                     domProps: { value: _vm.payload.authors_note },
                     on: {
                       input: function ($event) {
@@ -45846,13 +45840,7 @@ var render = function () {
                         },
                       ],
                       staticClass: "rounded-0 border p-2",
-                      attrs: {
-                        required: "",
-                        name: "",
-                        id: "",
-                        cols: "30",
-                        rows: "5",
-                      },
+                      attrs: { name: "", id: "", cols: "30", rows: "5" },
                       domProps: { value: _vm.payload.description },
                       on: {
                         input: function ($event) {
@@ -45894,13 +45882,7 @@ var render = function () {
                   },
                 ],
                 staticClass: "rounded-0 border p-2",
-                attrs: {
-                  required: "",
-                  name: "",
-                  id: "",
-                  cols: "30",
-                  rows: "5",
-                },
+                attrs: { name: "", id: "", cols: "30", rows: "5" },
                 domProps: { value: _vm.payload.authors_note },
                 on: {
                   input: function ($event) {
@@ -46124,7 +46106,9 @@ var render = function () {
             _vm._v(" "),
             _c("div", [
               _c("span", { staticClass: "font-bold" }, [
-                _vm._v("\n                    Page cover:\n                "),
+                _vm._v(
+                  "\n                    Pages covered:\n                "
+                ),
               ]),
               _vm._v(" "),
               _c("span", [
