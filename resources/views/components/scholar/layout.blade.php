@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="/css/app.css"/>
     <link rel="stylesheet" href="/vendor/pace/flash.css">
     <link rel="icon" href="{{getAsset('home/circle_logo.png')}}">
-    <script src="/js/app.js?v={{now()->today()->format('mdy')}}" defer></script>
+    <script src="/js/app.js?v={{rand()}}" defer></script>
     @stack('head-style')
     @stack('head-script')
 </head>

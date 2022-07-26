@@ -1,7 +1,9 @@
 require('./bootstrap.js')
 import 'animate.css';
 
-// import {Howl, Howler} from 'howler';
+import {Howl, Howler} from 'howler';
+window.Howl = Howl
+window.Howler = Howler
 
 // //sound effects
 // var mouseClick = new Howl({
