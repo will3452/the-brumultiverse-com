@@ -46106,7 +46106,9 @@ var render = function () {
             _vm._v(" "),
             _c("div", [
               _c("span", { staticClass: "font-bold" }, [
-                _vm._v("\n                    Page cover:\n                "),
+                _vm._v(
+                  "\n                    Pages covered:\n                "
+                ),
               ]),
               _vm._v(" "),
               _c("span", [
