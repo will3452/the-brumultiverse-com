@@ -20,7 +20,7 @@ Route::view('/landing-business', 'landing-business'); // new
 Route::redirect('/', '/welcome');
 Route::redirect('/login', '/scholars/login')->name('login');
 Route::redirect('/home', '/scholars/home');
-Route::view('/welcome', 'Home')->name('welcome');
+Route::view('/welcome', 'Home')->middleware('custom.auth')->name('welcome');
 Route::view('/about', 'About')->name('about');
 Route::get('/contact', function (Request $request) {
     $accessByComputer = $request->hidenav;
