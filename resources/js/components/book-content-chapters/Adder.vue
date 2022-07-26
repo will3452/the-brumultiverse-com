@@ -74,7 +74,7 @@
                 <label for="" class="label">
                     Author's note
                 </label>
-                <textarea  required name="" v-model="payload.authors_note" id="" cols="30" rows="5" class="rounded-0 border p-2"></textarea>
+                <textarea  name="" v-model="payload.authors_note" id="" cols="30" rows="5" class="rounded-0 border p-2"></textarea>
             </div>
             <button type="button" class="btn btn-sm btn-secondary mr-2" @click="cancel">Cancel</button>
             <button class="btn btn-primary btn-sm mt-2">Submit</button>
