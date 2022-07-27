@@ -53,6 +53,9 @@
         @endguest
     </div>
     <script>
+        window.onclick = function () {
+            window.mouseClick.play()
+        }
         @guest
             window.onload =  function () {
                 document.getElementById('loginForm').click()
