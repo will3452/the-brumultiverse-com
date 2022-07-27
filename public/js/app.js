@@ -3504,12 +3504,12 @@ __webpack_require__(/*! ./bootstrap.js */ "./resources/js/bootstrap.js");
 
 
 window.Howl = howler__WEBPACK_IMPORTED_MODULE_1__.Howl;
-window.Howler = howler__WEBPACK_IMPORTED_MODULE_1__.Howler; // //sound effects
-// var mouseClick = new Howl({
-//     src: ['/sounds/click.wav']
-// });
-// window.mouseClick = mouseClick;
+window.Howler = howler__WEBPACK_IMPORTED_MODULE_1__.Howler; //sound effects
 
+var mouseClick = new howler__WEBPACK_IMPORTED_MODULE_1__.Howl({
+  src: ['/sounds/click.wav']
+});
+window.mouseClick = mouseClick;
 
 
 vue__WEBPACK_IMPORTED_MODULE_3__["default"].use(vue_toastr__WEBPACK_IMPORTED_MODULE_2__["default"]);
@@ -47892,7 +47892,7 @@ var render = function () {
               { staticClass: "bg-white p-4 rounded-md w-full max-w-sm" },
               [
                 _vm._v(
-                  "\r\n            Hi! This option is for VIP students (premium account holders). Would you like to change your account type?\r\n            "
+                  "\n            Hi! This option is for VIP students (premium account holders). Would you like to change your account type?\n            "
                 ),
                 _c("div", { staticClass: "mt-4" }, [
                   _c(
@@ -49495,9 +49495,7 @@ var render = function () {
                 { attrs: { date: _vm.moment(message.created_at) } },
                 [
                   _vm._v(
-                    "\r\n            " +
-                      _vm._s(message.message) +
-                      "\r\n        "
+                    "\n            " + _vm._s(message.message) + "\n        "
                   ),
                 ]
               )
@@ -49509,9 +49507,7 @@ var render = function () {
                 { attrs: { date: _vm.moment(message.created_at) } },
                 [
                   _vm._v(
-                    "\r\n            " +
-                      _vm._s(message.message) +
-                      "\r\n        "
+                    "\n            " + _vm._s(message.message) + "\n        "
                   ),
                 ]
               )
