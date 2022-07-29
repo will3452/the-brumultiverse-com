@@ -5,12 +5,12 @@ import {Howl, Howler} from 'howler';
 window.Howl = Howl
 window.Howler = Howler
 
-// //sound effects
-// var mouseClick = new Howl({
-//     src: ['/sounds/click.wav']
-// });
+//sound effects
+var mouseClick = new Howl({
+    src: ['/sounds/click.wav']
+});
 
-// window.mouseClick = mouseClick;
+window.mouseClick = mouseClick;
 
 
 import Vue from 'vue';

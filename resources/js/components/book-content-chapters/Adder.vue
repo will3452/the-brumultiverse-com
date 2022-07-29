@@ -9,6 +9,7 @@
                 <div class="form-control">
                     <label for="" class="label">Type</label>
                     <select required name="" v-model="type" id="" class="select select-bordered select-sm text-black">
+                    <option value="">--</option>
                     <option :value="t" v-for="t in typeOptions" :key="t">
                         {{t}}
                     </option>

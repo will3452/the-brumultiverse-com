@@ -2728,6 +2728,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['bookId', 'bookType', 'bookContentId', 'types', 'costTypes', 'lastChapterId'],
   data: function data() {
@@ -3504,12 +3505,12 @@ __webpack_require__(/*! ./bootstrap.js */ "./resources/js/bootstrap.js");
 
 
 window.Howl = howler__WEBPACK_IMPORTED_MODULE_1__.Howl;
-window.Howler = howler__WEBPACK_IMPORTED_MODULE_1__.Howler; // //sound effects
-// var mouseClick = new Howl({
-//     src: ['/sounds/click.wav']
-// });
-// window.mouseClick = mouseClick;
+window.Howler = howler__WEBPACK_IMPORTED_MODULE_1__.Howler; //sound effects
 
+var mouseClick = new howler__WEBPACK_IMPORTED_MODULE_1__.Howl({
+  src: ['/sounds/click.wav']
+});
+window.mouseClick = mouseClick;
 
 
 vue__WEBPACK_IMPORTED_MODULE_3__["default"].use(vue_toastr__WEBPACK_IMPORTED_MODULE_2__["default"]);
@@ -47892,7 +47893,7 @@ var render = function () {
               { staticClass: "bg-white p-4 rounded-md w-full max-w-sm" },
               [
                 _vm._v(
-                  "\r\n            Hi! This option is for VIP students (premium account holders). Would you like to change your account type?\r\n            "
+                  "\n            Hi! This option is for VIP students (premium account holders). Would you like to change your account type?\n            "
                 ),
                 _c("div", { staticClass: "mt-4" }, [
                   _c(
@@ -48448,16 +48449,20 @@ var render = function () {
                       },
                     },
                   },
-                  _vm._l(_vm.typeOptions, function (t) {
-                    return _c("option", { key: t, domProps: { value: t } }, [
-                      _vm._v(
-                        "\n                    " +
-                          _vm._s(t) +
-                          "\n                "
-                      ),
-                    ])
-                  }),
-                  0
+                  [
+                    _c("option", { attrs: { value: "" } }, [_vm._v("--")]),
+                    _vm._v(" "),
+                    _vm._l(_vm.typeOptions, function (t) {
+                      return _c("option", { key: t, domProps: { value: t } }, [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(t) +
+                            "\n                "
+                        ),
+                      ])
+                    }),
+                  ],
+                  2
                 ),
               ]),
             ]),
@@ -49495,9 +49500,7 @@ var render = function () {
                 { attrs: { date: _vm.moment(message.created_at) } },
                 [
                   _vm._v(
-                    "\r\n            " +
-                      _vm._s(message.message) +
-                      "\r\n        "
+                    "\n            " + _vm._s(message.message) + "\n        "
                   ),
                 ]
               )
@@ -49509,9 +49512,7 @@ var render = function () {
                 { attrs: { date: _vm.moment(message.created_at) } },
                 [
                   _vm._v(
-                    "\r\n            " +
-                      _vm._s(message.message) +
-                      "\r\n        "
+                    "\n            " + _vm._s(message.message) + "\n        "
                   ),
                 ]
               )
