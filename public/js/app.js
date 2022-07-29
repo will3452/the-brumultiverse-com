@@ -2791,7 +2791,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.$mounted(); // reload
     },
     validate: function validate(payload) {
-      var keys = ['start_page', 'end_page', 'type'];
+      var keys = ['start_page', 'end_page'];
 
       for (var _i = 0, _keys = keys; _i < _keys.length; _i++) {
         var i = _keys[_i];
@@ -2983,7 +2983,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.$emit('close');
     },
     validate: function validate(payload) {
-      var keys = ['start_page', 'end_page', 'type'];
+      var keys = ['start_page', 'end_page'];
 
       for (var _i = 0, _keys = keys; _i < _keys.length; _i++) {
         var i = _keys[_i];
