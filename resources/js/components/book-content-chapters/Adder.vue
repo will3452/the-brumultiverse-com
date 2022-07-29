@@ -141,7 +141,7 @@
                 this.$mounted() // reload
             },
             validate (payload) {
-                let keys = ['start_page', 'end_page', 'type']
+                let keys = ['start_page', 'end_page']
 
                 for(let i of keys) {
                     if (payload[i] == null || payload[i] == undefined || payload[i] == '') {
