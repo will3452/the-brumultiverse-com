@@ -2728,6 +2728,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['bookId', 'bookType', 'bookContentId', 'types', 'costTypes', 'lastChapterId'],
   data: function data() {
@@ -48448,16 +48449,20 @@ var render = function () {
                       },
                     },
                   },
-                  _vm._l(_vm.typeOptions, function (t) {
-                    return _c("option", { key: t, domProps: { value: t } }, [
-                      _vm._v(
-                        "\n                    " +
-                          _vm._s(t) +
-                          "\n                "
-                      ),
-                    ])
-                  }),
-                  0
+                  [
+                    _c("option", { attrs: { value: "" } }, [_vm._v("--")]),
+                    _vm._v(" "),
+                    _vm._l(_vm.typeOptions, function (t) {
+                      return _c("option", { key: t, domProps: { value: t } }, [
+                        _vm._v(
+                          "\n                    " +
+                            _vm._s(t) +
+                            "\n                "
+                        ),
+                      ])
+                    }),
+                  ],
+                  2
                 ),
               ]),
             ]),
