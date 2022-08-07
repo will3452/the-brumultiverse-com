@@ -24,11 +24,7 @@
             ]
         "
     />
-
-    <div class="flex">
-        <iframe src="{{route('scholar.book-content.preview', ['book' => $book])}}" frameborder="0" class="w-1/2 mb-4 border-2" style="height:70vh"></iframe>
-        <div class="w-1/2 p-2">
-            <book-content-setting book-type="{{$book->type}}" last-chapter-id="{{$book->last_chapter_id}}" book-id="{{$book->id}}" book-content-id="{{$bookContentId}}" :types="[@foreach(\App\Models\BookContentChapter::TYPES as $type) `{{$type}}`, @endforeach]"></book-content-setting>
-        </div>
+    <iframe src="{{route('scholar.book-content.preview', ['book' => $book])}}" frameborder="0" class="w-full mb-4 border-2" style="height:70vh"></iframe>
+    <book-content-setting book-type="{{$book->type}}" last-chapter-id="{{$book->last_chapter_id}}" book-id="{{$book->id}}" book-content-id="{{$bookContentId}}" :types="[@foreach(\App\Models\BookContentChapter::TYPES as $type) `{{$type}}`, @endforeach]"></book-content-setting>
     </div>
 </x-scholar.layout>

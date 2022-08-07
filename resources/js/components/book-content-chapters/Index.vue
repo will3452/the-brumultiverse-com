@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div class="border shadow p-2 rounded">
+    <div class="flex">
+        <div class="p-2 rounded md:w-1/2 w-full">
             <Adder
             v-show="! viewEdit"
             @update-list="reloadList"
@@ -24,7 +24,9 @@
             @edit="editChapter"
             />
         </div>
+        <div class=" md:w-1/2 w-full overflow-y-auto " style="height: 50vh;">
         <List @edit="editChapter" :book-id="bookId" :key="listKey"/>
+        </div>
     </div>
 </template>
 

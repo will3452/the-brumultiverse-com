@@ -3093,6 +3093,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -47893,7 +47895,7 @@ var render = function () {
               { staticClass: "bg-white p-4 rounded-md w-full max-w-sm" },
               [
                 _vm._v(
-                  "\n            Hi! This option is for VIP students (premium account holders). Would you like to change your account type?\n            "
+                  "\r\n            Hi! This option is for VIP students (premium account holders). Would you like to change your account type?\r\n            "
                 ),
                 _c("div", { staticClass: "mt-4" }, [
                   _c(
@@ -49198,59 +49200,65 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c(
-        "div",
-        { staticClass: "border shadow p-2 rounded" },
-        [
-          _c("Adder", {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: !_vm.viewEdit,
-                expression: "! viewEdit",
-              },
-            ],
-            attrs: {
-              "book-id": _vm.bookId,
-              "book-type": _vm.bookType,
-              "book-content-id": _vm.bookContentId,
-              types: _vm.types,
-              "cost-types": _vm.costTypes,
-              "last-chapter-id": _vm.lastChapterId,
+  return _c("div", { staticClass: "flex" }, [
+    _c(
+      "div",
+      { staticClass: "p-2 rounded md:w-1/2 w-full" },
+      [
+        _c("Adder", {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: !_vm.viewEdit,
+              expression: "! viewEdit",
             },
-            on: { "update-list": _vm.reloadList },
-          }),
-          _vm._v(" "),
-          _vm.viewEdit
-            ? _c("Edit", {
-                attrs: {
-                  "book-id": _vm.bookId,
-                  "book-type": _vm.bookType,
-                  "book-content-id": _vm.bookContentId,
-                  types: _vm.types,
-                  "cost-types": _vm.costTypes,
-                  "last-chapter-id": _vm.lastChapterId,
-                  chapter: _vm.chapter,
-                },
-                on: { close: _vm.closeEdit, edit: _vm.editChapter },
-              })
-            : _vm._e(),
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("List", {
-        key: _vm.listKey,
-        attrs: { "book-id": _vm.bookId },
-        on: { edit: _vm.editChapter },
-      }),
-    ],
-    1
-  )
+          ],
+          attrs: {
+            "book-id": _vm.bookId,
+            "book-type": _vm.bookType,
+            "book-content-id": _vm.bookContentId,
+            types: _vm.types,
+            "cost-types": _vm.costTypes,
+            "last-chapter-id": _vm.lastChapterId,
+          },
+          on: { "update-list": _vm.reloadList },
+        }),
+        _vm._v(" "),
+        _vm.viewEdit
+          ? _c("Edit", {
+              attrs: {
+                "book-id": _vm.bookId,
+                "book-type": _vm.bookType,
+                "book-content-id": _vm.bookContentId,
+                types: _vm.types,
+                "cost-types": _vm.costTypes,
+                "last-chapter-id": _vm.lastChapterId,
+                chapter: _vm.chapter,
+              },
+              on: { close: _vm.closeEdit, edit: _vm.editChapter },
+            })
+          : _vm._e(),
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: " md:w-1/2 w-full overflow-y-auto ",
+        staticStyle: { height: "50vh" },
+      },
+      [
+        _c("List", {
+          key: _vm.listKey,
+          attrs: { "book-id": _vm.bookId },
+          on: { edit: _vm.editChapter },
+        }),
+      ],
+      1
+    ),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -49500,7 +49508,9 @@ var render = function () {
                 { attrs: { date: _vm.moment(message.created_at) } },
                 [
                   _vm._v(
-                    "\n            " + _vm._s(message.message) + "\n        "
+                    "\r\n            " +
+                      _vm._s(message.message) +
+                      "\r\n        "
                   ),
                 ]
               )
@@ -49512,7 +49522,9 @@ var render = function () {
                 { attrs: { date: _vm.moment(message.created_at) } },
                 [
                   _vm._v(
-                    "\n            " + _vm._s(message.message) + "\n        "
+                    "\r\n            " +
+                      _vm._s(message.message) +
+                      "\r\n        "
                   ),
                 ]
               )
