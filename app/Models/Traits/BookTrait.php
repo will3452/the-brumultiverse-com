@@ -33,4 +33,16 @@ trait BookTrait
     {
         return $this->belongsTo(Level::class, 'heat_level_id');
     }
+
+    public function getLastChapterIdAttribute() {
+        // optional($book->bookContentChapters()->where('sq', '!=', '-9999')->where('sq', '!=', '9999')->orderBy('sq', 'DESC')->first())->sq
+        if (! $this->bookContentChapters()->count()) {
+            return 1;
+        }
+        $last = $this->bookContentChapters()->where('sq', '!=', '-9999')->where('sq', '!=', '9999')->get()->max('sq');
+        if (! $last) {
+            return 1;
+        }
+        return $last;
+    }
 }
