@@ -1,9 +1,6 @@
 <x-student.layout bg="bg-white">
     <div class="h-screen flex flex-col md:flex-row">
-        <div class="overflow-y-auto h-full w-full md:w-6/12 mx-auto border-r pb-32 bg-gray-200 justify-center flex items-center">
-            ADS HERE
-        </div>
-        <div class="overflow-y-scroll h-full w-full md:w-6/12 mx-auto p-4 pb-32">
+        <div class="overflow-y-scroll h-full w-full mx-auto p-4 pb-32">
             <div class=" p-4 mt-5">
                 <div class="flex items-center justify-center">
                     <h1 class="text-center text-2xl m-4">{{$book->title}}</h1>

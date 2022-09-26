@@ -1,7 +1,9 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AvatarController;
+use App\Http\Controllers\BagController;
 use App\Http\Controllers\ReadingLogController;
+use App\Http\Controllers\ShopController;
 use App\Http\Controllers\Student\BookshelvesController;
 use App\Http\Controllers\Student\BuyController;
 use App\Http\Controllers\Student\ClosetController;
@@ -107,4 +109,14 @@ Route::prefix('purchase')->name('buy.')->group(function () {
 Route::prefix('/reading-logs')->name('readinglog.')->group(function () {
     Route::get('/save-log', [ReadingLogController::class, 'saveLog'])->name('save');
     Route::get('/check-log', [ReadingLogController::class, 'hasLog'])->name('check');
+});
+
+
+Route::prefix('/shop')->name('shop.')->group(function () {
+    Route::get('/', [ShopController::class, 'index'])->name('index');
+    Route::post('/proceed-to-buy', [ShopController::class, 'proceedToBuy'])->name('proceed.to.buy');
+});
+
+Route::prefix('/bag')->name('bag.')->group(function () {
+    Route::get('/', [BagController::class, 'index'])->name('index');
 });
