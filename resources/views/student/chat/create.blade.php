@@ -4,7 +4,7 @@
             <x-scholar.page.title>
                 Messages
             </x-scholar.page.title>
-            <form action="{{route('chat.1.store')}}" method="POST">
+            <form action="{{route('student.chat.store')}}" method="POST">
                 @csrf
                 <x-scholar.form.select name="user_id" label="Select user to message">
                     @foreach ($users as $user)

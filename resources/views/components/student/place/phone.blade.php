@@ -42,7 +42,7 @@
 
             },
             objectClickables : [
-                {item:'message', path:'message.png', url:'{{auth()->user()->getChat(1, route("student.chat.create"), "/students/chat/")}}'},
+                {item:'message', path:'message.png', url:'{{auth()->user()->getChat(1, "student.chat.create", "/students/chat/")}}'},
                 {item:'bell', path:'bell.png', url:'{{route('student.notification.index')}}'},
                 {item:'videos', path:'videos.png', url:'{{route('dev.blank', ['name' => ''])}}'},
                 {item:'photos', path:'photos.png', url:'{{route('student.phone.photo')}}'},
