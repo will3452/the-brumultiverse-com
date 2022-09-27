@@ -11,6 +11,7 @@
     <x-vendor.alpinejs/>
     <x-vendor.typewriterjs/>
     @stack('head-script')
+    @livewireStyles
 </head>
 <body class="relative {{$bg}} max-h-screen">
     @include('sweetalert::alert')
@@ -68,5 +69,6 @@
         @endguest
     </script>
     @stack('body-script')
+    @livewireScripts
 </body>
 </html>

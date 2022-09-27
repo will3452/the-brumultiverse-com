@@ -27,7 +27,7 @@ trait HasChat
         }
     }
 
-    public function getChat($version = null)
+    public function getChat($version = null, $createRoute = 'chat.1.create', $index = '/chats-1/')
     {
         if (is_null($version)) {
             return $this->chat_url;
@@ -35,9 +35,9 @@ trait HasChat
 
         if ($version == 1) {
             if ($this->chats()->count()) {
-                return '/chats-1/' . $this->latest_chat_id;
+                return $index . $this->latest_chat_id;
             }
-            return route('chat.1.create');
+            return route($createRoute);
         }
     }
 }

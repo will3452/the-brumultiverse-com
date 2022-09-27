@@ -42,11 +42,11 @@
 
             },
             objectClickables : [
-                {item:'message', path:'message.png', url:'{{route('dev.blank', ['name' => ''])}}'},
-                {item:'bell', path:'bell.png', url:'{{route('dev.blank', ['name' => ''])}}'},
+                {item:'message', path:'message.png', url:'{{auth()->user()->getChat(1, route("student.chat.create"), "/students/chat/")}}'},
+                {item:'bell', path:'bell.png', url:'{{route('student.notification.index')}}'},
                 {item:'videos', path:'videos.png', url:'{{route('dev.blank', ['name' => ''])}}'},
                 {item:'photos', path:'photos.png', url:'{{route('student.phone.photo')}}'},
-                {item:'contact', path:'contact.png', url:'{{route('dev.blank', ['name' => ''])}}'},
+                {item:'contact', path:'contact.png', url:'{{route('student.phone.contact.list')}}'},
                 {item:'music', path:'music.png', url:'{{route('dev.blank', ['name' => ''])}}'},
                 // {item:'closet', path:'active-closet.png', url:'{{route('dev.blank', ['name' => ''])}}'}
             ],

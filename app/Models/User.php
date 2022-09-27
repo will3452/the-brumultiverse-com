@@ -18,6 +18,7 @@ use App\Models\Traits\HasPaymentTransactions;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Multicaret\Acquaintances\Traits\Friendable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -34,7 +35,8 @@ class User extends Authenticatable implements MustVerifyEmail
         HasShopItems,
         HasTutorial,
         HasAvatar,
-        HasRoles;
+        HasRoles,
+        Friendable;
 
     protected $with = [
         // 'accounts',

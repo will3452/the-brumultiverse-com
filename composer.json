@@ -50,6 +50,7 @@
         "laravel/sanctum": "^2.12",
         "laravel/tinker": "^2.5",
         "laravelwebdev/responsive": "^1.0",
+        "livewire/livewire": "^2.10",
         "mostafaznv/nova-ckeditor": "^1.0",
         "multicaret/laravel-acquaintances": "^3.5",
         "optimistdigital/nova-settings": "^3.2",

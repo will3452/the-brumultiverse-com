@@ -13,9 +13,11 @@ use App\Http\Controllers\Student\LibraryController;
 use App\Http\Controllers\Student\LoginController;
 use App\Http\Controllers\Student\MapController;
 use App\Http\Controllers\Student\MuseumController;
+use App\Http\Controllers\Student\NotificationController;
 use App\Http\Controllers\Student\PaymentController;
 use App\Http\Controllers\Student\PhoneController;
 use App\Http\Controllers\Student\RegisterController;
+use App\Http\Controllers\StudentChatController;
 use App\Http\Controllers\StudentCollectionController;
 
 Route::get('/register', [RegisterController::class, 'showRegister'])->name('register');
@@ -82,6 +84,15 @@ Route::prefix('phones')->name('phone.')->group(function () {
     Route::get('/', [PhoneController::class, 'index'])->name('index');
     Route::get('/images', [PhoneController::class, 'photo'])->name('photo');
     Route::get('/images/{path}', [PhoneController::class, 'viewPhoto'])->name('photo.view');
+    Route::get('/contacts', [PhoneController::class, 'contactList'])->name('contact.list');
+    Route::post('/contacts/{user}', [PhoneController::class, 'acceptFriendRequest'])->name('contact.accept');
+});
+
+Route::prefix('chat')->name('chat.')->group(function () {
+    Route::get('/create', [StudentChatController::class, 'create'])->name('create');
+    Route::post('/', [StudentChatController::class, 'store'])->name('store');
+    Route::get('/{chat}', [StudentChatController::class, 'index'])->name('index');
+    Route::post('/messages/chat/{chat}', [StudentChatController::class, 'createMessage'])->name('create.message');
 });
 
 
@@ -119,4 +130,10 @@ Route::prefix('/shop')->name('shop.')->group(function () {
 
 Route::prefix('/bag')->name('bag.')->group(function () {
     Route::get('/', [BagController::class, 'index'])->name('index');
+});
+
+//notifications
+Route::prefix('/notifications')->name('notification.')->group(function () {
+    Route::get('/', [NotificationController::class, 'index'])->name('index');
+    Route::get('/mark-as-read/{id}', [NotificationController::class, 'markAsRead'])->name('mark-as-read');
 });
