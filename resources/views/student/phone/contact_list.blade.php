@@ -24,9 +24,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div>
-                                <button class="btn btn-sm btn-scholar">message</button>
-                            </div>
                        </div>
                     </div>
                 </div>
