@@ -10,10 +10,10 @@
         <x-student.icon-clickable href="{{route('student.bs.index')}}" normal="/students/nav/collection-min.png" active="/students/nav/collection-active-min.png" class="w-12 mx-2" />
         <x-student.icon-clickable href="{{route('student.phone.index')}}" normal="/students/nav/phone-min.png" active="/students/nav/phone-active-min.png" class="w-12 mx-2" />
         <div  class="w-84 flex items-center">
-            <x-student.top-balance label="HALL PASS" normal="/students/nav/gold-min.png" class="w-16" value="{{auth()->user()->balance->hall_pass}}"/>
-            <x-student.top-balance label="SILVER TICKET" normal="/students/nav/silver-min.png" value="{{auth()->user()->balance->silver_ticket}}"/>
-            <x-student.top-balance label="PURPLE CRYSTAL" normal="/students/nav/purple-min.png" value="{{auth()->user()->balance->purple_crystal}}"/>
-            <x-student.top-balance label="WHITE CRYSTAL" normal="/students/nav/white-min.png" value="{{auth()->user()->balance->white_crystal}}"/>
+            <x-student.top-balance label="HALL PASS" normal="/students/nav/gold-min.png" class="w-16" value="{{compressCurrencyFormat(auth()->user()->balance->hall_pass)}}"/>
+            <x-student.top-balance label="SILVER TICKET" normal="/students/nav/silver-min.png" value="{{compressCurrencyFormat(auth()->user()->balance->silver_ticket)}}"/>
+            <x-student.top-balance label="PURPLE CRYSTAL" normal="/students/nav/purple-min.png" value="{{compressCurrencyFormat(auth()->user()->balance->purple_crystal)}}"/>
+            <x-student.top-balance label="WHITE CRYSTAL" normal="/students/nav/white-min.png" value="{{compressCurrencyFormat(auth()->user()->balance->white_crystal)}}"/>
         </div>
     </div>
 @else

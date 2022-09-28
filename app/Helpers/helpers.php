@@ -99,6 +99,9 @@ if (! function_exists('displayCost')) {
 
 if ( ! function_exists('compressCurrencyFormat')) {
     function compressCurrencyFormat ($value) {
+        if ($value >= 100_000_000_000) {
+            return ($value / 100_000_000_000) . 'B';
+        }
         if ( $value >= 100_000_000) {
             return ($value / 100_000_000) . 'M';
         }
