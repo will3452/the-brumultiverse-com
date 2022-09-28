@@ -5,7 +5,7 @@
         style="background:url('/students/nav/bottom-bg-min.png'); background-position:center; background-size:cover;">
         <img src="/students/nav/text-logo.png" alt="" class="w-64">
         <x-student.icon-clickable href="{{route('student.notification.index')}}" normal="/students/nav/notification-min.png" active="/students/nav/notification-active-min.png" class="w-12 mx-2" />
-        <x-student.icon-clickable href="{{route('dev.blank', ['name' => 'Diary'])}}" normal="/students/nav/diary-min.png" active="/students/nav/diary-active-min.png" class="w-12 mx-2" />
+        <x-student.icon-clickable href="{{route('student.diary.index')}}" normal="/students/nav/diary-min.png" active="/students/nav/diary-active-min.png" class="w-12 mx-2" />
         <x-student.icon-clickable href="{{route('student.map')}}" active="/students/nav/home-active-min.png" normal="/students/nav/home-min.png"  class="-top-5 w-20 relative"/>
         <x-student.icon-clickable href="{{route('student.bs.index')}}" normal="/students/nav/collection-min.png" active="/students/nav/collection-active-min.png" class="w-12 mx-2" />
         <x-student.icon-clickable href="{{route('student.phone.index')}}" normal="/students/nav/phone-min.png" active="/students/nav/phone-active-min.png" class="w-12 mx-2" />
