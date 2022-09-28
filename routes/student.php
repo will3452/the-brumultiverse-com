@@ -19,6 +19,7 @@ use App\Http\Controllers\Student\PhoneController;
 use App\Http\Controllers\Student\RegisterController;
 use App\Http\Controllers\StudentChatController;
 use App\Http\Controllers\StudentCollectionController;
+use App\Http\Controllers\StudentDiaryController;
 
 Route::get('/register', [RegisterController::class, 'showRegister'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
@@ -136,4 +137,9 @@ Route::prefix('/bag')->name('bag.')->group(function () {
 Route::prefix('/notifications')->name('notification.')->group(function () {
     Route::get('/', [NotificationController::class, 'index'])->name('index');
     Route::get('/mark-as-read/{id}', [NotificationController::class, 'markAsRead'])->name('mark-as-read');
+});
+
+Route::prefix('diaries')->name('diary.')->group(function () {
+    Route::get('/', [StudentDiaryController::class, 'index'])->name('index');
+    Route::post('/', [StudentDiaryController::class, 'store'])->name('store');
 });
