@@ -17,6 +17,7 @@ use App\Http\Controllers\Student\NotificationController;
 use App\Http\Controllers\Student\PaymentController;
 use App\Http\Controllers\Student\PhoneController;
 use App\Http\Controllers\Student\RegisterController;
+use App\Http\Controllers\StudentAdminController;
 use App\Http\Controllers\StudentChatController;
 use App\Http\Controllers\StudentCollectionController;
 use App\Http\Controllers\StudentDiaryController;
@@ -66,6 +67,11 @@ Route::prefix('museum')->name('museum.')->group(function () {
     Route::get('/intro', [MuseumController::class, 'intro'])->name('intro');
     Route::get('/', [MuseumController::class, 'index'])->name('index');
     Route::get('/{work}', [MuseumController::class, 'show'])->name('show');
+});
+
+//admin
+Route::prefix('admin-lobby')->name('admin.')->group(function () {
+    Route::get('/', [StudentAdminController::class, 'index'])->name('index'); // lobby
 });
 
 //add to collections

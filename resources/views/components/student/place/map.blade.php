@@ -41,6 +41,20 @@
                 </x-student.dialog-button-container>
             </x-student.dialog-container>
         </template>
+
+        <template x-if="step == 'admin'">
+            <x-student.dialog-container>
+                <x-student.typing message="Do you want to enter the Admin lobby?" delay="20" clear="0"/>
+                <x-student.dialog-button-container>
+                    <a class="btn-student-active m-2" href="{{route('student.admin.index')}}">
+                        Yes
+                    </a>
+                    <button class="btn-student m-2" x-on:click="step = null;">
+                        No
+                    </button>
+                </x-student.dialog-button-container>
+            </x-student.dialog-container>
+        </template>
         <div id="konva-container"></div>
     </div>
 </x-student.static-background-container>
