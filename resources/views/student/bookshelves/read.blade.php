@@ -52,7 +52,36 @@
 	<script src="/js/vendor/modernizr-2.7.1.min.js"></script>
     <link rel="stylesheet" href="/css/app.css">
 </head>
-<body>
+<body class="relative ">
+    <div class="absolute w-3/12 p-4">
+        <div class="bg-gray-200 p-2 border-2 border-dashed border-gray-400" id="authors_note">
+            <h3 class="font-mono font-bold text-center underline">Author's Note</h3>
+            <div id="authors_note_content" class=" font-mono text-xs overflow-y-auto" style="max-height: 600px; ">
+            </div>
+        </div>
+        <div class="bg-gray-200 mt-2 p-2 border-2 border-dashed border-gray-400" id="authors">
+            <h3 class="font-mono font-bold text-center underline">About the Author</h3>
+            <div id="authors_note_content" class=" font-mono text-xs overflow-y-auto" style="max-height: 600px; ">
+                <div class="flex justify-center my-2">
+                    <img src="/storage/{{optional($work->account)->picture}}" alt="" class="w-12 h-12 object-cover rounded-full">
+                </div>
+                <div class="text-center text-lg">
+                    Pen Name: {{$work->account->penname}}
+                </div>
+                <div class="text-center text-sm">
+                    Gender: {{$work->account->gender}}
+                </div>
+                <div class="text-center text-sm">
+                    Country: {{$work->account->country}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="absolute w-3/12 p-4 right-0">
+        <div class="shadow-lg p-2 h-auto" id="ads">
+            <img src="https://via.placeholder.com/260x500?text=ADS+HERE" alt="">
+        </div>
+    </div>
 	<!-- Add your site or application content here -->
 	<div class='book_container'>
 		<div id="book">
@@ -72,6 +101,7 @@
         let chapters = @json($work->bookContent->bookContentChapters);
     </script>
 	<script>
+        $('#authors_note').hide(1000);
 		var bookOptions = {
 				 height   : 500
 				,width    : 800
@@ -91,8 +121,11 @@
                 onShowPage (book, page, index) {
                     console.log('onShowPage book', book)
                     let end = chapters.filter(e => e.start_page == index)
+                    console.log("end >> ", end)
                     @if(! auth()->user()->isPurchaseBook($work->id))
                     if (end.length) {
+                        $('#authors_note').show(500);
+                        $('#authors_note_content').html(end[0].authors_note)
                         fetch(`{{route('student.readinglog.check')}}?page_number=${index}&book_id={{$work->id}}`)
                             .then(res => res.json())
                             .then(({existing, auth, q, request}) => {

@@ -3186,6 +3186,10 @@ body[dir="rtl"] .checkbox:checked,
 .relative {
   position: relative;
 }
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
 .bottom-20 {
   bottom: 5rem;
 }
@@ -3496,6 +3500,9 @@ body[dir="rtl"] .checkbox:checked,
 .h-7 {
   height: 1.75rem;
 }
+.h-60 {
+  height: 15rem;
+}
 .max-h-fit {
   max-height: -webkit-fit-content;
   max-height: -moz-fit-content;
@@ -3736,6 +3743,9 @@ body[dir="rtl"] .checkbox:checked,
 .overflow-y-scroll {
   overflow-y: scroll;
 }
+.whitespace-pre-wrap {
+  white-space: pre-wrap;
+}
 .break-all {
   word-break: break-all;
 }
@@ -3941,6 +3951,10 @@ body[dir="rtl"] .checkbox:checked,
 .bg-green-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(187 247 208 / var(--tw-bg-opacity));
+}
+.bg-red-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 202 202 / var(--tw-bg-opacity));
 }
 .bg-gradient-to-br {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
