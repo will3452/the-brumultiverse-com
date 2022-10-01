@@ -109,7 +109,8 @@
 				,maxHeight : 600,
                 pdf:'/storage/{{$work->bookContent->pdf}}',
                 centeredWhenClosed : true
-				,hardcovers : true
+				,hardcovers : true,
+                toolbarIcons:'icomoon'
 				,toolbar : "left, right,  zoomin, zoomout, flipsound, fullscreen, home"
 				,thumbnailsPosition : 'left'
                 ,homeURL: "{{route('student.bs.index')}}"
@@ -117,6 +118,7 @@
 				,container: window
 				,containerPadding: "20px",
                 pdfFind:true,
+                flipSoundPath: '/wow_book/sound/',
                 pdfTextSelectable:true,
                 onShowPage (book, page, index) {
                     console.log('onShowPage book', book)
