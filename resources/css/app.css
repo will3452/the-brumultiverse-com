@@ -38,12 +38,17 @@
       }
 
       .btn-scholar {
-          @apply bg-gradient-to-r from-purple-900 to-blue-900 text-white border-none;
+          @apply bg-gradient-to-r from-purple-900 to-blue-900 text-white border border-white;
       }
 
       .bg-scholar {
           @apply bg-gradient-to-r from-purple-900 to-blue-900 text-white border-none;
       }
+
+      .bg-student {
+            @apply bg-gradient-to-r from-purple-900 to-blue-900 text-white border-none;
+        }
+
 
 
       .selected-bg  {

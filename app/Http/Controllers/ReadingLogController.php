@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BookContentChapter;
 use Exception;
+use App\Models\ReadingLog;
 use Illuminate\Http\Request;
+use App\Models\BookContentChapter;
 
 class ReadingLogController extends Controller
 {
@@ -26,9 +27,11 @@ class ReadingLogController extends Controller
     }
 
     public function hasLog (Request $request) {
-        if (auth()->user()->readingLogs()->wherePageNumber($request->page_number)->whereBookId($request->book_id)->exists()) {
-            return ['existing' => true];
+        if (ReadingLog::wherePageNumber($request->page_number)->whereBookId($request->book_id)->exists()) {
+            return ['request' => $request->all(), 'existing' => true, 'auth' => auth()->id(), 'q' => ReadingLog::wherePageNumber($request->page_number)->whereBookId($request->book_id)->exists()];
         }
-        return ['existing' => false];
+
+        error_log('page_number >> ' . $request->page_number);
+        return ['request' => $request->all(), 'existing' => false, 'auth' => auth()->id(), 'q' => ReadingLog::wherePageNumber($request->page_number)->whereBookId($request->book_id)->exists()];
     }
 }

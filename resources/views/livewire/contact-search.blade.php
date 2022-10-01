@@ -1,7 +1,7 @@
 <div>
     <div class="flex justify-center">
         <div class="w-full md:w-5/12 flex">
-            <input type="text" class="input input-sm block w-10/12 input-bordered" placeholder="Search name" wire:model="searchText">
+            <input type="text" class="text-gray-900 input input-sm block w-10/12 input-bordered" placeholder="Search name" wire:model="searchText">
             <button class="btn btn-scholar btn-sm mx-2" wire:click="search">search</button>
         </div>
     </div>
@@ -9,7 +9,7 @@
         <div>
             @foreach ($searchResults as $user)
                 @if (! auth()->user()->isFriendWith($user))
-                    <div class="card border-2 my-4 w-full md:w-6/12 mx-auto">
+                    <div class="card border-2 my-4 w-full md:w-6/12 mx-auto bg-gray-900">
                         <div class="card-body ">
                         <div class="flex justify-between">
                                 <div class="flex">

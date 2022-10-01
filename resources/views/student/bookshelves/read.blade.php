@@ -89,14 +89,25 @@
                 pdfFind:true,
                 pdfTextSelectable:true,
                 onShowPage (book, page, index) {
+                    console.log('onShowPage book', book)
                     let end = chapters.filter(e => e.start_page == index)
-
                     @if(! auth()->user()->isPurchaseBook($work->id))
                     if (end.length) {
-                        fetch(`{{route('student.readinglog.check')}}?page_number=${index},book_id={{$work->id}}`)
+                        fetch(`{{route('student.readinglog.check')}}?page_number=${index}&book_id={{$work->id}}`)
                             .then(res => res.json())
-                            .then(({existing}) => {
-                                if (! existing ) {
+                            .then(({existing, auth, q, request}) => {
+
+                                console.log('result request >> ', request);
+                                console.log('result auth >> ', auth);
+
+                                console.log('result q >> ', q);
+
+                                console.log("result index >>" , index)
+                                console.log("result existing >>" , existing)
+                                console.log(`result checklog uri >> {{route('student.readinglog.check')}}?page_number=${index},book_id={{$work->id}}`)
+                                console.log(`result block uri: {{route('student.bs.block', ['book' => $work->id])}}?chapter=${end[0].id}&page=${index}`)
+
+                                if (! existing) {
                                     window.location.href = `{{route('student.bs.block', ['book' => $work->id])}}?chapter=${end[0].id}&page=${index}`;
                                     // swal('You\'re aboout change to another chapter, do you want to continue?', {
                                     //     buttons: ['No', 'Yes']

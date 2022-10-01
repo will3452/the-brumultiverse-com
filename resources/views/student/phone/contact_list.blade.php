@@ -1,4 +1,4 @@
-<x-student.layout bg="bg-white">
+<x-student.layout bg="bg-scholar h-screen overflow-auto">
     <h1 class="text-center text-2xl p-4">
         Contacts
     </h1>
@@ -8,7 +8,7 @@
     <livewire:contact-search/>
     @if (count($friends))
     @forelse ($friends as $user)
-                <div class="card border-2 my-4 w-full md:w-6/12 mx-auto">
+                <div class="card border-2 my-4 w-full md:w-6/12 mx-auto bg-gray-900">
                     <div class="card-body ">
                        <div class="flex justify-between">
                             <div class="flex">
@@ -34,7 +34,7 @@
             @endforelse
     @else
     @forelse($requests as $r)
-                <div class="card border-2 my-4 w-full md:w-6/12 mx-auto">
+                <div class="card border-2 my-4 w-full md:w-6/12 mx-auto bg-gray-900">
                     <div class="card-body ">
                        <div class="flex justify-between">
                             <div class="flex">

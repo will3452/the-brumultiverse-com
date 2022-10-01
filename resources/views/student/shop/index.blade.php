@@ -1,7 +1,7 @@
-<x-student.layout>
+<x-student.layout bg="bg-gray-100">
 
-    <div class="bg-white" x-data="{category: '*', }">
-        <h1 class="bg-white text-2xl uppercase text-center pt-4">
+    <div x-data="{category: '*', }" class="h-screen overflow-auto">
+        <h1 class="text-2xl uppercase text-center pt-4">
             Shop
         </h1>
         <div class="flex justify-center mt-4">
@@ -16,7 +16,7 @@
         </div>
         <div class="flex justify-center mt-4 w-10/12 mx-auto">
             @foreach ($items as $item)
-                <div class="border-2 shadow p-2 rounded-2xl mx-2 text-center" style="width: 250px !important;" x-show="category == '*'  || category == '{{$item->category->id}}'">
+                <div class="border-2 border-purple-800 bg-white shadow p-2 rounded-2xl mx-2 text-center" style="width: 250px !important;" x-show="category == '*'  || category == '{{$item->category->id}}'">
                     <h5>
                         <img src="/storage/{{$item->image}}" class="w-100  block h-32 mx-auto object-cover" alt="">
                         {{\Str::limit($item->description, 20)}}

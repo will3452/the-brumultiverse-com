@@ -35,7 +35,7 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 
 // subscription / tuition settlement process
 Route::get('/pay-tuition', [PaymentController::class, 'payTuition'])->name('pay-tuition');
-Route::get('/map-overview', [MapController::class, 'viewMap'])->name('map');
+Route::get('/home', [MapController::class, 'viewMap'])->name('map');
 
 //dorm
 Route::get('/dorm-tutorial', [DormController::class, 'tutorial'])->name('dorm.tutorial');

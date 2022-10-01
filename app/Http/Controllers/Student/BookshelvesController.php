@@ -65,6 +65,7 @@ class BookshelvesController extends Controller
 
     public function stopOver (Request $request, Book $book) {
         $page = $request->page;
+        error_log("_page >> $page");
         $chapter = BookContentChapter::findOrFail($request->chapter);
         return view('student.bookshelves.stop-over', compact('book', 'page', 'chapter'));
     }
