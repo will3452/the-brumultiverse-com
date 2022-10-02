@@ -72,6 +72,7 @@ Route::prefix('museum')->name('museum.')->group(function () {
 //admin
 Route::prefix('admin-lobby')->name('admin.')->group(function () {
     Route::get('/', [StudentAdminController::class, 'index'])->name('index'); // lobby
+    Route::get('/bulletin', [StudentAdminController::class, 'bulletin'])->name('bulletin');
 });
 
 //add to collections

@@ -43,7 +43,7 @@
             objectClickables : [
                 {item:'book', path:'book-lobby.png', url:'#'},
                 {item:'map', path:'map-lobby.png', url:'{{route('student.map')}}'},
-                {item:'announcement', path:'announcement-lobby.png', url:'#announcement'},
+                {item:'announcement', path:'announcement-lobby.png', url:'{{route('student.admin.bulletin')}}'},
             ],
             clickableSetter() {
                 this.objectClickables.forEach((item) => this.loadClickables(item))

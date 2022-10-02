@@ -32,6 +32,11 @@ class Group extends Resource
         return $query->whereIn('id', $groupIds);
     }
 
+    public static function authorizedToCreate(Request $request)
+    {
+        return false;
+    }
+
     public function authorizedToUpdate(Request $request)
     {
         if (auth()->user()->isAdmin()) {
