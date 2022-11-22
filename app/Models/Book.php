@@ -90,6 +90,8 @@ class Book extends Model implements TaggableInterface
         'back_matter',
         'front_matter',
         'deleted_at',
+        'pdf', // just added
+        'number_of_pages', // just added
     ];
 
     const TYPE_REGULAR = 'Regular';
