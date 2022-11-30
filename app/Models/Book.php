@@ -186,4 +186,8 @@ class Book extends Model implements TaggableInterface
 
         return $book;
     }
+
+    public function groups () {
+        return $this->belongsToMany(Group::class, 'book_group');
+    }
 }

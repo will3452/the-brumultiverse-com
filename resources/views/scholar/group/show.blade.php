@@ -42,6 +42,7 @@
         <span>Members</span>
     </x-scholar.page.title>
     <div>
+
         <x-scholar.modal no-button="1" id="addnew">
             <x-slot name="trigger">
                 <label for="addnew" class="btn btn-sm btn-scholar">

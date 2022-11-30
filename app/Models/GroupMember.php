@@ -12,7 +12,7 @@ class GroupMember extends Model
         HasInvitation;
 
     protected $with = [
-        'group',
+        // 'group',
     ];
 
     protected $fillable = [

@@ -23,14 +23,14 @@ class Account extends Model
         'type',
     ];
 
-    protected $with = [
-        'books',
-        'artScenes',
-        'audioBooks',
-        'podcasts',
-        'songs',
-        'films',
-    ];
+    // protected $with = [
+    //     'books',
+    //     'artScenes',
+    //     'audioBooks',
+    //     'podcasts',
+    //     'songs',
+    //     'films',
+    // ];
 
     protected $casts = [
         'approved_at',
@@ -55,5 +55,15 @@ class Account extends Model
     public function getCountryFullAttribute()
     {
         return CountryHelper::getAllCountries()[$this->country] . " - " . $this->country;
+    }
+
+
+    public function groups () {
+        $groups = $this->groupMembers()->get()->pluck('group_id')->all();
+        return Group::whereIn('id', $groups);
+    }
+
+    public function groupMembers () {
+        return GroupMember::whereAccountMemberId($this->id);
     }
 }

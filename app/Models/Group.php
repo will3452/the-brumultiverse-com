@@ -66,4 +66,8 @@ class Group extends Model
 
         return $group;
     }
+
+    public function books () {
+        return $this->belongsToMany(Book::class, 'book_group', 'group_id');
+    }
 }
