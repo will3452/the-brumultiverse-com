@@ -90,6 +90,7 @@ class Book extends Model implements TaggableInterface
         'back_matter',
         'front_matter',
         'deleted_at',
+        'collaboration'
     ];
 
     const TYPE_REGULAR = 'Regular';
@@ -137,6 +138,7 @@ class Book extends Model implements TaggableInterface
             'published_at' => $r->published_at,
             'back_matter' => null,
             'front_matter' => null,
+            'collaboration' => $r->collaboration,
         ]);
 
         $book->update([
