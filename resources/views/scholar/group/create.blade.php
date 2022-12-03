@@ -28,25 +28,13 @@
             @endforeach
         </x-scholar.form.select>
 
-        @if (! request()->has('name'))
-            <x-scholar.form.input label="Group Name" name="name"/>
+        <x-scholar.form.input label="Group Name" name="name"/>
 
-        @else
-            <input type="hidden" name="name" value="{{request()->name}}">
-        @endif
-
-        @if (! request()->has('book'))
-            <x-scholar.form.select label="Group Types" name="type">
-                @foreach ($types as $type)
-                    <option value="{{$type->description}}">{{$type->description}}</option>
-                @endforeach
-            </x-scholar.form.select>
-        @endif
-
-        @if (request()->has('book'))
-            <input type="hidden" name="type" value="Book" />
-            <input type="hidden" name="book" value="{{request()->book}}" />
-        @endif
+        <x-scholar.form.select label="Group Types" name="type">
+            @foreach ($types as $type)
+                <option value="{{$type->description}}">{{$type->description}}</option>
+            @endforeach
+        </x-scholar.form.select>
 
         <x-scholar.form.ckeditor label="Description" name="description"></x-scholar.form.ckeditor>
 

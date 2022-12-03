@@ -23,7 +23,6 @@ class GroupMember extends Model
         'remarks',
         'position', // title
         'status', // pending
-        'commission_rate',
     ];
 
     const STATUS_PENDING = 'Waiting For Confirmation';

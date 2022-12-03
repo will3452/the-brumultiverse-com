@@ -106,10 +106,6 @@
                 <th>
                     Status
                 </th>
-                <th>
-                    Commission
-                </th>
-                <th></th>
                 <th></th>
             </tr>
         </thead>
@@ -129,9 +125,6 @@
                         {{$m->status}}
                     </td>
                     <td>
-                        {{$m->commission_rate}} %
-                    </td>
-                    <td>
                         <x-scholar.modal id="edit{{$m->id}}" no-button="1">
                             <x-slot name="trigger">
                                 <label for="edit{{$m->id}}" class="btn btn-sm btn-scholar">Edit position</label>
@@ -139,21 +132,6 @@
                             <form method="POST" action="{{route('scholar.group.edit.position', ['member' => $m->id])}}">
                                 @csrf
                                 <x-scholar.form.input name="position" label="New Position"/>
-                                <x-scholar.form.submit>
-                                    Submit
-                                </x-scholar.form.submit>
-                            </form>
-                        </x-scholar.modal>
-                    </td>
-
-                    <td>
-                        <x-scholar.modal id="edit-commission-{{$m->id}}" no-button="1">
-                            <x-slot name="trigger">
-                                <label for="edit-commission-{{$m->id}}" class="btn btn-sm btn-scholar">Edit Commission</label>
-                            </x-slot>
-                            <form method="POST" action="{{route('scholar.group.edit.commission', ['member' => $m->id])}}">
-                                @csrf
-                                <x-scholar.form.input name="rate" label="Commission"/>
                                 <x-scholar.form.submit>
                                     Submit
                                 </x-scholar.form.submit>

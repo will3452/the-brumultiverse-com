@@ -181,7 +181,6 @@ Route::middleware(['auth'])->group(function () {
 
     //groups
     Route::prefix('groups')->name('group.')->group(function () {
-        Route::post('/edit-commission/{member}', [GroupController::class, 'editCommission'])->name('edit.commission');
         Route::post('/edit-position/{member}', [GroupController::class, 'editPosition'])->name('edit.position');
         Route::get('/', [GroupController::class, 'index'])->name('index');
         Route::get('/create', [GroupController::class, 'create'])->name('create');

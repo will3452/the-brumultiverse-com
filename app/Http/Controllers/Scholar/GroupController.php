@@ -52,11 +52,6 @@ class GroupController extends Controller
 
         $group = Group::processToCreate($request);
 
-
-        if ($request->has('book')) {
-            $group->books()->attach($request->book);
-        }
-
         return redirect(route('scholar.group.show', ['group' => $group]));
     }
 
@@ -89,16 +84,6 @@ class GroupController extends Controller
         $member->update(['position' => $request->position]);
 
         return back()->withSuccess('Position edited!');
-    }
-
-    public function editCommission(Request $request, GroupMember $member)
-    {
-        if ($request->rate > 100) {
-            return back()->withError('Commission not valid!');
-        }
-        $member->update(['commission_rate' => $request->rate]);
-
-        return back()->withSuccess('Commission edited!');
     }
 
     public function invitationGet()

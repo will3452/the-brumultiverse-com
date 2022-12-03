@@ -45,12 +45,6 @@
             @endforeach
         </x-scholar.form.select>
 
-        <x-scholar.form.select model="collaboration" name="collaboration" label="Is it created by a group ?">
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-        </x-scholar.form.select>
-
-
         <div x-data="{
             genreId:0,
             init() {
