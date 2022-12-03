@@ -73,6 +73,13 @@ class BookController extends Controller
         }
 
         $book = Book::processToCreate($request);
+
+        // check if the book is for collaboration
+
+        if ($book->collaboration) {
+            return redirect()->to(route('scholar.group.create', ['book' => $book->id, 'name' => "Book: $book->title"]))->withSuccess('Please setup group!');
+        }
+
         return redirect(route('scholar.book.show', ['book' => $book->id]))->withSuccess('Success');
     }
 
