@@ -2,15 +2,16 @@
 
 namespace App\Nova\Actions;
 
-use App\Models\PublishApproval;
+use App\Models\Group;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Support\Collection;
-use Laravel\Nova\Actions\Action;
-use Laravel\Nova\Fields\ActionFields;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Text;
+use App\Models\PublishApproval;
+use Laravel\Nova\Actions\Action;
+use Illuminate\Support\Collection;
+use Laravel\Nova\Fields\ActionFields;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class PublishWork extends Action
 {
@@ -24,6 +25,8 @@ class PublishWork extends Action
                 'status' => PublishApproval::STATUS_APPROVED,
                 'approved_at_user_id' => auth()->id(),
             ]);
+
+
         }
     }
     /**
@@ -43,6 +46,14 @@ class PublishWork extends Action
             $model->update([
                 'published_at' => $fields['date'],
             ]);
+
+            if ($model->has('groups')) {
+                $model->groups()->first()->update([
+                    'status' => Group::STATUS_ACTIVE,
+                    'approved_by_user_id' => auth()->id(),
+                    'approved_at' => now()
+                ]);
+            }
         }
     }
 

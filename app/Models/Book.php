@@ -192,4 +192,8 @@ class Book extends Model implements TaggableInterface
     public function groups () {
         return $this->belongsToMany(Group::class, 'book_group');
     }
+
+    public function royalties () {
+        return $this->hasMany(Royalty::class);
+    }
 }

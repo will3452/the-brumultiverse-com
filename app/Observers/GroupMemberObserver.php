@@ -7,6 +7,7 @@ use App\Models\Account;
 
 use App\Models\GroupMember;
 use App\Models\Invitation;
+use App\Models\Royalty;
 use Doctrine\DBAL\Types\Type;
 
 use function PHPUnit\Framework\isEmpty;
@@ -45,6 +46,21 @@ class GroupMemberObserver
         }
     }
 
+    public function updated(GroupMember $member) {
+        $royalty = Royalty::whereGroupId($member->group_id)->whereAccountMemberId($member->account_member_id)->first();
+        if ($royalty) {
+            $royalty->update(['rate' => $member->commission_rate]);
+        } else {
+            $book_id = optional(optional(optional($member->group)->books())->first())->id;
+            Royalty::create([
+                'rate' => $member->commission_rate,
+                'book_id' => $book_id,
+                'group_id' => $member->group_id,
+                'account_member_id' => $member->account_member_id,
+            ]);
+        }
+    }
+
     public function created(GroupMember $member)
     {
         $group = $member->group;
@@ -58,6 +74,18 @@ class GroupMemberObserver
                 'body' => "You are invited by $account->penname to be one of the $groupName group members. ",
                 'user_id' =>$userId,
             ]);
+
+
         }
+        //create royalties
+        $book_id = optional(optional(optional($member->group)->books())->first())->id;
+        Royalty::create([
+            'rate' => $member->commission_rate,
+            'book_id' => $book_id,
+            'group_id' => $member->group_id,
+            'account_member_id' => $member->account_member_id,
+        ]);
+
+
     }
 }

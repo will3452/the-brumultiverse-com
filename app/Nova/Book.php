@@ -38,6 +38,8 @@ use App\Nova\Actions\SetViolenceLevel;
 use App\Nova\Traits\ForUserIndividualOnly;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Hubertnnn\LaravelNova\Fields\DynamicSelect\DynamicSelect;
+use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\HasMany;
 
 class Book extends Resource
 {
@@ -174,12 +176,11 @@ class Book extends Resource
                     Date::make('Published Date', 'published_at')
                         ->exceptOnForms(),
                 ]),
+                Tab::make('Royalties', [
+                    HasMany::make('Royalties', 'royalties', Royalty::class),
+                ]),
 
             ])->withToolbar(),
-            MorphOne::make('Prologue', 'prologue', Prologue::class),
-            MorphOne::make('Epilogue', 'epilogue', Epilogue::class),
-            MorphMany::make('Review Question', 'reviewQuestions', ReviewQuestion::class),
-            MorphMany::make('Free Art Scene', 'freeArtScenes', FreeArtScene::class),
         ];
     }
 

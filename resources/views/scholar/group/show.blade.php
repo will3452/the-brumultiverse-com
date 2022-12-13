@@ -107,7 +107,7 @@
                     Status
                 </th>
                 <th>
-                    Commission
+                    Royalties
                 </th>
                 <th></th>
                 <th></th>

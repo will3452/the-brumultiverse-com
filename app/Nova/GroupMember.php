@@ -73,6 +73,7 @@ class GroupMember extends Resource
             Text::make('Remarks')
                 ->exceptOnForms(),
             Text::make('Position'),
+            Text::make('Royalties', 'commission_rate'),
             Badge::make('Status')
                 ->map([
                     ModelsGroupMember::STATUS_CONFIRMED => 'success',
