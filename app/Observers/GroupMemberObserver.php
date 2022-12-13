@@ -47,11 +47,12 @@ class GroupMemberObserver
     }
 
     public function updated(GroupMember $member) {
-        $royalty = Royalty::whereGroupId($member->group_id)->whereAccountMemberId($member->account_member_id)->first();
+        $group = Group::find($member->group_id);
+        $royalty = Royalty::whereBookId($group->books()->first()->id)->whereGroupId($member->group_id)->whereAccountMemberId($member->account_member_id)->first();
         if ($royalty) {
-            $royalty->update(['rate' => $member->commission_rate]);
+            $royalty->update(['rate' => $member->commission_rate, 'book_id' => $group->books()->first()->id]);
         } else {
-            $book_id = optional(optional(optional($member->group)->books())->first())->id;
+            $book_id = $member->group->books()->first()->id;
             Royalty::create([
                 'rate' => $member->commission_rate,
                 'book_id' => $book_id,
@@ -80,7 +81,7 @@ class GroupMemberObserver
         //create royalties
         $book_id = optional(optional(optional($member->group)->books())->first())->id;
         Royalty::create([
-            'rate' => $member->commission_rate,
+            'rate' => optional($member)->commission_rate ?? 0,
             'book_id' => $book_id,
             'group_id' => $member->group_id,
             'account_member_id' => $member->account_member_id,
