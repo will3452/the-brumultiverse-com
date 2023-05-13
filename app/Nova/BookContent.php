@@ -2,9 +2,9 @@
 
 namespace App\Nova;
 
-use App\Models\File;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\Number;
 
 class BookContent extends Resource
