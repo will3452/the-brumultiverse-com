@@ -158,7 +158,6 @@ class Book extends Resource
                             User::GENDER_MALE => User::GENDER_MALE,
                             User::GENDER_LGBT => User::GENDER_LGBT,
                         ]),
-                    HasOne::make('Content', 'bookContent', BookContent::class),
                     // File::make('Back Matter'),
                 ]),
                 //relationship here
@@ -168,6 +167,8 @@ class Book extends Resource
                 ]),
 
             ])->withToolbar(),
+
+            HasOne::make('Content', 'bookContent', BookContent::class),
             MorphMany::make('Review Question', 'reviewQuestions', ReviewQuestion::class),
             MorphMany::make('Free Art Scene', 'freeArtScenes', FreeArtScene::class),
         ];
