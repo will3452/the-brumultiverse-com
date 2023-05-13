@@ -2,42 +2,37 @@
 
 namespace App\Nova;
 
-use App\Models\Role;
-use App\Models\User;
+use App\Helpers\CrystalHelper;
+use App\Models\Account;
+use App\Models\Book as ModelsBook;
+use App\Models\Category;
+use App\Models\College;
 use App\Models\Genre;
 use App\Models\Level;
-use App\Models\Account;
-use App\Models\College;
-use Eminiarts\Tabs\Tab;
-use App\Models\Category;
-use Eminiarts\Tabs\Tabs;
-use Laravel\Nova\Fields\ID;
-use Illuminate\Http\Request;
+use App\Models\Role;
+use App\Models\User;
 use App\Models\ViolenceLevel;
-use Laravel\Nova\Fields\Date;
-use Laravel\Nova\Fields\File;
-use Laravel\Nova\Fields\Text;
-use App\Helpers\CrystalHelper;
-use Laravel\Nova\Fields\Image;
-use App\Nova\Actions\SendEmail;
-use Laravel\Nova\Fields\Hidden;
-use Laravel\Nova\Fields\Number;
-use Laravel\Nova\Fields\Select;
-use Laravel\Nova\Actions\Action;
-use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\MorphOne;
-use Laravel\Nova\Fields\Textarea;
-use PalauaAndSons\TagsField\Tags;
-use App\Models\Book as ModelsBook;
 use App\Nova\Actions\PublishWork;
-use App\Nova\Actions\RequestToPublish;
+use App\Nova\Actions\SendEmail;
 use App\Nova\Actions\SetHeatLevel;
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\MorphMany;
 use App\Nova\Actions\SetViolenceLevel;
 use App\Nova\Traits\ForUserIndividualOnly;
-use Laravel\Nova\Http\Requests\NovaRequest;
-use Hubertnnn\LaravelNova\Fields\DynamicSelect\DynamicSelect;
+use Eminiarts\Tabs\Tab;
+use Eminiarts\Tabs\Tabs;
+use Illuminate\Http\Request;
+use Laravel\Nova\Actions\Action;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\HasOne;
+use Laravel\Nova\Fields\Hidden;
+use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\MorphMany;
+use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
+use PalauaAndSons\TagsField\Tags;
 
 class Book extends Resource
 {
@@ -57,7 +52,7 @@ class Book extends Resource
      */
     public static $title = 'title';
 
-    public  function subtitle()
+    public function subtitle()
     {
         return 'Book';
     }
@@ -92,8 +87,8 @@ class Book extends Resource
                         ])
                         ->rules(['required']),
                     BelongsTo::make('Account', 'account', \App\Nova\Account::class)
-                            ->hideWhenCreating()
-                            ->hideWhenUpdating(),
+                        ->hideWhenCreating()
+                        ->hideWhenUpdating(),
                     Select::make('Account', 'account_id')
                         ->onlyOnForms()
                         ->options(
@@ -103,14 +98,14 @@ class Book extends Resource
                                 ->pluck('penname', 'id')
                         )->rules(['required']),
                     Hidden::make('user_id')
-                        ->default(fn () => auth()->id()),
+                        ->default(fn() => auth()->id()),
                     Text::make('Title')
                         ->rules(['required']),
                     Number::make('Age Restriction')
                         ->nullable()
                         ->help('for X And Above only.'),
                     Boolean::make('Has warning message'),
-                    Text::make('Category', fn () => optional($this->category)->name)
+                    Text::make('Category', fn() => optional($this->category)->name)
                         ->exceptOnForms(),
                     Select::make('Category', 'category_id')
                         ->onlyOnForms()
@@ -121,7 +116,7 @@ class Book extends Resource
                         )->rules(['required']),
                     Tags::make('Tags')
                         ->hideFromIndex(),
-                    Text::make('Genre', fn () => optional($this->genre)->name)
+                    Text::make('Genre', fn() => optional($this->genre)->name)
                         ->exceptOnForms(),
                     Select::make('Genre', 'genre_id')
                         ->onlyOnForms()
@@ -153,7 +148,7 @@ class Book extends Resource
                         ]),
                     Number::make('Cost', 'cost')
                         ->rules(['required', 'gt:-1'])
-                        ->default(fn () => 0),
+                        ->default(fn() => 0),
                     Select::make('Lead College')
                         ->options(College::get()->pluck('name', 'name'))
                         ->rules(['required']),
@@ -163,21 +158,16 @@ class Book extends Resource
                             User::GENDER_MALE => User::GENDER_MALE,
                             User::GENDER_LGBT => User::GENDER_LGBT,
                         ]),
-                    Text::make('PDF', 'front_matter')
-                        ->help('Title, Copyright, Acknowledgements and Dedication pages.'),
+                    HasOne::make('Content', 'bookContent', BookContent::class),
                     // File::make('Back Matter'),
                 ]),
                 //relationship here
-                MorphOne::make('Cover', 'cover', Cover::class),
-                MorphMany::make('Chapters', 'chapters', Chapter::class),
                 Tab::make('Publish', [
                     Date::make('Published Date', 'published_at')
                         ->exceptOnForms(),
                 ]),
 
             ])->withToolbar(),
-            MorphOne::make('Prologue', 'prologue', Prologue::class),
-            MorphOne::make('Epilogue', 'epilogue', Epilogue::class),
             MorphMany::make('Review Question', 'reviewQuestions', ReviewQuestion::class),
             MorphMany::make('Free Art Scene', 'freeArtScenes', FreeArtScene::class),
         ];
@@ -226,19 +216,19 @@ class Book extends Resource
     {
         $actions = [
             (new SetHeatLevel($this))
-                ->canSee(fn () => ! $this->heatLevel),
+                ->canSee(fn() => !$this->heatLevel),
 
             (new SetViolenceLevel($this))
-                ->canSee(fn () => ! $this->violenceLevel),
+                ->canSee(fn() => !$this->violenceLevel),
 
             (new SendEmail)
-                ->canSee(fn () => auth()->user()->hasRole(Role::SUPERADMIN)),
+                ->canSee(fn() => auth()->user()->hasRole(Role::SUPERADMIN)),
 
             // (new RequestToPublish)
             //     ->onlyOnDetail(),
 
             (new PublishWork)
-                ->canSee(fn () => auth()->user()->hasRole(Role::SUPERADMIN)),
+                ->canSee(fn() => auth()->user()->hasRole(Role::SUPERADMIN)),
         ];
 
         return $actions;

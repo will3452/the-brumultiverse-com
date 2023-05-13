@@ -2,47 +2,45 @@
 
 namespace App\Models;
 
-use App\Helpers\TagHelper;
-use App\Helpers\FileHelper;
 use App\Helpers\CrystalHelper;
-use App\Models\Traits\HasCover;
-use App\Models\Traits\BookTrait;
-use App\Models\Traits\HasTickets;
-use Cartalyst\Tags\TaggableTrait;
-use App\Models\Traits\HasChapters;
-use App\Models\Traits\HasEpilogue;
-use App\Models\Traits\HasPrologue;
-use App\Models\Traits\HasHeatLevel;
-use App\Models\Traits\BelongsToClass;
-use Cartalyst\Tags\TaggableInterface;
+use App\Helpers\FileHelper;
+use App\Helpers\TagHelper;
 use App\Models\Traits\BelongsToAccount;
+use App\Models\Traits\BelongsToClass;
+use App\Models\Traits\BookTrait;
 use App\Models\Traits\HasBookContentChapter;
+use App\Models\Traits\HasChapters;
+use App\Models\Traits\HasCover;
+use App\Models\Traits\HasEpilogue;
 use App\Models\Traits\HasFreeArtScenes;
-use App\Models\Traits\HasViolenceLevel;
-use Illuminate\Database\Eloquent\Model;
-use App\Models\Traits\HasReviewQuestion;
+use App\Models\Traits\HasPrologue;
 use App\Models\Traits\HasPublishApproval;
+use App\Models\Traits\HasReviewQuestion;
 use App\Models\Traits\HasStudentLink;
+use App\Models\Traits\HasTickets;
+use Cartalyst\Tags\TaggableInterface;
+use Cartalyst\Tags\TaggableTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Book extends Model implements TaggableInterface
 {
     use HasFactory,
-        HasTickets,
-        HasStudentLink,
-        BelongsToClass,
-        HasPrologue,
-        HasEpilogue,
-        HasFreeArtScenes,
-        HasReviewQuestion,
-        TaggableTrait,
-        BelongsToAccount,
-        HasCover,
-        HasBookContentChapter,
-        HasChapters,
-        HasPublishApproval,
-        SoftDeletes,
+    HasTickets,
+    HasStudentLink,
+    BelongsToClass,
+    HasPrologue,
+    HasEpilogue,
+    HasFreeArtScenes,
+    HasReviewQuestion,
+    TaggableTrait,
+    BelongsToAccount,
+    HasCover,
+    HasBookContentChapter,
+    HasChapters,
+    HasPublishApproval,
+    SoftDeletes,
         BookTrait;
 
     protected $with = [
@@ -51,8 +49,6 @@ class Book extends Model implements TaggableInterface
         'tags',
         'category',
     ];
-
-
 
     const _TYPE_LINK = 'Book';
 
@@ -83,7 +79,7 @@ class Book extends Model implements TaggableInterface
         'heat_level_id',
         'type', // regular, premium,
         'cost',
-        'cost_type',// ref. to the CrystalHelper
+        'cost_type', // ref. to the CrystalHelper
         'lead_character',
         'lead_college',
         'published_at',
@@ -106,15 +102,15 @@ class Book extends Model implements TaggableInterface
         self::TYPE_SPIN,
     ];
 
-    public function bookContent ()
+    public function bookContent()
     {
         return $this->hasOne(BookContent::class, 'book_id');
     }
 
-
     const DEFAULT_COST_TYPE = CrystalHelper::PURPLE_CRYSTAL;
 
     public static function processToCreate($r) // r === request
+
     {
         $book = self::create([
             'user_id' => auth()->id(),
@@ -159,6 +155,7 @@ class Book extends Model implements TaggableInterface
     }
 
     public static function processToUpdate($r, $book) // r === request
+
     {
         $book->update([
             // 'user_id' => auth()->id(),
