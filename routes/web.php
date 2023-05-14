@@ -38,7 +38,7 @@ Route::post(Nova::path() . '/login', [LoginController::class, 'login']);
 // email verification
 Route::view('/verify-email-first', 'verify-email-first');
 Route::get('/send-email-verification-notification', [EmailVerificationController::class, 'resend']);
-Route::get('/email-verify/{id}/{hash}', [EmailVerificationController::class, 'verify'])
+Route::get('/email-verify/{user}/{hash}', [EmailVerificationController::class, 'verify'])
     ->middleware(['signed'])
     ->name('verification.verify');
 
