@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Foundation\Auth\RedirectsUsers;
 use Illuminate\Http\JsonResponse;
@@ -14,14 +13,6 @@ class EmailVerificationController extends Controller
     use RedirectsUsers;
     public function verify(Request $request, User $user)
     {
-        if (!hash_equals((string) $request->route('id'), (string) $user->getKey())) {
-            throw new AuthorizationException;
-        }
-
-        if (!hash_equals((string) $request->route('hash'), sha1($user->getEmailForVerification()))) {
-            throw new AuthorizationException;
-        }
-
         if ($user->hasVerifiedEmail()) {
             if ($user->isScholar()) {
                 return redirect(route('scholar.profile.show', ['user' => $user->id]));
