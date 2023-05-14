@@ -11,8 +11,9 @@ use Illuminate\Http\Request;
 class EmailVerificationController extends Controller
 {
     use RedirectsUsers;
-    public function verify(Request $request, User $user)
+    public function verify(Request $request, $id)
     {
+        $user = User::findOrFail($id);
         if ($user->hasVerifiedEmail()) {
             if ($user->isScholar()) {
                 return redirect(route('scholar.profile.show', ['user' => $user->id]));

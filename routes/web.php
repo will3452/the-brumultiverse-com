@@ -1,19 +1,19 @@
 <?php
 
-use Laravel\Nova\Nova;
+use App\Http\Controllers\AvatarController;
+use App\Http\Controllers\Chat1Controller;
+use App\Http\Controllers\ChatController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\EmailVerificationController;
+use App\Http\Controllers\FileUploaderController;
+use App\Http\Controllers\InquiryController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\QuoteMakerController;
+use App\Http\Controllers\Scholar\AnnexController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ChatController;
-use App\Http\Controllers\Chat1Controller;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\AvatarController;
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\InquiryController;
-use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\FileUploaderController;
-use App\Http\Controllers\Scholar\AnnexController;
-use App\Http\Controllers\EmailVerificationController;
-use App\Http\Controllers\QuoteMakerController;
+use Laravel\Nova\Nova;
 
 //home & static
 Route::view('/landing-business', 'landing-business'); // new
@@ -28,17 +28,15 @@ Route::get('/contact', function (Request $request) {
 })->name('contact');
 Route::view('/brunity', 'Brunity')->name('brunity');
 
-
 // nova
 Route::view(Nova::path() . '/login', 'vendor.nova.auth.login');
 Route::get(Nova::path() . '/login?ref=nova', [LoginController::class, 'showLoginForm'])->name('nova.login');
 Route::post(Nova::path() . '/login', [LoginController::class, 'login']);
 
-
 // email verification
 Route::view('/verify-email-first', 'verify-email-first');
 Route::get('/send-email-verification-notification', [EmailVerificationController::class, 'resend']);
-Route::get('/email-verify/{user}/{hash}', [EmailVerificationController::class, 'verify'])
+Route::get('/email-verify/{id}/{hash}', [EmailVerificationController::class, 'verify'])
     ->middleware(['signed'])
     ->name('verification.verify');
 
@@ -49,7 +47,7 @@ Route::patch('/filepond-patch', [FileUploaderController::class, 'filePondUpdate'
 Route::delete('/filepond-revert', [FileUploaderController::class, 'filePondRevert']);
 
 //contact us, to get aan, concerns,
-Route::get('/contact-form', fn () => view('contact-form'));
+Route::get('/contact-form', fn() => view('contact-form'));
 Route::post('/contact-form', [InquiryController::class, 'submit']);
 
 //old chats admin supported
@@ -71,7 +69,6 @@ Route::view('/privacy-policy', 'pp');
 //payment
 Route::post('/create-payment', [PaymentController::class, 'createPayment']);
 Route::get('/payment-result', [PaymentController::class, 'result']);
-
 
 //avatars
 Route::get('avatars', [AvatarController::class, 'setup']);
