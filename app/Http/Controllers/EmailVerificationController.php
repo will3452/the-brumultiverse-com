@@ -22,8 +22,6 @@ class EmailVerificationController extends Controller
             : redirect($this->redirectPath());
         }
 
-        return $user;
-
         $updateEmail = $user->update(['email_verified_at' => now()]);
 
         if ($updateEmail) {
