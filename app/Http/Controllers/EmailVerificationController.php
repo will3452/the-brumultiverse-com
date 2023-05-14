@@ -55,13 +55,13 @@ class EmailVerificationController extends Controller
 
     public function resend(Request $request)
     {
-        if ($user->hasVerifiedEmail()) {
+        if ($request->user()->hasVerifiedEmail()) {
             return $request->wantsJson()
             ? new JsonResponse([], 204)
             : redirect($this->redirectPath());
         }
 
-        $user->sendEmailVerificationNotification();
+        $request->user()->sendEmailVerificationNotification();
 
         return 'Verification link has been sent to your email!';
     }
