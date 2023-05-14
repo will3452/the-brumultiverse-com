@@ -22,7 +22,9 @@ class EmailVerificationController extends Controller
             : redirect($this->redirectPath());
         }
 
-        if ($user->markEmailAsVerified()) {
+        $updateEmail = $user->update(['email_verified_at' => now()]);
+
+        if ($updateEmail) {
             event(new Verified($user));
         }
 
