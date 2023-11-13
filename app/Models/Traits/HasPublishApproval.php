@@ -23,7 +23,7 @@ trait HasPublishApproval
 
     public function scopePublished($q)
     {
-        return $q->whereNotNull('published_at');
+        return $q->whereNotNull('published_at')->whereDate('published_at', '>=', now());
     }
 
     public function scopeNotPublished($q)

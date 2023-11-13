@@ -41,7 +41,7 @@ class Book extends Model implements TaggableInterface
     HasChapters,
     HasPublishApproval,
     SoftDeletes,
-        BookTrait;
+    BookTrait;
 
     protected $with = [
         'cover',
