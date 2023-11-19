@@ -110,11 +110,48 @@ class Aan extends Resource
      */
     public function actions(Request $request)
     {
+        $registrationLink = url("/scholars/register");
+        $message = "
+        <p>Greetings, __________!</p>
+        <br>
+        <br>
+        <p>Thank you so much for joining BRUnity, the ever-growing BRUMultiverse family of creatives! As you have already signed your contract with us, we’re pleased to inform you that you are now ready to create your BRU Scholar Account. 
+        
+       </p>
+       <br>
+       <p>
+         To begin, please take note of your Awarded Account Number (AAN): _______________.
+        </p>
+        <br>
+        <p>
+        Your AAN is uniquely yours. Please do not lose or allow others to use it, as everything related to your masterpieces for digital publishing will be linked to it. 
+        </p>
+        
+        <br>
+        <p>
+        Let’s start your journey by clicking this link: 
+        <a href='$registrationLink'>$registrationLink</a>
+        <br>
+        <p>
+        Should you have questions, please feel free to email us at bru.admin@brumultiverse.com or within the BRU App via messaging, once your account is up. 
+        </p>
+        Have a great day!
+        <br>
+        <br>
+        <p>
+        Antonina
+        </p>
+        <p>
+        Berkeley-Reagan University Admin
+        </p>
+        <p>
+        BRUMultiverse
+        </p>";
         return [
             (new GenerateNewAan)
                 ->standalone(),
-            (new SendEmail(false))
-                ->standalone(),
+            (new SendEmail(false, $message))
+                ->standalone(), 
         ];
     }
 }

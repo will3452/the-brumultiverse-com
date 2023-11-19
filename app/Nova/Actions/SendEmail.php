@@ -18,9 +18,11 @@ class SendEmail extends Action
 {
     use InteractsWithQueue, Queueable;
     public $hasEmail;
+    public $_default; 
 
-    public function __construct($hasEmail = true)
+    public function __construct($hasEmail = true, $_default = '')
     {
+        $this->_default = $_default; 
         $this->hasEmail = $hasEmail;
     }
     /**
@@ -65,6 +67,9 @@ class SendEmail extends Action
             Text::make('Subject', 'introduction')
                 ->rules(['required']),
             Trix::make('Message')
+                ->default(function () {
+                    return $this->_default; 
+                })
                 ->rules(['required']),
         ];
 

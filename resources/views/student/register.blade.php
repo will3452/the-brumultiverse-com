@@ -78,7 +78,7 @@
                         <option value="{{\App\Models\User::GENDER_FEMALE}}">{{\App\Models\User::GENDER_FEMALE}}</option>
                     </x-student.form.select>
                     <x-student.form.date name="birth_date" label="Birthdate"/>
-                    <x-student.form.input name="address" label="Address"/>
+                    {{-- <x-student.form.input name="address" label="Address"/> --}}
                     <x-student.form.input name="city" label="City"/>
                     <x-student.form.select name="country" label="Country">
                         @foreach (\App\Helpers\CountryHelper::getAllCountries() as $key => $val)

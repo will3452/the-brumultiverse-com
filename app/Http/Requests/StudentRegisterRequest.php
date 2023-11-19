@@ -37,7 +37,7 @@ class StudentRegisterRequest extends FormRequest
             'user_name' => ['required', 'unique:users,user_name'],
             'gender' => ['required'],
             'sex' => 'required',
-            'address' => 'required',
+            // 'address' => 'required',
             'country' => 'required',
             'city' => 'required',
             'birth_date' => 'required',
