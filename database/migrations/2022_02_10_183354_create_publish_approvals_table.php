@@ -23,7 +23,7 @@ class CreatePublishApprovalsTable extends Migration
             $table->string('model_type');
             $table->bigInteger('model_id');
             $table->longText('notes');
-            $table->text('status')->default(PublishApproval::STATUS_PENDING);
+            $table->string('status')->default(PublishApproval::STATUS_PENDING);
             $table->foreignId('approved_by_user_id')
                 ->nullable()
                 ->onDelete('set null');

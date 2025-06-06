@@ -33,7 +33,7 @@ class GroupController extends Controller
     public function index()
     {
         $accounts = auth()->user()->accounts()->whereNotNull('approved_at')->get();
-        $memberships = GroupMember::confirmed()->whereIn('account_member_id', [$accounts->pluck('id')])->get();
+        $memberships = GroupMember::confirmed()->whereIn('account_member_id', $accounts->pluck('id'))->get();
 
         return view('scholar.group.index', compact('memberships'));
     }
