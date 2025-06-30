@@ -38,4 +38,6 @@ Route::get('/email-test', function (Request $request) {
         $message->to($email)
                 ->subject('Test Email from BRU');
     });
+
+    return "Email sent to $email successfully!";
 });
